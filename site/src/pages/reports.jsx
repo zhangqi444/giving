@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils"
 import { Empty, Field, PageHeader, Pick } from "@/components/bits"
 import { entriesCSV } from "@/pages/log"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@zhangqi444/ui/ui/card"
 import { Input } from "@zhangqi444/ui/ui/input"
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
 

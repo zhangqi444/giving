@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils"
 import { useDialogs } from "@/components/dialogs"
 import { useToast } from "@/components/toast"
 import { Empty, OrgChip, PageHeader, WorkHeader } from "@/components/bits"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 
 const DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 

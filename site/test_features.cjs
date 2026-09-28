@@ -22,6 +22,9 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   check('active work items listed', (await pg.$$('[data-testid=dash-workitems] li')).length === 3);
   await pg.waitForSelector('[data-testid=rewards-card]');
   check('rewards card shows a level and points to spend', /Level 5 · Dependable/.test(await pg.textContent('[data-testid=rewards-card]')) && (await pg.textContent('[data-testid=dash-balance]')) === '480');
+  // a streak counted in weeks: the sample's most recent entry is this week or last, so the
+  // run is real, and a quiet Monday must not have ended it
+  check('the week streak is shown and counts whole weeks', (await pg.$('[data-testid=streak]')) !== null && /\d+ weeks? in a row/.test(await pg.textContent('[data-testid=streak]')), await pg.textContent('[data-testid=streak]'));
   check('badges earned from the sample are pinned with a date', await pg.evaluate(() => { const b = JSON.parse(localStorage.getItem('volunteer.v2')).badges; return b['hours-25'] && b['first-entry'] && b['three-months'] && b['work-item-done'] && !b['hours-50']; }));
   check('closest badge shown with progress', (await pg.$('[data-testid=next-badge]')) !== null);
   check('sidebar marks new badges with a dot, not a count', (await pg.$('[data-testid=rewards-new]')) !== null && !/\d/.test(await pg.textContent('[data-testid=rewards-new]')));
@@ -30,7 +33,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-slot=sidebar-menu-button]:has-text("Rewards")');
   await pg.waitForSelector('[data-testid=level-card]');
   check('points total is 480 (46.5 h × 10 + 1 reflection + 5 memos)', (await pg.textContent('[data-testid=points-total]')) === '480');
-  check('11 badges earned (the sample spans ten consecutive months), the rest locked with progress', (await pg.$$('[data-testid=badge][data-done="1"]')).length === 11 && (await pg.$$('[data-testid=badge][data-done="0"]')).length === 11, String((await pg.$$('[data-testid=badge][data-done="1"]')).length));
+  check('11 badges earned (the sample spans ten consecutive months), the rest locked with progress', (await pg.$$('[data-testid=badge][data-done="1"]')).length === 11 && (await pg.$$('[data-testid=badge][data-done="0"]')).length === 13, `${(await pg.$$('[data-testid=badge][data-done="1"]')).length} earned, ${(await pg.$$('[data-testid=badge][data-done="0"]')).length} locked`);
   await pg.click('[data-testid=suggested-reward]:has-text("Pick Friday")');
   await pg.waitForSelector('[data-testid=reward-item]');
   check('a suggested reward lands on the shelf', /Pick Friday/.test(await pg.textContent('[data-testid=reward-item]')));

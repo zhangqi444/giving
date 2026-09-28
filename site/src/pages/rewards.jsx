@@ -1,20 +1,23 @@
 import * as React from "react"
-import { Award, Building2, CalendarCheck, CalendarDays, Camera, Check, ClipboardCheck, Clock, Compass, Crown, Footprints, Gift, Lock, Medal, PenLine, Plus, StickyNote, Trash2, Trophy } from "lucide-react"
+import { Award, Building2, Flame, CalendarCheck, CalendarDays, Camera, Check, ClipboardCheck, Clock, Compass, Crown, Footprints, Gift, Lock, Medal, PenLine, Plus, StickyNote, Trash2, Trophy } from "lucide-react"
 
 import { fmtDate } from "@/lib/format"
-import { BADGES, BADGE_GROUPS, LEVELS, POINT_RULES, SUGGESTED, addReward, badgeCounts, badgeState, cancelClaim, claimReward, claims, markGiven, nextBadge, pointsBreakdown, recentBadges, removeReward, shelf, syncBadges, updateReward, wallet } from "@/lib/rewards"
+import { BADGES, BADGE_GROUPS, LEVELS, POINT_RULES, SUGGESTED, addReward, badgeCounts, badgeState, weekStreak, cancelClaim, claimReward, claims, markGiven, nextBadge, pointsBreakdown, recentBadges, removeReward, shelf, syncBadges, updateReward, wallet } from "@/lib/rewards"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/components/toast"
 import { Empty, PageHeader } from "@/components/bits"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Input } from "@zhangqi444/ui/ui/input"
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@zhangqi444/ui/ui/progress"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
+import { Medallion } from "@zhangqi444/ui/gamify/medallion"
+import { BadgeCard as SharedBadgeCard } from "@zhangqi444/ui/gamify/badge-card"
 
+const LEVEL_SEEN = "volunteer.level.seen"
 const ICONS = { Award, Building2, CalendarCheck, CalendarDays, Camera, ClipboardCheck, Clock, Compass, Crown, Footprints, Medal, PenLine, StickyNote, Trophy }
 export function BadgeIcon({ name, className }) { const I = ICONS[name] || Award; return <I className={className} /> }
 
@@ -25,31 +28,20 @@ export function useBadgeSync() {
   React.useEffect(() => {
     const fresh = syncBadges()
     if (fresh.length) toast(fresh.length === 1 ? `Badge earned: ${fresh[0].name}` : `${fresh.length} badges earned: ${fresh.map((b) => b.name).join(", ")}`)
+    // Climbing a level was silent, which made the one moment the points are for pass
+    // unremarked. Remembered per device, and never announced the first time we look.
+    const lvl = wallet().level
+    let seen = 0
+    try { seen = Number(localStorage.getItem(LEVEL_SEEN)) || 0 } catch {}
+    if (seen && lvl.n > seen) toast(`Level ${lvl.n} — ${lvl.title}!`)
+    if (lvl.n !== seen) { try { localStorage.setItem(LEVEL_SEEN, String(lvl.n)) } catch {} }
   }, [store.snapshot()])
 }
 
-function Medallion({ b, size = 56 }) {
-  return (
-    <div className={cn("flex shrink-0 items-center justify-center rounded-full border-2 transition-colors", b.done ? "border-primary/40 bg-primary/10 text-primary" : "border-dashed border-muted-foreground/25 bg-muted/40 text-muted-foreground/50")} style={{ width: size, height: size }}>
-      {b.done ? <BadgeIcon name={b.icon} className="size-6" /> : <Lock className="size-4" />}
-    </div>
-  )
-}
 
+/** The shared card, told how we name a date and which icon this badge wears. */
 function BadgeCard({ b }) {
-  return (
-    <li className={cn("flex items-start gap-3 rounded-lg border p-3", b.done ? "bg-card" : "bg-muted/20")} data-testid="badge" data-done={b.done ? "1" : "0"} data-id={b.id}>
-      <Medallion b={b} size={48} />
-      <div className="flex min-w-0 flex-1 flex-col gap-1">
-        <div className="flex items-baseline justify-between gap-2">
-          <span className={cn("text-sm font-medium", !b.done && "text-muted-foreground")}>{b.name}</span>
-          {b.done ? <span className="text-muted-foreground shrink-0 text-xs">{b.at ? fmtDate(b.at.slice(0, 10)) : "earned"}</span> : <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{Math.min(b.have, b.need)}/{b.need} {b.unit}</span>}
-        </div>
-        <span className="text-muted-foreground text-xs">{b.desc}</span>
-        {!b.done ? <Progress value={b.pct} className="mt-0.5 h-1" /> : null}
-      </div>
-    </li>
-  )
+  return <SharedBadgeCard b={b} icon={<BadgeIcon name={b.icon} className="size-6" />} earnedLabel={b.at ? fmtDate(b.at.slice(0, 10)) : "earned"} />
 }
 
 /** Compact dashboard card: level, balance, what is close, what was just earned. */
@@ -60,6 +52,7 @@ export function RewardsCard() {
   const recent = recentBadges(7).slice(0, 4)
   const next = nextBadge()
   const pending = claims().filter((c) => c.status === "claimed")
+  const streak = weekStreak()
   if (!Store.s.entries.length) return null
   return (
     <Card className="gap-4" data-testid="rewards-card">
@@ -74,13 +67,19 @@ export function RewardsCard() {
           <Progress value={w.level.pct} className="h-1.5" />
           <span className="text-muted-foreground text-xs tabular-nums">{w.level.next ? `${w.level.next.at - w.lifetime} points to Level ${w.level.next.n} · ${w.level.next.title}` : "Top level reached"}</span>
         </div>
+        {streak ? (
+          <div className="bg-warning-soft text-warning flex items-center gap-2 rounded-md px-3 py-2 text-sm" data-testid="streak">
+            <Flame className="size-4 shrink-0" />
+            <span><b className="tabular-nums">{streak}</b> {streak === 1 ? "week" : "weeks"} in a row{streak === 1 ? " — come back next week to keep it going" : ""}</span>
+          </div>
+        ) : null}
         {recent.length ? (
           <div className="flex flex-col gap-1.5">
             <span className="text-muted-foreground text-xs">Just earned</span>
             <div className="flex flex-wrap gap-2" data-testid="badges-earned">
               {recent.map((b) => (
                 <Tooltip key={b.id}>
-                  <TooltipTrigger asChild><span data-id={b.id}><Medallion b={b} size={40} /></span></TooltipTrigger>
+                  <TooltipTrigger asChild><span data-id={b.id}><Medallion b={b} size={40} icon={<BadgeIcon name={b.icon} className="size-5" />} /></span></TooltipTrigger>
                   <TooltipContent>{b.name} — {b.desc}</TooltipContent>
                 </Tooltip>
               ))}
