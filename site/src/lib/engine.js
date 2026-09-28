@@ -52,6 +52,8 @@ export function filterEntries(entries, { search = "", orgId = "", workItemId = "
   })
 }
 export const entriesForWorkItem = (id) => entriesSorted().filter((e) => e.workItemId === id)
+/** What actually happened on a day. The calendar showed only intentions until this existed. */
+export const entriesOn = (iso) => entriesSorted().filter((e) => e.date === iso)
 
 export function hoursByMonth(months = 12, ref = new Date()) {
   const out = []

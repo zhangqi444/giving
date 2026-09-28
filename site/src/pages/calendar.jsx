@@ -1,7 +1,7 @@
 import * as React from "react"
 import { CalendarArrowUp, CalendarPlus, Check, ChevronLeft, ChevronRight, Clock, Download, Pencil, X } from "lucide-react"
 
-import { orgName, overduePlans, planHours, plansSorted, upcomingPlans, workItemTitle } from "@/lib/engine"
+import { entriesOn, entriesSorted, orgName, overduePlans, planHours, plansSorted, sumHours, upcomingPlans, workItemTitle } from "@/lib/engine"
 import { fmtDate, fmtHours, pad, todayISO, toISODate } from "@/lib/format"
 import { catalogItem } from "@/lib/content"
 import { googleCalendarUrl, icsFor } from "@/lib/calendar"
@@ -74,7 +74,7 @@ export function UpNextCard({ limit = 4 }) {
 
 export function Calendar() {
   useStore()
-  const { openPlan } = useDialogs()
+  const { openPlan, openEntry } = useDialogs()
   const today = todayISO()
   const [cursor, setCursor] = React.useState(() => { const d = new Date(); return { y: d.getFullYear(), m: d.getMonth() } })
   const [selected, setSelected] = React.useState(today)
@@ -87,16 +87,26 @@ export function Calendar() {
   while (cells.length % 7) cells.push(null)
   const monthKey = `${cursor.y}-${pad(cursor.m + 1)}`
   const byDay = new Map()
-  for (const p of plansSorted()) { if (p.date.startsWith(monthKey)) { if (!byDay.has(p.date)) byDay.set(p.date, []); byDay.get(p.date).push(p) } }
-  const monthPlans = plansSorted().filter((p) => p.date.startsWith(monthKey))
-  const plannedH = monthPlans.filter((p) => p.status === "planned").reduce((s, p) => s + planHours(p), 0)
-  const dayPlans = plansSorted().filter((p) => p.date === selected)
+  const put = (iso, v) => { if (!byDay.has(iso)) byDay.set(iso, []); byDay.get(iso).push(v) }
+  for (const e of entriesSorted()) if (e.date.startsWith(monthKey)) put(e.date, { kind: "done", id: e.id, label: e.activity, hours: e.hours })
+  // a plan that was carried out is already on the square as the entry it became
+  for (const p of plansSorted()) if (p.date.startsWith(monthKey) && p.status !== "done") put(p.date, { kind: p.status === "skipped" ? "skipped" : "planned", id: p.id, label: p.title })
+  // a square shows at most a few things, so put what still needs doing above what is done:
+  // an afternoon she has already logged must never hide the shift she has not
+  const RANK = { planned: 0, done: 1, skipped: 2 }
+  for (const list of byDay.values()) list.sort((a, b) => RANK[a.kind] - RANK[b.kind])
+  const monthEntries = entriesSorted().filter((e) => e.date.startsWith(monthKey))
+  const monthPlans = plansSorted().filter((p) => p.date.startsWith(monthKey) && p.status === "planned")
+  const loggedH = sumHours(monthEntries)
+  const plannedH = monthPlans.reduce((s, p) => s + planHours(p), 0)
+  const dayPlans = plansSorted().filter((p) => p.date === selected && p.status !== "done")
+  const dayEntries = entriesOn(selected)
   const late = overduePlans(today)
   const shift = (n) => setCursor((c) => { const d = new Date(c.y, c.m + n, 1); return { y: d.getFullYear(), m: d.getMonth() } })
 
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="Calendar" description="Plan shifts and projects ahead, then log the hours when they happen.">
+      <PageHeader title="Calendar" description="What she has done, and what is coming up.">
         <Button variant="outline" disabled={!upcomingPlans(today, 999).length} onClick={() => downloadFile(`volunteer-plans-${today}.ics`, icsFor(upcomingPlans(today, 999)), "text/calendar")} data-testid="export-ics"><Download /> Export .ics</Button>
         <Button onClick={() => openPlan({ date: selected })} data-testid="add-plan"><CalendarPlus /> Plan work</Button>
       </PageHeader>
@@ -106,7 +116,7 @@ export function Calendar() {
           <CardHeader className="flex-row items-center justify-between">
             <div>
               <CardTitle>{first.toLocaleDateString(undefined, { month: "long", year: "numeric" })}</CardTitle>
-              <CardDescription className="tabular-nums">{monthPlans.length ? `${monthPlans.length} ${monthPlans.length === 1 ? "plan" : "plans"}${plannedH ? ` · ${fmtHours(plannedH)} h still planned` : ""}` : "No plans this month"}</CardDescription>
+              <CardDescription className="tabular-nums">{[loggedH ? `${fmtHours(loggedH)} h given` : "", plannedH ? `${fmtHours(plannedH)} h still planned` : ""].filter(Boolean).join(" · ") || "Nothing this month yet"}</CardDescription>
             </div>
             <div className="flex gap-1">
               <Button variant="outline" size="icon" className="size-8" onClick={() => shift(-1)} aria-label="Previous month" data-testid="cal-prev"><ChevronLeft /></Button>
@@ -119,16 +129,16 @@ export function Calendar() {
             <div className="grid grid-cols-7 gap-1" data-testid="cal-grid">
               {cells.map((iso, i) => {
                 if (!iso) return <div key={i} />
-                const ps = byDay.get(iso) || []
+                const ds = byDay.get(iso) || []
                 const isToday = iso === today, isSel = iso === selected
                 return (
                   <button key={iso} type="button" onClick={() => setSelected(iso)} onDoubleClick={() => openPlan({ date: iso })} data-date={iso}
                     className={cn("flex min-h-16 flex-col items-start gap-1 rounded-md border p-1.5 text-left text-xs transition hover:bg-accent @lg/main:min-h-20", isSel && "ring-2 ring-primary", isToday && "bg-primary/5 border-primary/40")}>
                     <span className={cn("tabular-nums", isToday && "text-primary font-semibold")}>{Number(iso.slice(8))}</span>
-                    {ps.slice(0, 2).map((p) => (
-                      <span key={p.id} className={cn("w-full truncate rounded px-1 py-0.5", p.status === "done" ? "bg-success-soft text-success" : p.status === "skipped" ? "bg-muted text-muted-foreground line-through" : iso < today ? "bg-warning-soft text-warning" : "bg-primary/10 text-primary")} title={p.title}>{p.title}</span>
+                    {ds.slice(0, 3).map((d) => (
+                      <span key={d.kind + d.id} data-kind={d.kind} className={cn("w-full truncate rounded px-1 py-0.5", d.kind === "done" ? "bg-success-soft text-success" : d.kind === "skipped" ? "bg-muted text-muted-foreground line-through" : iso < today ? "bg-warning-soft text-warning" : "bg-primary/10 text-primary")} title={d.kind === "done" ? `${d.label} · ${fmtHours(d.hours)} h` : d.label}>{d.label}</span>
                     ))}
-                    {ps.length > 2 ? <span className="text-muted-foreground">+{ps.length - 2}</span> : null}
+                    {ds.length > 3 ? <span className="text-muted-foreground">+{ds.length - 3}</span> : null}
                   </button>
                 )
               })}
@@ -141,11 +151,25 @@ export function Calendar() {
           <Card>
             <CardHeader>
               <CardTitle>{fmtDate(selected, { weekday: "long", month: "long", day: "numeric" })}</CardTitle>
-              <CardDescription>{dayPlans.length ? `${dayPlans.length} ${dayPlans.length === 1 ? "plan" : "plans"}` : "Nothing planned"}</CardDescription>
+              <CardDescription>{[dayEntries.length ? `${fmtHours(sumHours(dayEntries))} h given` : "", dayPlans.length ? `${dayPlans.length} planned` : ""].filter(Boolean).join(" · ") || "Nothing on this day"}</CardDescription>
             </CardHeader>
-            <CardContent>
-              {dayPlans.length ? <ul className="divide-y" data-testid="day-plans">{dayPlans.map((p) => <PlanRow key={p.id} p={p} compact />)}</ul>
-                : <Button variant="outline" size="sm" onClick={() => openPlan({ date: selected })}><CalendarPlus /> Plan work on this day</Button>}
+            <CardContent className="flex flex-col gap-3">
+              {dayEntries.length ? (
+                <ul className="divide-y" data-testid="day-entries">
+                  {dayEntries.map((e) => (
+                    <li key={e.id} className="py-2">
+                      <button type="button" className="flex w-full items-center gap-2 text-left" onClick={() => openEntry({ id: e.id })}>
+                        <Check className="text-success size-4 shrink-0" />
+                        <span className="min-w-0 flex-1 truncate">{e.activity}</span>
+                        <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{fmtHours(e.hours)} h</span>
+                      </button>
+                      {e.orgId ? <div className="mt-0.5 pl-6"><OrgChip orgId={e.orgId} /></div> : null}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              {dayPlans.length ? <ul className="divide-y" data-testid="day-plans">{dayPlans.map((p) => <PlanRow key={p.id} p={p} compact />)}</ul> : null}
+              {!dayEntries.length && !dayPlans.length ? <Button variant="outline" size="sm" onClick={() => openPlan({ date: selected })}><CalendarPlus /> Plan work on this day</Button> : null}
             </CardContent>
           </Card>
           {late.length ? (

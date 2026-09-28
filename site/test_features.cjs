@@ -306,8 +306,10 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   check('Log hours prefills activity and hours from the plan', (await pg.inputValue('[data-testid=entry-activity]')) === 'No-sew cat blankets' && (await pg.inputValue('[data-testid=entry-hours]')) === '2');
   check('and the organization + work item the plan carries', /Seattle Humane/.test(await pg.textContent('[data-testid=entry-org]')) && /No-sew cat blankets/.test(await pg.textContent('[data-testid=entry-workitem]')));
   await saveEntry(pg);
-  await pg.waitForSelector('[data-testid=day-plans] [data-testid=plan-row][data-status=done]');
-  check('plan marked done after logging', true);
+  // a carried-out plan leaves the planned list and shows up as the hours it became, so the
+  // same afternoon is never on the day twice
+  await pg.waitForSelector('[data-testid=day-entries]');
+  check('logging moves it from planned to given on that day', await pg.evaluate(() => JSON.parse(localStorage.getItem('volunteer.v2')).plans.find((x) => x.title === 'No-sew cat blankets').status === 'done') && /No-sew cat blankets/.test(await pg.textContent('[data-testid=day-entries]')) && (await pg.$('[data-testid=day-plans] [data-testid=plan-row][data-status=planned]')) === null);
   check('the logged entry links back to the plan', await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('volunteer.v2')); const p = s.plans.find((x) => x.title === 'No-sew cat blankets'); return !!p.entryId && s.entries.some((e) => e.id === p.entryId && e.hours === 2); }));
   await pg.click('[data-testid=add-plan]'); await pg.waitForSelector('[data-testid=plan-dialog]');
   const future = new Date(today.getTime() + 5 * 86400000);
