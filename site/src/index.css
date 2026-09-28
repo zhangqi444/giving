@@ -12,6 +12,16 @@
    Light is the default on :root; the dark set is applied by the .dark class,
    which main.jsx sets from the saved choice, the host's data-theme, or the OS. */
 :root {
+  /* The surfaces this site draws, for the shared components in @zhangqi444/ui.
+     They are variables there because the sibling site draws the same things
+     differently — it wants a solid card with a hard offset shadow and pill
+     badges, this one wants shadcn's soft rectangle. Spelled out rather than
+     left to the package's defaults so that a change to those defaults cannot
+     quietly restyle this site: the shadow here is Tailwind's shadow-sm, and
+     the package happens to default to the lighter shadow-xs, which is exactly
+     the kind of one-notch drift nobody would notice in review. */
+  --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
   --radius: 0.75rem;
   --background: #f4f7f6;
   --foreground: #16211f;
