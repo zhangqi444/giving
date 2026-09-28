@@ -13,9 +13,9 @@ import { useDialogs } from "@/components/dialogs"
 import { Empty, OrgChip, Stat } from "@/components/bits"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@zhangqi444/ui/ui/chart"
 import { Progress } from "@/components/ui/progress"
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableRow } from "@zhangqi444/ui/ui/table"
 import { UpNextCard } from "@/pages/calendar"
 
 const chartConfig = { hours: { label: "Hours", color: "var(--chart-1)" } }

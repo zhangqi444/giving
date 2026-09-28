@@ -10,10 +10,10 @@ import { Field, PageHeader } from "@/components/bits"
 import { STATUS_LABEL } from "@/components/nav-user"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@zhangqi444/ui/ui/input"
+import { RadioGroup, RadioGroupItem } from "@zhangqi444/ui/ui/radio-group"
+import { Label } from "@zhangqi444/ui/ui/label"
+import { Textarea } from "@zhangqi444/ui/ui/textarea"
 
 export function Settings() {
   const store = useStore()

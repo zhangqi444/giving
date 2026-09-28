@@ -11,9 +11,9 @@ import { Empty, PageHeader } from "@/components/bits"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
+import { Input } from "@zhangqi444/ui/ui/input"
 import { Progress } from "@/components/ui/progress"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
 
 const ICONS = { Award, Building2, CalendarCheck, CalendarDays, Camera, ClipboardCheck, Clock, Compass, Crown, Footprints, Medal, PenLine, StickyNote, Trophy }
 export function BadgeIcon({ name, className }) { const I = ICONS[name] || Award; return <I className={className} /> }
