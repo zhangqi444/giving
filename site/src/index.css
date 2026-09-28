@@ -58,10 +58,25 @@
   --sidebar-accent-foreground: #0a5a4e;
   --sidebar-border: #d8e0dd;
   --sidebar-ring: #0f7a6b;
+  /* The sticker button: a solid control sits on a hard shadow in its own hue,
+     darker, and pressing it shortens the shadow and drops the face onto it. The
+     package's button reads these; each press colour is the face colour darkened
+     on the same ratios the learning site uses, so the shadow reads as the same
+     paint in shade rather than a grey smear. */
+  --primary-press: #0a5349;
+  --secondary-press: #c9cdcc;
+  --destructive-press: #7a4527;
+  --outline-press: #c5ccc9;
+  --lift: 4px;
+  --lift-press: 1px;
   color-scheme: light;
 }
 
 .dark {
+  --primary-press: #3b7b6e;
+  --secondary-press: #141a19;
+  --destructive-press: #a16f4f;
+  --outline-press: #3a4945;
   --background: #101614;
   --foreground: #e6edea;
   --card: #18201e;

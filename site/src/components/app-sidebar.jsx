@@ -11,7 +11,7 @@ import {
   Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent,
   SidebarGroupLabel, SidebarHeader,
   SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, useSidebar,
-} from "@/components/ui/sidebar"
+} from "@zhangqi444/ui/ui/sidebar"
 import { NavUser } from "@/components/nav-user"
 
 /** Navigates and closes the drawer on phones. */

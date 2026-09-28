@@ -9,7 +9,7 @@ import { useToast } from "@/components/toast"
 import { Empty, PageHeader, Pick } from "@/components/bits"
 import { fmtDate } from "@/lib/format"
 import { Badge } from "@zhangqi444/ui/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Input } from "@zhangqi444/ui/ui/input"
 import { Textarea } from "@zhangqi444/ui/ui/textarea"
@@ -33,9 +33,10 @@ function OpportunityCard({ item, age }) {
   // "Do this" is the whole handoff: make the organization and the work item from the
   // catalog's own facts, then go there. Everything else about doing it happens there.
   const doThis = () => { const r = ensureFromCatalog(item.id); if (!interest) Store.setInterest(item.id, "interested"); toast(`Added ${item.title}`); go(`/work/${r.workItemId}`) }
-  const toggleSave = () => { Store.setInterest(item.id, saved ? "" : "interested"); toast(saved ? "Removed" : "Saved for later") }
+  const pending = !!interest && (interest.status === "interested" || interest.status === "applied")
+  const toggleSave = () => { Store.setInterest(item.id, saved ? "" : "interested"); if (!saved) setOpen(true); toast(saved ? "Removed" : "Saved for later") }
   return (
-    <Card className="@container/card gap-3 py-4" data-testid="catalog-item" data-id={item.id}>
+    <Card className="@container/card h-full gap-3 py-4" data-testid="catalog-item" data-id={item.id}>
       <CardHeader className="gap-2">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <CardTitle className="leading-snug">
@@ -53,7 +54,9 @@ function OpportunityCard({ item, age }) {
         </CardDescription>
         <p className="text-sm">{item.summary}</p>
       </CardHeader>
-      <CardContent className="flex flex-col gap-2 text-sm">
+      {/* flex-1 is what pins the footer down: the content takes the slack, so two cards
+          side by side put Save and Do this on the same line however much either says. */}
+      <CardContent className="flex flex-1 flex-col gap-2 text-sm">
         {open ? (
           <>
             <ul className="text-muted-foreground list-disc space-y-1 pl-5">{item.details.map((d) => <li key={d}>{d}</li>)}</ul>
@@ -65,22 +68,23 @@ function OpportunityCard({ item, age }) {
               {org.forms && org.forms.length ? <><dt className="text-muted-foreground">Forms</dt><dd>{org.forms.map((f) => <div key={f.url}><a href={f.url} target="_blank" rel="noopener" className="text-primary hover:underline" data-testid="catalog-form">{f.name}</a>{f.note ? <span className="text-muted-foreground"> · {f.note}</span> : null}</div>)}</dd></> : null}
             </dl>
             <div className="text-muted-foreground text-xs">Source: <a href={item.url} target="_blank" rel="noopener" className="hover:underline">{item.url.replace(/^https?:\/\/(www\.)?/, "")}</a> · checked {item.verified}. Confirm on the page before signing up.</div>
+            {pending ? (
+              <div className="bg-accent/50 flex flex-col gap-2 rounded-md border px-3 py-2" data-testid="next-step">
+                <div className="text-xs font-medium">{interest.status === "interested" ? "Next step" : `Applied ${fmtDate((interest.since || interest.at).slice(0, 10))} — waiting to hear back`}</div>
+                <div className="flex flex-wrap gap-2">
+                  {hasEmail(item) ? <Button size="sm" variant="secondary" asChild data-testid="catalog-email"><a href={introEmail(item)}><Mail /> {interest.status === "applied" ? "Follow up" : "Write to them"}</a></Button> : null}
+                  {interest.status === "interested" ? <Button size="sm" variant="ghost" onClick={() => { Store.setInterest(item.id, "applied"); toast("Marked applied") }} data-testid="mark-applied">I've asked them</Button> : null}
+                  {interest.status === "applied" ? <Button size="sm" variant="ghost" onClick={() => { Store.setInterest(item.id, "joined"); toast("Marked joined") }} data-testid="mark-joined">They said yes</Button> : null}
+                </div>
+              </div>
+            ) : null}
           </>
-        ) : null}
-        {interest && (interest.status === "interested" || interest.status === "applied") ? (
-          <div className="bg-accent/50 flex flex-col gap-2 rounded-md border px-3 py-2" data-testid="next-step">
-            <div className="text-xs font-medium">{interest.status === "interested" ? "Next step" : `Applied ${fmtDate((interest.since || interest.at).slice(0, 10))} — waiting to hear back`}</div>
-            {item.howTo ? <p className="text-muted-foreground text-xs">{item.howTo}</p> : null}
-            <div className="flex flex-wrap gap-2">
-              {hasEmail(item) ? <Button size="sm" variant="secondary" asChild data-testid="catalog-email"><a href={introEmail(item)}><Mail /> {interest.status === "applied" ? "Follow up" : "Write to them"}</a></Button> : null}
-              {interest.status === "interested" ? <Button size="sm" variant="ghost" onClick={() => { Store.setInterest(item.id, "applied"); toast("Marked applied") }} data-testid="mark-applied">I've asked them</Button> : null}
-              {interest.status === "applied" ? <Button size="sm" variant="ghost" onClick={() => { Store.setInterest(item.id, "joined"); toast("Marked joined") }} data-testid="mark-joined">They said yes</Button> : null}
-            </div>
-          </div>
         ) : null}
         <div className="flex flex-wrap items-center gap-1.5">
           {item.tags.map((t) => <Badge key={t} variant="secondary" className="font-normal">{t}</Badge>)}
-          <Button variant="link" size="sm" className="h-auto px-1 py-0 text-xs" onClick={() => setOpen((o) => !o)} data-testid="catalog-more">{open ? "Less" : "Details"}</Button>
+          <Button variant={pending && !open ? "secondary" : "link"} size="sm" className={cn("h-auto px-1 py-0 text-xs", pending && !open && "px-2 py-1")} onClick={() => setOpen((o) => !o)} data-testid="catalog-more">
+            {open ? "Less" : pending ? (interest.status === "applied" ? "Waiting to hear back" : "Next step") : "Details"}
+          </Button>
         </div>
       </CardContent>
       {/* Two choices, not four. A catalog card answers "shall we?", so it offers only
@@ -98,7 +102,9 @@ function OpportunityCard({ item, age }) {
   )
 }
 
-const REPO = "https://github.com/zhangqi444/volunteer"
+// The repository was renamed to "giving"; the old name only resolves through GitHub's
+// redirect, which is not something a link handed to a reader should depend on.
+const REPO = "https://github.com/zhangqi444/giving"
 function issueUrl(sg) {
   const q = new URLSearchParams({ title: `Catalog: ${sg.url || sg.note.slice(0, 60)}`, body: `Please add this to the catalog with its source and age rules.\n\nURL: ${sg.url || "(none)"}\n\nNote: ${sg.note || "(none)"}\n\nSuggested from the app on ${sg.createdAt.slice(0, 10)}.`, labels: "catalog" })
   return `${REPO}/issues/new?${q}`

@@ -4,7 +4,7 @@ import { Check, HeartHandshake, Moon, Sun } from "lucide-react"
 import { useStore } from "@/lib/store"
 import { driveBusy } from "@zhangqi444/ui/lib/drive-status"
 import { AuthBrand, AuthPoints, AuthScreen, GoogleButton } from "@zhangqi444/ui/app/auth-screen"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 
 const POINTS = [
   "Your data is a JSON file in your own Google Drive. Nothing is stored on a server.",

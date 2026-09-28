@@ -219,7 +219,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-testid=suggest-save]');
   await pg.waitForSelector('[data-testid=suggestions] li');
   const issue = await pg.getAttribute('[data-testid=suggest-issue]', 'href');
-  check('a suggestion is saved and can be sent as a GitHub issue', /example\.org/.test(await pg.textContent('[data-testid=suggestions]')) && /github\.com\/zhangqi444\/volunteer\/issues\/new\?/.test(issue) && /Saturday/.test(decodeURIComponent(issue)));
+  check('a suggestion is saved and can be sent as a GitHub issue', /example\.org/.test(await pg.textContent('[data-testid=suggestions]')) && /github\.com\/zhangqi444\/giving\/issues\/new\?/.test(issue) && /Saturday/.test(decodeURIComponent(issue)));
   // kind and where are independent questions: what she would do, and how she takes part.
   // They were one enum, so "At home" and "Event" sat in a single filter as alternatives.
   await pick(pg, '[data-testid=catalog-kind]', 'Fostering');
@@ -231,6 +231,16 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pick(pg, '[data-testid=catalog-kind]', 'Any kind of work');
   check('in-person alone still lists the shelter and programme opportunities', (await pg.$$('[data-testid=catalog-item]')).length > 0);
   await pick(pg, '[data-testid=catalog-where]', 'At home, out or online');
+  // the actions sit on the card's floor, so two cards side by side line them up however
+  // much either card says above them — the reason the card is h-full and its content flex-1
+  const rowBottoms = await pg.$$eval('[data-testid=catalog-item]', (cards) => {
+    const pick = cards.slice(0, 2).map((c) => {
+      const btn = c.querySelector('[data-testid=catalog-do], [data-testid=catalog-open]')
+      return { top: Math.round(c.getBoundingClientRect().top), btn: Math.round(btn.getBoundingClientRect().bottom) }
+    })
+    return pick
+  });
+  check('the action buttons line up across a row', rowBottoms.length === 2 && rowBottoms[0].top === rowBottoms[1].top && Math.abs(rowBottoms[0].btn - rowBottoms[1].btn) <= 1, JSON.stringify(rowBottoms));
   await pg.fill('[data-testid=catalog-search]', 'blanket');
   check('search finds the cat blankets project', (await pg.$$('[data-testid=catalog-item]')).length >= 1 && /No-sew cat blankets/.test(await pg.textContent('[data-testid=catalog-grid]')));
   // the card's own title must link to the opportunity's page: linking only the organization

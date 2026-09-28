@@ -6,8 +6,8 @@ import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { DriveChip } from "@zhangqi444/ui/app/drive-chip"
 import { SiteHeaderTemplate } from "@zhangqi444/ui/app/site-header"
-import { Button } from "@/components/ui/button"
-import { SidebarTrigger } from "@/components/ui/sidebar"
+import { Button } from "@zhangqi444/ui/ui/button"
+import { SidebarTrigger } from "@zhangqi444/ui/ui/sidebar"
 import { CHIP_LABEL, STATUS_LABEL } from "@/components/nav-user"
 
 const LABEL = { calendar: "My work", catalog: "Find something", work: "My work", log: "Hours", rewards: "Rewards", reports: "Reports", settings: "Settings" }

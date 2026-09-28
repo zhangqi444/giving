@@ -6,7 +6,7 @@ import { attachPhoto, photoUrl } from "@/lib/photos"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/components/toast"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 
 export function Photo({ id, alt, className, onClick }) {
   const [url, setUrl] = React.useState(null)
