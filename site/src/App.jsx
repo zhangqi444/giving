@@ -3,6 +3,9 @@ import * as React from "react"
 import { useRoute } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { AppShell } from "@zhangqi444/ui/app/app-shell"
+import { UiProvider } from "@zhangqi444/ui/app/ui-provider"
+import { Button } from "@/components/ui/button"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { DialogsProvider } from "@/components/dialogs"
@@ -48,7 +51,22 @@ class ErrorBoundary extends React.Component {
   }
 }
 
+/* Which button the shared templates render. This site's is plain shadcn;
+ * the package default is the sibling site's sticker button, which leans on six
+ * CSS variables (--lift and four --*-press hues) that are not defined here, so
+ * adopting it by accident would flatten every shadow in the chrome to nothing.
+ * Module-level so the context value keeps its identity across renders. */
+const UI = { Button }
+
 export default function App() {
+  return (
+    <UiProvider value={UI}>
+      <Routed />
+    </UiProvider>
+  )
+}
+
+function Routed() {
   const route = useRoute()
   const store = useStore()
   // Signed in once on this device? Then the app opens (offline too); otherwise the gate.
@@ -56,19 +74,14 @@ export default function App() {
   return (
     <ToastProvider>
       <DialogsProvider>
-        <SidebarProvider style={{ "--sidebar-width": "calc(var(--spacing) * 64)", "--header-height": "calc(var(--spacing) * 12)" }}>
-          <AppSidebar variant="inset" route={route} />
-          <SidebarInset>
-            <SiteHeader route={route} />
-            <div className="flex flex-1 flex-col">
-              <div className="@container/main flex flex-1 flex-col gap-2">
-                <div className="flex flex-1 flex-col p-4 md:p-6">
-                  <ErrorBoundary key={route.join("/")}><Screen route={route} /></ErrorBoundary>
-                </div>
-              </div>
-            </div>
-          </SidebarInset>
-        </SidebarProvider>
+        <AppShell
+          sidebar={<AppSidebar variant="inset" route={route} />}
+          header={<SiteHeader route={route} />}
+          provider={SidebarProvider}
+          inset={SidebarInset}
+        >
+          <ErrorBoundary key={route.join("/")}><Screen route={route} /></ErrorBoundary>
+        </AppShell>
       </DialogsProvider>
     </ToastProvider>
   )
