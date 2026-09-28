@@ -1,9 +1,11 @@
 /* Small shared pieces: org chip, status badge, stat tile, empty state, page header, a Select that allows "none". */
 import * as React from "react"
+import { CalendarPlus, Download, Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { go } from "@/lib/router"
 import { orgColor, orgName } from "@/lib/engine"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { NativeSelect } from "@/components/ui/native-select"
@@ -53,7 +55,21 @@ export function ViewToggle({ view }) {
       {label}
     </button>
   )
-  return <div className="bg-muted inline-flex rounded-md p-0.5" role="group" aria-label="View">{opt("list", "By activity", "/work")}{opt("month", "By date", "/calendar")}</div>
+  return <div className="bg-muted inline-flex rounded-md p-0.5" role="group" aria-label="View">{opt("list", "List", "/work")}{opt("month", "Calendar", "/calendar")}</div>
+}
+
+/** The header both views of My work share. They show the same records, so they offer the
+ *  same things to do with them: a plan for what is coming, hours for what happened, and the
+ *  export of what is still planned. A view that could do less than its twin was the bug. */
+export function WorkHeader({ view, onPlan, onLog, onExport, canExport }) {
+  return (
+    <PageHeader title="My work" description="Everything she has taken on, and every hour given.">
+      <ViewToggle view={view} />
+      <Button variant="outline" disabled={!canExport} onClick={onExport} data-testid="export-ics"><Download /> Export .ics</Button>
+      <Button variant="secondary" onClick={onPlan} data-testid="add-plan"><CalendarPlus /> Plan</Button>
+      <Button onClick={onLog} data-testid="page-log-hours"><Plus /> Log hours</Button>
+    </PageHeader>
+  )
 }
 
 export function PageHeader({ title, description, children }) {

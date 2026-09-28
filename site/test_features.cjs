@@ -292,6 +292,18 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-testid=view-list]');
   await pg.waitForSelector('[data-testid=wi-grid]');
   check('and back again', (await pg.evaluate(() => location.hash)) === '#/work');
+  // the views show the same records, so they must offer the same things to do with them
+  const actionsOf = async () => (await Promise.all(['add-plan', 'page-log-hours', 'export-ics', 'view-list', 'view-month']
+    .map(async (t) => ((await pg.$(`[data-testid=${t}]`)) ? t : null)))).filter(Boolean);
+  const listActions = await actionsOf();
+  await pg.click('[data-testid=view-month]'); await pg.waitForSelector('[data-testid=cal-grid]');
+  check('both views offer exactly the same actions', JSON.stringify(await actionsOf()) === JSON.stringify(listActions) && listActions.includes('add-plan') && listActions.includes('page-log-hours'), listActions.join(','));
+  await pg.click('[data-testid=page-log-hours]');
+  await pg.waitForSelector('[data-testid=entry-dialog]');
+  check('logging from the calendar view uses the day that is selected', (await pg.inputValue('[data-testid=entry-date]')) === iso(today));
+  await pg.keyboard.press('Escape');
+  await pg.waitForSelector('[data-testid=entry-dialog]', { state: 'detached' });
+  await pg.click('[data-testid=view-list]'); await pg.waitForSelector('[data-testid=wi-grid]');
   await pg.goto(base + '#/calendar', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=cal-grid]');
   check('plan appears on today in the grid', /No-sew cat blankets/.test(await pg.textContent(`[data-date="${iso(today)}"]`)));

@@ -172,8 +172,10 @@ All three must pass before a commit.
 The volunteer is nine. Nothing she reads is named after the data model: the sidebar says
 **Find something**, **My work**, **Hours** — never "catalog item", "work item"
 or "organization", which are what `catalog.json` and `store.js` call them and where those
-words belong. **My work** is one page with two groupings — *By activity* and *By date* — on
-`#/work` and `#/calendar`, so either can be linked to; they were two pages showing the same
+words belong. **My work** is one page with two views — *List* and *Calendar* — on
+`#/work` and `#/calendar`, so either can be linked to. They share one header
+(`WorkHeader`) so they offer exactly the same things to do — Plan, Log hours, Export .ics —
+because a view that can do less than its twin is a bug, not a design; they were two pages showing the same
 entries and plans, which made them look like different things. The sidebar is two groups,
 hers and a smaller **For grown-ups** (Hours, Reports, Settings), because one long list makes her read her parent's paperwork to find
 her own. There is no page listing places: a place belongs to the work done there, so it

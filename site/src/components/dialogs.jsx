@@ -75,12 +75,14 @@ function ErrorLine({ msg }) { return msg ? <p role="alert" className="bg-destruc
 function EntryDialog({ init, close }) {
   useStore()
   const toast = useToast()
-  const { openOrg, confirm, openReflection } = useDialogs()
+  const { openOrg, openWorkItem, confirm, openReflection } = useDialogs()
   const e = init.id ? Store.entry(init.id) : null
   const plan = init.planId ? Store.plan(init.planId) : null
   const firstOrg = init.workItemId ? (workItemById(init.workItemId) || {}).orgId : init.orgId
   const [f, setF] = React.useState({
-    date: e ? e.date : plan ? (plan.date > todayISO() ? todayISO() : plan.date) : todayISO(),
+    // logging from a day on the calendar should land on that day, not today — but never
+    // date an entry in the future, since it records something that has already happened
+    date: e ? e.date : plan ? (plan.date > todayISO() ? todayISO() : plan.date) : init.date && init.date <= todayISO() ? init.date : todayISO(),
     hours: e ? String(e.hours) : plan && planHours(plan) ? String(planHours(plan)) : "",
     start: e ? e.start : plan ? plan.start : "", end: e ? e.end : plan ? plan.end : "", signed: e ? e.signed : false,
     orgId: e ? e.orgId : plan ? plan.orgId : firstOrg || "",
@@ -141,7 +143,10 @@ function EntryDialog({ init, close }) {
           </div>
         </Field>
         <Field label="Work item" className="sm:col-span-2" hint={!f.orgId ? "Pick the organization first." : !items.length ? "This organization has no active work items yet; that's fine, it's optional." : ""}>
-          <Pick key={`wi-${f.catalogId}-${f.orgId}-${f.workItemId}`} value={f.workItemId} onChange={set("workItemId")} options={items.map((w) => ({ value: w.id, label: w.title }))} noneLabel="None" disabled={!items.length} testid="entry-workitem" />
+          <div className="flex gap-2">
+            <Pick key={`wi-${f.catalogId}-${f.orgId}-${f.workItemId}`} value={f.workItemId} onChange={set("workItemId")} options={items.map((w) => ({ value: w.id, label: w.title }))} noneLabel="None" disabled={!items.length} testid="entry-workitem" />
+            <Button type="button" variant="outline" disabled={!f.orgId} onClick={() => openWorkItem({ orgId: f.orgId, onCreated: (id) => set("workItemId")(id) })} data-testid="entry-new-workitem">New</Button>
+          </div>
         </Field>
         <Field label="Activity" required className="sm:col-span-2"><Input placeholder="e.g. Sorted donations at food bank" maxLength={120} value={f.activity} onChange={(ev) => set("activity")(ev.target.value)} data-testid="entry-activity" /></Field>
         <Field label="Category"><Pick value={f.category} onChange={set("category")} options={cats.map((c) => ({ value: c, label: c }))} noneLabel="None" testid="entry-category" /></Field>
@@ -235,7 +240,7 @@ function OrgDialog({ init, close }) {
 function WorkItemDialog({ init, close }) {
   useStore()
   const toast = useToast()
-  const { openOrg, confirm } = useDialogs()
+  const { openOrg, openWorkItem, confirm } = useDialogs()
   const w = init.id ? Store.workItem(init.id) : null
   const [f, setF] = React.useState({
     title: w ? w.title : init.title || "", orgId: w ? w.orgId : init.orgId || "", status: w ? w.status : "active", startDate: w ? w.startDate : todayISO(),
@@ -251,7 +256,11 @@ function WorkItemDialog({ init, close }) {
     if (fields.startDate && !isISODate(fields.startDate)) return setErr("The start date isn't valid.")
     if (fields.targetHours && !(Number(fields.targetHours) >= 0)) return setErr("Target hours must be a positive number.")
     if (w) { Store.updateWorkItem(w.id, fields); toast("Work item updated"); close() }
-    else { const n = Store.addWorkItem(fields); toast("Work item created"); close(); go(`/work/${n.id}`) }
+    else {
+      const n = Store.addWorkItem(fields); toast("Work item created"); close()
+      if (init.onCreated) init.onCreated(n.id)                                  // called from a picker: stay where we are
+      else go(`/work/${n.id}`)
+    }
   }
   async function del() {
     const st = workItemStats(w.id)
@@ -324,7 +333,7 @@ function MemoDialog({ init, close }) {
 function PlanDialog({ init, close }) {
   useStore()
   const toast = useToast()
-  const { openOrg, confirm } = useDialogs()
+  const { openOrg, openWorkItem, confirm } = useDialogs()
   const p = init.id ? Store.plan(init.id) : null
   const [f, setF] = React.useState({
     date: p ? p.date : init.date || todayISO(), start: p ? p.start : init.start || "", end: p ? p.end : init.end || "", hours: p && p.hours ? String(p.hours) : init.hours ? String(init.hours) : "",
@@ -369,7 +378,12 @@ function PlanDialog({ init, close }) {
             <Button type="button" variant="outline" onClick={() => openOrg({ onCreated: (id) => setF((s) => ({ ...s, orgId: id, workItemId: "" })) })}>New</Button>
           </div>
         </Field>
-        <Field label="Work item" className="sm:col-span-2"><Pick key={`wi-${f.catalogId}-${f.orgId}-${f.workItemId}`} value={f.workItemId} onChange={set("workItemId")} options={items.map((w) => ({ value: w.id, label: w.title }))} noneLabel="None" disabled={!items.length} testid="plan-workitem" /></Field>
+        <Field label="Work item" className="sm:col-span-2">
+          <div className="flex gap-2">
+            <Pick key={`wi-${f.catalogId}-${f.orgId}-${f.workItemId}`} value={f.workItemId} onChange={set("workItemId")} options={items.map((w) => ({ value: w.id, label: w.title }))} noneLabel="None" disabled={!items.length} testid="plan-workitem" />
+            <Button type="button" variant="outline" disabled={!f.orgId} onClick={() => openWorkItem({ orgId: f.orgId, onCreated: (id) => set("workItemId")(id) })} data-testid="plan-new-workitem">New</Button>
+          </div>
+        </Field>
         <Field label="Notes" className="sm:col-span-2"><Textarea rows={2} placeholder="Where to meet, what to bring…" value={f.notes} onChange={(ev) => set("notes")(ev.target.value)} /></Field>
         <div className="sm:col-span-2"><ErrorLine msg={err} /></div>
         <DialogFooter className="sm:col-span-2 sm:justify-between">
