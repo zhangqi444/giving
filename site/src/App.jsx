@@ -4,8 +4,6 @@ import { useRoute } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { SidebarInset, SidebarProvider } from "@zhangqi444/ui/ui/sidebar"
 import { AppShell } from "@zhangqi444/ui/app/app-shell"
-import { UiProvider } from "@zhangqi444/ui/app/ui-provider"
-import { Button } from "@zhangqi444/ui/ui/button"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { DialogsProvider } from "@/components/dialogs"
@@ -51,22 +49,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-/* Which button the shared templates render. This site's is plain shadcn;
- * the package default is the sibling site's sticker button, which leans on six
- * CSS variables (--lift and four --*-press hues) that are not defined here, so
- * adopting it by accident would flatten every shadow in the chrome to nothing.
- * Module-level so the context value keeps its identity across renders. */
-const UI = { Button }
-
 export default function App() {
-  return (
-    <UiProvider value={UI}>
-      <Routed />
-    </UiProvider>
-  )
-}
-
-function Routed() {
   const route = useRoute()
   const store = useStore()
   // Signed in once on this device? Then the app opens (offline too); otherwise the gate.
