@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Award, BookOpen, Building2, CalendarDays, ClipboardList, Clock, FileText, HeartHandshake, LayoutDashboard, Plus, Settings as SettingsIcon } from "lucide-react"
+import { Award, BookOpen, CalendarDays, ClipboardList, Clock, FileText, HeartHandshake, LayoutDashboard, Plus, Settings as SettingsIcon } from "lucide-react"
 
 import { activeWorkItems, upcomingPlans } from "@/lib/engine"
 import { todayISO } from "@/lib/format"
@@ -32,7 +32,6 @@ const NAV = [
 ]
 const GROWNUP_NAV = [
   { path: "/log", top: "log", label: "Hours", icon: Clock },
-  { path: "/orgs", top: "orgs", label: "Places", icon: Building2 },
   { path: "/reports", top: "reports", label: "Reports", icon: FileText },
   { path: "/settings", top: "settings", label: "Settings", icon: SettingsIcon },
 ]

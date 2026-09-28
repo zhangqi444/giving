@@ -25,30 +25,28 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
       check('sidebar hidden on phone until opened', (await pg.$('[data-slot=sidebar][data-mobile=true]')) === null);
       await pg.click('[data-slot=sidebar-trigger]');
       await pg.waitForSelector('[data-slot=sidebar][data-mobile=true]');
-      await pg.click('[data-slot=sidebar-menu-button]:has-text("Places")');
+      await pg.click('[data-slot=sidebar-menu-button]:has-text("Rewards")');
       await pg.waitForSelector('[data-slot=sidebar][data-mobile=true]', { state: 'detached' });
       check('drawer closes after navigation', true);
     } else {
       check('sidebar visible on desktop', (await pg.$('[data-slot=sidebar-container]')) !== null);
-      await pg.click('[data-slot=sidebar-menu-button]:has-text("Places")');
+      await pg.click('[data-slot=sidebar-menu-button]:has-text("Rewards")');
     }
-    await pg.waitForFunction(() => location.hash === '#/orgs');
-    check('organizations route', true);
+    await pg.waitForFunction(() => location.hash === '#/rewards');
+    check('rewards route', true);
 
-    // add an organization
-    await pg.click('[data-testid=add-org]');
+    // log hours from the sidebar's primary button, and make the place from inside it:
+    // there is no Places page any more, so every organization picker carries its own New
+    if (phone) { await pg.click('[data-slot=sidebar-trigger]'); await pg.waitForSelector('[data-slot=sidebar][data-mobile=true]'); }
+    await pg.click('[data-testid=log-hours]');
+    await pg.waitForSelector('[data-testid=entry-dialog]');
+    await pg.click('[data-testid=entry-new-org]');
     await pg.waitForSelector('[data-testid=org-dialog]');
     await pg.fill('[data-testid=org-name]', 'Riverside Food Bank');
     await pg.fill('[data-testid=org-contact]', 'Maria Lopez');
     await pg.click('[data-testid=org-save]');
     await pg.waitForSelector('[data-testid=org-dialog]', { state: 'detached' });
-    await pg.waitForSelector('[data-testid=org-card]');
-    check('organization card rendered', (await pg.textContent('[data-testid=org-card]')).includes('Riverside Food Bank'));
-
-    // log hours from the sidebar's primary button
-    if (phone) { await pg.click('[data-slot=sidebar-trigger]'); await pg.waitForSelector('[data-slot=sidebar][data-mobile=true]'); }
-    await pg.click('[data-testid=log-hours]');
-    await pg.waitForSelector('[data-testid=entry-dialog]');
+    check('a place added from the entry dialog is chosen straight away', /Riverside Food Bank/.test(await pg.textContent('[data-testid=entry-org]')));
     check('date defaults to today', (await pg.inputValue('[data-testid=entry-date]')) === new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10));
     check(phone ? 'touch device gets the native organization picker' : 'desktop gets the Radix organization picker', (await pg.$eval('[data-testid=entry-org]', (el) => el.tagName)) === (phone ? 'SELECT' : 'BUTTON'));
     await pg.fill('[data-testid=entry-hours]', '2.5');
@@ -56,7 +54,12 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
     await pg.fill('[data-testid=entry-activity]', 'Sorted donations');
     await pg.click('[data-testid=entry-save]');
     await pg.waitForSelector('[data-testid=entry-dialog]', { state: 'detached' });
-    check('toast confirms the entry', /Logged 2\.5 hours/.test(await pg.textContent('[data-testid=toast]')));
+    // the "Logged 2.5 hours" toast is replaced within the second by "Badge earned: First
+    // hours", so assert the record that was written rather than whichever toast won the race
+    check('the entry is written with its hours, place and activity', await pg.evaluate(() => {
+      const d = JSON.parse(localStorage.getItem('volunteer.v2')), e = d.entries[0];
+      return d.entries.length === 1 && e.hours === 2.5 && e.activity === 'Sorted donations' && !!e.orgId;
+    }));
     await pg.waitForSelector('[data-testid=reflection-dialog]');
     check('a new entry asks how it went', /How did it go/.test(await pg.textContent('[data-testid=reflection-dialog]')));
     await pg.click('[data-testid=reflection-skip]');

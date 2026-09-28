@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ArrowLeft, Camera, CalendarPlus, Pencil, Plus } from "lucide-react"
+import { ArrowLeft, Camera, CalendarPlus, ExternalLink, Pencil, Plus } from "lucide-react"
 
 import { entriesForWorkItem, memosFor, openPlansForWorkItem, orgById, orgColor, orgName, orgsSorted, workItemById, workItemStats, workItemsSorted } from "@/lib/engine"
 import { fmtDate, fmtHours, fmtShort, hoursWord, plural, todayISO } from "@/lib/format"
@@ -14,7 +14,7 @@ import { useDialogs } from "@/components/dialogs"
 import { useToast } from "@/components/toast"
 import { Empty, OrgChip, PageHeader, Pick, Stat, StatusBadge } from "@/components/bits"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -63,7 +63,7 @@ export function WorkList() {
     (!q || `${w.title} ${w.description} ${orgName(w.orgId)}`.toLowerCase().includes(q.trim().toLowerCase())))
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="My work" description="Everything you've taken on. Each one keeps its own plans, hours and memos.">
+      <PageHeader title="My work" description="Everything she has taken on. Each one keeps its own days, hours and notes.">
         <Button onClick={() => openWorkItem({ orgId: org })} data-testid="add-workitem"><Plus /> New work item</Button>
       </PageHeader>
       <Card className="py-4">
@@ -87,11 +87,11 @@ export function WorkList() {
 export function WorkDetail({ id }) {
   useStore()
   const toast = useToast()
-  const { openEntry, openWorkItem, openMemo, openPlan } = useDialogs()
+  const { openEntry, openWorkItem, openMemo, openPlan, openOrg } = useDialogs()
   const [text, setText] = React.useState("")
   const [date, setDate] = React.useState(todayISO())
   const w = workItemById(id)
-  if (!w) return <Empty action={<Button variant="outline" onClick={() => go("/work")}><ArrowLeft /> All work items</Button>}>This work item no longer exists.</Empty>
+  if (!w) return <Empty action={<Button variant="outline" onClick={() => go("/work")}><ArrowLeft /> All work items</Button>}>That work is not here any more.</Empty>
   const st = workItemStats(id)
   const entries = entriesForWorkItem(id)
   const memos = memosFor(id)
@@ -136,7 +136,7 @@ export function WorkDetail({ id }) {
         <Stat label="Hours tracked" value={fmtHours(st.hours)} sub={w.targetHours ? `${Math.round(st.pct)}% of ${fmtHours(w.targetHours)} h target` : "no target set"} testid="wi-hours" />
         <Stat label="Entries" value={String(st.count)} sub={st.last ? `last on ${fmtDate(st.last)}` : "nothing logged yet"} />
         <Stat label="Memos" value={String(memos.length)} sub={memos.length ? `latest ${fmtDate(memos[0].date)}` : "none yet"} />
-        <Stat label="Contact" value={<span className="text-lg">{org && org.contact ? org.contact : "—"}</span>} sub={org && org.contactInfo ? org.contactInfo : ""} />
+        <Stat label="Planned" value={String(plans.length)} sub={due.length ? `${due.length} still to log` : ahead.length ? `next on ${fmtShort(ahead[0].date)}` : "nothing arranged"} />
       </div>
 
       {w.targetHours ? (
@@ -161,12 +161,12 @@ export function WorkDetail({ id }) {
               </>
             ) : null}
             {ahead.length ? <ul className={cn("divide-y", due.length && "mt-3 border-t pt-1")} data-testid="wi-plans-ahead">{ahead.map((p) => <PlanRow key={p.id} p={p} />)}</ul> : null}
-            {plans.length ? null : <Empty action={<Button size="sm" onClick={planIt}><CalendarPlus /> Plan a time</Button>}>No time set aside for this yet.</Empty>}
+            {plans.length ? null : <Empty action={<Button size="sm" onClick={planIt}><CalendarPlus /> Plan a time</Button>}>No day chosen yet.</Empty>}
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Work tracker</CardTitle>
+            <CardTitle>Hours given</CardTitle>
             <CardDescription className="tabular-nums">{hoursWord(st.hours)} in {plural(st.count, "entry", "entries")}</CardDescription>
           </CardHeader>
           <CardContent>
@@ -184,15 +184,30 @@ export function WorkDetail({ id }) {
                 </TableBody>
                 <TableFooter><TableRow><TableCell colSpan={2}>Total</TableCell><TableCell className="text-right tabular-nums">{fmtHours(st.hours)}</TableCell></TableRow></TableFooter>
               </Table>
-            ) : <Empty action={<Button size="sm" onClick={() => openEntry({ workItemId: id, orgId: w.orgId, catalogId: w.catalogId || "", activity: w.title })}><Plus /> Log hours</Button>}>No hours tracked against this item yet.</Empty>}
+            ) : <Empty action={<Button size="sm" onClick={() => openEntry({ workItemId: id, orgId: w.orgId, catalogId: w.catalogId || "", activity: w.title })}><Plus /> Log hours</Button>}>Nothing logged yet.</Empty>}
           </CardContent>
         </Card>
         </div>
 
         <div className="flex flex-col gap-4">
+        {org ? (
+          <Card data-testid="wi-org">
+            <CardHeader>
+              <CardTitle className="leading-snug">{org.name}</CardTitle>
+              <CardDescription>Where these hours go</CardDescription>
+              <CardAction><Button variant="ghost" size="sm" onClick={() => openOrg({ id: org.id })} data-testid="edit-org"><Pencil /> Edit</Button></CardAction>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-1 text-sm">
+              {org.website ? <a href={org.website} target="_blank" rel="noopener" className="text-primary inline-flex items-center gap-1 hover:underline" data-testid="wi-org-site">{org.website.replace(/^https?:\/\/(www\.)?/, "")}<ExternalLink className="size-3 shrink-0" /></a> : null}
+              {org.contact || org.contactInfo ? <div className="text-muted-foreground">{[org.contact, org.contactInfo].filter(Boolean).join(" · ")}</div> : null}
+              {org.notes ? <div className="text-muted-foreground text-xs">{org.notes}</div> : null}
+              {!org.website && !org.contact && !org.contactInfo ? <div className="text-muted-foreground">No contact saved yet. <button type="button" className="text-primary hover:underline" onClick={() => openOrg({ id: org.id })}>Add one</button>.</div> : null}
+            </CardContent>
+          </Card>
+        ) : null}
         {entries.some((e) => e.photos.length) ? (
           <Card data-testid="wi-photos">
-            <CardHeader><CardTitle>Photos</CardTitle><CardDescription>From the days logged on this item</CardDescription></CardHeader>
+            <CardHeader><CardTitle>Photos</CardTitle><CardDescription>From the days she helped</CardDescription></CardHeader>
             <CardContent className="grid grid-cols-3 gap-2 @sm/card:grid-cols-4">
               {entries.flatMap((e) => e.photos.map((p) => <button key={p.id} type="button" className="aspect-square overflow-hidden rounded-md" title={fmtDate(e.date)} onClick={() => openEntry({ id: e.id })}><Photo id={p.id} alt={`${e.activity}, ${fmtDate(e.date)}`} className="size-full" /></button>))}
             </CardContent>

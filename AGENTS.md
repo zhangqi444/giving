@@ -40,7 +40,7 @@ site/
   src/lib/router.js        16 lines of hash routing
   src/components/ui/       shadcn/ui components, written into the repo (not a dependency)
   src/components/          app-sidebar, site-header, nav-user, dialogs (all forms), toast, bits
-  src/pages/               signin, home, calendar, catalog, work (list + detail), log, orgs, reports, settings
+  src/pages/               signin, home, calendar, catalog, work (list + detail), log, reports, settings
   public/                  favicon, manifest, service worker
   test_*.cjs               three Playwright suites — see Testing
 .github/workflows/pages.yml  build + deploy to GitHub Pages
@@ -170,11 +170,13 @@ All three must pass before a commit.
 ## Words on screen
 
 The volunteer is nine. Nothing she reads is named after the data model: the sidebar says
-**Find something**, **My work**, **Places**, **Hours** — never "catalog item", "work item"
+**Find something**, **My work**, **Hours** — never "catalog item", "work item"
 or "organization", which are what `catalog.json` and `store.js` call them and where those
 words belong. The sidebar is two groups, hers and a smaller **For grown-ups** (Hours,
-Places, Reports, Settings), because nine entries in one list makes her read four pages of
-her parent's paperwork to find her own. A printed report is the exception: a school reading
+Reports, Settings), because one long list makes her read her parent's paperwork to find
+her own. There is no page listing places: a place belongs to the work done there, so it
+shows on the work item with its link, its contact and an Edit, and every organization
+picker carries its own **New**. A printed report is the exception: a school reading
 it wants "organization", so `reports.jsx` keeps it.
 
 Every screen offers as few choices as it can. A catalog card answers "shall we?", so it has

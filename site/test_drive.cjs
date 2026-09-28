@@ -27,11 +27,10 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   check('reload: straight into the app, NO new Google prompt', (await gis()).length === 1 && (await pg.$('[data-testid=signin]')) === null);
 
   // edits are pushed within the debounce window
-  await pg.goto(base + '#/orgs', { waitUntil: 'networkidle' });
-  await pg.click('[data-testid=add-org]'); await pg.waitForSelector('[data-testid=org-dialog]');
+  await pg.click('[data-testid=log-hours]'); await pg.waitForSelector('[data-testid=entry-dialog]');
+  await pg.click('[data-testid=entry-new-org]'); await pg.waitForSelector('[data-testid=org-dialog]');
   await pg.fill('[data-testid=org-name]', 'Local Org'); await pg.click('[data-testid=org-save]');
   await pg.waitForSelector('[data-testid=org-dialog]', { state: 'detached' });
-  await pg.click('[data-testid=log-hours]'); await pg.waitForSelector('[data-testid=entry-dialog]');
   await pg.fill('[data-testid=entry-hours]', '3'); await pick(pg, '[data-testid=entry-org]', 'Local Org');
   await pg.fill('[data-testid=entry-activity]', 'Pushed entry'); await saveEntry(pg);
   await pg.waitForFunction(() => document.querySelector('[data-testid=drive-button]').textContent.includes('Saved to Drive'), null, { timeout: 8000 });

@@ -139,9 +139,9 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.waitForSelector('[data-testid=wi-detail]');
   check('work item shows it came from the catalog and holds the hours', /From the catalog/.test(await pg.textContent('[data-testid=wi-catalog]')) && /Pet food drive/.test(await pg.textContent('[data-testid=wi-tracker]')));
   check('the tracker shows the reflection and the photos card the photo', /We filled two bags/.test(await pg.textContent('[data-testid=tracker-reflection]')) && (await pg.$$('[data-testid=wi-photos] [data-testid=photo]')).length === 1);
-  await pg.goto(base + '#/orgs', { waitUntil: 'networkidle' });
-  await pg.waitForSelector('[data-testid=org-card]');
-  check('Seattle Humane was created once as an organization', (await pg.$$eval('[data-testid=org-card]', (n) => n.filter((x) => /Seattle Humane/.test(x.textContent)).length)) === 1);
+  // the Places page is gone: the place lives on the work item, where you are when you want it
+  check('the work item names the place and offers a way to correct it', /Seattle Humane/.test(await pg.textContent('[data-testid=wi-org]')) && (await pg.$('[data-testid=wi-org] [data-testid=edit-org]')) !== null);
+  check('Seattle Humane was created once as a place', await pg.evaluate(() => JSON.parse(localStorage.getItem('volunteer.v2')).organizations.filter((o) => /Seattle Humane/.test(o.name)).length === 1));
   // and from the Log hours dialog itself, via the catalog picker
   await pg.click('[data-testid=log-hours]'); await pg.waitForSelector('[data-testid=entry-dialog]');
   await pick(pg, '[data-testid=entry-catalog]', 'Homemade cat toys from recycled objects');
@@ -207,9 +207,9 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   check('catalog header names the volunteer and age', /Sheila's age \(9\)/.test(await pg.textContent('h1 + p')));
   check('36 opportunities fit now (incl. with an adult / age not stated)', (await pg.$$('[data-testid=catalog-item]')).length === 36, String((await pg.$$('[data-testid=catalog-item]')).length));
   check('no age-gated item shown under Fits now', (await pg.$$('[data-testid=catalog-item] [data-fit=later]')).length === 0);
-  await pick(pg, '[data-testid=catalog-fit]', 'Later (age-gated)');
+  await pick(pg, '[data-testid=catalog-fit]', 'When she is older');
   check('12 age-gated programs under Later, all badged From age N', (await pg.$$('[data-testid=catalog-item]')).length === 12 && (await pg.$$('[data-fit=later]')).length === 12);
-  await pick(pg, '[data-testid=catalog-fit]', 'Everything');
+  await pick(pg, '[data-testid=catalog-fit]', 'Any age');
   check('48 items in the whole catalog', (await pg.$$('[data-testid=catalog-item]')).length === 48);
   await pg.fill('[data-testid=suggest-url]', 'https://example.org/kids-volunteer');
   await pg.fill('[data-testid=suggest-note]', 'Saturday litter pickup');
@@ -225,9 +225,9 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   check('the two filters narrow independently: fostering is all from home', (await pg.$$('[data-testid=catalog-item]')).length === fosterAtHome.length && fosterAtHome.length === 10, String(fosterAtHome.length));
   await pick(pg, '[data-testid=catalog-where]', 'In person');
   check('and fostering in person matches nothing, which one mixed filter could not express', (await pg.$$('[data-testid=catalog-item]')).length === 0);
-  await pick(pg, '[data-testid=catalog-kind]', 'Anything to do');
+  await pick(pg, '[data-testid=catalog-kind]', 'Any kind of work');
   check('in-person alone still lists the shelter and programme opportunities', (await pg.$$('[data-testid=catalog-item]')).length > 0);
-  await pick(pg, '[data-testid=catalog-where]', 'Any way to take part');
+  await pick(pg, '[data-testid=catalog-where]', 'At home, out or online');
   await pg.fill('[data-testid=catalog-search]', 'blanket');
   check('search finds the cat blankets project', (await pg.$$('[data-testid=catalog-item]')).length >= 1 && /No-sew cat blankets/.test(await pg.textContent('[data-testid=catalog-grid]')));
   // the card's own title must link to the opportunity's page: linking only the organization
@@ -265,7 +265,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.waitForSelector('[data-testid=catalog-grid]');
   await pick(pg, '[data-testid=catalog-area]', 'South · Kent');
   check('the area filter narrows to the Kent organization', (await pg.$$('[data-testid=catalog-item]')).length === 3 && /Kent/.test(await pg.textContent('[data-testid=catalog-grid]')));
-  await pick(pg, '[data-testid=catalog-area]', 'Any area');
+  await pick(pg, '[data-testid=catalog-area]', 'Any distance');
   await pick(pg, '[data-testid=catalog-fit]', 'Saved or started');
   // planning happens on the work item now, so the past and the future of one piece of
   // work sit on one page; the catalog only hands over

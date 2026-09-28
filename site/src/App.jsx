@@ -10,7 +10,6 @@ import { ToastProvider } from "@/components/toast"
 import { Home } from "@/pages/home"
 import { WorkDetail, WorkList } from "@/pages/work"
 import { Log } from "@/pages/log"
-import { Orgs } from "@/pages/orgs"
 import { Reports } from "@/pages/reports"
 import { Settings } from "@/pages/settings"
 import { SignIn } from "@/pages/signin"
@@ -26,7 +25,6 @@ function Screen({ route }) {
   if (top === "catalog") return <Catalog />
   if (top === "rewards") return <Rewards />
   if (top === "log") return <Log />
-  if (top === "orgs") return <Orgs />
   if (top === "reports") return <Reports />
   if (top === "settings") return <Settings />
   return <Home />
