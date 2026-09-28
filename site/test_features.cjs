@@ -113,9 +113,14 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   // logging straight from the catalog: the organization and work item come into being on first use
   await pg.goto(base + '#/catalog', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=catalog-grid]');
-  await pg.click('[data-id=sh-pet-food-drive] [data-testid=catalog-log]');
+  // "Do this" is the catalog's whole handoff: it makes the organization and the work item
+  // and lands on the work item, which is where the hours and the plans live from then on
+  await pg.click('[data-id=sh-pet-food-drive] [data-testid=catalog-do]');
+  await pg.waitForSelector('[data-testid=wi-detail]');
+  check('Do this creates the work item from the catalog and opens it', /Pet food drive/.test(await pg.textContent('[data-testid=wi-detail]')) && /From the catalog/.test(await pg.textContent('[data-testid=wi-catalog]')));
+  await pg.click('[data-testid=wi-log]');
   await pg.waitForSelector('[data-testid=entry-dialog]');
-  check('catalog Log hours prefills organization, work item and activity', /Seattle Humane/.test(await pg.textContent('[data-testid=entry-org]')) && /Pet food drive/.test(await pg.textContent('[data-testid=entry-workitem]')) && (await pg.inputValue('[data-testid=entry-activity]')) === 'Pet food drive');
+  check('logging from the work item prefills organization, work item and activity', /Seattle Humane/.test(await pg.textContent('[data-testid=entry-org]')) && /Pet food drive/.test(await pg.textContent('[data-testid=entry-workitem]')) && (await pg.inputValue('[data-testid=entry-activity]')) === 'Pet food drive');
   await pg.fill('[data-testid=entry-hours]', '1.5');
   // the reflection step: write it and attach a photo (stored in the fake Drive)
   await pg.click('[data-testid=entry-save]');
@@ -127,9 +132,10 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-testid=reflection-save]');
   await pg.waitForSelector('[data-testid=reflection-dialog]', { state: 'detached' });
   check('reflection and photo stored on the entry', await pg.evaluate(() => { const e = JSON.parse(localStorage.getItem('volunteer.v2')).entries.find((x) => x.activity === 'Pet food drive'); return e && e.reflection.startsWith('We filled') && e.photos.length === 1 && /^photo\d+$/.test(e.photos[0].id); }));
-  await pg.waitForSelector('[data-id=sh-pet-food-drive] [data-testid=catalog-workitem]');
-  check('the card now links to its work item', true);
-  await pg.click('[data-id=sh-pet-food-drive] [data-testid=catalog-workitem]');
+  await pg.goto(base + '#/catalog', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-id=sh-pet-food-drive] [data-testid=catalog-open]');
+  check('a started card offers Open instead of Do this', (await pg.$('[data-id=sh-pet-food-drive] [data-testid=catalog-do]')) === null);
+  await pg.click('[data-id=sh-pet-food-drive] [data-testid=catalog-open]');
   await pg.waitForSelector('[data-testid=wi-detail]');
   check('work item shows it came from the catalog and holds the hours', /From the catalog/.test(await pg.textContent('[data-testid=wi-catalog]')) && /Pet food drive/.test(await pg.textContent('[data-testid=wi-tracker]')));
   check('the tracker shows the reflection and the photos card the photo', /We filled two bags/.test(await pg.textContent('[data-testid=tracker-reflection]')) && (await pg.$$('[data-testid=wi-photos] [data-testid=photo]')).length === 1);
@@ -231,12 +237,12 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-id=sh-cat-blankets] [data-testid=catalog-more]');
   check('details show the source and check date', /seattlehumane\.org/.test(await pg.textContent('[data-id=sh-cat-blankets]')) && /checked 2026-09-05/.test(await pg.textContent('[data-id=sh-cat-blankets]')));
   check('details link the organization\'s hours-log form and address', /Community Service Hours Log/.test(await pg.textContent('[data-id=sh-cat-blankets] [data-testid=catalog-form]')) && /Bellevue/.test(await pg.textContent('[data-id=sh-cat-blankets]')));
-  await pick(pg, '[data-id=sh-cat-blankets] [data-testid=catalog-interest]', 'Interested');
-  await pg.waitForSelector('[data-testid=toast]:has-text("Marked interested")');
-  check('interest saved to the dataset', await pg.evaluate(() => JSON.parse(localStorage.getItem('volunteer.v2')).interests['sh-cat-blankets'].status === 'interested'));
+  await pg.click('[data-id=sh-cat-blankets] [data-testid=catalog-save]');
+  await pg.waitForSelector('[data-testid=toast]:has-text("Saved for later")');
+  check('saving for later is recorded as interest, without a dropdown of statuses', await pg.evaluate(() => JSON.parse(localStorage.getItem('volunteer.v2')).interests['sh-cat-blankets'].status === 'interested') && /Saved/.test(await pg.textContent('[data-id=sh-cat-blankets] [data-testid=catalog-save]')));
   await pg.fill('[data-testid=catalog-search]', '');
-  await pick(pg, '[data-testid=catalog-fit]', 'Marked by me');
-  check('Marked by me filter shows the one marked item', (await pg.$$('[data-testid=catalog-item]')).length === 1);
+  await pick(pg, '[data-testid=catalog-fit]', 'Saved or started');
+  check('the Saved or started filter holds the saved one and the started one', (await pg.$$('[data-testid=catalog-item]')).length === 2, String((await pg.$$('[data-testid=catalog-item]')).length));
 
   // marking interest opens the next step: the how-to and a prefilled introduction email
   await pg.waitForSelector('[data-id=sh-cat-blankets] [data-testid=next-step]');
@@ -260,12 +266,16 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pick(pg, '[data-testid=catalog-area]', 'South · Kent');
   check('the area filter narrows to the Kent organization', (await pg.$$('[data-testid=catalog-item]')).length === 3 && /Kent/.test(await pg.textContent('[data-testid=catalog-grid]')));
   await pick(pg, '[data-testid=catalog-area]', 'Any area');
-  await pick(pg, '[data-testid=catalog-fit]', 'Marked by me');
-  await pick(pg, '[data-id=sh-cat-blankets] [data-testid=catalog-interest]', 'Interested');
-  await pg.click('[data-id=sh-cat-blankets] [data-testid=catalog-plan]');
+  await pick(pg, '[data-testid=catalog-fit]', 'Saved or started');
+  // planning happens on the work item now, so the past and the future of one piece of
+  // work sit on one page; the catalog only hands over
+  await pg.click('[data-id=sh-cat-blankets] [data-testid=catalog-do]');
+  await pg.waitForSelector('[data-testid=wi-detail]');
+  check('the work item starts with nothing arranged', /Nothing arranged yet/.test(await pg.textContent('[data-testid=wi-plans]')));
+  await pg.click('[data-testid=wi-plan]');
   await pg.waitForSelector('[data-testid=plan-dialog]');
-  check('Plan it prefills the title', (await pg.inputValue('[data-testid=plan-title]')) === 'No-sew cat blankets');
-  check('Plan it created and preselected the organization and work item from the catalog', /Seattle Humane/.test(await pg.textContent('[data-testid=plan-org]')) && /No-sew cat blankets/.test(await pg.textContent('[data-testid=plan-workitem]')));
+  check('Plan a time prefills the title', (await pg.inputValue('[data-testid=plan-title]')) === 'No-sew cat blankets');
+  check('Plan a time preselected the organization and work item', /Seattle Humane/.test(await pg.textContent('[data-testid=plan-org]')) && /No-sew cat blankets/.test(await pg.textContent('[data-testid=plan-workitem]')));
   const today = new Date(), iso = (d) => new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
   await pg.fill('[data-testid=plan-date]', iso(today));
   await pg.fill('[data-testid=plan-hours]', '2');

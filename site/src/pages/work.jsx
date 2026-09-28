@@ -1,7 +1,7 @@
 import * as React from "react"
-import { ArrowLeft, Camera, Pencil, Plus } from "lucide-react"
+import { ArrowLeft, Camera, CalendarPlus, Pencil, Plus } from "lucide-react"
 
-import { entriesForWorkItem, memosFor, orgById, orgColor, orgName, orgsSorted, workItemById, workItemStats, workItemsSorted } from "@/lib/engine"
+import { entriesForWorkItem, memosFor, openPlansForWorkItem, orgById, orgColor, orgName, orgsSorted, workItemById, workItemStats, workItemsSorted } from "@/lib/engine"
 import { fmtDate, fmtHours, fmtShort, hoursWord, plural, todayISO } from "@/lib/format"
 import { WORK_STATUSES } from "@/lib/model"
 import { go, href } from "@/lib/router"
@@ -9,6 +9,7 @@ import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { catalogItem } from "@/lib/content"
 import { Photo } from "@/components/photos"
+import { PlanRow } from "@/pages/calendar"
 import { useDialogs } from "@/components/dialogs"
 import { useToast } from "@/components/toast"
 import { Empty, OrgChip, PageHeader, Pick, Stat, StatusBadge } from "@/components/bits"
@@ -86,7 +87,7 @@ export function WorkList() {
 export function WorkDetail({ id }) {
   useStore()
   const toast = useToast()
-  const { openEntry, openWorkItem, openMemo } = useDialogs()
+  const { openEntry, openWorkItem, openMemo, openPlan } = useDialogs()
   const [text, setText] = React.useState("")
   const [date, setDate] = React.useState(todayISO())
   const w = workItemById(id)
@@ -95,6 +96,13 @@ export function WorkDetail({ id }) {
   const entries = entriesForWorkItem(id)
   const memos = memosFor(id)
   const org = orgById(w.orgId)
+  // The future half of this item's timeline. Plans used to live only on the calendar, so
+  // the page about a piece of work never showed what had been arranged for it.
+  const plans = openPlansForWorkItem(id)
+  const today = todayISO()
+  const due = plans.filter((p) => p.date < today)
+  const ahead = plans.filter((p) => p.date >= today)
+  const planIt = () => openPlan({ workItemId: id, orgId: w.orgId, catalogId: w.catalogId || "", title: w.title })
 
   function addMemo(ev) {
     ev.preventDefault()
@@ -119,7 +127,8 @@ export function WorkDetail({ id }) {
         <div className="flex flex-wrap items-center gap-2">
           <Pick value={w.status} onChange={(v) => { Store.setWorkItemStatus(id, v); toast(`Marked ${v}`) }} options={WORK_STATUSES.map((s) => ({ value: s, label: s[0].toUpperCase() + s.slice(1) }))} className="w-auto" size="sm" testid="wi-status-pick" />
           <Button variant="outline" size="sm" onClick={() => openWorkItem({ id })} data-testid="wi-edit"><Pencil /> Edit</Button>
-          <Button size="sm" onClick={() => openEntry({ workItemId: id })} data-testid="wi-log"><Plus /> Log hours</Button>
+          <Button size="sm" variant="secondary" onClick={planIt} data-testid="wi-plan"><CalendarPlus /> Plan a time</Button>
+          <Button size="sm" onClick={() => openEntry({ workItemId: id, orgId: w.orgId, catalogId: w.catalogId || "", activity: w.title })} data-testid="wi-log"><Plus /> Log hours</Button>
         </div>
       </div>
 
@@ -138,6 +147,23 @@ export function WorkDetail({ id }) {
       ) : null}
 
       <div className="grid gap-4 @3xl/main:grid-cols-[3fr_2fr]">
+        <div className="flex flex-col gap-4">
+        <Card data-testid="wi-plans">
+          <CardHeader>
+            <CardTitle>Planned</CardTitle>
+            <CardDescription>{plans.length ? `${plural(ahead.length, "time", "times")} arranged${due.length ? `, ${due.length} already passed` : ""}` : "Nothing arranged yet"}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {due.length ? (
+              <>
+                <div className="text-muted-foreground mb-1 text-xs font-medium">The day has passed — log it or mark it skipped</div>
+                <ul className="divide-y" data-testid="wi-plans-due">{due.map((p) => <PlanRow key={p.id} p={p} />)}</ul>
+              </>
+            ) : null}
+            {ahead.length ? <ul className={cn("divide-y", due.length && "mt-3 border-t pt-1")} data-testid="wi-plans-ahead">{ahead.map((p) => <PlanRow key={p.id} p={p} />)}</ul> : null}
+            {plans.length ? null : <Empty action={<Button size="sm" onClick={planIt}><CalendarPlus /> Plan a time</Button>}>No time set aside for this yet.</Empty>}
+          </CardContent>
+        </Card>
         <Card>
           <CardHeader>
             <CardTitle>Work tracker</CardTitle>
@@ -158,9 +184,10 @@ export function WorkDetail({ id }) {
                 </TableBody>
                 <TableFooter><TableRow><TableCell colSpan={2}>Total</TableCell><TableCell className="text-right tabular-nums">{fmtHours(st.hours)}</TableCell></TableRow></TableFooter>
               </Table>
-            ) : <Empty action={<Button size="sm" onClick={() => openEntry({ workItemId: id })}><Plus /> Log hours</Button>}>No hours tracked against this item yet.</Empty>}
+            ) : <Empty action={<Button size="sm" onClick={() => openEntry({ workItemId: id, orgId: w.orgId, catalogId: w.catalogId || "", activity: w.title })}><Plus /> Log hours</Button>}>No hours tracked against this item yet.</Empty>}
           </CardContent>
         </Card>
+        </div>
 
         <div className="flex flex-col gap-4">
         {entries.some((e) => e.photos.length) ? (

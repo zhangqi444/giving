@@ -17,7 +17,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
-function PlanRow({ p, compact }) {
+export function PlanRow({ p, compact }) {
   const { openEntry, openPlan } = useDialogs()
   const toast = useToast()
   const done = p.status === "done", skipped = p.status === "skipped"

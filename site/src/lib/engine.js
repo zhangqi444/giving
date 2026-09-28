@@ -89,6 +89,9 @@ export const memosFor = (id) => S().memos.filter((m) => m.workItemId === id).sor
 /* ---- plans ---- */
 export const plansSorted = () => S().plans.slice().sort((a, b) => a.date.localeCompare(b.date) || (a.start || "").localeCompare(b.start || "") || a.createdAt.localeCompare(b.createdAt))
 export const plansOn = (iso) => plansSorted().filter((p) => p.date === iso)
+/** Open plans for one work item: the future half of that item's timeline. Plans already
+ *  logged are left out, because they show up in the tracker as the entry they became. */
+export const openPlansForWorkItem = (workItemId) => plansSorted().filter((p) => p.workItemId === workItemId && p.status === "planned")
 export function upcomingPlans(from, limit = 6) { return plansSorted().filter((p) => p.status === "planned" && p.date >= from).slice(0, limit) }
 export function overduePlans(today) { return plansSorted().filter((p) => p.status === "planned" && p.date < today) }
 export function plannedHours(from, to) { return sumHours(S().plans.filter((p) => p.status === "planned" && p.date >= from && p.date <= to)) }

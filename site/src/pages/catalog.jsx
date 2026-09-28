@@ -1,12 +1,10 @@
 import * as React from "react"
-import { CalendarPlus, ClipboardList, ExternalLink, Lightbulb, Mail, MapPin, Plus, Send, Trash2 } from "lucide-react"
+import { ClipboardList, Heart, ExternalLink, Lightbulb, Mail, MapPin, Plus, Send, Trash2 } from "lucide-react"
 
 import { C, KIND_LABEL, WHERE_LABEL, catalogArea, catalogOrg, catalogTags, currentAge, ensureFromCatalog, fit, hasEmail, introEmail, staleApplications, workItemForCatalog } from "@/lib/content"
-import { INTEREST_STATUSES } from "@/lib/model"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
-import { useDialogs } from "@/components/dialogs"
 import { useToast } from "@/components/toast"
 import { Empty, PageHeader, Pick } from "@/components/bits"
 import { fmtDate } from "@/lib/format"
@@ -18,7 +16,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Field } from "@/components/bits"
 
 const FIT_VARIANT = { fits: "success", adult: "default", later: "outline", past: "outline", unknown: "secondary" }
-const INTEREST_LABEL = { interested: "Interested", applied: "Applied", joined: "Joined", passed: "Passed" }
 
 export function FitBadge({ item, age }) {
   const f = fit(item, age)
@@ -28,13 +25,15 @@ export function FitBadge({ item, age }) {
 function OpportunityCard({ item, age }) {
   const store = useStore()
   const toast = useToast()
-  const { openPlan, openEntry } = useDialogs()
   const [open, setOpen] = React.useState(false)
   const org = catalogOrg(item)
   const interest = store.s.interests[item.id]
   const wi = workItemForCatalog(item.id)
-  const logHours = () => { const r = ensureFromCatalog(item.id); openEntry({ catalogId: item.id, orgId: r.orgId, workItemId: r.workItemId, activity: item.title }) }
-  const planIt = () => { const r = ensureFromCatalog(item.id); openPlan({ catalogId: item.id, orgId: r.orgId, workItemId: r.workItemId, title: item.title, notes: item.howTo }) }
+  const saved = !!interest
+  // "Do this" is the whole handoff: make the organization and the work item from the
+  // catalog's own facts, then go there. Everything else about doing it happens there.
+  const doThis = () => { const r = ensureFromCatalog(item.id); if (!interest) Store.setInterest(item.id, "interested"); toast(`Added ${item.title}`); go(`/work/${r.workItemId}`) }
+  const toggleSave = () => { Store.setInterest(item.id, saved ? "" : "interested"); toast(saved ? "Removed" : "Saved for later") }
   return (
     <Card className="@container/card gap-3 py-4" data-testid="catalog-item" data-id={item.id}>
       <CardHeader className="gap-2">
@@ -84,14 +83,16 @@ function OpportunityCard({ item, age }) {
           <Button variant="link" size="sm" className="h-auto px-1 py-0 text-xs" onClick={() => setOpen((o) => !o)} data-testid="catalog-more">{open ? "Less" : "Details"}</Button>
         </div>
       </CardContent>
-      <CardFooter className="flex-col items-stretch gap-2 @sm/card:flex-row @sm/card:items-center">
-        <Pick value={interest ? interest.status : ""} onChange={(v) => { Store.setInterest(item.id, v); toast(v ? `Marked ${INTEREST_LABEL[v].toLowerCase()}` : "Interest cleared") }}
-          options={INTEREST_STATUSES.map((s) => ({ value: s, label: INTEREST_LABEL[s] }))} noneLabel="Not marked" className="@sm/card:w-40" size="sm" testid="catalog-interest" />
-        <div className="flex gap-2">
-          <Button size="sm" className="flex-1 @sm/card:flex-none" onClick={logHours} data-testid="catalog-log"><Plus /> Log hours</Button>
-          <Button size="sm" variant="secondary" className="flex-1 @sm/card:flex-none" onClick={planIt} data-testid="catalog-plan"><CalendarPlus /> Plan it</Button>
-          {wi ? <Button size="sm" variant="ghost" className="flex-1 @sm/card:flex-none" onClick={() => go(`/work/${wi.id}`)} data-testid="catalog-workitem"><ClipboardList /> Work item</Button> : null}
-        </div>
+      {/* Two choices, not four. A catalog card answers "shall we?", so it offers only
+          saving it for later and starting it; planning a time and logging hours belong on
+          the work item, which is where that piece of work keeps its past and its future. */}
+      <CardFooter className="flex-col items-stretch gap-2 @sm/card:flex-row @sm/card:items-center @sm/card:justify-between">
+        <Button size="sm" variant={saved ? "secondary" : "ghost"} onClick={toggleSave} data-testid="catalog-save">
+          <Heart className={cn("size-4", saved && "fill-current")} /> {saved ? "Saved" : "Save for later"}
+        </Button>
+        {wi
+          ? <Button size="sm" onClick={() => go(`/work/${wi.id}`)} data-testid="catalog-open"><ClipboardList /> Open</Button>
+          : <Button size="sm" onClick={doThis} data-testid="catalog-do"><Plus /> Do this</Button>}
       </CardFooter>
     </Card>
   )
@@ -180,7 +181,7 @@ export function Catalog() {
       <Card className="py-4">
         <CardContent className="grid gap-3 @lg/main:grid-cols-2 @3xl/main:grid-cols-3 @5xl/main:grid-cols-6">
           <Input type="search" placeholder="Search…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search" data-testid="catalog-search" />
-          <Pick value={fitF} onChange={setFitF} options={[{ value: "now", label: age != null ? "Fits now (incl. with an adult)" : "Fits now" }, { value: "later", label: "Later (age-gated)" }, { value: "marked", label: "Marked by me" }]} noneLabel="Everything" testid="catalog-fit" />
+          <Pick value={fitF} onChange={setFitF} options={[{ value: "now", label: age != null ? "Fits now (incl. with an adult)" : "Fits now" }, { value: "later", label: "Later (age-gated)" }, { value: "marked", label: "Saved or started" }]} noneLabel="Everything" testid="catalog-fit" />
           <Pick value={org} onChange={setOrg} options={Object.entries(C.organizations).sort((a, b) => a[1].name.localeCompare(b[1].name)).map(([id, o]) => ({ value: id, label: o.name }))} noneLabel="All organizations" testid="catalog-org" />
           <Pick value={kind} onChange={setKind} options={Object.entries(KIND_LABEL).map(([v, l]) => ({ value: v, label: l }))} noneLabel="Anything to do" testid="catalog-kind" />
           <Pick value={where} onChange={setWhere} options={Object.entries(WHERE_LABEL).map(([v, l]) => ({ value: v, label: l }))} noneLabel="Any way to take part" testid="catalog-where" />
