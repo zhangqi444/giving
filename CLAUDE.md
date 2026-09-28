@@ -57,10 +57,15 @@ Claude-Session: <session url>
   the command the deploy workflow runs, which is the last point at which catching
   this keeps it away from a reader. With the line, 35 of 97 such classes are in
   the stylesheet; without it, none, and the build stops.
-- `button.jsx` and `sidebar.jsx` stay local on purpose: this site's button is
-  deliberately not the learning site's, and the sidebar trigger is the one place
-  that renders one. Do not "finish the migration" by moving either without
-  tokenising the twenty-two lines of difference first.
+- `button.jsx` and `sidebar.jsx` used to stay local, on the grounds that this site's
+  button was deliberately flatter than the learning site's. The owner chose the
+  package's button instead, so both files are gone and the site wears the "sticker"
+  button: a solid face on a hard offset shadow that shortens when pressed. That
+  depends on six variables in `src/index.css` — `--lift`, `--lift-press`, and a
+  `*-press` colour per variant, each the face colour darkened on the same ratios
+  learning uses, in both themes. Delete one and that variant's shadow silently
+  vanishes; no test can see it, because the suites assert on text and behaviour.
+  `dialog.jsx`, `select.jsx` and `native-select.jsx` are what is still local.
 
 ## Verification habit
 

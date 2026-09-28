@@ -9,7 +9,7 @@ import {
   DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel,
   DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator,
 } from "@zhangqi444/ui/ui/dropdown-menu"
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar"
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@zhangqi444/ui/ui/sidebar"
 
 /* Six of these seven sentences are the shared ones and are no longer written
  * out here. `local` is the exception, and it is a real difference rather than
