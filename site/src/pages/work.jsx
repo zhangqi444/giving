@@ -17,10 +17,10 @@ import { useToast } from "@/components/toast"
 import { Empty, OrgChip, PageHeader, Pick, Stat, StatusBadge, WorkHeader } from "@/components/bits"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
+import { Input } from "@zhangqi444/ui/ui/input"
 import { Progress } from "@/components/ui/progress"
-import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Textarea } from "@/components/ui/textarea"
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
+import { Textarea } from "@zhangqi444/ui/ui/textarea"
 
 function ItemCard({ w }) {
   const st = workItemStats(w.id)

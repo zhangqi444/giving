@@ -2,11 +2,11 @@ import * as React from "react"
 import { Cloud, CloudOff, ExternalLink, HardDrive, LogOut, MonitorSmartphone, Moon, MoreVertical, RefreshCw, Sun } from "lucide-react"
 
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@zhangqi444/ui/ui/avatar"
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel,
   DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@zhangqi444/ui/ui/dropdown-menu"
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar"
 
 export const STATUS_LABEL = {

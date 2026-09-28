@@ -12,8 +12,8 @@ import { Empty, Field, PageHeader, Pick } from "@/components/bits"
 import { entriesCSV } from "@/pages/log"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Input } from "@zhangqi444/ui/ui/input"
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
 
 const PRESETS = [
   { value: "ytd", label: "Year to date" }, { value: "last-year", label: "Last year" }, { value: "12m", label: "Last 12 months" },

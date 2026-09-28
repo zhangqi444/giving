@@ -17,8 +17,8 @@ import { useToast } from "@/components/toast"
 import { Field, Pick } from "@/components/bits"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@zhangqi444/ui/ui/input"
+import { Textarea } from "@zhangqi444/ui/ui/textarea"
 
 const Ctx = React.createContext(null)
 export function useDialogs() { return React.useContext(Ctx) }

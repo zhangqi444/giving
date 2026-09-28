@@ -11,8 +11,8 @@ import { fmtDate } from "@/lib/format"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@zhangqi444/ui/ui/input"
+import { Textarea } from "@zhangqi444/ui/ui/textarea"
 import { Field } from "@/components/bits"
 
 const FIT_VARIANT = { fits: "success", adult: "default", later: "outline", past: "outline", unknown: "secondary" }
