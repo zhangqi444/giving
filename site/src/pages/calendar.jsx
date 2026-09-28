@@ -10,10 +10,10 @@ import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { useDialogs } from "@/components/dialogs"
 import { useToast } from "@/components/toast"
-import { Empty, OrgChip, PageHeader, ViewToggle } from "@/components/bits"
-import { Badge } from "@/components/ui/badge"
+import { Empty, OrgChip, PageHeader, WorkHeader } from "@/components/bits"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 
 const DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -106,11 +106,11 @@ export function Calendar() {
 
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="My work" description="Everything she has taken on, and every hour given. Look at it by activity, or by date.">
-        <ViewToggle view="month" />
-        <Button variant="outline" disabled={!upcomingPlans(today, 999).length} onClick={() => downloadFile(`volunteer-plans-${today}.ics`, icsFor(upcomingPlans(today, 999)), "text/calendar")} data-testid="export-ics"><Download /> Export .ics</Button>
-        <Button onClick={() => openPlan({ date: selected })} data-testid="add-plan"><CalendarPlus /> Plan work</Button>
-      </PageHeader>
+      <WorkHeader view="month"
+        onPlan={() => openPlan({ date: selected })}
+        onLog={() => openEntry({ date: selected })}
+        onExport={() => downloadFile(`volunteer-plans-${today}.ics`, icsFor(upcomingPlans(today, 999)), "text/calendar")}
+        canExport={upcomingPlans(today, 999).length > 0} />
 
       <div className="grid gap-4 @3xl/main:grid-cols-[3fr_2fr]">
         <Card>

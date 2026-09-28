@@ -1,10 +1,12 @@
+import { levelOf as levelFromTable } from "@zhangqi444/ui/gamify/levels"
+import { badgeCounts as countBadges, nextBadge as pickNextBadge } from "@zhangqi444/ui/gamify/badges"
 /* Points, levels, badges and the reward shelf. Same shape as isee's rewards:
  * points are earned for doing the work, badges are computed from the record and
  * PINNED the first time they are earned (Store.s.badges) so nothing is ever taken
  * away, and a parent-curated shelf lets Sheila claim rewards with points that
  * never cost a level. No streaks that punish a missed week, no leaderboard. */
 import { Store } from "./store"
-import { monthKey, round2, ts, uid } from "./format"
+import { monthKey, parseISO, round2, toISODate, todayISO, ts, uid } from "./format"
 import { sumHours } from "./engine"
 
 /* ---------- points: for the doing, not for being good at it ---------- */
@@ -44,14 +46,8 @@ export const LEVELS = [
   { n: 9, title: "Standout", at: 1250 },
   { n: 10, title: "Star", at: 1600 },
 ]
-/** Level from lifetime points. Spending on rewards never costs a level. */
-export function levelOf(points) {
-  let i = 0
-  for (let k = 0; k < LEVELS.length; k++) if (points >= LEVELS[k].at) i = k
-  const cur = LEVELS[i], next = LEVELS[i + 1] || null
-  const span = next ? next.at - cur.at : 1
-  return { ...cur, next, into: points - cur.at, span, pct: next ? Math.min(100, Math.round(((points - cur.at) / span) * 100)) : 100 }
-}
+/** Our ladder, the package's arithmetic. */
+export const levelOf = (points) => levelFromTable(points, LEVELS)
 
 /* ---------- helpers over the record ---------- */
 const S = () => Store.s
@@ -74,6 +70,22 @@ function monthsInARow() {
 }
 const activeDays = () => new Set(S().entries.map((e) => e.date)).size
 
+/* A streak counted in weeks, not days. Volunteering is a Saturday-morning thing, so a
+ * daily streak would break on the first Sunday and teach her that streaks are for other
+ * people. A week counts if anything was logged in it, and the current week is not counted
+ * against her until it is over — Monday morning must not wipe out eight weeks. */
+const mondayOf = (iso) => { const d = parseISO(iso); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return toISODate(d) }
+const weekBefore = (iso) => { const d = parseISO(iso); d.setDate(d.getDate() - 7); return toISODate(d) }
+export function weekStreak() {
+  const weeks = new Set(S().entries.map((e) => mondayOf(e.date)))
+  if (!weeks.size) return 0
+  let cur = mondayOf(todayISO())
+  if (!weeks.has(cur)) cur = weekBefore(cur)          // nothing yet this week: the run still stands
+  let n = 0
+  while (weeks.has(cur)) { n++; cur = weekBefore(cur) }
+  return n
+}
+
 /* ---------- badge catalogue ----------
  * `have`/`need` drive the progress bar; a badge is earned when have >= need.
  * Tiers are separate badges so an earned one is never replaced by a bigger one. */
@@ -88,6 +100,8 @@ export const BADGES = [
   T("hours-250", "Two hundred and fifty", "Two hundred and fifty hours", "Crown", "Hours", 250, totalHours, "h"),
   T("days-10", "Ten days out", "Volunteer on ten different days", "CalendarDays", "Habits", 10, activeDays, "days"),
   T("days-30", "Thirty days out", "Thirty different days", "CalendarDays", "Habits", 30, activeDays, "days"),
+  T("weeks-3", "Three weeks running", "Something logged three weeks in a row", "Flame", "Habits", 3, weekStreak, "weeks"),
+  T("weeks-8", "Eight weeks running", "Two months without missing a week", "Flame", "Habits", 8, weekStreak, "weeks"),
   T("three-months", "Three months in a row", "Hours in three consecutive months", "CalendarCheck", "Habits", 3, monthsInARow, "months"),
   T("six-months", "Half a year", "Hours in six consecutive months", "CalendarCheck", "Habits", 6, monthsInARow, "months"),
   T("first-plan-done", "Planned it, did it", "Turn a calendar plan into logged hours", "CalendarCheck", "Habits", 1, plansDone, "plan"),
@@ -126,12 +140,8 @@ export function recentBadges(days = 3) {
   return badgeState().filter((b) => b.at && ts(b.at) >= cut).sort((a, b) => ts(b.at) - ts(a.at))
 }
 /** What is closest to being earned, for the dashboard nudge. */
-export function nextBadge() {
-  const open = badgeState().filter((b) => !b.done && b.have > 0)
-  open.sort((a, b) => b.pct - a.pct || a.need - b.need)
-  return open[0] || badgeState().find((b) => !b.done) || null
-}
-export function badgeCounts() { const all = badgeState(); return { earned: all.filter((b) => b.done).length, total: all.length } }
+export const nextBadge = () => pickNextBadge(badgeState())
+export const badgeCounts = () => countBadges(badgeState())
 
 /* ---------- the reward shelf ----------
  * Slice `rewards`, one key per row: "item:<id>" is a reward the parent put on the

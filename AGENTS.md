@@ -108,7 +108,14 @@ docs/                      architecture.md (structure and why), design.md (look,
 
 ## Data model
 
-**Rewards** (`lib/rewards.js`, the same shape as isee's): effort points are
+**Rewards** (`lib/rewards.js`, the same shape as isee's). The parts that are not about
+volunteering come from `@zhangqi444/ui/gamify/*`: `levelOf` takes our `LEVELS` table,
+`nextBadge`/`badgeCounts` take our badge list, and `Medallion`/`BadgeCard` take the icon
+as a node and the earned date already formatted. Our table, our badges and our wording
+stay here — that split is the point, so keep new shared-looking code on the package side
+of it only when it is genuinely about neither site's subject.
+
+Rewards, continued: effort points are
 computed from the record (10 per hour, 5 for a reflection, 5 for a photo, 5 for a
 plan carried out, 2 per memo) and never stored; lifetime points fix the level and
 spending never lowers it. Badges are computed from the record, then **pinned on
@@ -172,8 +179,10 @@ All three must pass before a commit.
 The volunteer is nine. Nothing she reads is named after the data model: the sidebar says
 **Find something**, **My work**, **Hours** — never "catalog item", "work item"
 or "organization", which are what `catalog.json` and `store.js` call them and where those
-words belong. **My work** is one page with two groupings — *By activity* and *By date* — on
-`#/work` and `#/calendar`, so either can be linked to; they were two pages showing the same
+words belong. **My work** is one page with two views — *List* and *Calendar* — on
+`#/work` and `#/calendar`, so either can be linked to. They share one header
+(`WorkHeader`) so they offer exactly the same things to do — Plan, Log hours, Export .ics —
+because a view that can do less than its twin is a bug, not a design; they were two pages showing the same
 entries and plans, which made them look like different things. The sidebar is two groups,
 hers and a smaller **For grown-ups** (Hours, Reports, Settings), because one long list makes her read her parent's paperwork to find
 her own. There is no page listing places: a place belongs to the work done there, so it

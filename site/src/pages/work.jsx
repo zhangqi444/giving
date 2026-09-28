@@ -1,10 +1,12 @@
 import * as React from "react"
 import { ArrowLeft, Camera, CalendarPlus, ExternalLink, Pencil, Plus } from "lucide-react"
 
-import { entriesForWorkItem, memosFor, openPlansForWorkItem, orgById, orgColor, orgName, orgsSorted, workItemById, workItemStats, workItemsSorted } from "@/lib/engine"
+import { entriesForWorkItem, memosFor, openPlansForWorkItem, orgById, orgColor, orgName, orgsSorted, upcomingPlans, workItemById, workItemStats, workItemsSorted } from "@/lib/engine"
 import { fmtDate, fmtHours, fmtShort, hoursWord, plural, todayISO } from "@/lib/format"
 import { WORK_STATUSES } from "@/lib/model"
 import { go, href } from "@/lib/router"
+import { icsFor } from "@/lib/calendar"
+import { downloadFile } from "@/lib/model"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { catalogItem } from "@/lib/content"
@@ -12,11 +14,11 @@ import { Photo } from "@/components/photos"
 import { PlanRow } from "@/pages/calendar"
 import { useDialogs } from "@/components/dialogs"
 import { useToast } from "@/components/toast"
-import { Empty, OrgChip, PageHeader, Pick, Stat, StatusBadge, ViewToggle } from "@/components/bits"
+import { Empty, OrgChip, PageHeader, Pick, Stat, StatusBadge, WorkHeader } from "@/components/bits"
 import { Button } from "@/components/ui/button"
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Input } from "@zhangqi444/ui/ui/input"
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@zhangqi444/ui/ui/progress"
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
 import { Textarea } from "@zhangqi444/ui/ui/textarea"
 
@@ -54,7 +56,7 @@ function ItemCard({ w }) {
 
 export function WorkList() {
   useStore()
-  const { openWorkItem } = useDialogs()
+  const { openWorkItem, openPlan, openEntry } = useDialogs()
   const [q, setQ] = React.useState("")
   const [org, setOrg] = React.useState("")
   const [status, setStatus] = React.useState("active")
@@ -63,15 +65,19 @@ export function WorkList() {
     (!q || `${w.title} ${w.description} ${orgName(w.orgId)}`.toLowerCase().includes(q.trim().toLowerCase())))
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="My work" description="Everything she has taken on, and every hour given. Look at it by activity, or by date.">
-        <ViewToggle view="list" />
-        <Button onClick={() => openWorkItem({ orgId: org })} data-testid="add-workitem"><Plus /> New</Button>
-      </PageHeader>
+      <WorkHeader view="list"
+        onPlan={() => openPlan({})}
+        onLog={() => openEntry({})}
+        onExport={() => downloadFile(`volunteer-plans-${todayISO()}.ics`, icsFor(upcomingPlans(todayISO(), 999)), "text/calendar")}
+        canExport={upcomingPlans(todayISO(), 999).length > 0} />
       <Card className="py-4">
-        <CardContent className="grid gap-3 @lg/main:grid-cols-3">
+        {/* Managing the list belongs with the list. The header keeps only the two things you
+            can record — a plan and some hours — so both views offer exactly the same. */}
+        <CardContent className="grid gap-3 @lg/main:grid-cols-[1fr_1fr_1fr_auto]">
           <Input type="search" placeholder="Search title, description…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search" data-testid="wi-search" />
           <Pick value={org} onChange={setOrg} options={orgsSorted().map((o) => ({ value: o.id, label: o.name }))} noneLabel="All places" testid="wi-filter-org" />
           <Pick value={status} onChange={setStatus} options={WORK_STATUSES.map((s) => ({ value: s, label: s[0].toUpperCase() + s.slice(1) }))} noneLabel="All statuses" testid="wi-filter-status" />
+          <Button variant="outline" onClick={() => openWorkItem({ orgId: org })} data-testid="add-workitem"><Plus /> New work item</Button>
         </CardContent>
       </Card>
       {items.length ? (

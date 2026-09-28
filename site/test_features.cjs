@@ -22,6 +22,9 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   check('active work items listed', (await pg.$$('[data-testid=dash-workitems] li')).length === 3);
   await pg.waitForSelector('[data-testid=rewards-card]');
   check('rewards card shows a level and points to spend', /Level 5 · Dependable/.test(await pg.textContent('[data-testid=rewards-card]')) && (await pg.textContent('[data-testid=dash-balance]')) === '480');
+  // a streak counted in weeks: the sample's most recent entry is this week or last, so the
+  // run is real, and a quiet Monday must not have ended it
+  check('the week streak is shown and counts whole weeks', (await pg.$('[data-testid=streak]')) !== null && /\d+ weeks? in a row/.test(await pg.textContent('[data-testid=streak]')), await pg.textContent('[data-testid=streak]'));
   check('badges earned from the sample are pinned with a date', await pg.evaluate(() => { const b = JSON.parse(localStorage.getItem('volunteer.v2')).badges; return b['hours-25'] && b['first-entry'] && b['three-months'] && b['work-item-done'] && !b['hours-50']; }));
   check('closest badge shown with progress', (await pg.$('[data-testid=next-badge]')) !== null);
   check('sidebar marks new badges with a dot, not a count', (await pg.$('[data-testid=rewards-new]')) !== null && !/\d/.test(await pg.textContent('[data-testid=rewards-new]')));
@@ -30,7 +33,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-slot=sidebar-menu-button]:has-text("Rewards")');
   await pg.waitForSelector('[data-testid=level-card]');
   check('points total is 480 (46.5 h × 10 + 1 reflection + 5 memos)', (await pg.textContent('[data-testid=points-total]')) === '480');
-  check('11 badges earned (the sample spans ten consecutive months), the rest locked with progress', (await pg.$$('[data-testid=badge][data-done="1"]')).length === 11 && (await pg.$$('[data-testid=badge][data-done="0"]')).length === 11, String((await pg.$$('[data-testid=badge][data-done="1"]')).length));
+  check('11 badges earned (the sample spans ten consecutive months), the rest locked with progress', (await pg.$$('[data-testid=badge][data-done="1"]')).length === 11 && (await pg.$$('[data-testid=badge][data-done="0"]')).length === 13, `${(await pg.$$('[data-testid=badge][data-done="1"]')).length} earned, ${(await pg.$$('[data-testid=badge][data-done="0"]')).length} locked`);
   await pg.click('[data-testid=suggested-reward]:has-text("Pick Friday")');
   await pg.waitForSelector('[data-testid=reward-item]');
   check('a suggested reward lands on the shelf', /Pick Friday/.test(await pg.textContent('[data-testid=reward-item]')));
@@ -292,6 +295,18 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-testid=view-list]');
   await pg.waitForSelector('[data-testid=wi-grid]');
   check('and back again', (await pg.evaluate(() => location.hash)) === '#/work');
+  // the views show the same records, so they must offer the same things to do with them
+  const actionsOf = async () => (await Promise.all(['add-plan', 'page-log-hours', 'export-ics', 'view-list', 'view-month']
+    .map(async (t) => ((await pg.$(`[data-testid=${t}]`)) ? t : null)))).filter(Boolean);
+  const listActions = await actionsOf();
+  await pg.click('[data-testid=view-month]'); await pg.waitForSelector('[data-testid=cal-grid]');
+  check('both views offer exactly the same actions', JSON.stringify(await actionsOf()) === JSON.stringify(listActions) && listActions.includes('add-plan') && listActions.includes('page-log-hours'), listActions.join(','));
+  await pg.click('[data-testid=page-log-hours]');
+  await pg.waitForSelector('[data-testid=entry-dialog]');
+  check('logging from the calendar view uses the day that is selected', (await pg.inputValue('[data-testid=entry-date]')) === iso(today));
+  await pg.keyboard.press('Escape');
+  await pg.waitForSelector('[data-testid=entry-dialog]', { state: 'detached' });
+  await pg.click('[data-testid=view-list]'); await pg.waitForSelector('[data-testid=wi-grid]');
   await pg.goto(base + '#/calendar', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=cal-grid]');
   check('plan appears on today in the grid', /No-sew cat blankets/.test(await pg.textContent(`[data-date="${iso(today)}"]`)));
