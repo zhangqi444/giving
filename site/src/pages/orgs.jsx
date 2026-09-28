@@ -16,7 +16,7 @@ export function Orgs() {
   const totals = new Map(hoursByOrg().map((r) => [r.orgId, r]))
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="Organizations" description="The nonprofits, schools, and groups you work with.">
+      <PageHeader title="Places" description="The shelters, rescues and groups you help. Most are added for you from the catalog.">
         <Button onClick={() => openOrg()} data-testid="add-org"><Plus /> Add organization</Button>
       </PageHeader>
       {orgs.length ? (

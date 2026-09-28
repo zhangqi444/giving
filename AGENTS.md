@@ -167,6 +167,20 @@ All three must pass before a commit.
 - Numbers use `tabular-nums`. Dates render through `fmtDate`. A value with no data
   says "—", not zero.
 
+## Words on screen
+
+The volunteer is nine. Nothing she reads is named after the data model: the sidebar says
+**Find something**, **My work**, **Places**, **Hours** — never "catalog item", "work item"
+or "organization", which are what `catalog.json` and `store.js` call them and where those
+words belong. The sidebar is two groups, hers and a smaller **For grown-ups** (Hours,
+Places, Reports, Settings), because nine entries in one list makes her read four pages of
+her parent's paperwork to find her own. A printed report is the exception: a school reading
+it wants "organization", so `reports.jsx` keeps it.
+
+Every screen offers as few choices as it can. A catalog card answers "shall we?", so it has
+two buttons and not four; planning and logging live on the work item, which is the one page
+holding a piece of work's past and its future.
+
 ## Content rules
 
 - **Never invent a fact.** Every catalog item carries the source `url` and the

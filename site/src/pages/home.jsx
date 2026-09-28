@@ -59,7 +59,7 @@ export function Home() {
         <Stat label="Total hours" value={fmtHours(s.total)} sub={`across ${plural(s.count, "entry", "entries")}`} testid="stat-total" />
         <Stat label="This month" value={fmtHours(s.month)} sub={s.prevMonth || s.month ? `${diff >= 0 ? "+" : "−"}${fmtHours(Math.abs(diff))} vs last month` : now.toLocaleDateString(undefined, { month: "long" })} testid="stat-month" />
         <Stat label="This year" value={fmtHours(s.year)} sub={`${plural(s.yearCount, "entry", "entries")} in ${now.getFullYear()}`} testid="stat-year" />
-        <Stat label="Organizations" value={String(s.orgs)} sub={`${s.activeOrgs} active this year`} testid="stat-orgs" />
+        <Stat label="Places" value={String(s.orgs)} sub={`${s.activeOrgs} active this year`} testid="stat-orgs" />
       </div>
 
       <div className="grid gap-4 @3xl/main:grid-cols-2">
@@ -85,7 +85,7 @@ export function Home() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Hours by organization</CardTitle>
+            <CardTitle>Hours by place</CardTitle>
             <CardDescription>All time</CardDescription>
           </CardHeader>
           <CardContent>
@@ -107,8 +107,8 @@ export function Home() {
       {store.s.workItems.length > 0 && (
         <Card>
           <CardHeader>
-            <CardTitle>Active work items</CardTitle>
-            <CardDescription>Progress toward each item's target</CardDescription>
+            <CardTitle>What she’s working on</CardTitle>
+            <CardDescription>How each one is going</CardDescription>
             <CardAction><Button variant="ghost" size="sm" onClick={() => go("/work")}>View all <ArrowRight /></Button></CardAction>
           </CardHeader>
           <CardContent>
@@ -128,7 +128,7 @@ export function Home() {
                   )
                 })}
               </ul>
-            ) : <Empty>No active work items.</Empty>}
+            ) : <Empty>Nothing on the go. Find something to do and it will show up here.</Empty>}
           </CardContent>
         </Card>
       )}

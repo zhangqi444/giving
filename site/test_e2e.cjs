@@ -25,12 +25,12 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
       check('sidebar hidden on phone until opened', (await pg.$('[data-slot=sidebar][data-mobile=true]')) === null);
       await pg.click('[data-slot=sidebar-trigger]');
       await pg.waitForSelector('[data-slot=sidebar][data-mobile=true]');
-      await pg.click('[data-slot=sidebar-menu-button]:has-text("Organizations")');
+      await pg.click('[data-slot=sidebar-menu-button]:has-text("Places")');
       await pg.waitForSelector('[data-slot=sidebar][data-mobile=true]', { state: 'detached' });
       check('drawer closes after navigation', true);
     } else {
       check('sidebar visible on desktop', (await pg.$('[data-slot=sidebar-container]')) !== null);
-      await pg.click('[data-slot=sidebar-menu-button]:has-text("Organizations")');
+      await pg.click('[data-slot=sidebar-menu-button]:has-text("Places")');
     }
     await pg.waitForFunction(() => location.hash === '#/orgs');
     check('organizations route', true);
@@ -84,7 +84,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
     // breadcrumb: always a way out
     await pg.goto(base + '#/log', { waitUntil: 'networkidle' });
     const crumbs = await pg.$$eval('[data-slot=breadcrumb-item]', (n) => n.map((x) => x.textContent.trim()).filter(Boolean));
-    check('breadcrumb Dashboard > Hours log', crumbs[0] === 'Dashboard' && crumbs.includes('Hours log'), crumbs.join(' > '));
+    check('breadcrumb Dashboard > Hours', crumbs[0] === 'Dashboard' && crumbs.includes('Hours'), crumbs.join(' > '));
     await pg.click('[data-slot=breadcrumb-link]:has-text("Dashboard")');
     await pg.waitForFunction(() => location.hash === '#/' || location.hash === '');
     check('breadcrumb navigates home', true);

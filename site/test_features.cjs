@@ -49,7 +49,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.screenshot({ path: 'shot-dashboard-sample.png', fullPage: true });
 
   // work items list + filters
-  await pg.click('[data-slot=sidebar-menu-button]:has-text("Work items")');
+  await pg.click('[data-slot=sidebar-menu-button]:has-text("My work")');
   await pg.waitForSelector('[data-testid=wi-grid]');
   check('active filter shows 3 cards', (await pg.$$('[data-testid=wi-card]')).length === 3);
   await pick(pg, '[data-testid=wi-filter-status]', 'All statuses');
@@ -70,7 +70,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   const id = (await pg.evaluate(() => location.hash)).split('/')[2];
   check('route is #/work/<id>', /^#\/work\/[a-z0-9]+$/.test(await pg.evaluate(() => location.hash)));
   const crumbs = await pg.$$eval('[data-slot=breadcrumb-item]', (n) => n.map((x) => x.textContent.trim()).filter(Boolean));
-  check('breadcrumb ends with the item title', crumbs.includes('Work items') && crumbs[crumbs.length - 1] === 'Weekend tutoring', crumbs.join(' > '));
+  check('breadcrumb ends with the item title', crumbs.includes('My work') && crumbs[crumbs.length - 1] === 'Weekend tutoring', crumbs.join(' > '));
 
   // log hours from the item: org and item preselected
   await pg.click('[data-testid=wi-log]');
@@ -150,7 +150,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.waitForSelector('[data-testid=entry-dialog]', { state: 'detached' });
 
   // hours log: tag, work item filter, search, clear, CSV enabled
-  await pg.click('[data-slot=sidebar-menu-button]:has-text("Hours log")');
+  await pg.click('[data-slot=sidebar-menu-button] span:text-is("Hours")');
   await pg.waitForSelector('[data-testid=log-table]');
   check('log shows the work item tag', (await pg.$$eval('[data-testid=log-wi-tag]', (n) => n.map((x) => x.textContent))).includes('Weekend tutoring'));
   const all = (await pg.$$('[data-testid=log-row]')).length;

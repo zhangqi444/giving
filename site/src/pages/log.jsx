@@ -41,7 +41,7 @@ export function Log() {
 
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="Hours log" description="Every shift, event, and task you've given your time to.">
+      <PageHeader title="Hours" description="Every shift, event and task, in one list to search and print from.">
         <Button variant="outline" onClick={() => downloadFile(`volunteer-hours-${todayISO()}.csv`, entriesCSV(entries), "text/csv")} disabled={!entries.length} data-testid="log-csv"><Download /> Export CSV</Button>
         <Button onClick={() => openEntry({ orgId: f.orgId, workItemId: f.workItemId })} data-testid="add-entry"><Plus /> Log hours</Button>
       </PageHeader>
@@ -50,7 +50,7 @@ export function Log() {
         <CardContent className="grid gap-3 @lg/main:grid-cols-3 @5xl/main:grid-cols-6">
           <Input type="search" placeholder="Search activity, notes…" value={f.search} onChange={(e) => set("search")(e.target.value)} aria-label="Search" data-testid="filter-search" />
           <Pick value={f.orgId} onChange={set("orgId")} options={orgsSorted().map((o) => ({ value: o.id, label: o.name }))} noneLabel="All organizations" testid="filter-org" />
-          <Pick value={f.workItemId} onChange={set("workItemId")} options={items.map((w) => ({ value: w.id, label: w.title }))} noneLabel="All work items" disabled={!items.length} testid="filter-workitem" />
+          <Pick value={f.workItemId} onChange={set("workItemId")} options={items.map((w) => ({ value: w.id, label: w.title }))} noneLabel="All of my work" disabled={!items.length} testid="filter-workitem" />
           <Pick value={f.category} onChange={set("category")} options={Store.s.settings.categories.map((c) => ({ value: c, label: c }))} noneLabel="All categories" testid="filter-category" />
           <Input type="date" value={f.from} onChange={(e) => set("from")(e.target.value)} aria-label="From" />
           <Input type="date" value={f.to} onChange={(e) => set("to")(e.target.value)} aria-label="To" />

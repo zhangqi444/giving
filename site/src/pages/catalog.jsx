@@ -175,7 +175,7 @@ export function Catalog() {
   })
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="Catalog" description={age != null ? `Opportunities near Seattle, checked against ${name || "the volunteer"}'s age (${age}). Set the age in Settings if it changes.` : "Opportunities near Seattle. Set the volunteer's age in Settings to see which ones fit."}>
+      <PageHeader title="Find something" description={age != null ? `Opportunities near Seattle, checked against ${name || "the volunteer"}'s age (${age}). Set the age in Settings if it changes.` : "Opportunities near Seattle. Set the volunteer's age in Settings to see which ones fit."}>
         <Button variant="outline" onClick={() => go("/settings")}>Profile</Button>
       </PageHeader>
       <Card className="py-4">

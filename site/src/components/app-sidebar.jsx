@@ -8,7 +8,8 @@ import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { useDialogs } from "@/components/dialogs"
 import {
-  Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader,
+  Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent,
+  SidebarGroupLabel, SidebarHeader,
   SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, useSidebar,
 } from "@/components/ui/sidebar"
 import { NavUser } from "@/components/nav-user"
@@ -19,14 +20,19 @@ function useNav() {
   return (path) => { go(path); if (isMobile) setOpenMobile(false) }
 }
 
+// Two audiences, so two lists. The volunteer is nine: she needs five entries, not nine,
+// and none of them named after the data model — hers are the things she does, the places
+// she helps. The rest is her parent's paperwork and sits below, clearly labelled as theirs.
 const NAV = [
   { path: "/", top: "", label: "Dashboard", icon: LayoutDashboard },
+  { path: "/catalog", top: "catalog", label: "Find something", icon: BookOpen },
+  { path: "/work", top: "work", label: "My work", icon: ClipboardList },
   { path: "/calendar", top: "calendar", label: "Calendar", icon: CalendarDays },
-  { path: "/catalog", top: "catalog", label: "Catalog", icon: BookOpen },
-  { path: "/work", top: "work", label: "Work items", icon: ClipboardList },
-  { path: "/log", top: "log", label: "Hours log", icon: Clock },
   { path: "/rewards", top: "rewards", label: "Rewards", icon: Award },
-  { path: "/orgs", top: "orgs", label: "Organizations", icon: Building2 },
+]
+const GROWNUP_NAV = [
+  { path: "/log", top: "log", label: "Hours", icon: Clock },
+  { path: "/orgs", top: "orgs", label: "Places", icon: Building2 },
   { path: "/reports", top: "reports", label: "Reports", icon: FileText },
   { path: "/settings", top: "settings", label: "Settings", icon: SettingsIcon },
 ]
@@ -40,6 +46,17 @@ export function AppSidebar({ route, ...props }) {
   const active = activeWorkItems().length
   const planned = upcomingPlans(todayISO(), 99).length
   const fresh = recentBadges(3).length
+  const row = (n) => (
+    <SidebarMenuItem key={n.path}>
+      <SidebarMenuButton tooltip={n.label} isActive={top === n.top} onClick={() => nav(n.path)}>
+        <n.icon />
+        <span>{n.label}</span>
+      </SidebarMenuButton>
+      {n.top === "work" && active ? <SidebarMenuBadge className="text-muted-foreground">{active}</SidebarMenuBadge> : null}
+      {n.top === "calendar" && planned ? <SidebarMenuBadge className="text-muted-foreground">{planned}</SidebarMenuBadge> : null}
+      {n.top === "rewards" && fresh ? <SidebarMenuBadge className="pointer-events-none" data-testid="rewards-new"><span className="bg-primary size-2 rounded-full" title={`${fresh} new badge${fresh === 1 ? "" : "s"}`} /></SidebarMenuBadge> : null}
+    </SidebarMenuItem>
+  )
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -76,19 +93,13 @@ export function AppSidebar({ route, ...props }) {
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
-            <SidebarMenu>
-              {NAV.map((n) => (
-                <SidebarMenuItem key={n.path}>
-                  <SidebarMenuButton tooltip={n.label} isActive={top === n.top} onClick={() => nav(n.path)}>
-                    <n.icon />
-                    <span>{n.label}</span>
-                  </SidebarMenuButton>
-                  {n.top === "work" && active ? <SidebarMenuBadge className="text-muted-foreground">{active}</SidebarMenuBadge> : null}
-                  {n.top === "calendar" && planned ? <SidebarMenuBadge className="text-muted-foreground">{planned}</SidebarMenuBadge> : null}
-                  {n.top === "rewards" && fresh ? <SidebarMenuBadge className="pointer-events-none" data-testid="rewards-new"><span className="bg-primary size-2 rounded-full" title={`${fresh} new badge${fresh === 1 ? "" : "s"}`} /></SidebarMenuBadge> : null}
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
+            <SidebarMenu>{NAV.map(row)}</SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>For grown-ups</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>{GROWNUP_NAV.map(row)}</SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>

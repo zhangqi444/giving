@@ -66,7 +66,7 @@ export function UpNextCard({ limit = 4 }) {
       </CardHeader>
       <CardContent>
         {up.length || late.length ? <ul className="divide-y">{[...late, ...up].slice(0, limit + late.length).map((p) => <PlanRow key={p.id} p={p} />)}</ul>
-          : <Empty>Plan work from the Calendar or the Catalog and it shows up here.</Empty>}
+          : <Empty>Plan a time on any of your work and it shows up here.</Empty>}
       </CardContent>
     </Card>
   )

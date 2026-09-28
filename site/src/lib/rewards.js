@@ -92,7 +92,7 @@ export const BADGES = [
   T("six-months", "Half a year", "Hours in six consecutive months", "CalendarCheck", "Habits", 6, monthsInARow, "months"),
   T("first-plan-done", "Planned it, did it", "Turn a calendar plan into logged hours", "CalendarCheck", "Habits", 1, plansDone, "plan"),
   T("plans-5", "Keeps her word", "Five plans carried out", "CalendarCheck", "Habits", 5, plansDone, "plans"),
-  T("two-orgs", "Two organizations", "Hours with two different organizations", "Building2", "Projects", 2, orgsUsed, "orgs"),
+  T("two-orgs", "Two places", "Hours given at two different places", "Building2", "Projects", 2, orgsUsed, "places"),
   T("work-item-done", "Seen it through", "Complete a work item", "ClipboardCheck", "Projects", 1, itemsDone, "item"),
   T("items-3", "Three seen through", "Complete three work items", "ClipboardCheck", "Projects", 3, itemsDone, "items"),
   T("catalog-3", "Explorer", "Try three things from the catalog", "Compass", "Projects", 3, catalogTried, "activities"),

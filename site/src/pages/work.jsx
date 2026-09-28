@@ -63,7 +63,7 @@ export function WorkList() {
     (!q || `${w.title} ${w.description} ${orgName(w.orgId)}`.toLowerCase().includes(q.trim().toLowerCase())))
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="Work items" description="Projects and commitments you're volunteering on. Track hours and keep memos for each.">
+      <PageHeader title="My work" description="Everything you've taken on. Each one keeps its own plans, hours and memos.">
         <Button onClick={() => openWorkItem({ orgId: org })} data-testid="add-workitem"><Plus /> New work item</Button>
       </PageHeader>
       <Card className="py-4">
