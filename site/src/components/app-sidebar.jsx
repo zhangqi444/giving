@@ -1,7 +1,7 @@
 import * as React from "react"
-import { Award, BookOpen, CalendarDays, ClipboardList, Clock, FileText, HeartHandshake, LayoutDashboard, Plus, Settings as SettingsIcon } from "lucide-react"
+import { Award, BookOpen, ClipboardList, Clock, FileText, HeartHandshake, LayoutDashboard, Plus, Settings as SettingsIcon } from "lucide-react"
 
-import { activeWorkItems, upcomingPlans } from "@/lib/engine"
+import { activeWorkItems } from "@/lib/engine"
 import { todayISO } from "@/lib/format"
 import { recentBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
@@ -27,7 +27,6 @@ const NAV = [
   { path: "/", top: "", label: "Dashboard", icon: LayoutDashboard },
   { path: "/catalog", top: "catalog", label: "Find something", icon: BookOpen },
   { path: "/work", top: "work", label: "My work", icon: ClipboardList },
-  { path: "/calendar", top: "calendar", label: "Calendar", icon: CalendarDays },
   { path: "/rewards", top: "rewards", label: "Rewards", icon: Award },
 ]
 const GROWNUP_NAV = [
@@ -43,7 +42,6 @@ export function AppSidebar({ route, ...props }) {
   const { openEntry } = useDialogs()
   const top = route[0] || ""
   const active = activeWorkItems().length
-  const planned = upcomingPlans(todayISO(), 99).length
   const fresh = recentBadges(3).length
   const row = (n) => (
     <SidebarMenuItem key={n.path}>
@@ -52,7 +50,6 @@ export function AppSidebar({ route, ...props }) {
         <span>{n.label}</span>
       </SidebarMenuButton>
       {n.top === "work" && active ? <SidebarMenuBadge className="text-muted-foreground">{active}</SidebarMenuBadge> : null}
-      {n.top === "calendar" && planned ? <SidebarMenuBadge className="text-muted-foreground">{planned}</SidebarMenuBadge> : null}
       {n.top === "rewards" && fresh ? <SidebarMenuBadge className="pointer-events-none" data-testid="rewards-new"><span className="bg-primary size-2 rounded-full" title={`${fresh} new badge${fresh === 1 ? "" : "s"}`} /></SidebarMenuBadge> : null}
     </SidebarMenuItem>
   )

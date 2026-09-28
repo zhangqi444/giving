@@ -12,7 +12,7 @@ import { Photo } from "@/components/photos"
 import { PlanRow } from "@/pages/calendar"
 import { useDialogs } from "@/components/dialogs"
 import { useToast } from "@/components/toast"
-import { Empty, OrgChip, PageHeader, Pick, Stat, StatusBadge } from "@/components/bits"
+import { Empty, OrgChip, PageHeader, Pick, Stat, StatusBadge, ViewToggle } from "@/components/bits"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -63,13 +63,14 @@ export function WorkList() {
     (!q || `${w.title} ${w.description} ${orgName(w.orgId)}`.toLowerCase().includes(q.trim().toLowerCase())))
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="My work" description="Everything she has taken on. Each one keeps its own days, hours and notes.">
-        <Button onClick={() => openWorkItem({ orgId: org })} data-testid="add-workitem"><Plus /> New work item</Button>
+      <PageHeader title="My work" description="Everything she has taken on, and every hour given. Look at it by activity, or by date.">
+        <ViewToggle view="list" />
+        <Button onClick={() => openWorkItem({ orgId: org })} data-testid="add-workitem"><Plus /> New</Button>
       </PageHeader>
       <Card className="py-4">
         <CardContent className="grid gap-3 @lg/main:grid-cols-3">
           <Input type="search" placeholder="Search title, description…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search" data-testid="wi-search" />
-          <Pick value={org} onChange={setOrg} options={orgsSorted().map((o) => ({ value: o.id, label: o.name }))} noneLabel="All organizations" testid="wi-filter-org" />
+          <Pick value={org} onChange={setOrg} options={orgsSorted().map((o) => ({ value: o.id, label: o.name }))} noneLabel="All places" testid="wi-filter-org" />
           <Pick value={status} onChange={setStatus} options={WORK_STATUSES.map((s) => ({ value: s, label: s[0].toUpperCase() + s.slice(1) }))} noneLabel="All statuses" testid="wi-filter-status" />
         </CardContent>
       </Card>

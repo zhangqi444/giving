@@ -283,6 +283,15 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.waitForSelector('[data-testid=plan-dialog]', { state: 'detached' });
 
   // calendar: today's plan on the grid, log hours from it, overdue handling, up-next on the dashboard
+  // one page, two groupings: the toggle moves between them and the heading does not change
+  await pg.goto(base + '#/work', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=wi-grid]');
+  await pg.click('[data-testid=view-month]');
+  await pg.waitForSelector('[data-testid=cal-grid]');
+  check('By date is the same page as By activity, not a separate one', /My work/.test(await pg.textContent('h1')) && (await pg.evaluate(() => location.hash)) === '#/calendar');
+  await pg.click('[data-testid=view-list]');
+  await pg.waitForSelector('[data-testid=wi-grid]');
+  check('and back again', (await pg.evaluate(() => location.hash)) === '#/work');
   await pg.goto(base + '#/calendar', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=cal-grid]');
   check('plan appears on today in the grid', /No-sew cat blankets/.test(await pg.textContent(`[data-date="${iso(today)}"]`)));

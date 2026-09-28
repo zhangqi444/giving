@@ -1,6 +1,7 @@
 /* Small shared pieces: org chip, status badge, stat tile, empty state, page header, a Select that allows "none". */
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { go } from "@/lib/router"
 import { orgColor, orgName } from "@/lib/engine"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -40,6 +41,19 @@ export function Empty({ children, action, className }) {
       {action}
     </div>
   )
+}
+
+/** My work is one page with two groupings: by activity, or by date. The two used to be
+ *  separate pages showing the same entries and plans, which made them look like different
+ *  things. The hash still distinguishes them so either view can be linked to. */
+export function ViewToggle({ view }) {
+  const opt = (v, label, to) => (
+    <button key={v} type="button" onClick={() => go(to)} data-testid={`view-${v}`} aria-pressed={view === v}
+      className={cn("rounded-sm px-3 py-1 text-sm transition", view === v ? "bg-background text-foreground shadow-sm font-medium" : "text-muted-foreground hover:text-foreground")}>
+      {label}
+    </button>
+  )
+  return <div className="bg-muted inline-flex rounded-md p-0.5" role="group" aria-label="View">{opt("list", "By activity", "/work")}{opt("month", "By date", "/calendar")}</div>
 }
 
 export function PageHeader({ title, description, children }) {
