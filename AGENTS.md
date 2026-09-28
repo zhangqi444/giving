@@ -17,7 +17,7 @@ by what fits her age, is where new work starts. Reports print for schools,
 employers and verification letters.
 
 Live at <https://volunteer.sheilazhang.org/> (custom domain on the repo's GitHub Pages;
-`zhangqi444.github.io/volunteer/` redirects there).
+`zhangqi444.github.io/giving/` redirects there).
 
 ## Repository layout
 

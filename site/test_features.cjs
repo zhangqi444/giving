@@ -219,7 +219,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-testid=suggest-save]');
   await pg.waitForSelector('[data-testid=suggestions] li');
   const issue = await pg.getAttribute('[data-testid=suggest-issue]', 'href');
-  check('a suggestion is saved and can be sent as a GitHub issue', /example\.org/.test(await pg.textContent('[data-testid=suggestions]')) && /github\.com\/zhangqi444\/volunteer\/issues\/new\?/.test(issue) && /Saturday/.test(decodeURIComponent(issue)));
+  check('a suggestion is saved and can be sent as a GitHub issue', /example\.org/.test(await pg.textContent('[data-testid=suggestions]')) && /github\.com\/zhangqi444\/giving\/issues\/new\?/.test(issue) && /Saturday/.test(decodeURIComponent(issue)));
   // kind and where are independent questions: what she would do, and how she takes part.
   // They were one enum, so "At home" and "Event" sat in a single filter as alternatives.
   await pick(pg, '[data-testid=catalog-kind]', 'Fostering');

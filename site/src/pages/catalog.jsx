@@ -102,7 +102,9 @@ function OpportunityCard({ item, age }) {
   )
 }
 
-const REPO = "https://github.com/zhangqi444/volunteer"
+// The repository was renamed to "giving"; the old name only resolves through GitHub's
+// redirect, which is not something a link handed to a reader should depend on.
+const REPO = "https://github.com/zhangqi444/giving"
 function issueUrl(sg) {
   const q = new URLSearchParams({ title: `Catalog: ${sg.url || sg.note.slice(0, 60)}`, body: `Please add this to the catalog with its source and age rules.\n\nURL: ${sg.url || "(none)"}\n\nNote: ${sg.note || "(none)"}\n\nSuggested from the app on ${sg.createdAt.slice(0, 10)}.`, labels: "catalog" })
   return `${REPO}/issues/new?${q}`

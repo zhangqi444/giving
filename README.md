@@ -60,7 +60,7 @@ set to **Source: GitHub Actions** (Settings → Pages). With *Deploy from a bran
 GitHub runs Jekyll over the repo root instead and serves this README as the home
 page, even though the Actions deploy also succeeds. Every asset path is
 relative (`base: './'`), so the same build works at a domain root or under
-`user.github.io/volunteer/`.
+`user.github.io/giving/`.
 
 ## Google Drive
 
