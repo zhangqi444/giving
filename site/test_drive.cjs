@@ -65,8 +65,11 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   check('merged result written back to Drive', body().entries.length === 1 && body().entries[0].id === 'remote1' && body().deleted[ours.id] === later);
   check('the newer remote copy won the record but both devices\' photos were kept', body().entries[0].notes === '' && body().entries[0].photos.map((p) => p.id).sort().join() === 'photoL,photoR');
 
-  // sign out: token revoked, this device cleared, back to the gate; the file keeps everything
-  await pg.click('[data-testid=drive-button]');
+  // sign out: token revoked, this device cleared, back to the gate; the file keeps everything.
+  // From the settings page, which is where signing out lives now — the header chip is a
+  // status light and opens Drive settings instead of wiping the device on one tap.
+  await pg.goto(base + '#/settings', { waitUntil: 'networkidle' });
+  await pg.click('[data-testid=settings-signout]');
   await pg.waitForSelector('[data-testid=signin]');
   check('sign out returns to the gate', true);
   check('sign out revoked the token and cleared the session', await pg.evaluate(() => !!window.__revoked && localStorage.getItem('volunteer.drive') === null));

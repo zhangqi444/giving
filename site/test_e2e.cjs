@@ -18,7 +18,15 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
     await signIn(pg);
     await pg.waitForSelector('[data-testid=today]');
     check('dashboard renders empty state after sign-in', /Ready to log your first hours/.test(await pg.textContent('[data-testid=today]')));
-    if (!phone) check('header shows Saved to Drive', (await pg.textContent('[data-testid=drive-button]')).includes('Saved to Drive'));
+    /* Wait for the state rather than reading whatever the chip says the instant
+       the dashboard appears. It climbs local → connecting → syncing → live, so
+       a bare read here was a race that happened to win most of the time and
+       reported "header shows Saved to Drive" as a failure when the upload was a
+       few milliseconds slower. Every other suite already waits for this text. */
+    if (!phone) {
+      const live = await pg.waitForSelector('[data-testid=drive-button]:has-text("Saved to Drive")', { timeout: 8000 }).then(() => true).catch(() => false);
+      check('header shows Saved to Drive', live, live ? '' : await pg.textContent('[data-testid=drive-button]'));
+    }
 
     // navigation: sidebar is a drawer on phones and must close after navigating
     if (phone) {
