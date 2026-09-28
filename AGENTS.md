@@ -16,7 +16,8 @@ and **plans** on a calendar. A **catalog** of researched opportunities, filtered
 by what fits her age, is where new work starts. Reports print for schools,
 employers and verification letters.
 
-Live at <https://volunteer.sheilazhang.org/> (custom domain on the repo's GitHub Pages;
+Live at <https://giving.sheilazhang.org/> (custom domain on the repo's GitHub Pages, pinned by
+`site/public/CNAME` so a rename cannot drop it;
 `zhangqi444.github.io/giving/` redirects there).
 
 ## Repository layout

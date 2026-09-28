@@ -3,12 +3,13 @@
   "scope": "https://www.googleapis.com/auth/drive.file",
   "consent": "External / Testing",
   "authorized_js_origins": [
+    "https://giving.sheilazhang.org",
+    "https://zhangqi444.github.io",
     "https://volunteer.sheilazhang.org",
-    "https://qizhang.top",
-    "https://zhangqi444.github.io"
+    "https://qizhang.top"
   ],
   "test_user": "zhangqi444@gmail.com",
   "file_name": "volunteer-tracker-data.json",
-  "note": "drive.file is non-sensitive; the app can stay in Testing with the owner as a test user, no verification, no warning. It only sees the one file it creates. Add http://localhost:5173 to the origins for local dev.",
-  "live_url": "https://volunteer.sheilazhang.org/"
+  "note": "drive.file is non-sensitive; the app can stay in Testing with the owner as a test user, no verification, no warning. It only sees the one file it creates. An origin is scheme + host + port and never the path, so the Pages project path does not matter but a new custom domain does: renaming the repository to giving moved the site to giving.sheilazhang.org and sign-in failed with origin_mismatch until that origin was registered. The two older domains are kept here because they still resolve. Add http://localhost:5173 for local dev.",
+  "live_url": "https://giving.sheilazhang.org/"
 }
