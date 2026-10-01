@@ -51,6 +51,38 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.waitForSelector('[data-testid=today]');
   await pg.screenshot({ path: 'shot-dashboard-sample.png', fullPage: true });
 
+  // My path: the whole record as one page, for showing someone who does not use the app
+  await ctx.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await pg.click('[data-slot=sidebar-menu-button]:has-text("My path")');
+  await pg.waitForSelector('[data-testid=path-rail]');
+  check('every logged day is on the path, grouped by month', (await pg.$$('[data-testid=path-entry]')).length === 15 && (await pg.$$('[data-testid=path-month]')).length === 10);
+  // the sample's badges are all pinned the moment it is loaded; eleven separate markers would
+  // bury the work that earned them, so one day gets one marker
+  check('badges earned the same day collapse into one marker', (await pg.$$('[data-testid=path-badge]')).length === 1 && /11 badges earned/.test(await pg.textContent('[data-testid=path-badge]')));
+  check('growth is on the page too, not only on Rewards', /Level 5 · Dependable/.test(await pg.textContent('[data-testid=path-growth]')) && /11 of 24 badges/.test(await pg.textContent('[data-testid=path-badge-count]')));
+  check('with nothing planned, the path says so instead of just stopping', (await pg.$('[data-testid=path-nothing-next]')) !== null);
+  await pg.click('[data-testid=path-copy]');
+  await pg.waitForSelector('[data-testid=toast]:has-text("Summary copied")');
+  check('the summary copies as text for a message', /46\.5 hours · 15 days out · 3 places/.test(await pg.evaluate(() => navigator.clipboard.readText())));
+  await pg.screenshot({ path: 'shot-path.png', fullPage: true });
+
+  // a plan joins the same path, on the far side of today
+  const soon = new Date(Date.now() + 9 * 86400000).toISOString().slice(0, 10);
+  await pg.click('[data-slot=sidebar-menu-button]:has-text("My work")');
+  await pg.click('[data-testid=add-plan]');
+  await pg.waitForSelector('[data-testid=plan-title]');
+  await pg.fill('[data-testid=plan-title]', 'Winter coat drive');
+  await pg.fill('[data-testid=plan-date]', soon);
+  await pg.click('[data-testid=plan-save]');
+  await pg.waitForSelector('[data-testid=plan-title]', { state: 'detached' });
+  await pg.click('[data-slot=sidebar-menu-button]:has-text("My path")');
+  await pg.waitForSelector('[data-testid=path-plan]');
+  check('a plan lands on the path after today, not mixed into what happened', await pg.evaluate(() => {
+    const today = document.querySelector('[data-testid=path-today]'), plan = document.querySelector('[data-testid=path-plan]');
+    return !!(today && plan && (today.compareDocumentPosition(plan) & Node.DOCUMENT_POSITION_FOLLOWING));
+  }));
+  check('the planned count follows it', (await pg.textContent('[data-testid=path-stat-planned]')).includes('1'));
+
   // work items list + filters
   await pg.click('[data-slot=sidebar-menu-button]:has-text("My work")');
   await pg.waitForSelector('[data-testid=wi-grid]');

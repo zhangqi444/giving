@@ -10,7 +10,7 @@ import { Button } from "@zhangqi444/ui/ui/button"
 import { SidebarTrigger } from "@zhangqi444/ui/ui/sidebar"
 import { CHIP_LABEL, STATUS_LABEL } from "@/components/nav-user"
 
-const LABEL = { calendar: "My work", catalog: "Find something", work: "My work", log: "Hours", rewards: "Rewards", reports: "Reports", settings: "Settings" }
+const LABEL = { calendar: "My work", catalog: "Find something", work: "My work", path: "My path", log: "Hours", rewards: "Rewards", reports: "Reports", settings: "Settings" }
 
 /** Breadcrumb trail for the current hash route: every crumb is a real link, so there is always a way out. */
 function crumbs(route) {

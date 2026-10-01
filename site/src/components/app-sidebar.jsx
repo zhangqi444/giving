@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Award, BookOpen, ClipboardList, Clock, FileText, HeartHandshake, LayoutDashboard, Plus, Settings as SettingsIcon } from "lucide-react"
+import { Award, BookOpen, ClipboardList, Clock, FileText, HeartHandshake, LayoutDashboard, Plus, Route, Settings as SettingsIcon } from "lucide-react"
 
 import { activeWorkItems } from "@/lib/engine"
 import { todayISO } from "@/lib/format"
@@ -27,6 +27,7 @@ const NAV = [
   { path: "/", top: "", label: "Dashboard", icon: LayoutDashboard },
   { path: "/catalog", top: "catalog", label: "Find something", icon: BookOpen },
   { path: "/work", top: "work", label: "My work", icon: ClipboardList },
+  { path: "/path", top: "path", label: "My path", icon: Route },
   { path: "/rewards", top: "rewards", label: "Rewards", icon: Award },
 ]
 const GROWNUP_NAV = [
