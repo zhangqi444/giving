@@ -1114,11 +1114,13 @@
       "title": "Cozy fleece blankets for the Everett shelter",
       "kind": "craft",
       "where": "at-home",
-      "summary": "Fleece blankets that keep shelter cats and dogs warm — and go home with them when they are adopted.",
+      "summary": "Fleece blankets that keep shelter cats and dogs warm — and go home with them when they are adopted. Leave them in the donation bin; nothing to arrange.",
       "details": [
         "Cozy fleece blankets help the shelter's cats and dogs feel warm and safe in their kennels, and are often sent home with the animal when it is adopted.",
+        "The shelter's donation page lists fleece blankets and towels among the things it accepts, new, like-new or gently used.",
+        "Donations go in the bin on the shelter's front porch, seven days a week between 11am and 5pm — no appointment, no form.",
         "The shelter links a blanket tutorial but cannot provide fleece or other materials.",
-        "It offers a short tour to a group dropping off donations, if arranged beforehand."
+        "A group bringing a donation drive can be offered a short tour, arranged beforehand with easvolunteers@everettwa.gov. That is the only part that needs emailing."
       ],
       "ages": {
         "min": null,
@@ -1128,9 +1130,9 @@
       },
       "commitment": "An afternoon.",
       "location": "At home; deliver to the Everett shelter",
-      "howTo": "Follow the shelter's blanket tutorial, then email easvolunteers@everettwa.gov to arrange dropping them off — and ask about the tour.",
-      "url": "https://www.everettwa.gov/2912/Offsite-Volunteer-Ideas-for-Groups",
-      "verified": "2026-09-12",
+      "howTo": "Make a batch from the shelter's blanket tutorial and leave them in the donation bin on the front porch any day between 11am and 5pm. Email easvolunteers@everettwa.gov only if you want the tour that goes with a group drop-off.",
+      "url": "https://www.everettwa.gov/2660/Donate-Food-Supplies",
+      "verified": "2026-10-05",
       "tags": [
         "animals",
         "cats",
@@ -1148,6 +1150,7 @@
       "summary": "Collect the food and supplies on the shelter's wish list, with a tour when you deliver.",
       "details": [
         "The shelter always needs food and supplies, and publishes a printable wish list as well as Amazon lists of what is most needed.",
+        "Donations can be left in the bin on the front porch, seven days a week between 11am and 5pm.",
         "A group dropping off a donation drive can be given a short tour of the shelter, arranged in advance."
       ],
       "ages": {
@@ -1158,9 +1161,9 @@
       },
       "commitment": "A few weeks of collecting.",
       "location": "Neighborhood or school; deliver to the Everett shelter",
-      "howTo": "Print the wish list, collect from neighbours or at school, then email easvolunteers@everettwa.gov to book the drop-off and tour.",
-      "url": "https://www.everettwa.gov/170/Donating-to-the-Shelter",
-      "verified": "2026-09-12",
+      "howTo": "Print the wish list, collect from neighbours or at school, then leave the donations in the porch bin any day between 11am and 5pm — or email easvolunteers@everettwa.gov first if you want the tour.",
+      "url": "https://www.everettwa.gov/2660/Donate-Food-Supplies",
+      "verified": "2026-10-05",
       "tags": [
         "animals",
         "cats",
@@ -1243,54 +1246,25 @@
       "details": [
         "Old Dog Haven is a network of private homes across western Washington, Spokane and Portland, taking homeless dogs aged eight and over and prioritising the oldest and sickest.",
         "Its greatest need is Final Refuge homes, where a dog with age- and health-related needs stays for as long as it has a good quality of life.",
-        "Old Dog Haven pays all medical costs including prescription food; the family pays the everyday costs of having a dog."
+        "Old Dog Haven pays all medical costs including prescription food; the family pays the everyday costs of having a dog.",
+        "Old Dog Haven asks that every volunteer be 18 or over, so the adult in the house is the registered one and the child lives with the dog rather than signing up for anything."
       ],
       "ages": {
         "min": null,
         "max": null,
         "withAdult": true,
-        "note": "An adult is the registered foster; a gentle old dog is easy company for a child."
+        "note": "An adult is the registered foster — Old Dog Haven's volunteers are all 18+; a gentle old dog is easy company for a child."
       },
       "commitment": "Open-ended.",
       "location": "At home; western Washington",
       "howTo": "Read the fostering page with a parent, then fill in the volunteer package and email it to office@olddoghaven.org.",
       "url": "https://olddoghaven.org/how-to-help/fostering/",
-      "verified": "2026-09-12",
+      "verified": "2026-10-05",
       "tags": [
         "dogs",
         "foster",
         "family",
         "at home",
-        "seniors"
-      ]
-    },
-    {
-      "id": "odh-outreach",
-      "org": "old-dog-haven",
-      "title": "Spread the word for Old Dog Haven",
-      "kind": "outreach",
-      "where": "in-person",
-      "summary": "Put brochures round the neighbourhood, or help at an information table.",
-      "details": [
-        "Old Dog Haven asks for help distributing brochures around your neighbourhood — something a child can do alongside a parent.",
-        "Volunteers also staff booths and information tables at outreach events, generally three to four hours.",
-        "Other listed help includes minding donation cans and hosting a fundraiser."
-      ],
-      "ages": {
-        "min": null,
-        "max": null,
-        "withAdult": true,
-        "note": "No age stated; handing out brochures is done with a parent."
-      },
-      "commitment": "An afternoon, or 3–4 hours at an event.",
-      "location": "Your neighborhood, or an event",
-      "howTo": "Fill in the Old Dog Haven volunteer package with a parent and email it to office@olddoghaven.org, saying you would like brochures to hand out.",
-      "url": "https://olddoghaven.org/how-to-help/volunteering/",
-      "verified": "2026-09-12",
-      "tags": [
-        "dogs",
-        "outreach",
-        "family",
         "seniors"
       ]
     },

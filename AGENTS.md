@@ -244,6 +244,22 @@ holding a piece of work's past and its future.
   choose between them, and made "fostering, but not from home" impossible to ask.
   Adding a value means deciding which question it answers; if it answers both, it
   belongs in neither.
+- **Cite the page that invites the thing.** An organization's volunteer page is
+  about its volunteer programme, so everything written off it arrives wearing that
+  programme's conditions — an application, an agreement form, an orientation, a
+  minimum age — whether or not they apply to what the item describes. RASKC's cat
+  blankets read like something a child might be refused permission to make, because
+  the volunteer manual says to schedule blanket-making first and that only so many
+  are taken each month; both are true of claiming *service hours* and neither is true
+  of the blanket, which RASKC's donate page asks for outright. Everett's blankets
+  said to email and arrange a drop-off, from a page headed "Offsite Volunteer Ideas
+  for Groups", when the donation page says to leave them in the bin on the porch any
+  day from 11 to 5. Making something and handing it over is a donation: source it
+  from the donate or wish-list page. The volunteer page is the right source only for
+  work done on a shift — and then its minimum age is binding, which is how an
+  adults-only role gets in: Old Dog Haven's brochure-distributing read as a thing to
+  do with a parent until its volunteering page turned out to say every volunteer is
+  18 or over, so that item is gone.
 - **Cite the organization, not someone writing about it.** `make_bundle.py` requires
   an item's `url` to sit on its organization's own domain. The iNaturalist entry had
   been written off a "volunteering online" listicle and got the age rule backwards as
