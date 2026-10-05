@@ -837,30 +837,35 @@
       "ages": {
         "max": null,
         "min": null,
-        "note": "Group and family project; no age stated.",
+        "note": "No age limit stated; cutting fleece takes sharp scissors, so an adult helps.",
         "withAdult": true
       },
-      "commitment": "One session per batch or project.",
+      "commitment": "An afternoon per batch.",
       "details": [
-        "RASKC's group volunteering options include making cat cozy blankets, organizing fundraisers, putting up posters in the community, or making YouTube videos.",
-        "Children may also take part in caring for animals through the fostering program, with an adult in the household as the official volunteer."
+        "No sewing needed: cut fleece 25\" x 21\" for a large blanket or 13\" x 21\" for a small one, then cut the edges into fringe and tie it. RASKC's instruction sheet says the fringe has to be tied very tightly, because loose fringe is dangerous for a cat.",
+        "If you do sew, the sizes are 22\" x 18\" or 10\" x 18\".",
+        "Fleece only, and arrange it before you start: RASKC takes a limited number of blankets each month and asks that blanket-making be scheduled with them first.",
+        "RASKC's volunteer manual credits one hour of community service for each blanket made and donated, in the months they are accepting them.",
+        "Drop them at the Pet Adoption Center, 21615 64th Ave S in Kent, weekdays 12–6pm or weekends 12–5pm, except holidays.",
+        "RASKC's volunteer page lists blankets under group volunteering, alongside running a small fundraiser, putting up posters in the community, and making videos."
       ],
-      "howTo": "Email RASKC.Volunteers@kingcounty.gov to ask for the current blanket specifications and drop-off arrangements, then make a batch.",
+      "howTo": "Email RASKC.Volunteers@kingcounty.gov to arrange a batch and check they are accepting, then cut and tie the blankets to the sizes on the instruction sheet and take them to Kent.",
       "id": "raskc-cat-blankets",
       "kind": "craft",
-      "location": "At home; deliver to the Kent shelter",
+      "location": "At home; drop off at the Kent shelter",
       "org": "raskc",
-      "summary": "Make cozy blankets for the shelter cats, or run a fundraiser or poster project as a family.",
+      "summary": "Cut and tie fleece blankets at home. Every cat at the shelter gets one in its condo, and it goes home with the cat when it is adopted.",
       "tags": [
         "animals",
         "cats",
         "crafts",
         "at home",
-        "family"
+        "family",
+        "service hours"
       ],
-      "title": "Cat cozy blankets and other group projects for RASKC",
-      "url": "https://kingcounty.gov/en/dept/executive-services/animals-pets-pests/regional-animal-services/volunteer",
-      "verified": "2026-09-06",
+      "title": "Cat cozy blankets for the Kent shelter",
+      "url": "https://cdn.kingcounty.gov/-/media/king-county/depts/executive-services/regional-animal-services/documents/raskc-cat-blanket-instructions.pdf?rev=2b7251cf45ec430aba3782e36e61fcca&hash=37F3AEC0A6E3982F5361045364637746",
+      "verified": "2026-10-05",
       "where": "at-home"
     },
     {
