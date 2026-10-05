@@ -88,8 +88,14 @@ function EntryDialog({ init, close }) {
     orgId: e ? e.orgId : plan ? plan.orgId : firstOrg || "",
     workItemId: e ? e.workItemId : plan ? plan.workItemId : init.workItemId || "",
     activity: e ? e.activity : plan ? plan.title : init.activity || "", category: e ? e.category : "",
-    supervisor: e ? e.supervisor : "", notes: e ? e.notes : plan ? plan.notes : "", catalogId: init.catalogId || (plan && plan.catalogId) || "",
-    reflection: e ? e.reflection : "",
+    supervisor: e ? e.supervisor : "", catalogId: init.catalogId || (plan && plan.catalogId) || "",
+    /* One box, not two. There used to be Notes here and a Reflection asked again in the
+     * dialog that opened the moment this one closed, and nothing on screen said what the
+     * difference was — so the same afternoon got written down twice. Her words are what
+     * the record keeps, so that is the only thing asked for. An entry written before this
+     * carries both: they are shown merged and the old notes are cleared when it is saved.
+     * A plan's notes are logistics ("where to meet, what to bring") and stay on the plan. */
+    reflection: e ? [e.notes, e.reflection].filter(Boolean).join("\n\n") : "",
   })
   const fromCatalog = (id) => {
     if (!id) { setF((s) => ({ ...s, catalogId: "" })); return }
@@ -113,13 +119,13 @@ function EntryDialog({ init, close }) {
     if (!f.orgId) return setErr("Choose an organization, or create a new one.")
     if (!f.activity.trim()) return setErr("Describe what you did.")
     if (f.start && f.end && !spanHours(f.start, f.end)) return setErr("Time out must be after time in.")
-    const fields = { ...f, hours, activity: f.activity.trim(), supervisor: f.supervisor.trim(), notes: f.notes.trim(), reflection: f.reflection.trim() }
+    const fields = { ...f, hours, activity: f.activity.trim(), supervisor: f.supervisor.trim(), notes: "", reflection: f.reflection.trim() }
     if (e) { Store.updateEntry(e.id, fields); toast("Entry updated"); close(); return }
     const n = Store.addEntry(fields)
     if (plan) Store.setPlanStatus(plan.id, "done", n.id)
     toast(`Logged ${hoursWord(hours)} · +${entryPoints(n) + (plan ? 5 : 0)} points${plan ? " · plan marked done" : ""}`)
     close()
-    openReflection(n.id)
+    openReflection(n.id)   // which asks for the photo, and for her words only if the box above was left empty
   }
   async function del() {
     if (await confirm({ title: "Delete this entry?", message: "This removes the logged hours permanently." })) { Store.deleteEntry(e.id); toast("Entry deleted"); close() }
@@ -155,13 +161,10 @@ function EntryDialog({ init, close }) {
           <input type="checkbox" className="accent-primary size-4" checked={f.signed} onChange={(ev) => set("signed")(ev.target.checked)} data-testid="entry-signed" />
           <span>Signed off by the supervisor <span className="text-muted-foreground">(on the organization's hours log)</span></span>
         </label>
-        <Field label="Notes" className="sm:col-span-2"><Textarea rows={2} placeholder="Where, with whom, anything to remember" value={f.notes} onChange={(ev) => set("notes")(ev.target.value)} /></Field>
-        {e ? (
-          <>
-            <Field label="Reflection" className="sm:col-span-2" hint="In her words: what did you do, who did it help, what was the best part?"><Textarea rows={3} value={f.reflection} onChange={(ev) => set("reflection")(ev.target.value)} data-testid="entry-reflection" /></Field>
-            <Field label="Photos" className="sm:col-span-2"><PhotoStrip entryId={e.id} compact /></Field>
-          </>
-        ) : null}
+        <Field label="How it went" className="sm:col-span-2" hint="In your own words — what you did, who it helped, the best part. Optional.">
+          <Textarea rows={3} placeholder="Today I…" value={f.reflection} onChange={(ev) => set("reflection")(ev.target.value)} data-testid="entry-reflection" />
+        </Field>
+        {e ? <Field label="Photos" className="sm:col-span-2"><PhotoStrip entryId={e.id} compact /></Field> : null}
         <div className="sm:col-span-2"><ErrorLine msg={err} /></div>
         <DialogFooter className="sm:col-span-2 sm:justify-between">
           <div>{e ? <Button type="button" variant="ghost" className="text-destructive hover:text-destructive" onClick={del}>Delete</Button> : null}</div>
@@ -398,28 +401,34 @@ function PlanDialog({ init, close }) {
   )
 }
 
-/* ---------- reflection: right after logging, in her words ---------- */
+/* ---------- straight after logging: the photo, and her words if she has not written them ----------
+ * A photo can only be attached once the entry exists, which is why there is a second step at
+ * all. Asking again for words she already wrote a moment ago was the rest of it, so when the
+ * box in the log dialog was filled in this is only about the picture. */
 function ReflectionDialog({ init, close }) {
   useStore()
   const toast = useToast()
   const e = Store.entry(init.entryId)
+  const written = Boolean(e && e.reflection)
   const [text, setText] = React.useState(e ? e.reflection : "")
   if (!e) return null
   function save(ev) {
     ev.preventDefault()
-    if (text.trim()) { Store.setReflection(e.id, text); toast("Reflection saved") }
+    if (!written && text.trim()) { Store.setReflection(e.id, text); toast("Saved in your words") }
     close()
   }
   return (
-    <Shell title="How did it go?" description={`${e.activity} · ${hoursWord(e.hours)}`} onClose={close} testid="reflection-dialog" className="sm:max-w-md">
+    <Shell title={written ? "Keep a photo of the day?" : "How did it go?"} description={`${e.activity} · ${hoursWord(e.hours)}`} onClose={close} testid="reflection-dialog" className="sm:max-w-md">
       <form onSubmit={save} className="grid gap-4" noValidate>
-        <Field label="In your own words" hint="What did you do? Who did it help? What was the best part?">
-          <Textarea rows={4} value={text} onChange={(ev) => setText(ev.target.value)} placeholder="Today I…" autoFocus data-testid="reflection-text" />
-        </Field>
-        <Field label="A photo of the day"><PhotoStrip entryId={e.id} compact /></Field>
+        {written ? null : (
+          <Field label="In your own words" hint="What did you do? Who did it help? What was the best part?">
+            <Textarea rows={4} value={text} onChange={(ev) => setText(ev.target.value)} placeholder="Today I…" autoFocus data-testid="reflection-text" />
+          </Field>
+        )}
+        <Field label={written ? "A photo" : "A photo of the day"}><PhotoStrip entryId={e.id} compact /></Field>
         <DialogFooter className="sm:justify-between">
-          <Button type="button" variant="ghost" onClick={close} data-testid="reflection-skip">Skip for now</Button>
-          <Button type="submit" data-testid="reflection-save">Save</Button>
+          <Button type="button" variant="ghost" onClick={close} data-testid="reflection-skip">{written ? "No photo" : "Skip for now"}</Button>
+          <Button type="submit" data-testid="reflection-save">Done</Button>
         </DialogFooter>
       </form>
     </Shell>

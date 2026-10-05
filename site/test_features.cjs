@@ -174,6 +174,25 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.waitForSelector('[data-testid=wi-detail]');
   check('work item shows it came from the catalog and holds the hours', /From the catalog/.test(await pg.textContent('[data-testid=wi-catalog]')) && /Pet food drive/.test(await pg.textContent('[data-testid=wi-tracker]')));
   check('the tracker shows the reflection and the photos card the photo', /We filled two bags/.test(await pg.textContent('[data-testid=tracker-reflection]')) && (await pg.$$('[data-testid=wi-photos] [data-testid=photo]')).length === 1);
+  // an entry written when there were two boxes keeps both; opening it shows them as the one
+  // piece of writing they always were, and saving leaves no duplicate behind
+  await pg.evaluate(() => {
+    const k = 'volunteer.v2', d = JSON.parse(localStorage.getItem(k));
+    d.entries.find((x) => /We filled two bags/.test(x.reflection)).notes = 'Warehouse door on 3rd.';
+    localStorage.setItem(k, JSON.stringify(d));
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=wi-tracker]');
+  await pg.click('[data-testid=wi-tracker] tbody tr:has-text("We filled two bags")');
+  await pg.waitForSelector('[data-testid=entry-dialog]');
+  const merged = await pg.inputValue('[data-testid=entry-reflection]');
+  check('an older entry shows its note and its words as one piece of writing', /Warehouse door on 3rd/.test(merged) && /We filled two bags/.test(merged), merged.replace(/\n+/g, ' / '));
+  await pg.click('[data-testid=entry-save]');
+  await pg.waitForSelector('[data-testid=entry-dialog]', { state: 'detached' });
+  check('saving keeps the old note and stops storing it twice', await pg.evaluate(() => {
+    const e = JSON.parse(localStorage.getItem('volunteer.v2')).entries.find((x) => /We filled two bags/.test(x.reflection));
+    return e.notes === '' && /Warehouse door on 3rd/.test(e.reflection);
+  }));
   // the Places page is gone: the place lives on the work item, where you are when you want it
   check('the work item names the place and offers a way to correct it', /Seattle Humane/.test(await pg.textContent('[data-testid=wi-org]')) && (await pg.$('[data-testid=wi-org] [data-testid=edit-org]')) !== null);
   check('Seattle Humane was created once as a place', await pg.evaluate(() => JSON.parse(localStorage.getItem('volunteer.v2')).organizations.filter((o) => /Seattle Humane/.test(o.name)).length === 1));
@@ -426,6 +445,37 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.goto(base + '#/', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=today]');
   check('delete all returns to the empty state', /Ready to log your first hours/.test(await pg.textContent('[data-testid=today]')));
+
+  /* A phone, with a record full of real writing. A long reflection in the hours table used
+   * to stretch the column it sits in — a grid item sizes to its content unless told not to —
+   * and the whole page scrolled sideways on every screen narrower than the table. Nothing
+   * caught it: the suites assert on text and behaviour, and the text was all there, just off
+   * to the right. So this asks the one question a reader would: does the page fit? */
+  const LONG = 'I can help the shelter by collecting food, money, and making handmade fleece blankets. I can also deliver unused, still-in-package toys, sheets, and beds to the shelter. I really like cats, and I want one, but my parents will not let me get a cat yet.';
+  const phone = await b.newContext({ viewport: { width: 390, height: 844 } });
+  await fakeGoogle(phone);
+  const ph = await phone.newPage(); const phErrs = errorsOf(ph);
+  await ph.goto(base, { waitUntil: 'networkidle' });
+  await signIn(ph);
+  await ph.goto(base + '#/settings', { waitUntil: 'networkidle' });
+  await ph.click('[data-testid=data-sample]');
+  await ph.waitForSelector('[data-testid=toast]:has-text("Sample data loaded")');
+  await ph.evaluate((long) => {
+    const k = 'volunteer.v2', d = JSON.parse(localStorage.getItem(k));
+    for (const e of d.entries) e.reflection = long;
+    for (const m of d.memos) m.text = long;
+    for (const w of d.workItems) w.description = long;
+    localStorage.setItem(k, JSON.stringify(d));
+  }, LONG);
+  await ph.reload({ waitUntil: 'networkidle' });   // the store is in memory; it has to read the record back
+  for (const r of ['/', '/catalog', '/work', '/work/wi-pantry', '/calendar', '/path', '/rewards', '/log', '/reports', '/settings']) {
+    await ph.goto(base + '#' + r, { waitUntil: 'networkidle' });
+    await ph.waitForTimeout(250);
+    const m = await ph.evaluate(() => ({ scroll: document.documentElement.scrollWidth, client: document.documentElement.clientWidth }));
+    check(`${r} fits a phone, long writing and all`, m.scroll <= m.client, m.scroll > m.client ? `${m.scroll}px wide in a ${m.client}px window` : '');
+  }
+  check('no page errors on a phone', phErrs.length === 0, phErrs.join(' | '));
+  await phone.close();
 
   check('no page errors', errs.length === 0, errs.join(' | '));
   await b.close(); srv.close();

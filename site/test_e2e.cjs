@@ -60,6 +60,8 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
     await pg.fill('[data-testid=entry-hours]', '2.5');
     await pick(pg, '[data-testid=entry-org]', 'Riverside Food Bank');
     await pg.fill('[data-testid=entry-activity]', 'Sorted donations');
+    check('the log dialog asks for her words once, in one box', (await pg.$('[data-testid=entry-reflection]')) !== null && !/Notes/.test(await pg.textContent('[data-testid=entry-dialog]')));
+    await pg.fill('[data-testid=entry-reflection]', 'I stacked the tins by date.');
     await pg.click('[data-testid=entry-save]');
     await pg.waitForSelector('[data-testid=entry-dialog]', { state: 'detached' });
     // the "Logged 2.5 hours" toast is replaced within the second by "Badge earned: First
@@ -68,8 +70,14 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
       const d = JSON.parse(localStorage.getItem('volunteer.v2')), e = d.entries[0];
       return d.entries.length === 1 && e.hours === 2.5 && e.activity === 'Sorted donations' && !!e.orgId;
     }));
+    check('what she wrote is kept as her words, and no second field holds a copy', await pg.evaluate(() => {
+      const e = JSON.parse(localStorage.getItem('volunteer.v2')).entries[0];
+      return e.reflection === 'I stacked the tins by date.' && e.notes === '';
+    }));
+    // having written it in the dialog, the step that follows is only there for the photo —
+    // a photo needs an entry to hang on, which is why there is a second step at all
     await pg.waitForSelector('[data-testid=reflection-dialog]');
-    check('a new entry asks how it went', /How did it go/.test(await pg.textContent('[data-testid=reflection-dialog]')));
+    check('the step after saving asks for a photo, not for the same words again', (await pg.$('[data-testid=reflection-text]')) === null && /Keep a photo/.test(await pg.textContent('[data-testid=reflection-dialog]')));
     await pg.click('[data-testid=reflection-skip]');
     await pg.waitForSelector('[data-testid=reflection-dialog]', { state: 'detached' });
 

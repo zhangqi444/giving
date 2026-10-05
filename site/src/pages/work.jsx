@@ -153,8 +153,11 @@ export function WorkDetail({ id }) {
         </CardContent></Card>
       ) : null}
 
+      {/* min-w-0 on both columns: a grid item sizes to its content by default, so one long
+          reflection in the hours table stretched the column and scrolled the whole page
+          sideways instead of scrolling inside the table. */}
       <div className="grid gap-4 @3xl/main:grid-cols-[3fr_2fr]">
-        <div className="flex flex-col gap-4">
+        <div className="flex min-w-0 flex-col gap-4">
         <Card data-testid="wi-plans">
           <CardHeader>
             <CardTitle>Planned</CardTitle>
@@ -196,7 +199,7 @@ export function WorkDetail({ id }) {
         </Card>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex min-w-0 flex-col gap-4">
         {org ? (
           <Card data-testid="wi-org">
             <CardHeader>

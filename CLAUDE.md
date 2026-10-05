@@ -57,6 +57,13 @@ Claude-Session: <session url>
   the command the deploy workflow runs, which is the last point at which catching
   this keeps it away from a reader. With the line, 35 of 97 such classes are in
   the stylesheet; without it, none, and the build stops.
+- **A grid or flex child that holds a table needs `min-w-0`.** Its default
+  `min-width: auto` sizes it to its content, so one long reflection in the hours
+  table stretched the column and scrolled the whole *page* sideways instead of
+  scrolling inside the table — on every screen narrower than the table, which on a
+  phone is all of them. No suite saw it: the text was all present, just off to the
+  right. `test_features.cjs` now walks every route at 390px with long writing in the
+  record and asserts `scrollWidth <= clientWidth`.
 - `button.jsx` and `sidebar.jsx` used to stay local, on the grounds that this site's
   button was deliberately flatter than the learning site's. The owner chose the
   package's button instead, so both files are gone and the site wears the "sticker"
