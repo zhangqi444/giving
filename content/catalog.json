@@ -335,9 +335,12 @@
       "summary": "Real shelter chores for kids as young as nine, alongside a parent or guardian.",
       "details": [
         "RASKC offers volunteer opportunities for ages 16 and 17 with guardian consent, and ages 9–15 with an accompanying guardian.",
-        "The Shelter Helper role is available for ages 9+; youth 9–15 must be accompanied by their parent or legal guardian.",
-        "Listed Shelter Helper shifts involve washing dishes and doing laundry at the Kent Pet Adoption Center; training is provided for all volunteer roles.",
-        "Register for a volunteer orientation to start; questions go to RASKC.Volunteers@kingcounty.gov."
+        "The Shelter Helper role is available for ages 9+; youth 9–15 must be accompanied by their parent or legal guardian, who becomes a volunteer too and supervises.",
+        "Listed Shelter Helper shifts involve laundry, washing and sanitising water bowls and litter boxes, preparing cat-food trays and taking the rubbish out, at the Kent Pet Adoption Center.",
+        "Signing up is three things: the online volunteer application, which a parent/youth team fills in separately for each person who wants a shift; a volunteer agreement form, which only an adult can sign; and a new-volunteer orientation — in person in Kent about twice a month, a few times a year on the Eastside, or online for anyone who cannot get to one.",
+        "RASKC then gets in touch about which open roles match, and training is reading material plus apprenticeship shifts alongside a mentor volunteer.",
+        "Shelter Helper asks for six months, or six shifts plus two training shifts over a summer.",
+        "Questions go to RASKC.Volunteers@kingcounty.gov."
       ],
       "ages": {
         "min": 9,
@@ -347,9 +350,9 @@
       },
       "commitment": "Scheduled shifts, typically an hour or two.",
       "location": "Kent Pet Adoption Center, 21615 64th Ave S, Kent",
-      "howTo": "Register for a RASKC volunteer orientation from the volunteer page, then sign up for Shelter Helper shifts together.",
+      "howTo": "Each of you fills in the online volunteer application, a parent signs the volunteer agreement form, then you both go to a new-volunteer orientation and RASKC matches you to Shelter Helper shifts.",
       "url": "https://kingcounty.gov/en/dept/executive-services/animals-pets-pests/regional-animal-services/volunteer",
-      "verified": "2026-09-06",
+      "verified": "2026-10-05",
       "tags": [
         "animals",
         "cats",
@@ -1517,7 +1520,8 @@
       "summary": "Train once, join the waitlist for the animals you want, then say yes when an email comes.",
       "details": [
         "The foster applicant must be at least 16 and an adult in the household signs the liability waiver, so a parent registers and the family fosters together.",
-        "Getting started is a volunteer application plus the Fostering 101 training video and a quiz.",
+        "To foster rather than take shifts, RASKC asks for one online application for the household instead of one each — everyone at home is still welcome to help with the animal.",
+        "Getting started is that application plus the Fostering 101 training video and a quiz.",
         "After training you join waitlists for the kinds of animal you would like to foster; when one is ready an email comes and it needs answering quickly.",
         "RASKC's volunteer page also says children can take part in caring for animals through fostering, with an adult in the household as the official volunteer — which is how a nine-year-old helps here, since shelter shifts start at nine only with a parent alongside."
       ],
@@ -1529,9 +1533,9 @@
       },
       "commitment": "Whatever you say yes to.",
       "location": "At home; pick-up in Kent",
-      "howTo": "Apply with a parent, watch Fostering 101 together and take the quiz, then pick the cat waitlists.",
+      "howTo": "A parent fills in one online volunteer application for the household and signs the agreement form, you watch Fostering 101 together and take the quiz, then pick the cat waitlists.",
       "url": "https://kingcounty.gov/en/dept/executive-services/animals-pets-pests/regional-animal-services/volunteer",
-      "verified": "2026-09-12",
+      "verified": "2026-10-05",
       "tags": [
         "cats",
         "kittens",
