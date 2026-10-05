@@ -837,34 +837,34 @@
       "ages": {
         "max": null,
         "min": null,
-        "note": "No age limit stated; cutting fleece takes sharp scissors, so an adult helps.",
+        "note": "No age limit — anyone can make and donate. Sharp scissors and the drive to Kent need an adult.",
         "withAdult": true
       },
       "commitment": "An afternoon per batch.",
       "details": [
+        "This one is a donation, not a volunteer role: RASKC's wish list asks for \"yards of fleece for making cat blankets (or make your own to donate)\". No application, no agreement form, no orientation — make them and bring them.",
         "No sewing needed: cut fleece 25\" x 21\" for a large blanket or 13\" x 21\" for a small one, then cut the edges into fringe and tie it. RASKC's instruction sheet says the fringe has to be tied very tightly, because loose fringe is dangerous for a cat.",
-        "If you do sew, the sizes are 22\" x 18\" or 10\" x 18\".",
-        "Fleece only, and arrange it before you start: RASKC takes a limited number of blankets each month and asks that blanket-making be scheduled with them first.",
-        "RASKC's volunteer manual credits one hour of community service for each blanket made and donated, in the months they are accepting them.",
-        "Drop them at the Pet Adoption Center, 21615 64th Ave S in Kent, weekdays 12–6pm or weekends 12–5pm, except holidays.",
-        "RASKC's volunteer page lists blankets under group volunteering, alongside running a small fundraiser, putting up posters in the community, and making videos."
+        "If you do sew, the sizes are 22\" x 18\" or 10\" x 18\". Fleece only, either way.",
+        "Take them to the Pet Adoption Center, 21615 64th Ave S in Kent, which is open to the public weekdays 12–6pm and weekends 12–5pm except major holidays.",
+        "Service hours are the one part that needs arranging first. RASKC credits an hour per blanket, but only in the months it is taking them, and asks that blanket-making be scheduled before you start — email RASKC.Volunteers@kingcounty.gov. Donating without counting hours needs none of that.",
+        "RASKC's volunteer page lists blankets under group volunteering too, alongside running a small fundraiser, putting up posters in the community, and making videos."
       ],
-      "howTo": "Email RASKC.Volunteers@kingcounty.gov to arrange a batch and check they are accepting, then cut and tie the blankets to the sizes on the instruction sheet and take them to Kent.",
+      "howTo": "Cut and tie a batch to the sizes on RASKC's instruction sheet, then take them to the Kent Pet Adoption Center any afternoon it is open. Email RASKC.Volunteers@kingcounty.gov first only if you want the hours credited as community service.",
       "id": "raskc-cat-blankets",
       "kind": "craft",
       "location": "At home; drop off at the Kent shelter",
       "org": "raskc",
-      "summary": "Cut and tie fleece blankets at home. Every cat at the shelter gets one in its condo, and it goes home with the cat when it is adopted.",
+      "summary": "Make fleece blankets at home and drop them off. RASKC's wish list asks for them, so there is nothing to apply for — every cat gets one in its condo and takes it home when it is adopted.",
       "tags": [
         "animals",
         "cats",
         "crafts",
         "at home",
         "family",
-        "service hours"
+        "no sign-up"
       ],
       "title": "Cat cozy blankets for the Kent shelter",
-      "url": "https://cdn.kingcounty.gov/-/media/king-county/depts/executive-services/regional-animal-services/documents/raskc-cat-blanket-instructions.pdf?rev=2b7251cf45ec430aba3782e36e61fcca&hash=37F3AEC0A6E3982F5361045364637746",
+      "url": "https://kingcounty.gov/en/dept/executive-services/animals-pets-pests/regional-animal-services/donate",
       "verified": "2026-10-05",
       "where": "at-home"
     },
