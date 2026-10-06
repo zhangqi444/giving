@@ -402,11 +402,13 @@
       "title": "Make cat toys, scratchers and beds for PAWS",
       "kind": "craft",
       "where": "at-home",
-      "summary": "PAWS lists kid-friendly things to make at home for the shelter's cats and dogs.",
+      "summary": "PAWS keeps its own list of things to make at home for the shelter's cats and dogs. Ring first to hear what they are short of, then make a batch.",
       "details": [
-        "At PAWS you must be 18 or older to work with or around animals, so at-home projects are how kids help directly.",
-        "Ideas from PAWS: snuffle mats, cardboard cat scratchers, dog toys out of old t-shirts or jeans, cat toys out of fabric, feathers and string, and cat beds sewn from used sweaters.",
-        "PAWS also suggests being kind to wildlife: fresh water and bird feeders at home, picking up litter that can harm wild animals."
+        "PAWS's Youth Projects page is the list: snuffle mats, cardboard cat scratchers, dog toys from old t-shirts or jeans, cat toys from fabric, feathers and string, and cat beds sewn from used sweaters.",
+        "The scratchers come with a size — 3.5\" x 8\", with a twist tie so one hangs on a kennel door.",
+        "At PAWS you have to be 18 or over to work with or around animals, so things made at home are how someone younger helps the animals directly.",
+        "Handmade things are not on the printed wish list, and PAWS asks that anything not on it be checked with them first, and that donations be dropped off in business hours arranged by phone on 425.787.2500. It has had a lot of bedding donated lately, so that call is what decides between beds and scratchers.",
+        "PAWS also suggests being kind to wildlife at home: fresh water and bird feeders, and picking up litter that can harm wild animals."
       ],
       "ages": {
         "min": null,
@@ -416,9 +418,9 @@
       },
       "commitment": "An afternoon per batch.",
       "location": "At home; deliver to PAWS in Lynnwood",
-      "howTo": "Pick a project from the Kids & Teen Opportunities page, make a batch, and contact PAWS about dropping it off.",
-      "url": "https://www.paws.org/volunteer/opportunities/kids-teen-opportunities/",
-      "verified": "2026-09-06",
+      "howTo": "Ring PAWS on 425.787.2500 to ask which projects they are short of and when to bring them, then make a batch from the Youth Projects page.",
+      "url": "https://www.paws.org/education/youth-projects/",
+      "verified": "2026-10-06",
       "tags": [
         "animals",
         "cats",
@@ -435,9 +437,10 @@
       "where": "at-home",
       "summary": "Collect supplies from PAWS's wish list, or ask for donations instead of birthday presents.",
       "details": [
-        "PAWS receives donations from kids who ask for donations to help animals instead of presents for their birthday.",
-        "Kids can organize a FUNdraiser, have a gift drive, collect animal supplies, or all three.",
-        "Wish-list items can be bought online and shipped directly to PAWS."
+        "PAWS publishes a downloadable list of what it needs now, and Amazon and Chewy wish lists whose items ship straight to the shelter — nothing to carry and nothing to arrange.",
+        "It cannot take food or treats that have been opened or are past their date.",
+        "PAWS's kids and teens page says children often ask for donations to help animals instead of birthday presents, and can run a FUNdraiser, a gift drive, or collect supplies — or all three.",
+        "Anything not on the list, and any drop-off in person, goes through a call to 425.787.2500 first."
       ],
       "ages": {
         "min": null,
@@ -447,9 +450,9 @@
       },
       "commitment": "A few weeks of collecting, then one delivery or shipment.",
       "location": "Neighborhood or school; ship or deliver to PAWS",
-      "howTo": "Use the PAWS wish list to tell people what to bring, then deliver or ship the items.",
-      "url": "https://www.paws.org/volunteer/opportunities/kids-teen-opportunities/",
-      "verified": "2026-09-06",
+      "howTo": "Open the wish list, either have the items shipped to PAWS from the Amazon list or collect them from neighbours and school, and ring 425.787.2500 before bringing anything in person.",
+      "url": "https://www.paws.org/donate/our-wish-list/",
+      "verified": "2026-10-06",
       "tags": [
         "animals",
         "cats",
