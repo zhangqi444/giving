@@ -563,6 +563,7 @@
       "details": [
         "Fostering is described as a great way for families to become involved, especially those with children too young to become volunteers at the shelter.",
         "Foster families provide temporary in-home care, from 2-day kennel breaks to a couple of months of quiet surgery rehab; mostly dogs, from energetic puppies to calm seniors.",
+        "The primary foster carer has to be 18 or over, which is the parent; everyone else in the house helps look after the animal.",
         "Fill out the Volunteer Application; you will be invited to the General Orientation."
       ],
       "ages": {
@@ -575,7 +576,7 @@
       "location": "At home; Woodinville",
       "howTo": "Submit the Volunteer Application on homewardpet.org and attend the General Orientation.",
       "url": "https://www.homewardpet.org/volunteer/foster-care/",
-      "verified": "2026-09-06",
+      "verified": "2026-10-07",
       "tags": [
         "animals",
         "dogs",
@@ -617,26 +618,26 @@
     {
       "id": "safr-volunteer",
       "org": "safr",
-      "title": "Seattle Area Feline Rescue volunteering (from 17, or 16 with an interview)",
+      "title": "Seattle Area Feline Rescue volunteering (from 16)",
       "kind": "shift",
       "where": "in-person",
       "summary": "Cat care and adoption-center roles at the Shoreline rescue once she is old enough.",
       "details": [
-        "Volunteers in the shelter must be at least 17, or 16 with an interview; anyone under 18 needs a parent or guardian's signed agreement.",
+        "The volunteer FAQ puts the minimum age at 16; anyone under 18 needs a parent or guardian's signature on the agreement.",
         "Shifts are a regular weekly commitment of two to three hours.",
         "Until then the rescue recommends fostering as a family (listed separately)."
       ],
       "ages": {
-        "min": 17,
+        "min": 16,
         "max": null,
         "withAdult": false,
-        "note": "17 to volunteer in the shelter, or 16 with an interview; under 18 needs a parent's signature."
+        "note": "From 16; under 18 needs a parent's signature on the agreement."
       },
       "commitment": "Regular shifts.",
       "location": "Shoreline",
-      "howTo": "Apply through the volunteer page at 17, or at 16 and ask about the interview.",
+      "howTo": "Apply through the volunteer page at 16, with a parent to sign the agreement.",
       "url": "https://seattleareafelinerescue.org/volunteer/",
-      "verified": "2026-09-10",
+      "verified": "2026-10-07",
       "tags": [
         "cats",
         "shelter",
@@ -734,26 +735,26 @@
     {
       "id": "motley-foster-cats",
       "org": "motley-zoo",
-      "title": "Foster kittens with Motley Zoo (families with kids from age 2)",
+      "title": "Foster kittens with Motley Zoo (young children welcome)",
       "kind": "foster",
       "where": "at-home",
-      "summary": "A Redmond rescue that welcomes young families as foster homes for cats and kittens.",
+      "summary": "A Redmond rescue whose cat fostering is open to households with children too young for anywhere else.",
       "details": [
-        "On-site volunteering at Motley Zoo's boarding and training facility is 18+, but fostering can be done at home as early as age 2 for cats and kittens and age 5 for dogs.",
-        "Families with kids under 5 can foster cats and kittens at Motley Zoo's discretion.",
+        "On-site volunteering at Motley Zoo's boarding and training facility is 18+, so fostering at home is how a family takes part.",
+        "The age rule is about the animal, not the volunteer: dogs go only to homes where the children are over 5, while cats, kittens and other small animals can go to families with children under 5, at Motley Zoo's discretion.",
         "Fostering cats does not need much space: a half-bath or laundry room is plenty for a litter box, bowls and a soft place to nap, and Motley Zoo can provide the supplies, including food."
       ],
       "ages": {
         "min": null,
         "max": null,
         "withAdult": true,
-        "note": "Kids from age 2 (cats) or 5 (dogs) in the household; the adult is the registered foster."
+        "note": "No minimum for the children in a cat foster home (dogs need them over 5); the adult is the registered foster."
       },
       "commitment": "Weeks per foster.",
       "location": "At home; Redmond and Monroe",
       "howTo": "Email cats@motleyzoo.org about fostering kittens as a family, or info@motleyzoo.org for how to get involved.",
       "url": "https://www.motleyzooanimalrescue.org/fostering",
-      "verified": "2026-09-06",
+      "verified": "2026-10-07",
       "tags": [
         "cats",
         "foster",
@@ -769,7 +770,9 @@
       "where": "in-person",
       "summary": "Shelter volunteering that opens at ten with a parent along.",
       "details": [
-        "Children under 10 are not eligible to volunteer; ages 10–15 can volunteer with a parent, guardian or adult 18+; 16 and older can volunteer on their own."
+        "Children under 10 are not eligible; ages 10–15 volunteer with a parent, guardian, grandparent or older sibling who is 18 or over and volunteers too; 16 and over can come on their own.",
+        "Under 16 means limited contact with the animals — no dog walking, cat kennel care or cage cleaning. The work is laundry, washing dishes and cat pans, stuffing Kongs, sweeping and mopping, wiping down walls and door handles.",
+        "The programme asks for six months and at least eight hours a month, which is about once a week, so it is a standing Saturday rather than a visit."
       ],
       "ages": {
         "min": 10,
@@ -777,11 +780,11 @@
         "withAdult": true,
         "note": "From age 10 with an adult; alone from 16."
       },
-      "commitment": "Shifts.",
+      "commitment": "Six months, about eight hours a month.",
       "location": "Auburn",
-      "howTo": "Apply through the volunteer page once she is 10, with the adult who will come along.",
+      "howTo": "Apply through the volunteer page once she is 10, together with the adult who will come along — they sign up as a volunteer too.",
       "url": "https://auburnvalleyhs.org/get-involved/volunteer/",
-      "verified": "2026-09-06",
+      "verified": "2026-10-07",
       "tags": [
         "animals",
         "cats",
@@ -798,6 +801,7 @@
       "summary": "A sanctuary in Sultan for rescued farm animals, dogs and cats.",
       "details": [
         "Volunteer opportunities are available for youths 12 and older; volunteers 12–15 must volunteer alongside a legal guardian; 16 and 17 may volunteer with guardian consent and a background check.",
+        "Signing up is an online application with a background check — for a twelve-year-old that falls on the guardian who comes along.",
         "Compassion Days group volunteer events are for groups 18 and older, typically 10:00 a.m.–2:30 p.m."
       ],
       "ages": {
@@ -810,7 +814,7 @@
       "location": "Sultan",
       "howTo": "Email volunteer@pasadosafehaven.org or call (360) 793-9393 when she is 12.",
       "url": "https://www.pasadosafehaven.org/get-involved/volunteer/opportunities/",
-      "verified": "2026-09-06",
+      "verified": "2026-10-07",
       "tags": [
         "animals",
         "farm animals",
@@ -827,7 +831,8 @@
       "summary": "Dog walking, cat socialization and small-animal enrichment with a parent alongside.",
       "details": [
         "The 2025 volunteer manual defines a youth volunteer as any KHS volunteer aged 13 to 15; a youth volunteer team is a youth and their parent or guardian, or two youths and one adult.",
-        "Anyone under 16 must be accompanied by a parent or adult at all times, and every accompanying adult must also submit a volunteer application.",
+        "The adult must be an official KHS volunteer, attend every training class alongside her, and stay within sight and within arm's reach for the whole shift.",
+        "That adult does not have to be the legal guardian — a grandparent or family friend of 18 or over can do it, with written approval from the parent.",
         "Roles: dog walking, feline socialization, small animal enrichment, laundry and dishes."
       ],
       "ages": {
@@ -838,9 +843,9 @@
       },
       "commitment": "Shifts.",
       "location": "Kitsap County, a ferry ride from Seattle",
-      "howTo": "Apply together through the volunteer page when she is 12.",
+      "howTo": "Apply together through the volunteer page at 13 — one application each, hers and the adult's.",
       "url": "https://www.kitsap-humane.org/get-involved/volunteer/",
-      "verified": "2026-09-10",
+      "verified": "2026-10-07",
       "tags": [
         "animals",
         "cats",
@@ -1195,7 +1200,8 @@
         "Volunteers must be 13 or older, and each programme sets its own age on top of that.",
         "Volunteers aged 13–17 volunteer with a parent or legal guardian, who attends orientation and every training and works the shift with them.",
         "At 16 or 17 some programmes may be done independently if the parent attends training and signs the paperwork; others stay youth-and-adult teams until 18.",
-        "The Wing Assistant role is the one the shelter names as good for a junior-and-parent team, from 15."
+        "The Wing Assistant role is the one the shelter names as good for a junior-and-parent team, from 15.",
+        "Most programmes ask for one shift a week for at least three months."
       ],
       "ages": {
         "min": 13,
@@ -1203,11 +1209,11 @@
         "withAdult": true,
         "note": "From 13, with a parent who trains and works the shift too."
       },
-      "commitment": "Regular shifts.",
+      "commitment": "One shift a week, three months at least.",
       "location": "Everett Animal Shelter",
       "howTo": "At 13, apply together through the shelter's volunteer application and book orientation for both of you.",
       "url": "https://www.everettwa.gov/2362/22801/Become-a-Volunteer",
-      "verified": "2026-09-12",
+      "verified": "2026-10-07",
       "tags": [
         "animals",
         "cats",
@@ -1670,6 +1676,7 @@
       "summary": "Feeding orphaned songbirds and baby opossums at a wildlife hospital — when she is fifteen.",
       "details": [
         "Youth volunteers must be 16, or 15 with a parent alongside.",
+        "It is a standing commitment: one four-hour shift a week, the same day and time every week, after an orientation and the mandatory trainings.",
         "The work includes helping in the nursery feeding baby animals, preparing diets, cleaning the hospital wards, cages and enclosures, and the sweeping, mopping, dishes and laundry that a hospital runs on.",
         "Training is given for every role and no experience is needed; volunteers also help make events work.",
         "Orphaned wild songbirds and opossums are among the animals named as needing feeding."
@@ -1680,11 +1687,11 @@
         "withAdult": true,
         "note": "16 alone, or 15 with a parent volunteering alongside."
       },
-      "commitment": "Regular shifts.",
+      "commitment": "One four-hour shift a week, the same day and time.",
       "location": "Bainbridge Island",
-      "howTo": "At 15, apply together through the wildlife volunteer page; the ferry trip is part of the day.",
+      "howTo": "At 15, apply together through the wildlife volunteer page and pick the weekly slot you can both keep — the ferry trip is part of the day.",
       "url": "https://westsoundwildlife.org/wildlife-volunteer/",
-      "verified": "2026-09-13",
+      "verified": "2026-10-07",
       "tags": [
         "animals",
         "wildlife",
