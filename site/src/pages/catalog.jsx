@@ -154,6 +154,15 @@ export function SuggestCard() {
   )
 }
 
+/** Takes her to the one setting this page reads, worded as what it does to this page. */
+function AgeLink({ children }) {
+  return (
+    <button type="button" onClick={() => go("/settings")} className="text-primary underline-offset-2 hover:underline" data-testid="catalog-age-link">
+      {children}
+    </button>
+  )
+}
+
 export function Catalog() {
   const store = useStore()
   const age = currentAge()
@@ -188,9 +197,16 @@ export function Catalog() {
   })
   return (
     <div className="flex flex-col gap-4">
-      <PageHeader title="Find something" description={age != null ? `Opportunities near Seattle, checked against ${name || "the volunteer"}'s age (${age}). Set the age in Settings if it changes.` : "Opportunities near Seattle. Set the volunteer's age in Settings to see which ones fit."}>
-        <Button variant="outline" onClick={() => go("/settings")}>Profile</Button>
-      </PageHeader>
+      {/* The age is the one setting this page depends on, so it is reachable from the
+          sentence that names it. It used to be a button called Profile, sitting at the top
+          of her page beside nothing else — a word this app uses nowhere, for a grown-ups'
+          page the sidebar already lists, next to filters it looked like a part of. */}
+      <PageHeader
+        title="Find something"
+        description={age != null
+          ? <>Opportunities near Seattle, checked against {name || "the volunteer"}&rsquo;s age ({age}). <AgeLink>Change the age</AgeLink> when it moves on.</>
+          : <>Opportunities near Seattle. <AgeLink>Set the volunteer&rsquo;s age</AgeLink> to see which ones fit.</>}
+      />
       <Card className="py-4">
         <CardContent className="grid gap-3 @lg/main:grid-cols-2 @3xl/main:grid-cols-3 @5xl/main:grid-cols-5">
           <Input type="search" placeholder="Search…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search" data-testid="catalog-search" />

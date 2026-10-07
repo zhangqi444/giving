@@ -258,7 +258,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   // catalog: fit badges against Sheila's age (9, from the sample profile), filters, interest, plan it
   await pg.goto(base + '#/catalog', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=catalog-grid]');
-  check('catalog header names the volunteer and age', /Sheila's age \(9\)/.test(await pg.textContent('h1 + p')));
+  check('catalog header names the volunteer and age', /Sheila[’']s age \(9\)/.test(await pg.textContent('h1 + p')));
   check('35 opportunities fit now (incl. with an adult / age not stated)', (await pg.$$('[data-testid=catalog-item]')).length === 35, String((await pg.$$('[data-testid=catalog-item]')).length));
   check('no age-gated item shown under Fits now', (await pg.$$('[data-testid=catalog-item] [data-fit=later]')).length === 0);
   await pick(pg, '[data-testid=catalog-fit]', 'When she is older');
