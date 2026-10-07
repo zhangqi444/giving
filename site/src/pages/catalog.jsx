@@ -163,13 +163,22 @@ export function Catalog() {
   const [kind, setKind] = React.useState("")
   const [where, setWhere] = React.useState("")
   const [fitF, setFitF] = React.useState(age == null ? "" : "now")
+  // What she has done about an item is a different question from whether she is old enough
+  // for it, and it used to be a fourth value inside the age filter — so "Saved or started"
+  // was an alternative to "Old enough now", and there was no way to ask for just the saved
+  // ones, or for the ones she has not looked at yet.
+  const [status, setStatus] = React.useState("")
   const [area, setArea] = React.useState("")
   const areas = [...new Set(C.items.map((i) => catalogArea(i)).filter(Boolean))].sort()
   const items = C.items.filter((i) => {
     const f = fit(i, age).key
     if (fitF === "now" && !(f === "fits" || f === "adult" || f === "unknown")) return false
     if (fitF === "later" && f !== "later") return false
-    if (fitF === "marked" && !store.s.interests[i.id]) return false
+    if (status) {
+      const started = !!workItemForCatalog(i.id)
+      const marked = !!store.s.interests[i.id]
+      if (status === "doing" ? !started : status === "saved" ? started || !marked : started || marked) return false
+    }
     if (org && i.org !== org) return false
     if (kind && i.kind !== kind) return false
     if (where && i.where !== where) return false
@@ -185,7 +194,11 @@ export function Catalog() {
       <Card className="py-4">
         <CardContent className="grid gap-3 @lg/main:grid-cols-2 @3xl/main:grid-cols-3 @5xl/main:grid-cols-5">
           <Input type="search" placeholder="Search…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search" data-testid="catalog-search" />
-          <Pick value={fitF} onChange={setFitF} options={[{ value: "now", label: age != null ? `Old enough now (at ${age})` : "Old enough now" }, { value: "later", label: "When she is older" }, { value: "marked", label: "Saved or started" }]} noneLabel="Any age" testid="catalog-fit" />
+          <Pick value={fitF} onChange={setFitF} options={[{ value: "now", label: age != null ? `Old enough now (at ${age})` : "Old enough now" }, { value: "later", label: "When she is older" }]} noneLabel="Any age" testid="catalog-fit" />
+          {/* Asking for the saved ones means all of them, including the ones she is saving
+              for when she is older, so this widens the age filter rather than fighting it —
+              visibly, in the control above, not behind her back. */}
+          <Pick value={status} onChange={(v) => { setStatus(v); if (v) setFitF("") }} options={[{ value: "doing", label: "Doing it" }, { value: "saved", label: "Saved for later" }, { value: "new", label: "Not saved yet" }]} noneLabel="Saved or not" testid="catalog-status" />
           <Pick value={org} onChange={setOrg} options={Object.entries(C.organizations).sort((a, b) => a[1].name.localeCompare(b[1].name)).map(([id, o]) => ({ value: id, label: o.name }))} noneLabel="All places" testid="catalog-org" />
           <Pick value={kind} onChange={setKind} options={Object.entries(KIND_LABEL).map(([v, l]) => ({ value: v, label: l }))} noneLabel="Any kind of work" testid="catalog-kind" />
           <Pick value={where} onChange={setWhere} options={Object.entries(WHERE_LABEL).map(([v, l]) => ({ value: v, label: l }))} noneLabel="At home, out or online" testid="catalog-where" />

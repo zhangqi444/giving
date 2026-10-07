@@ -305,10 +305,20 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.waitForSelector('[data-testid=toast]:has-text("Saved for later")');
   check('saving for later is recorded as interest, without a dropdown of statuses', await pg.evaluate(() => JSON.parse(localStorage.getItem('volunteer.v2')).interests['sh-cat-blankets'].status === 'interested') && /Saved/.test(await pg.textContent('[data-id=sh-cat-blankets] [data-testid=catalog-save]')));
   await pg.fill('[data-testid=catalog-search]', '');
-  await pick(pg, '[data-testid=catalog-fit]', 'Saved or started');
-  check('the Saved or started filter holds the saved one and the started one', (await pg.$$('[data-testid=catalog-item]')).length === 2, String((await pg.$$('[data-testid=catalog-item]')).length));
+  // what she has done about an item is its own filter now; it used to be a fourth value
+  // inside the age one, so "saved" was an alternative to "old enough", and there was no way
+  // to ask for the saved ones alone or for the ones she has not looked at yet
+  await pick(pg, '[data-testid=catalog-status]', 'Doing it');
+  check('Doing it holds the two she has started', (await pg.$$('[data-testid=catalog-item]')).length === 2 && /Pet food drive/.test(await pg.textContent('[data-testid=catalog-grid]')), String((await pg.$$('[data-testid=catalog-item]')).length));
+  check('choosing a status widens the age filter rather than fighting it', /Any age/.test(await pg.textContent('[data-testid=catalog-fit]')));
+  await pick(pg, '[data-testid=catalog-status]', 'Not saved yet');
+  check('Not saved yet is the other 44, so the three states account for the catalog', (await pg.$$('[data-testid=catalog-item]')).length === 44, String((await pg.$$('[data-testid=catalog-item]')).length));
+  await pick(pg, '[data-testid=catalog-status]', 'Saved for later');
+  check('Saved for later holds the saved one and not the started one', (await pg.$$('[data-testid=catalog-item]')).length === 1 && /No-sew cat blankets/.test(await pg.textContent('[data-testid=catalog-grid]')), String((await pg.$$('[data-testid=catalog-item]')).length));
 
   // marking interest opens the next step: the how-to and a prefilled introduction email
+  // (the card closed when the filters above took it off the page and put it back)
+  await pg.click('[data-id=sh-cat-blankets] [data-testid=catalog-more]');
   await pg.waitForSelector('[data-id=sh-cat-blankets] [data-testid=next-step]');
   const mail = await pg.getAttribute('[data-id=sh-cat-blankets] [data-testid=catalog-email]', 'href');
   check('the intro email is addressed to the organization and names Sheila and her age', /^mailto:EducationServices%40seattlehumane\.org\?/.test(mail) && /Sheila/.test(decodeURIComponent(mail)) && /who is 9/.test(decodeURIComponent(mail)) && /No-sew cat blankets/.test(decodeURIComponent(mail)), mail.slice(0, 80));
@@ -330,7 +340,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pick(pg, '[data-testid=catalog-area]', 'South · Kent');
   check('the area filter narrows to the Kent organization', (await pg.$$('[data-testid=catalog-item]')).length === 3 && /Kent/.test(await pg.textContent('[data-testid=catalog-grid]')));
   await pick(pg, '[data-testid=catalog-area]', 'Any distance');
-  await pick(pg, '[data-testid=catalog-fit]', 'Saved or started');
+  await pick(pg, '[data-testid=catalog-status]', 'Saved for later');
   // planning happens on the work item now, so the past and the future of one piece of
   // work sit on one page; the catalog only hands over
   await pg.click('[data-id=sh-cat-blankets] [data-testid=catalog-do]');
