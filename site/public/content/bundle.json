@@ -637,7 +637,7 @@
         "In person at PAWS and approximately 90 minutes; not a drop-off programme, so a parent, guardian or troop leader stays. Offered in partnership with Girl Scouts of Western Washington.",
         "PAWS runs the same workshops at other Scout levels, so there is one for later: Caring Creatures (Daisy), PAWS for Cats and Dogs (Brownie Pets badge) and Heroic Animal Helpers (Cadette, ages 11–13)."
       ],
-      "howTo": "Registration opens in January — watch the event page and sign her up individually; email education@paws.org to ask about dates or whether she can take part without a troop.",
+      "howTo": "Watch PAWS's Scout Programs page for the next Our Wild World date and book her in individually; email education@paws.org to ask when the next one is.",
       "id": "paws-scout-badges",
       "kind": "event",
       "location": "PAWS, 15305 44th Ave W, Lynnwood",
@@ -651,8 +651,8 @@
         "with a parent"
       ],
       "title": "Our Wild World: Junior Animal Habitats badge at PAWS",
-      "url": "https://www.paws.org/events/junior-animal-habitats-badge/",
-      "verified": "2026-09-10",
+      "url": "https://www.paws.org/education/scout-programs/",
+      "verified": "2026-10-07",
       "where": "in-person"
     },
     {
@@ -728,9 +728,9 @@
         "It names children and families among the people who do it — some families count together as a way of learning the birds in their own garden.",
         "Choose a patch you can watch easily; you do not need to put out feeders. Count on two days in a row, as often as once a week, leaving at least five days between counts, and record the most of each species you can see at one moment.",
         "Counts are submitted on the website or the FeederWatch app.",
-        "There is a participation fee, which pays for the database and the project materials; an educational group leader can use the code PFWEDU for $5 off."
+        "There is a participation fee — $18 in the US, $15 for Cornell Lab members — which pays for the database and the project materials. A first season is free with the code FIRSTPFW at checkout, and an educational group leader can use PFWEDU for $5 off."
       ],
-      "howTo": "Sign up with a parent before November, choose the patch to watch, and put the count days in the calendar here.",
+      "howTo": "Sign up with a parent before November (the code FIRSTPFW makes a first season free), choose the patch to watch, and put the count days in the calendar here.",
       "id": "feederwatch",
       "kind": "citizen-science",
       "location": "Your own yard or window",
@@ -745,7 +745,7 @@
       ],
       "title": "Project FeederWatch: count the birds in your own yard",
       "url": "https://feederwatch.org/about/how-to-participate/",
-      "verified": "2026-09-13",
+      "verified": "2026-10-07",
       "where": "at-home"
     },
     {
@@ -981,11 +981,14 @@
         "note": "Grades 9–12.",
         "withAdult": false
       },
-      "commitment": "Program schedule on the page.",
+      "commitment": "A school-year programme.",
       "details": [
-        "Open to students in grades 9–12, who volunteer for marine conservation and advocacy activities."
+        "Open to students in grades 9–12 — high school, Running Start, GED or homeschool at the time of applying — who volunteer on marine conservation and advocacy.",
+        "You cannot apply cold: everyone attends one of the online information sessions first, and the application comes after that.",
+        "The Aquarium then interviews from the applicant pool and chooses on the interview and the application together.",
+        "The school-year round runs to a calendar: the interest form opens in August, the Zoom information sessions are in September, applications go in during October, and decisions follow."
       ],
-      "howTo": "Apply through the Youth Ocean Advocates page in high school.",
+      "howTo": "Fill in the interest form when it opens in August — that is the step with a deadline; the information session in September and the October application follow from it.",
       "id": "aquarium-yoa",
       "kind": "program",
       "location": "Seattle Aquarium",
@@ -998,7 +1001,7 @@
       ],
       "title": "Youth Ocean Advocates at the Seattle Aquarium (grades 9–12)",
       "url": "https://www.seattleaquarium.org/act-for-the-ocean/volunteer/youth-ocean-advocates/",
-      "verified": "2026-09-06",
+      "verified": "2026-10-07",
       "where": "in-person"
     },
     {
@@ -1102,11 +1105,12 @@
       },
       "commitment": "Individual shifts in December and January.",
       "details": [
-        "For students entering grades 9–12: assist with routine shelter tasks, meet other teens and earn community service hours.",
+        "For students entering grades 9–12: assist with routine shelter tasks, meet other teens and earn community service hours that count toward the hours needed to graduate.",
         "Tasks such as washing food and water bowls, cleaning crates, or packing pet food.",
+        "There is a $30 registration fee, which Seattle Humane says covers the staff time to train and supervise everyone.",
         "Offered during winter months; students register for shifts in December and January."
       ],
-      "howTo": "Register on the High School Service Shifts page when winter registration opens.",
+      "howTo": "Register on the High School Service Shifts page when winter registration opens; the fee is $30.",
       "id": "sh-hs-service-shifts",
       "kind": "shift",
       "location": "Seattle Humane, Bellevue",
@@ -1120,7 +1124,35 @@
       ],
       "title": "High School Service Shifts (grades 9–12)",
       "url": "https://www.seattlehumane.org/get-involved/youth-school-programs/high-school-service-shifts/",
-      "verified": "2026-09-05",
+      "verified": "2026-10-07",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": 17,
+        "min": 16,
+        "note": "Ages 16–17.",
+        "withAdult": false
+      },
+      "commitment": "Structured program; see the page for the schedule.",
+      "details": [
+        "Designed for motivated 16–17-year-olds interested in animal welfare, community service, and career exploration in animal care.",
+        "Finishing it makes her eligible to apply for volunteer shifts at Seattle Humane, which is the door the younger programmes lead to."
+      ],
+      "howTo": "Apply for HSTP through the Youth Programs page at 16.",
+      "id": "sh-hstp",
+      "kind": "program",
+      "location": "Seattle Humane, Bellevue",
+      "org": "seattle-humane",
+      "summary": "Structured, hands-on learning for older teens exploring animal-care careers.",
+      "tags": [
+        "animals",
+        "career",
+        "teens"
+      ],
+      "title": "High School Training Program (ages 16–17)",
+      "url": "https://www.seattlehumane.org/get-involved/youth-school-programs/youth-programs/",
+      "verified": "2026-10-07",
       "where": "in-person"
     },
     {
@@ -1152,33 +1184,6 @@
       "url": "https://www.seattlehumane.org/get-involved/youth-school-programs/projects/",
       "verified": "2026-09-05",
       "where": "at-home"
-    },
-    {
-      "ages": {
-        "max": 17,
-        "min": 16,
-        "note": "Ages 16–17.",
-        "withAdult": false
-      },
-      "commitment": "Structured program; see the page for the schedule.",
-      "details": [
-        "Designed for motivated 16–17-year-olds interested in animal welfare, community service, and career exploration in the field of animal care."
-      ],
-      "howTo": "Apply through the Youth Programs page at 16.",
-      "id": "sh-hstp",
-      "kind": "program",
-      "location": "Seattle Humane, Bellevue",
-      "org": "seattle-humane",
-      "summary": "Structured, hands-on learning for older teens exploring animal-care careers.",
-      "tags": [
-        "animals",
-        "career",
-        "teens"
-      ],
-      "title": "Humane Service Training Program (ages 16–17)",
-      "url": "https://www.seattlehumane.org/get-involved/youth-school-programs/youth-programs/",
-      "verified": "2026-09-05",
-      "where": "in-person"
     },
     {
       "ages": {
@@ -1278,13 +1283,14 @@
         "note": "Ages 8–13 per the youth page (6–10 per the event page); an adult comes along.",
         "withAdult": true
       },
-      "commitment": "One day.",
+      "commitment": "One day, 10am–3pm.",
       "details": [
         "Youths 8–13 can register for one of NOAH's Kid's Day volunteer opportunities; regular volunteering starts at 14 (14–15 with a parent).",
         "The Kid's Day page describes it as perfect for kids ages 6–10, all ages welcome with adult supervision, and each camper must be accompanied by an adult.",
+        "It costs $30 per child, runs 10am to 3pm, and takes 30 children per session, so it books up.",
         "Kids 'adopt' a plush pet and walk it through intake, medical exams and adoption day, with stations like puppy paw painting, bottle-feeding baby animals, scent trails, agility demos and clicker training; snacks and water are provided, pack a lunch."
       ],
-      "howTo": "Watch the Kid's Volunteer Day page for the next date and register; check the current cost there.",
+      "howTo": "Watch the Kid's Volunteer Day page for the next date and register — $30 a child, thirty places, and an adult comes for the day.",
       "id": "noah-kids-day",
       "kind": "event",
       "location": "The NOAH Center, 31300 Brandstrom Rd, Stanwood",
@@ -1299,7 +1305,7 @@
       ],
       "title": "Kid's Volunteer Day at The NOAH Center",
       "url": "https://www.thenoahcenter.org/kidsday/",
-      "verified": "2026-09-06",
+      "verified": "2026-10-07",
       "where": "in-person"
     },
     {
@@ -1342,11 +1348,13 @@
         "note": "Entering grades 10–12.",
         "withAdult": false
       },
-      "commitment": "Program schedule on the page.",
+      "commitment": "Twenty hours of summer shifts, plus orientation and seven cohort meetings.",
       "details": [
-        "The teen volunteer program is open to teens entering grades 10–12; it lets teens explore different departments within the zoo, from animal care to horticulture, and provide education at exhibits and camps."
+        "The Teen Ambassador programme is open to teens entering grades 10–12; it lets them explore different departments within the zoo, from animal care to horticulture, and talk to visitors at exhibits and camps.",
+        "It is a summer: an orientation day at the zoo in late June, at least seven cohort meetings, and twenty hours of shifts between the end of June and early September.",
+        "Applying is a spring job — the zoo invites the people it selects to interview in mid-April, so the application closes before that."
       ],
-      "howTo": "Apply through the teen volunteer page in 10th grade.",
+      "howTo": "Apply in the spring, before the mid-April interviews, for the summer that follows — the page says when the window opens.",
       "id": "zoo-teen",
       "kind": "program",
       "location": "Woodland Park Zoo, Seattle",
@@ -1357,9 +1365,9 @@
         "zoo",
         "teens"
       ],
-      "title": "Woodland Park Zoo teen volunteers (grades 10–12)",
+      "title": "Woodland Park Zoo Teen Ambassadors (grades 10–12)",
       "url": "https://zoo.org/volunteer/teen/",
-      "verified": "2026-09-06",
+      "verified": "2026-10-07",
       "where": "in-person"
     },
     {
