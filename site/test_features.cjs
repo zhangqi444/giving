@@ -308,13 +308,35 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   // what she has done about an item is its own filter now; it used to be a fourth value
   // inside the age one, so "saved" was an alternative to "old enough", and there was no way
   // to ask for the saved ones alone or for the ones she has not looked at yet
+  await pick(pg, '[data-testid=catalog-fit]', 'Old enough now');
   await pick(pg, '[data-testid=catalog-status]', 'Doing it');
-  check('Doing it holds the two she has started', (await pg.$$('[data-testid=catalog-item]')).length === 2 && /Pet food drive/.test(await pg.textContent('[data-testid=catalog-grid]')), String((await pg.$$('[data-testid=catalog-item]')).length));
-  check('choosing a status widens the age filter rather than fighting it', /Any age/.test(await pg.textContent('[data-testid=catalog-fit]')));
+  const doingShown = (await pg.$$('[data-testid=catalog-item]')).length;
+  const doingHint = await pg.$('[data-testid=catalog-hidden-by-age]');
+  const doingHidden = doingHint ? Number((await doingHint.textContent()).match(/(\d+) more/)[1]) : 0;
+  check('Doing it under Old enough now shows the started ones that fit and counts the rest under the list', doingShown + doingHidden === 2 && doingShown >= 1, `${doingShown} shown, ${doingHidden} hidden`);
+  // the status filter used to reset the age filter to Any age; the owner read that as the two
+  // being one control, so each now leaves the other alone and what the age filter hides is
+  // said in a line under the list
+  check('choosing a status leaves the age filter alone', /Old enough now/.test(await pg.textContent('[data-testid=catalog-fit]')));
+  await pick(pg, '[data-testid=catalog-fit]', 'Any age');
   await pick(pg, '[data-testid=catalog-status]', 'Not saved yet');
   check('Not saved yet is the other 137, so the three states account for the catalog', (await pg.$$('[data-testid=catalog-item]')).length === 137, String((await pg.$$('[data-testid=catalog-item]')).length));
   await pick(pg, '[data-testid=catalog-status]', 'Saved for later');
   check('Saved for later holds the saved one and not the started one', (await pg.$$('[data-testid=catalog-item]')).length === 1 && /No-sew cat blankets/.test(await pg.textContent('[data-testid=catalog-grid]')), String((await pg.$$('[data-testid=catalog-item]')).length));
+  // save one she is not old enough for, and the age filter says it is hiding it
+  await pick(pg, '[data-testid=catalog-status]', 'Saved or not');
+  await pick(pg, '[data-testid=catalog-fit]', 'When she is older');
+  await pg.click('[data-id=sr3-husbandry] [data-testid=catalog-save]');
+  await pg.waitForSelector('[data-testid=toast]:has-text("Saved for later")');
+  await pick(pg, '[data-testid=catalog-fit]', 'Old enough now');
+  await pick(pg, '[data-testid=catalog-status]', 'Saved for later');
+  check('under Old enough now the saved 18+ item stays out, and the line under the list counts it', (await pg.$$('[data-testid=catalog-item]')).length === 1 && /1 more saved for later at other ages/.test(await pg.textContent('[data-testid=catalog-hidden-by-age]')), String((await pg.$$('[data-testid=catalog-item]')).length));
+  await pg.click('[data-testid=catalog-any-age]');
+  await pg.waitForSelector('[data-id=sr3-husbandry]');
+  check('Show any age widens the age filter, visibly, and the hidden one appears', /Any age/.test(await pg.textContent('[data-testid=catalog-fit]')) && (await pg.$$('[data-testid=catalog-item]')).length === 2);
+  await pg.click('[data-id=sr3-husbandry] [data-testid=catalog-save]');
+  await pg.waitForSelector('[data-id=sr3-husbandry]', { state: 'detached' });
+  check('unsaving puts it back the way it was', (await pg.$$('[data-testid=catalog-item]')).length === 1 && (await pg.$$('[data-testid=catalog-hidden-by-age]')).length === 0);
 
   // marking interest opens the next step: the how-to and a prefilled introduction email
   // (the card closed when the filters above took it off the page and put it back)
