@@ -280,7 +280,9 @@ holding a piece of work's past and its future.
   Mountain Zoo, Rabbit Haven, Special Bunny, Alley Cat Project, Community Cat
   Coalition, Greyhound Pets, Ginger's Pet Rescue, Harbor WildWatch, Eastside and
   Pilchuck Audubon, Saving Great Animals, Forgotten Dogs Rescue, Pigs Peace, NEKO
-  Cat Café, Doney Coe Pet Clinic, Sunny Sky's,
+  Cat Café, Doney Coe Pet Clinic, Sunny Sky's, Sammamish Animal Sanctuary, Pony Up
+  Rescue, KARE, Metro Animal Services, the Feral Cat Spay/Neuter Project, Featherhaven,
+  Barn Stars, HappyPaws Farm, Kataluna, Equine Aid, Seattle Purebred Dog Rescue,
   Orca Network, Guide Dogs for the Blind; online and at home: Zooniverse, Orcasound,
   Happywhale, Alley Cat Allies, Project FeederWatch, the Great Backyard Bird Count,
   ZSL Instant Wild, Best Friends including its NOVA remote roles, Lost Dog & Cat

@@ -500,6 +500,90 @@
       "url": "https://www.sunnyskysshelter.org/",
       "verified": "2026-10-11",
       "area": "South Sound · Graham"
+    },
+    "sammamish-animal-sanctuary": {
+      "name": "Sammamish Animal Sanctuary",
+      "url": "https://sammamishanimalsanctuary.org/",
+      "verified": "2026-10-11",
+      "area": "Eastside · Sammamish"
+    },
+    "pony-up": {
+      "name": "Pony Up Rescue for Equines",
+      "url": "https://www.ponyuprescue.org/",
+      "verified": "2026-10-11",
+      "area": "Across the water · Olalla"
+    },
+    "kare": {
+      "name": "KARE — Kitsap Animal Rescue & Education",
+      "url": "https://nwkare.org/",
+      "verified": "2026-10-11",
+      "area": "Across the water · Kitsap"
+    },
+    "metro-animal-services": {
+      "name": "Metro Animal Services",
+      "url": "https://metroanimalservices.org/",
+      "contact": {
+        "email": "pets@sumnerwa.gov",
+        "phone": "253-299-7387 ext 2",
+        "address": "1200 39th Ave SE, Puyallup"
+      },
+      "verified": "2026-10-11",
+      "area": "South Sound · Puyallup"
+    },
+    "feral-cat-project": {
+      "name": "Feral Cat Spay/Neuter Project",
+      "url": "https://www.feralcatproject.org/",
+      "contact": {
+        "email": "volunteer@feralcatproject.org"
+      },
+      "verified": "2026-10-11",
+      "area": "North · Lynnwood"
+    },
+    "featherhaven": {
+      "name": "Featherhaven",
+      "url": "https://www.featherhaven.org/",
+      "contact": {
+        "phone": "(253) 350-5792"
+      },
+      "verified": "2026-10-11",
+      "area": "South · Enumclaw"
+    },
+    "barn-stars": {
+      "name": "Barn Stars Animal Rescue",
+      "url": "https://barnstarsanimalrescue.org/",
+      "verified": "2026-10-11",
+      "area": "North · Snohomish County"
+    },
+    "happypaws-farm": {
+      "name": "Humane Society at HappyPaws Farm",
+      "url": "https://dogscats.org/",
+      "contact": {
+        "phone": "(360) 652-5844",
+        "address": "19933 Old Burn Rd, Arlington"
+      },
+      "verified": "2026-10-11",
+      "area": "Far north · Arlington"
+    },
+    "kataluna": {
+      "name": "Kataluna Horse Rescue",
+      "url": "https://katalunahorserescue.org/",
+      "verified": "2026-10-11",
+      "area": "East · Fall City"
+    },
+    "equine-aid": {
+      "name": "Equine Aid",
+      "url": "https://equineaid.org/",
+      "contact": {
+        "email": "info@equineaid.org"
+      },
+      "verified": "2026-10-11",
+      "area": "East · Monroe"
+    },
+    "spdr": {
+      "name": "Seattle Purebred Dog Rescue",
+      "url": "https://www.spdrdogs.org/",
+      "verified": "2026-10-11",
+      "area": "Seattle"
     }
   },
   "items": [
@@ -3222,6 +3306,382 @@
         "cats",
         "dogs",
         "shelter"
+      ]
+    },
+    {
+      "id": "sammamish-sanctuary-youth",
+      "org": "sammamish-animal-sanctuary",
+      "title": "Sammamish Animal Sanctuary (from 12 with an adult; 16 alone)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "A farm-animal sanctuary on the Eastside with a three-step age rule on its own page: 12 to 14 with an adult who stays the whole time, 14 to 16 only with real experience, 16 on your own.",
+      "details": [
+        "Individual volunteers must be at least 16 and able to work independently; 14- to 16-year-olds are considered only with substantial prior experience; children of 12 to 14 can volunteer if an adult stays with them at all times.",
+        "Older coverage says the sanctuary also looked for volunteers from 13 to help run its summer camps — ask whether that still holds.",
+        "The sanctuary is open to visitors, which is how a younger child sees it first."
+      ],
+      "ages": {
+        "min": 12,
+        "max": null,
+        "withAdult": true,
+        "note": "12–14 with an adult throughout; 14–16 with experience; 16 alone."
+      },
+      "commitment": "Shifts, as arranged.",
+      "location": "Sammamish",
+      "howTo": "At 12, apply from the individual-volunteer page naming the adult who will stay with her.",
+      "url": "https://sammamishanimalsanctuary.org/volunteer-individuals",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "farm",
+        "sanctuary",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "pony-up-volunteer",
+      "org": "pony-up",
+      "title": "Pony Up horse rescue in Olalla (under 16 with an adult)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "A Kitsap-side rescue for horses out of the slaughter pipeline whose volunteer page says all are welcome and under-16s come with an adult. Repetitive, physical, messy — their words.",
+      "details": [
+        "All are welcome to volunteer; minors under 16 must be accompanied by an adult.",
+        "The page warns that the work on the farm can be quite repetitive, physically demanding and messy.",
+        "Adopting a horse is 21 and over, which is a different rule from volunteering."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "Under 16 with an adult; no floor stated."
+      },
+      "commitment": "Farm shifts.",
+      "location": "Olalla, across the water from Seattle",
+      "howTo": "Sign up from the volunteer page together and ask which days the farm takes helpers.",
+      "url": "https://www.ponyuprescue.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "horses",
+        "farm",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "kare-volunteer",
+      "org": "kare",
+      "title": "KARE in Kitsap: trained roles, most from 18 (under 18 with a parent's permission)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "A volunteer-powered Kitsap rescue that trains people for every role. Most positions are 18; under 18 needs a parent's permission, and volunteers must live nearby.",
+      "details": [
+        "Most positions require volunteers to be 18; those under 18 need a parent or guardian's permission.",
+        "Volunteers must live nearby and have reliable transportation; KARE trains for all positions."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Most roles 18; under 18 with a parent's permission, no floor given."
+      },
+      "commitment": "Not stated.",
+      "location": "Kitsap County",
+      "howTo": "Apply from the volunteer page with a parent's permission and ask which roles take someone her age.",
+      "url": "https://nwkare.org/volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "dogs",
+        "shelter"
+      ]
+    },
+    {
+      "id": "kare-foster",
+      "org": "kare",
+      "title": "Foster a dog or puppy for KARE (Kitsap County homes)",
+      "kind": "foster",
+      "where": "at-home",
+      "summary": "KARE's fosters take dogs and puppies for two weeks to three months or longer, in homes in Kitsap County, and hand the dog back when KARE asks.",
+      "details": [
+        "Fostering covers dogs and puppies, with stays from about two weeks to three months or more.",
+        "Foster homes must be in Kitsap County, and fosters return a dog when KARE asks."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "An adult registers; Kitsap County homes only."
+      },
+      "commitment": "Two weeks to three months per dog.",
+      "location": "At home, in Kitsap County",
+      "howTo": "A parent applies from the foster page.",
+      "url": "https://nwkare.org/foster-with-kare/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "dogs",
+        "foster",
+        "family",
+        "at home"
+      ]
+    },
+    {
+      "id": "metro-animal-services-16",
+      "org": "metro-animal-services",
+      "title": "Metro Animal Services shelter in Puyallup (from 16)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "The shelter serving Sumner, Puyallup, Bonney Lake and Edgewood takes volunteers from 16 who can lift forty pounds.",
+      "details": [
+        "Volunteers must be at least 16 and physically able to lift at least 40 pounds; comfort with customers and some knowledge of animals are preferred.",
+        "Questions go to 253-299-PETS ext 2 or pets@sumnerwa.gov. The shelter is at 1200 39th Ave SE, Puyallup, run by the City of Sumner."
+      ],
+      "ages": {
+        "min": 16,
+        "max": null,
+        "withAdult": false,
+        "note": "From 16."
+      },
+      "commitment": "Shifts.",
+      "location": "1200 39th Ave SE, Puyallup",
+      "howTo": "At 16, apply from the volunteering page.",
+      "url": "https://metroanimalservices.org/i-want-to-help/volunteering/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "shelter",
+        "teens"
+      ]
+    },
+    {
+      "id": "feral-cat-project-clinic",
+      "org": "feral-cat-project",
+      "title": "Feral Cat Spay/Neuter Project clinic in Lynnwood (age not stated)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "The free spay/neuter clinic for community cats runs on volunteers: surgery prep, recovery, packing instruments, check-in. Three months of regular shifts; the team trains you.",
+      "details": [
+        "Clinic roles include surgery prep, surgery recovery, surgery packs, clinic maintenance and check-in; shifts run two to six hours.",
+        "New Lynnwood volunteers commit to a weekly or every-other-week shift for at least three months; experience helps for roles with direct cat contact but is not required.",
+        "No age is stated. Applications go through the website or volunteer@feralcatproject.org."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated; clinic work."
+      },
+      "commitment": "A weekly or fortnightly shift for three months.",
+      "location": "Lynnwood",
+      "howTo": "Apply from the volunteer page and ask the minimum age before counting on a role.",
+      "url": "https://www.feralcatproject.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "cats",
+        "community cats",
+        "clinic"
+      ]
+    },
+    {
+      "id": "featherhaven-18",
+      "org": "featherhaven",
+      "title": "Featherhaven songbird rehabilitation in Enumclaw (from 18)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "A native-songbird rehabilitator whose volunteer season is May to August, from 18 with a state background check — and which was reopening only on a limited basis when checked.",
+      "details": [
+        "Volunteers must be 18 or over, commit to a one-to-four-hour shift a week from May through August, and pass a Washington State Patrol background check.",
+        "Roles include bird care support, maintaining the outdoor aviaries and wash rack, and grounds keeping in the bird garden.",
+        "The volunteer page is headed for 2022 and the homepage said the centre was reopening on a limited basis, taking mainly swallows, hummingbirds and birds of prey — ring (253) 350-5792 before relying on any of it."
+      ],
+      "ages": {
+        "min": 18,
+        "max": null,
+        "withAdult": false,
+        "note": "From 18, with a background check."
+      },
+      "commitment": "One to four hours a week, May to August.",
+      "location": "Enumclaw",
+      "howTo": "At 18, apply from the volunteer page; before that, the page is a read.",
+      "url": "https://www.featherhaven.org/volunteer.html",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "birds",
+        "wildlife"
+      ]
+    },
+    {
+      "id": "barn-stars-volunteer-days",
+      "org": "barn-stars",
+      "title": "Barn Stars farm-animal rescue volunteer days (age not stated)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "A farm sanctuary in Snohomish County that schedules volunteer days through the year: cleaning animal areas, admin help, construction for those who can.",
+      "details": [
+        "The farm welcomes volunteers and schedules ongoing volunteer days throughout the year.",
+        "The work is physical — cleaning animal areas — with administrative help and construction for people with that experience. No age is stated."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated."
+      },
+      "commitment": "A volunteer day at a time.",
+      "location": "Snohomish County",
+      "howTo": "Sign up for a volunteer day from the volunteer page and ask whether children come.",
+      "url": "https://barnstarsanimalrescue.org/volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "farm",
+        "sanctuary"
+      ]
+    },
+    {
+      "id": "happypaws-farm-volunteer",
+      "org": "happypaws-farm",
+      "title": "HappyPaws Farm no-kill sanctuary near Arlington (age not stated)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "A no-kill shelter on a farm that always needs dog walkers, groomers, drivers and foster homes. No age on the page.",
+      "details": [
+        "The help page lists walking and grooming dogs, transporting dogs, building maintenance, and foster homes.",
+        "No age is stated; the farm is at 19933 Old Burn Rd, Arlington."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated."
+      },
+      "commitment": "Not stated.",
+      "location": "19933 Old Burn Rd, Arlington",
+      "howTo": "Ring (360) 652-5844 or use the help page and ask what a family can do.",
+      "url": "https://www.dogscats.org/help_volunteer.htm",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "dogs",
+        "cats",
+        "shelter",
+        "farm"
+      ]
+    },
+    {
+      "id": "kataluna-horse-care",
+      "org": "kataluna",
+      "title": "Kataluna Horse Rescue in Fall City (age not stated)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "A horse rescue in the Snoqualmie Valley whose volunteering is the daily care: checking water, mucking stalls, grooming, loving on the horses. No age on the page.",
+      "details": [
+        "Main volunteer opportunities are regular horse care: checking waters, mucking stalls, grooming and, in the rescue's words, loving on the horses.",
+        "No age is stated; the rescue names a volunteer coordinator to ask."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated."
+      },
+      "commitment": "Not stated.",
+      "location": "Fall City",
+      "howTo": "Use the volunteering page to reach the volunteer coordinator and ask the minimum age.",
+      "url": "https://katalunahorserescue.org/volunteering",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "horses"
+      ]
+    },
+    {
+      "id": "equine-aid-16",
+      "org": "equine-aid",
+      "title": "Equine Aid horse and donkey sanctuary in Monroe (from 16)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "Horses, ponies and donkeys in Monroe. Equine Aid's own volunteer posting asks for 16 and over, three to four hours a week, and an orientation; no experience needed.",
+      "details": [
+        "Equine Aid's volunteer posting sets the minimum at 16, asks equine-care volunteers for three to four hours a week, requires an orientation, and says no experience is required.",
+        "Applications go to info@equineaid.org."
+      ],
+      "ages": {
+        "min": 16,
+        "max": null,
+        "withAdult": false,
+        "note": "From 16, per Equine Aid's own posting."
+      },
+      "commitment": "Three to four hours a week.",
+      "location": "Monroe",
+      "howTo": "At 16, email info@equineaid.org for the orientation.",
+      "url": "https://equineaid.org/how-you-can-help/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "horses",
+        "donkeys",
+        "sanctuary"
+      ]
+    },
+    {
+      "id": "spdr-breed-rep",
+      "org": "spdr",
+      "title": "Seattle Purebred Dog Rescue breed representatives (age not stated)",
+      "kind": "program",
+      "where": "in-person",
+      "summary": "A volunteer-run rescue that places purebred dogs through volunteer Breed Representatives, one breed each. No age on the page; it reads as an adult's role.",
+      "details": [
+        "SPDR describes itself as volunteer-based, with placements handled by a team of volunteer Breed Representatives, and invites people to become one.",
+        "No minimum age or foster process is stated."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated; an adult's role as described."
+      },
+      "commitment": "Not stated.",
+      "location": "Seattle area",
+      "howTo": "Ask about becoming a Breed Representative from the About page.",
+      "url": "https://www.spdrdogs.org/about-spdr",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "dogs"
+      ]
+    },
+    {
+      "id": "paws-cat-city-teen",
+      "org": "paws",
+      "title": "PAWS Cat City in the U District, teen role (from 16)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "PAWS's Seattle cat adoption centre has a teen support role from 16: enrichment and cleaning, with a parent's approval, training and a background check. Shifts were all filled when checked.",
+      "details": [
+        "Cat City Support Volunteer – Teen is for 16 and over: reliable transport to Cat City, parent or guardian approval, orientation, a CAS information session and skills training, and a background check. The adult Cat City Assistant role is 18.",
+        "Both listings said applications were closed and shifts filled; PAWS says Cat City has very limited open shifts for adults and teens at this time.",
+        "Cat City is at 5200 Roosevelt Way NE, Suite B, in the University District."
+      ],
+      "ages": {
+        "min": 16,
+        "max": null,
+        "withAdult": false,
+        "note": "From 16 with a parent's approval; 18 for the adult role."
+      },
+      "commitment": "Regular shifts, when open.",
+      "location": "5200 Roosevelt Way NE, Seattle",
+      "howTo": "At 16, watch the teen listing for shifts to reopen, then apply with a parent's approval.",
+      "url": "https://paws.org/volunteer/opportunities/cat-city-support-volunteer-teen/",
+      "verified": "2026-10-11",
+      "tags": [
+        "cats",
+        "shelter",
+        "teens"
       ]
     }
   ]
