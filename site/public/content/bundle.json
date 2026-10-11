@@ -223,6 +223,39 @@
       "ages": {
         "max": null,
         "min": null,
+        "note": "A parent is the registered raiser; a child raises alongside.",
+        "withAdult": true
+      },
+      "commitment": "Daily training and weekly classes, for the puppy's first year and a half.",
+      "details": [
+        "The primary puppy raiser must be 18 or over; minors are allowed to raise with an adult living in the same home, which is the whole family doing it with a parent's name on the form.",
+        "Raisers set aside time for daily training and attend puppy classes for the length of the project; where there is no Canine Companions class nearby, an approved public obedience class at your own expense stands in.",
+        "A puppy needs 25 to 40 minutes of exercise a day, and cannot go to school with a child in the household.",
+        "The Puget Sound chapter is the local community of raisers and graduates; the application takes a few weeks and starts with an application request on the puppy-raising page."
+      ],
+      "howTo": "A parent sends the puppy-raising application request from Canine Companions' page, naming her as the minor raising alongside; the Puget Sound field office follows up.",
+      "id": "canine-companions-puppy",
+      "kind": "foster",
+      "location": "At home; the Seattle field office and local puppy classes",
+      "org": "canine-companions",
+      "summary": "Sixteen months or so with a future service-dog puppy at home. The registered raiser must be an adult, and Canine Companions says minors may raise alongside an adult in the same home.",
+      "tags": [
+        "animals",
+        "dogs",
+        "puppies",
+        "foster",
+        "family",
+        "at home"
+      ],
+      "title": "Raise a Canine Companions puppy (a parent is the raiser; she helps)",
+      "url": "https://canine.org/get-involved/ways-to-volunteer/puppy-raiser-faqs/",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
         "note": "The registered foster is 21+; the child lives with the animal and comes to the meet-and-greet.",
         "withAdult": true
       },
@@ -483,6 +516,39 @@
       "ages": {
         "max": null,
         "min": null,
+        "note": "A drive is anyone's; the drop-off needs a lift.",
+        "withAdult": true
+      },
+      "commitment": "A few weeks of collecting, one drop-off.",
+      "details": [
+        "Donations can be brought to the Homeward Pet Adoption Center at 13132 NE 177th Place, Woodinville, Tuesday to Sunday 11:30am to 5:30pm; the lobby is closed on Mondays.",
+        "Partner shops take donations too — the food bank page lists Mud Bay stores in Bellevue (Overlake) and Bothell, and other pages add Kirkland and shops in Edmonds, Duvall, Kenmore and Mill Creek. The lists differ between pages, so ring (425) 488-4444 before relying on one.",
+        "Homeward Pet's preferred contactless route is its Amazon or Chewy wish list, which ships straight to the shelter."
+      ],
+      "howTo": "Collect dog and cat food, then take it to the adoption centre in its opening hours or to a Mud Bay that the food bank page lists.",
+      "id": "homeward-food-bank-drive",
+      "kind": "drive",
+      "location": "Neighbourhood or school; drop off in Woodinville or at a partner shop",
+      "org": "homeward-pet",
+      "summary": "Homeward Pet's pet food bank feeds the pets of people in a hard patch. Collect dog and cat food and drop it at the adoption centre or a partner shop.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "drive",
+        "food bank",
+        "at home",
+        "family"
+      ],
+      "title": "Food drive for Homeward Pet's food bank (Woodinville and the Eastside)",
+      "url": "https://www.homewardpet.org/homeward-pet-food-bank/",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
         "note": "The registered foster is an adult; the child helps at home.",
         "withAdult": true
       },
@@ -540,6 +606,37 @@
       "title": "Kitsap Humane Society youth volunteers (ages 13–15, with a parent)",
       "url": "https://www.kitsap-humane.org/get-involved/volunteer/",
       "verified": "2026-10-07",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 14,
+        "note": "From 14 with the horses and riders; a few supervised roles under 14 — ask.",
+        "withAdult": false
+      },
+      "commitment": "A regular shift of an hour and a half to two hours.",
+      "details": [
+        "To work directly with clients and horses a volunteer must be at least 14. The page says limited opportunities exist under 14, provided an adult guardian is present at all times — ask the volunteer office what those are before counting on it.",
+        "Shifts run every day of the week and last an hour and a half to two hours.",
+        "The first step for an individual volunteer is a one-hour volunteer orientation; the application includes permission for a background check, which applies to adults who volunteer on their own, and the paperwork is renewed yearly to PATH International's standards.",
+        "Group volunteering, including the landscaping and gardening days, is 14 and over for everyone in the group."
+      ],
+      "howTo": "At 14, book a one-hour volunteer orientation from the volunteer page and apply; before that, email volunteers@littlebit.org to ask what an under-14 can do with you alongside.",
+      "id": "little-bit-volunteer",
+      "kind": "program",
+      "location": "18675 NE 106th St, Redmond",
+      "org": "little-bit",
+      "summary": "Horses that help children and adults with disabilities ride. Volunteers lead horses and walk beside riders from 14; a parent-accompanied under-14 route exists but is limited.",
+      "tags": [
+        "animals",
+        "horses",
+        "teens",
+        "with a parent"
+      ],
+      "title": "Little Bit Therapeutic Riding Center (from 14; a few roles under 14 with an adult)",
+      "url": "https://www.littlebit.org/volunteer",
+      "verified": "2026-10-11",
       "where": "in-person"
     },
     {
@@ -632,6 +729,37 @@
       "url": "https://www.motleyzooanimalrescue.org/fostering",
       "verified": "2026-10-07",
       "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": 18,
+        "min": 12,
+        "note": "12–18 with a parent or guardian; under 12 not allowed.",
+        "withAdult": true
+      },
+      "commitment": "Two hours a week for six months.",
+      "details": [
+        "Volunteers between twelve and eighteen must be accompanied by a parent or guardian; for liability reasons the farm cannot take anyone under twelve.",
+        "Regular volunteers commit to a two-hour shift once a week for at least six months, after an initial orientation; the page listed weekday openings, and says to email for what is open now.",
+        "It is a working farm: feeding, mucking out and the care of animals that arrived in poor shape."
+      ],
+      "howTo": "At 12, email volunteer@newmoonfarm.org together to ask for the orientation and a weekly slot you can both keep.",
+      "id": "new-moon-farm-youth",
+      "kind": "shift",
+      "location": "27302 59th Ave NE, Arlington",
+      "org": "new-moon-farm",
+      "summary": "An Arlington sanctuary for rescued goats. Volunteers from 12 come with a parent; the ask is a two-hour shift a week for six months.",
+      "tags": [
+        "animals",
+        "farm",
+        "goats",
+        "sanctuary",
+        "with a parent"
+      ],
+      "title": "New Moon Farm goat sanctuary (from 12, with a parent)",
+      "url": "https://www.newmoonfarm.org/volunteer",
+      "verified": "2026-10-11",
+      "where": "in-person"
     },
     {
       "ages": {
@@ -850,6 +978,36 @@
       "url": "https://www.paws.org/donate/our-wish-list/",
       "verified": "2026-10-06",
       "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 16,
+        "note": "From 16.",
+        "withAdult": false
+      },
+      "commitment": "One shift a week, an hour and a half to two hours.",
+      "details": [
+        "Volunteers must be 16 or over and commit to a shift of an hour and a half to two hours each week.",
+        "Most roles mean standing for the shift and climbing a couple of flights of stairs.",
+        "It is a small place — visits by appointment, and the shelter is open to the public only on some weekday afternoons — so ring before going."
+      ],
+      "howTo": "At 16, ring (360) 373-7043 or apply from the volunteer page; the ferry to Bremerton is part of the trip.",
+      "id": "paws-bremerton-16",
+      "kind": "shift",
+      "location": "3306 N Perry Ave, Bremerton",
+      "org": "paws-of-bremerton",
+      "summary": "A volunteer-run, cat-only, no-kill shelter in Bremerton. Everyone there is a volunteer; the minimum age is 16 and the ask is one shift a week.",
+      "tags": [
+        "animals",
+        "cats",
+        "shelter",
+        "teens"
+      ],
+      "title": "PAWS of Bremerton cat shelter (from 16)",
+      "url": "https://pawsofbremerton.org/?page_id=98",
+      "verified": "2026-10-11",
+      "where": "in-person"
     },
     {
       "ages": {
@@ -1177,6 +1335,37 @@
     {
       "ages": {
         "max": null,
+        "min": 8,
+        "note": "8–15 with a parent volunteering alongside; 16 for barn-chore shifts on your own.",
+        "withAdult": true
+      },
+      "commitment": "Saturday mornings, 10 to 1.",
+      "details": [
+        "SAFE's minor-volunteer agreement says a child aged 8 to 15 can volunteer only when a parent or legal guardian who is also volunteering is present for the whole visit; the regular chore shifts are 16 and over.",
+        "The rules for a child are precise: stay within about ten feet of the parent at all times, never enter a paddock or pasture with horses in it, and never enter a stall with a horse inside. Breaking them ends the child's volunteering.",
+        "The team SAFE's own postings describe as a fit for children and teens is the Saturday grounds crew, 10am to 1pm — gardening and landscaping around the barn, which is how an eight-year-old helps a horse rescue without being in with the horses.",
+        "The adult goes through the volunteer profile and a short orientation first; the postings say the orientation is an introduction to SAFE and the place to ask questions."
+      ],
+      "howTo": "The parent fills in SAFE's volunteer profile and books the orientation from the volunteer page, signs the minor-volunteer agreement for her, and you join the Saturday grounds team together.",
+      "id": "safe-barn-chores",
+      "kind": "shift",
+      "location": "SAFE's barn near Maltby, Woodinville",
+      "org": "safe-horses",
+      "summary": "A horse rescue near Woodinville with a written rule for children: 8 to 15 may volunteer when a parent is volunteering beside them for the whole visit.",
+      "tags": [
+        "animals",
+        "horses",
+        "outdoors",
+        "with a parent"
+      ],
+      "title": "Saturday grounds team at SAFE horse rescue (from 8, with a parent)",
+      "url": "https://volunteer.safehorses.org/minor-child-volunteer-agreement/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
         "min": null,
         "note": "No age stated for a drive; an adult arranges the delivery.",
         "withAdult": true
@@ -1269,6 +1458,38 @@
     },
     {
       "ages": {
+        "max": null,
+        "min": null,
+        "note": "A drive is anyone's; the drop-off needs a lift.",
+        "withAdult": true
+      },
+      "commitment": "A few weeks of collecting, one drop-off.",
+      "details": [
+        "The donate page links the shelter's Amazon wish list and a printable version, and says donated items can be dropped off during business hours — it does not list the hours, so ring 206-386-7387 first.",
+        "The shelter also runs a pet food bank for people who cannot afford to feed their animals, so food is never wasted on it.",
+        "Items bought from the wish list online ship straight to the shelter, which is the route that needs no drop-off at all."
+      ],
+      "howTo": "Print the wish list, collect, ring the shelter for its drop-off hours, and take it in — or have people buy from the online list and skip the trip.",
+      "id": "sas-wish-list-drive",
+      "kind": "drive",
+      "location": "Neighbourhood or school; drop off at 2061 15th Ave W",
+      "org": "seattle-animal-shelter",
+      "summary": "The city shelter on 15th Ave W keeps a wish list and takes items in business hours. The nearest shelter to most of Seattle to run a drive for.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "drive",
+        "at home",
+        "family"
+      ],
+      "title": "Wish-list drive for the Seattle Animal Shelter",
+      "url": "https://www.seattle.gov/animal-shelter/get-involved/donate",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
         "max": 18,
         "min": 14,
         "note": "Grades 9–12.",
@@ -1296,6 +1517,37 @@
       "url": "https://www.seattleaquarium.org/act-for-the-ocean/volunteer/youth-ocean-advocates/",
       "verified": "2026-10-07",
       "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "A drive is anyone's; the drop-off needs a lift.",
+        "withAdult": true
+      },
+      "commitment": "A few weeks of collecting, one drop-off.",
+      "details": [
+        "The pantry accepts most unexpired food and clean supplies: open bags closed securely so they do not spill, anything out of its packaging labelled with the brand and the animal it is for, and prescription food if it is in date.",
+        "Drop-by hours on the pantry page are Thursdays, noon to 3pm, at the rescue at 20226 Ballinger Way NE in Shoreline; the giving page gives wider hours, so check the pantry page before you go.",
+        "The pantry depends on donations and cannot promise particular brands, so a drive that collects whatever people have is exactly what it runs on; email support@seattleareafelinerescue.org before bringing something large or specialised."
+      ],
+      "howTo": "Tell neighbours and school what the pantry takes, collect it, and bring it to the Thursday drop-by hours.",
+      "id": "safr-pantry-drive",
+      "kind": "drive",
+      "location": "Neighbourhood or school; drop off in Shoreline",
+      "org": "safr",
+      "summary": "Seattle Area Feline Rescue runs a pet pantry for people who cannot afford to feed their cats. Collect food and bring it to the drop-by hours.",
+      "tags": [
+        "cats",
+        "drive",
+        "food bank",
+        "at home",
+        "family"
+      ],
+      "title": "Food drive for the Stay SAFe Pet Pantry (Shoreline)",
+      "url": "https://seattleareafelinerescue.org/resources/stay-safe-pet-pantry/",
+      "verified": "2026-10-11",
+      "where": "at-home"
     },
     {
       "ages": {
@@ -1579,6 +1831,7 @@
       "commitment": "A few weeks of collecting, then one delivery.",
       "details": [
         "Donations of pet food, supplies and toys are always appreciated.",
+        "Food can be dropped at the lower parking lot at 13212 SE Eastgate Way without an appointment, or into the red Seattle Humane barrels at local Pet Pros shops; the in-kind donations page also carries an Amazon wish list.",
         "Items are distributed through Oogie's Ohana Pet Food Bank at Seattle Humane, which helps provide 1 million meals each year to pets in the community.",
         "Youth can help pets and earn school service hours by donating, fundraising or supporting the pet food bank.",
         "Community service hours are recorded on Seattle Humane's monthly Community Service Hours Log, one row per session with time in, time out and a signature (form linked on the organization)."
@@ -1597,8 +1850,68 @@
       ],
       "title": "Pet food drive",
       "url": "https://www.seattlehumane.org/get-involved/youth-school-programs/projects/",
-      "verified": "2026-09-05",
+      "verified": "2026-10-11",
       "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "A drive is anyone's; the drop-off needs a lift.",
+        "withAdult": true
+      },
+      "commitment": "A few weeks of collecting, one drop-off.",
+      "details": [
+        "The donation page names what helps most: dry and wet dog and cat food, leashes, collars and harnesses, dog and cat toys, flea treatment and dewormer, and poop bags.",
+        "Not accepted: opened food, controlled medications, or medicines more than a year past their date.",
+        "The page names Woodhaven Veterinary Hospital in Edmonds as the drop-off point, and an Amazon wish list for anything bought online; an older FAQ said any clinic location, so confirm the drop-off before going."
+      ],
+      "howTo": "Collect from the most-needed list, keep food unopened, and take it to the drop-off the donation page names — or send people to the Amazon list.",
+      "id": "svo-pet-supplies-drive",
+      "kind": "drive",
+      "location": "Neighbourhood or school; drop off in Edmonds",
+      "org": "seattle-vet-outreach",
+      "summary": "A Seattle nonprofit that brings vet care to the pets of people experiencing homelessness. Its most-needed list is ordinary pet-shop stuff a drive can collect.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "drive",
+        "at home",
+        "family"
+      ],
+      "title": "Pet food and supplies for pets of people without homes (Seattle Veterinary Outreach)",
+      "url": "https://seattlevet.org/donatetoday/",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 12,
+        "note": "12–13 with a parent, supervised throughout; 14–17 with a parent's approval.",
+        "withAdult": true
+      },
+      "commitment": "Shifts, as arranged with the volunteer coordinator.",
+      "details": [
+        "Volunteers are 18 and over; minors 14–17 may volunteer with parental approval, and minors 12–13 may volunteer with their parents and must be supervised at all times — all from the rescue's own volunteer page.",
+        "The rescue takes in horses that need rehabilitation and runs a Horses as Healers programme alongside the rescue work."
+      ],
+      "howTo": "At 12, email volunteer@serenityequinerescue.com together and ask for the orientation and a shift the two of you can do.",
+      "id": "serenity-equine-youth",
+      "kind": "shift",
+      "location": "28818 216th Way, Maple Valley",
+      "org": "serenity-equine",
+      "summary": "A horse rescue and rehabilitation farm south of Seattle whose volunteer page spells out the ages: 12 and 13 with their parents, 14 to 17 with a parent's approval.",
+      "tags": [
+        "animals",
+        "horses",
+        "with a parent"
+      ],
+      "title": "Serenity Equine Rescue in Maple Valley (from 12, with a parent)",
+      "url": "https://www.serenityequinerescue.com/volunteer",
+      "verified": "2026-10-11",
+      "where": "in-person"
     },
     {
       "ages": {
@@ -1822,6 +2135,16 @@
       "url": "https://www.buriencares.org/",
       "verified": "2026-10-11"
     },
+    "canine-companions": {
+      "area": "Seattle",
+      "contact": {
+        "address": "Puget Sound Field Office, 2454 Occidental Ave S, Seattle",
+        "phone": "(800) 572-2275"
+      },
+      "name": "Canine Companions (Puget Sound)",
+      "url": "https://canine.org/location/northwest/chapter/puget-sound-chapter/",
+      "verified": "2026-10-11"
+    },
     "emerald-city-pet-rescue": {
       "area": "Seattle",
       "contact": {
@@ -1864,7 +2187,7 @@
         "phone": "425-488-4444"
       },
       "name": "Homeward Pet Adoption Center",
-      "url": "https://www.homewardpet.org/volunteer/foster-care/"
+      "url": "https://www.homewardpet.org/"
     },
     "inaturalist": {
       "name": "iNaturalist and eBird (citizen science)",
@@ -1877,6 +2200,16 @@
       },
       "name": "Kitsap Humane Society",
       "url": "https://www.kitsap-humane.org/get-involved/volunteer/"
+    },
+    "little-bit": {
+      "area": "Eastside · Redmond",
+      "contact": {
+        "address": "18675 NE 106th St, Redmond, WA 98052",
+        "email": "volunteers@littlebit.org"
+      },
+      "name": "Little Bit Therapeutic Riding Center",
+      "url": "https://www.littlebit.org/",
+      "verified": "2026-10-11"
     },
     "meow": {
       "area": "Eastside · Kirkland",
@@ -1903,6 +2236,17 @@
       },
       "name": "Motley Zoo Animal Rescue",
       "url": "https://www.motleyzooanimalrescue.org/fostering"
+    },
+    "new-moon-farm": {
+      "area": "Far north · Arlington",
+      "contact": {
+        "address": "27302 59th Ave NE, Arlington, WA 98223",
+        "email": "volunteer@newmoonfarm.org",
+        "phone": "425-791-4513"
+      },
+      "name": "New Moon Farm Sanctuary",
+      "url": "https://www.newmoonfarm.org/",
+      "verified": "2026-10-11"
     },
     "noah": {
       "area": "Far north · Stanwood",
@@ -1951,6 +2295,16 @@
       "name": "PAWS (Progressive Animal Welfare Society)",
       "url": "https://www.paws.org/volunteer/"
     },
+    "paws-of-bremerton": {
+      "area": "Across the water · Bremerton",
+      "contact": {
+        "address": "3306 N Perry Ave, Bremerton, WA 98310",
+        "phone": "(360) 373-7043"
+      },
+      "name": "PAWS of Bremerton",
+      "url": "https://pawsofbremerton.org/",
+      "verified": "2026-10-11"
+    },
     "pdza": {
       "area": "South Sound · Tacoma",
       "contact": {
@@ -1987,6 +2341,15 @@
       },
       "name": "Regional Animal Services of King County",
       "url": "https://kingcounty.gov/en/dept/executive-services/animals-pets-pests/regional-animal-services"
+    },
+    "safe-horses": {
+      "area": "Eastside · Woodinville",
+      "contact": {
+        "address": "Near Maltby, Woodinville"
+      },
+      "name": "SAFE — Save a Forgotten Equine",
+      "url": "https://www.safehorses.org/",
+      "verified": "2026-10-11"
     },
     "safr": {
       "area": "North · Shoreline",
@@ -2049,6 +2412,23 @@
       "name": "Seattle Humane",
       "url": "https://www.seattlehumane.org/",
       "verified": "2026-09-06"
+    },
+    "seattle-vet-outreach": {
+      "area": "Seattle",
+      "contact": {},
+      "name": "Seattle Veterinary Outreach",
+      "url": "https://seattlevet.org/",
+      "verified": "2026-10-11"
+    },
+    "serenity-equine": {
+      "area": "South · Maple Valley",
+      "contact": {
+        "address": "28818 216th Way, Maple Valley",
+        "email": "volunteer@serenityequinerescue.com"
+      },
+      "name": "Serenity Equine Rescue & Rehabilitation",
+      "url": "https://www.serenityequinerescue.com/",
+      "verified": "2026-10-11"
     },
     "west-sound-wildlife": {
       "area": "Across the water · Bainbridge Island",

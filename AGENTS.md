@@ -273,7 +273,9 @@ holding a piece of work's past and its future.
   Old Dog Haven, Sarvey Wildlife Care Center,
   Everett Animal Shelter, Birds Connect Seattle, West Sound Wildlife Shelter,
   Burien C.A.R.E.S., Point Defiance Zoo & Aquarium, Seal Sitters MMSN, Emerald City
-  Pet Rescue, Meowtropolitan Foundation, Pet Partners,
+  Pet Rescue, Meowtropolitan Foundation, Pet Partners, SAFE (Save a Forgotten
+  Equine), Little Bit Therapeutic Riding Center, New Moon Farm, Serenity Equine
+  Rescue, Canine Companions, PAWS of Bremerton, Seattle Veterinary Outreach,
   Orca Network, Guide Dogs for the Blind; online and at home: Zooniverse, Orcasound,
   Happywhale, Alley Cat Allies, Project FeederWatch, the Great Backyard Bird Count,
   ZSL Instant Wild, Best Friends including its NOVA remote roles, Lost Dog & Cat
