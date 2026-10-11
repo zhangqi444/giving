@@ -275,18 +275,28 @@ holding a piece of work's past and its future.
   Burien C.A.R.E.S., Point Defiance Zoo & Aquarium, Seal Sitters MMSN, Emerald City
   Pet Rescue, Meowtropolitan Foundation, Pet Partners, SAFE (Save a Forgotten
   Equine), Little Bit Therapeutic Riding Center, New Moon Farm, Serenity Equine
-  Rescue, Canine Companions, PAWS of Bremerton, Seattle Veterinary Outreach,
+  Rescue, Canine Companions, PAWS of Bremerton, Seattle Veterinary Outreach, the
+  Humane Society for Tacoma & Pierce County, WAIF, Puget Sound Goat Rescue, Cougar
+  Mountain Zoo, Rabbit Haven, Special Bunny, Alley Cat Project, Community Cat
+  Coalition, Greyhound Pets, Ginger's Pet Rescue, Harbor WildWatch, Eastside and
+  Pilchuck Audubon, Saving Great Animals, Forgotten Dogs Rescue, Pigs Peace, NEKO
+  Cat Café, Doney Coe Pet Clinic, Sunny Sky's,
   Orca Network, Guide Dogs for the Blind; online and at home: Zooniverse, Orcasound,
   Happywhale, Alley Cat Allies, Project FeederWatch, the Great Backyard Bird Count,
   ZSL Instant Wild, Best Friends including its NOVA remote roles, Lost Dog & Cat
   Rescue Foundation's remote roles, iNaturalist/eBird). `where: online` marks work
   done from home over the internet; adult remote roles are listed when a child can
   take part alongside the parent, and say so.
-  What Sheila can do now leads (with an adult where the source says so); age-gated
-  programs are listed too, badged *From age N*, so she can look ahead. Where a
-  shelter's own volunteering starts at 16 or 18, its family fostering program is
-  listed, with the adult as the registered foster. Adults-only roles are not listed.
-  Do not add other organizations on your own initiative.
+  What Sheila can do now leads (with an adult where the source says so). Everything
+  else that checks out is listed too, with its true age on it: age-gated programs
+  badged *From age N* so she can look ahead, 16+ and 18+ roles the same way, and
+  roles whose page names no age badged *Age not stated* with a note saying what the
+  work is. The owner asked for it this way — "add everything, then I can filter" —
+  and the age filter, which defaults to *Old enough now*, is what keeps an 18+ role
+  out of her view. Listing everything does not relax the sourcing rules above: an
+  item still needs the organization's own live page, and an organization with no
+  findable page stays out until it has one. Out of area means out: Tenino, Sequim
+  and Roy are not the Seattle area, however good the sanctuary.
 - An organization carries `area`, the city from its address grouped by direction
   from Seattle ("South · Kent"), so a family can judge the trip; it is a plain
   geographic label, never an invented drive time. The catalog filters on it.

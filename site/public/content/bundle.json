@@ -33,6 +33,35 @@
     {
       "ages": {
         "max": null,
+        "min": null,
+        "note": "Not stated. Fieldwork; ask on the form.",
+        "withAdult": false
+      },
+      "commitment": "Not stated.",
+      "details": [
+        "Alley Cat Project is 100% volunteer run and foster based, with no physical shelter; its work is trapping, neutering and returning community cats inside Seattle's city limits, north boundary 145th Street.",
+        "It supports the people who feed colonies with shelters, feeding stations and food.",
+        "No age is stated anywhere; this is fieldwork, so the question to put on the volunteer form is what a parent-and-child pair could do."
+      ],
+      "howTo": "Fill in the volunteer form on the homepage and ask what is open to a family.",
+      "id": "alley-cat-project",
+      "kind": "outreach",
+      "location": "Seattle",
+      "org": "alley-cat-project",
+      "summary": "Seattle's all-volunteer, foster-based trap-neuter-return group. No building, no stated age — the volunteer form on its homepage is the way to ask.",
+      "tags": [
+        "cats",
+        "community cats",
+        "outreach"
+      ],
+      "title": "Alley Cat Project: trap-neuter-return in Seattle (age not stated)",
+      "url": "https://alleycatproject.org/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
         "min": 10,
         "note": "From age 10 with an adult; alone from 16.",
         "withAdult": true
@@ -256,6 +285,125 @@
       "ages": {
         "max": null,
         "min": null,
+        "note": "Not stated.",
+        "withAdult": false
+      },
+      "commitment": "Not stated.",
+      "details": [
+        "The coalition does not take in or adopt out cats; its volunteers do independent rescue or work with other rescues, and its focus is TNR training and mentorship.",
+        "No age is stated. Contact is CCCofWa@gmail.com."
+      ],
+      "howTo": "Email CCCofWa@gmail.com and ask what a family could take on.",
+      "id": "community-cat-coalition",
+      "kind": "outreach",
+      "location": "Snohomish County",
+      "org": "community-cat-coalition",
+      "summary": "An all-volunteer coalition with no building that trains and mentors people doing trap-neuter-return, in Snohomish County and beyond.",
+      "tags": [
+        "cats",
+        "community cats",
+        "outreach"
+      ],
+      "title": "Community Cat Coalition: TNR training and mentoring (age not stated)",
+      "url": "https://communitycatcoalitionwa.org/howyoucanhelptop/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 18,
+        "note": "From 18; the keeper path from 21.",
+        "withAdult": false
+      },
+      "commitment": "Four-hour shifts.",
+      "details": [
+        "Applicants must be at least 18 and commit to at least four consecutive hours per scheduled shift.",
+        "Roles: docent (education and fundraising), maintenance, fundraising and promotions, landscaping, and keeper aide, which leads toward Volunteer Aide for those with the aptitude — that one is 21.",
+        "An online volunteer application; the zoo contacts the people whose applications pass review."
+      ],
+      "howTo": "At 18, fill in the online application on the volunteer page.",
+      "id": "cougar-mountain-zoo-18",
+      "kind": "program",
+      "location": "Cougar Mountain Zoo, Issaquah",
+      "org": "cougar-mountain-zoo",
+      "summary": "The small zoo on Cougar Mountain takes volunteers from 18 for four-hour shifts: docents, maintenance, landscaping, fundraising, and a keeper-aide path.",
+      "tags": [
+        "animals",
+        "zoo"
+      ],
+      "title": "Cougar Mountain Zoo in Issaquah (from 18)",
+      "url": "https://www.cougarmountainzoo.org/volunteer/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "A fundraiser is anyone's; the clinic's own volunteers are vets.",
+        "withAdult": true
+      },
+      "commitment": "A bake sale, a birthday, a lemonade stand.",
+      "details": [
+        "The clinic, renamed Doney Coe in 2018, runs about ten days a month at 1101 Airport Way S and is funded almost entirely by donations.",
+        "It says it can no longer accept in-kind donations — public-health directives and storage — so money is what helps; it is on Washington Gives and gifts are tax-deductible.",
+        "The volunteers it seeks are veterinary professionals, through volunteer@doneycoe.org."
+      ],
+      "howTo": "Run a small fundraiser and give it through the clinic's donate page or Washington Gives.",
+      "id": "doney-coe-fundraiser",
+      "kind": "drive",
+      "location": "Anywhere; the money goes to Airport Way S",
+      "org": "doney-coe",
+      "summary": "A Seattle clinic giving free vet care to the pets of people who are homeless or on very low incomes. Since 2021 it cannot take supplies, so a fundraiser is the way a child helps.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "fundraiser",
+        "at home",
+        "family"
+      ],
+      "title": "Raise money for the Doney Coe Pet Clinic (money, not supplies)",
+      "url": "https://doneycoe.org/about-doney-coe/",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 6,
+        "note": "Walks from 6 with an adult; the teaching committee is adults.",
+        "withAdult": true
+      },
+      "commitment": "A walk at a time.",
+      "details": [
+        "Eastside Audubon's outings page says its local walks suit families with young birders, and some are geared to families with young children.",
+        "The Juanita Bay Park tour is free and open to children 6 and over with an adult; a Confluence Park walk in Issaquah takes children from 10 with a parent; the Bellevue Botanical Garden monthly walk is $5 and needs registration.",
+        "Its Youth Education Committee is volunteers who teach children in schools, parks and camps — the role for a parent, with the child along."
+      ],
+      "howTo": "Pick a family-suitable walk from the outings page; a parent wanting the teaching side emails youthprograms@eastsideaudubon.org.",
+      "id": "eastside-audubon-family-walks",
+      "kind": "program",
+      "location": "Juanita Bay Park, Kirkland, and other Eastside parks",
+      "org": "eastside-audubon",
+      "summary": "Guided bird walks on the Eastside that take children: Juanita Bay Park from 6 with an adult, free. The volunteer side is adults teaching children.",
+      "tags": [
+        "animals",
+        "birds",
+        "outdoors",
+        "family",
+        "with a parent"
+      ],
+      "title": "Family bird walks with Eastside Audubon (from 6 with an adult)",
+      "url": "https://www.eastsideaudubon.org/field-trips",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
         "note": "The registered foster is 21+; the child lives with the animal and comes to the meet-and-greet.",
         "withAdult": true
       },
@@ -418,6 +566,65 @@
       "ages": {
         "max": null,
         "min": null,
+        "note": "An adult registers; no age or child rule posted for fostering.",
+        "withAdult": true
+      },
+      "commitment": "Per dog.",
+      "details": [
+        "Forgotten Dogs Rescue is foster-home based, so fostering is the work; the foster page itself sets out no eligibility.",
+        "Its adoption listings say dogs are not placed with families with children under 5 unless a dog's bio says otherwise — an adoption rule, which is the nearest guide to how it thinks about young children.",
+        "A virtual Foster Information Session is the stated way to learn the requirements."
+      ],
+      "howTo": "A parent signs up for the virtual Foster Information Session from the foster page.",
+      "id": "forgotten-dogs-foster",
+      "kind": "foster",
+      "location": "At home; Seattle",
+      "org": "forgotten-dogs-rescue",
+      "summary": "A volunteer-and-foster-home rescue for pit-bull-type dogs, in Seattle since 2011. Its foster page gives no criteria; a virtual information session does.",
+      "tags": [
+        "animals",
+        "dogs",
+        "foster",
+        "family",
+        "at home"
+      ],
+      "title": "Foster for Forgotten Dogs Rescue (pit-bull-type dogs)",
+      "url": "https://www.forgottendogsrescue.com/foster",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "Not stated; high-schoolers are mentioned.",
+        "withAdult": false
+      },
+      "commitment": "A regular slot for at least two months.",
+      "details": [
+        "Roles: helping at adoption events, walking dogs, transporting dogs, and planning fundraising events.",
+        "A downloadable volunteer application, and a regular time of service for at least two months.",
+        "The rescue says it has many high-school volunteers and can document hours; parents asking the minimum age in the page's comments got no posted answer."
+      ],
+      "howTo": "Download the volunteer application and ask the minimum age when you send it.",
+      "id": "gingers-pet-rescue",
+      "kind": "shift",
+      "location": "Seattle",
+      "org": "gingers-pet-rescue",
+      "summary": "A Seattle dog rescue that says many high-school students volunteer and that it documents hours; no minimum age is posted.",
+      "tags": [
+        "animals",
+        "dogs"
+      ],
+      "title": "Ginger's Pet Rescue: events, walking, transport (age not stated)",
+      "url": "https://www.gingerspetrescue.org/volunteer/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
         "note": "All ages; a parent sets up the free Cornell Lab account.",
         "withAdult": true
       },
@@ -447,6 +654,33 @@
       "url": "https://www.birdcount.org/participate/",
       "verified": "2026-09-13",
       "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "Not stated; membership, which is separate, is 18.",
+        "withAdult": false
+      },
+      "commitment": "Turnout shifts.",
+      "details": [
+        "Kennel turnout is open to volunteers without a greyhound; the Brightwater walks go through a named coordinator; fostering requires that you have or have had a greyhound.",
+        "Membership is a separate thing and is 18 and over; volunteers need not be members. No volunteer age is stated."
+      ],
+      "howTo": "Ask about turnout from the volunteer opportunities page.",
+      "id": "greyhound-pets-turnout",
+      "kind": "shift",
+      "location": "21521 State Route 9 SE, Woodinville",
+      "org": "greyhound-pets",
+      "summary": "Letting the retired racers out at the Woodinville kennel. You do not need a greyhound of your own for turnout; fostering does need greyhound experience.",
+      "tags": [
+        "animals",
+        "dogs"
+      ],
+      "title": "Greyhound Pets kennel turnout in Woodinville (age not stated)",
+      "url": "https://greyhoundpetsinc.org/volunteer/opportunities/",
+      "verified": "2026-10-11",
+      "where": "in-person"
     },
     {
       "ages": {
@@ -510,6 +744,36 @@
       "title": "Send whale photos to be identified (Happywhale)",
       "url": "https://happywhale.com/instructions",
       "verified": "2026-09-12",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "Not stated; the 6–12 course is on hold.",
+        "withAdult": false
+      },
+      "commitment": "Fifteen hours a year.",
+      "details": [
+        "No experience necessary; the ask is at least fifteen hours of service a year, as a naturalist guide, a docent at the Marine Life Center, or a touch-tank interpreter.",
+        "No volunteer age is stated; high-school students earn community service hours here.",
+        "A junior naturalist training course for ages 6 to 12 is listed on the programmes page and marked on hold; most programmes are free."
+      ],
+      "howTo": "Apply from the volunteer page and ask the minimum age; watch the programmes page for the junior naturalist course to come back.",
+      "id": "harbor-wildwatch",
+      "kind": "program",
+      "location": "Gig Harbor",
+      "org": "harbor-wildwatch",
+      "summary": "Beach naturalist guides, Marine Life Center docents and touch-tank interpreters, for fifteen hours a year; its junior naturalist course for 6–12s is listed but on hold.",
+      "tags": [
+        "animals",
+        "wildlife",
+        "beach",
+        "citizen science"
+      ],
+      "title": "Harbor WildWatch naturalists in Gig Harbor (age not stated)",
+      "url": "https://harborwildwatch.org/volunteer/",
+      "verified": "2026-10-11",
       "where": "in-person"
     },
     {
@@ -728,6 +992,35 @@
       "title": "Foster kittens with Motley Zoo (young children welcome)",
       "url": "https://www.motleyzooanimalrescue.org/fostering",
       "verified": "2026-10-07",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "An adult applies; nothing said about children at home.",
+        "withAdult": true
+      },
+      "commitment": "Per cat.",
+      "details": [
+        "NEKO looks for fosters of every level of cat experience with the space and time to socialise cats, transport, and a home near its Seattle location; it supplies the cats, the supplies and support.",
+        "Applying is a resume sent to info@nekocatcafe.com or brought in, naming the location. No age is stated; the café itself is open to all ages, which is a visitor rule."
+      ],
+      "howTo": "A parent emails a short resume to info@nekocatcafe.com for the Seattle location, saying there is a child at home.",
+      "id": "neko-foster",
+      "kind": "foster",
+      "location": "At home; near the Seattle café",
+      "org": "neko",
+      "summary": "NEKO has no in-house volunteer roles but wants home fosters near its Seattle café, with cats, supplies and support provided. It is a business, not a charity.",
+      "tags": [
+        "cats",
+        "foster",
+        "family",
+        "at home"
+      ],
+      "title": "Foster for NEKO Cat Café (a café that fosters for rescues)",
+      "url": "https://www.nekocatcafe.com/faqs",
+      "verified": "2026-10-11",
       "where": "at-home"
     },
     {
@@ -1074,6 +1367,67 @@
     {
       "ages": {
         "max": null,
+        "min": null,
+        "note": "Not stated.",
+        "withAdult": false
+      },
+      "commitment": "Not stated.",
+      "details": [
+        "The sanctuary is open May 1 to November 1 and closed the rest of the year; when open, every visit is by appointment.",
+        "House rules: no smoking, weapons, drugs or alcohol, and no personal pets on the grounds; the animals' needs come first.",
+        "Volunteers mainly scoop manure, with occasional work parties; no age is stated. Contact pigspeace@gmail.com; two different phone numbers are published, so email first."
+      ],
+      "howTo": "Email pigspeace@gmail.com to ask about a visit first, and whether a family can help on a work party.",
+      "id": "pigs-peace",
+      "kind": "shift",
+      "location": "27631 56th Ave NW, Stanwood",
+      "org": "pigs-peace",
+      "summary": "A sanctuary for cast-off pigs. Open to visitors May to November by appointment; volunteering is mostly manure scooping and work parties, no age stated.",
+      "tags": [
+        "animals",
+        "pigs",
+        "sanctuary",
+        "farm"
+      ],
+      "title": "Pigs Peace Sanctuary in Stanwood (visits by appointment; volunteering is manure)",
+      "url": "https://www.pigspeace.org/main/visiting.html",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "Youth release form on trips; no age given.",
+        "withAdult": true
+      },
+      "commitment": "A trip at a time.",
+      "details": [
+        "The upcoming-trips page carries both an adult and a youth release form, so young birders join scheduled outings with an adult.",
+        "Puget Sound Bird Fest, in Edmonds each June, includes a Kids' Corner.",
+        "An Audubon for Kids page lists activities to do at home or in a yard or park."
+      ],
+      "howTo": "Choose a trip from the upcoming-trips page and send the youth release form with hers.",
+      "id": "pilchuck-audubon-trips",
+      "kind": "program",
+      "location": "Snohomish County parks; Edmonds for the Bird Fest",
+      "org": "pilchuck-audubon",
+      "summary": "Snohomish County's Audubon chapter runs public field trips with a youth release form, and a Puget Sound Bird Fest each June with a Kids' Corner.",
+      "tags": [
+        "animals",
+        "birds",
+        "outdoors",
+        "family",
+        "with a parent"
+      ],
+      "title": "Pilchuck Audubon field trips and the June Bird Fest (with an adult)",
+      "url": "https://www.pilchuckaudubon.org/upcoming-trips",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
         "min": 14,
         "note": "From 14 (16 for beach walks), with an adult until 18.",
         "withAdult": true
@@ -1170,6 +1524,34 @@
     {
       "ages": {
         "max": null,
+        "min": 18,
+        "note": "From 18.",
+        "withAdult": false
+      },
+      "commitment": "Three-hour shifts.",
+      "details": [
+        "At this time the rescue does not allow children under 18 to volunteer.",
+        "A visit is a three-hour shift."
+      ],
+      "howTo": "At 18, use the get-involved page.",
+      "id": "psgr-18",
+      "kind": "shift",
+      "location": "Maple Valley",
+      "org": "puget-sound-goat-rescue",
+      "summary": "A goat rescue in Maple Valley whose shifts are three hours and whose volunteers are adults — it says it does not allow anyone under 18.",
+      "tags": [
+        "animals",
+        "goats",
+        "farm"
+      ],
+      "title": "Puget Sound Goat Rescue (from 18)",
+      "url": "http://www.pugetsoundgoatrescue.org/get-involved",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
         "min": null,
         "note": "An adult is the trained foster; twice-daily feeding and litter is real work a child can share.",
         "withAdult": true
@@ -1227,6 +1609,34 @@
       "title": "Purrfect Pals cat sanctuary (from age 13, with a parent until 16)",
       "url": "https://purrfectpals.org/volunteer/",
       "verified": "2026-10-07",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 16,
+        "note": "From 16, no exceptions.",
+        "withAdult": false
+      },
+      "commitment": "Three months.",
+      "details": [
+        "Minimum age 16, no exceptions, because of the shelter's insurance; a three-month commitment and a liability waiver; applications are reviewed and approved before anyone starts.",
+        "Its community outreach programme welcomes groups of all ages to visit and learn about rabbit care — a visit, not a shift."
+      ],
+      "howTo": "At 16, apply from the volunteer page; before that, a group visit is the way in.",
+      "id": "rabbit-haven-16",
+      "kind": "shift",
+      "location": "Gig Harbor",
+      "org": "rabbit-haven",
+      "summary": "A rabbit shelter whose insurance sets the volunteer age at 16 with no exceptions; groups of any age can visit to learn rabbit care.",
+      "tags": [
+        "animals",
+        "rabbits",
+        "shelter"
+      ],
+      "title": "Rabbit Haven in Gig Harbor (from 16)",
+      "url": "https://www.rabbithaven.org/volunteer",
+      "verified": "2026-10-11",
       "where": "in-person"
     },
     {
@@ -1392,6 +1802,37 @@
       "title": "Wish-list drive for Sarvey Wildlife Care Center",
       "url": "https://www.sarveywildlife.org/donation-wish-list.aspx",
       "verified": "2026-09-12",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "An adult registers; children in the home must be 6 or over.",
+        "withAdult": true
+      },
+      "commitment": "A few weeks or more per dog.",
+      "details": [
+        "The ask is a home for a few weeks or more; the rescue takes care of vet bills and you provide food and bedding.",
+        "Foster dogs cannot be placed in homes with children under 6.",
+        "Applying is the foster application, the foster guide, and the foster waiver; volunteer questions go to lily@savinggreatanimals.org. No volunteer age is stated — the adult registers."
+      ],
+      "howTo": "A parent fills in the foster application, reads the guide and signs the waiver.",
+      "id": "sga-foster",
+      "kind": "foster",
+      "location": "At home; Seattle",
+      "org": "saving-great-animals",
+      "summary": "A Seattle dog rescue that covers vet bills while you give a dog a home for a few weeks or more. Foster dogs do not go to homes with children under 6.",
+      "tags": [
+        "animals",
+        "dogs",
+        "foster",
+        "family",
+        "at home"
+      ],
+      "title": "Foster a dog for Saving Great Animals (homes with children 6 and over)",
+      "url": "https://savinggreatanimals.org/our-services/foster/",
+      "verified": "2026-10-11",
       "where": "at-home"
     },
     {
@@ -1915,6 +2356,159 @@
     },
     {
       "ages": {
+        "max": null,
+        "min": 16,
+        "note": "From 16, with your own transport.",
+        "withAdult": false
+      },
+      "commitment": "Regular two-to-four-hour cleaning shifts.",
+      "details": [
+        "Teens over 16 with their own transportation can apply if they are available for regular shifts; for insurance and safety reasons there are no one-off tours or volunteer experiences for kids.",
+        "Cleaning shifts run on Sundays, Wednesdays or Fridays for two to four hours."
+      ],
+      "howTo": "At 16, apply from the volunteer page.",
+      "id": "special-bunny-16",
+      "kind": "shift",
+      "location": "Carnation",
+      "org": "special-bunny",
+      "summary": "Cleaning shifts at a rabbit rescue in Carnation, for teens over 16 with their own transport; no tours or one-off experiences for children.",
+      "tags": [
+        "animals",
+        "rabbits"
+      ],
+      "title": "Special Bunny rabbit rescue in Carnation (from 16)",
+      "url": "https://www.specialbunny.org/volunteer-at-special-bunny",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "Not stated.",
+        "withAdult": false
+      },
+      "commitment": "Not stated.",
+      "details": [
+        "The rescue is run primarily by volunteers; its homepage has an \"interested in volunteering?\" section with a volunteer application.",
+        "Older listings give a Puyallup address, newer ones Graham; no minimum age appears in either."
+      ],
+      "howTo": "Fill in the volunteer application from the homepage and ask the minimum age.",
+      "id": "sunny-skys",
+      "kind": "shift",
+      "location": "Graham",
+      "org": "sunny-skys",
+      "summary": "A volunteer-run rescue south of Puyallup, meeting mostly in Graham. The homepage links a volunteer application and states no age.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "shelter"
+      ],
+      "title": "Sunny Sky's Animal Rescue in Graham (age not stated)",
+      "url": "https://www.sunnyskysshelter.org/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "A drive is anyone's; the drop-off needs a lift.",
+        "withAdult": true
+      },
+      "commitment": "A few weeks of collecting, one drop-off.",
+      "details": [
+        "Unopened, unexpired food and litter can be dropped at Entrance B (Adoptions), 10am to 5:30pm Tuesday to Sunday by the donate page — the pantry page says 5pm, so ring (253) 383-2733 if it matters.",
+        "A Chewy wish list ships food and litter straight to the shelter, which is the route without a drive to Tacoma.",
+        "The shelter says plainly that money goes further, because it buys at wholesale."
+      ],
+      "howTo": "Collect dry food and litter, unopened, and take it to Entrance B in opening hours — or point people at the Chewy list.",
+      "id": "hstpc-pantry-drive",
+      "kind": "drive",
+      "location": "Neighbourhood or school; drop off at 2608 Center Street, Tacoma",
+      "org": "hstpc",
+      "summary": "Dry dog and cat food and cat litter are what the Tacoma shelter asks for first; they stock its pantry for families who cannot afford them.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "drive",
+        "food bank",
+        "at home",
+        "family"
+      ],
+      "title": "Food and litter drive for Tacoma's Pet Food & Supply Pantry",
+      "url": "https://www.thehumanesociety.org/ways-to-give/donate-items/",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "An adult registers; the distance rule, not the age, is what decides.",
+        "withAdult": true
+      },
+      "commitment": "At least one foster a year.",
+      "details": [
+        "Fosters are asked to live within Pierce County or within 25 miles of the shelter, so animals stay near it and its emergency vets; most of Seattle is outside that circle.",
+        "The shelter asks each foster home for at least one foster animal or litter a year, and runs a background check on every applicant.",
+        "No experience needed; food, toys, blankets and medical care are provided; the shelter named a pressing need for homes without other pets. Stays run from days to months."
+      ],
+      "howTo": "If you live close enough to Tacoma, a parent applies from the foster page and goes through the background check.",
+      "id": "hstpc-foster",
+      "kind": "foster",
+      "location": "At home, within 25 miles of Tacoma",
+      "org": "hstpc",
+      "summary": "Fostering for the Humane Society for Tacoma & Pierce County, with food, supplies and vet care provided — but only for homes within 25 miles of the shelter.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "foster",
+        "family",
+        "at home"
+      ],
+      "title": "Foster for the Tacoma shelter (Pierce County homes)",
+      "url": "https://www.thehumanesociety.org/get-involved/foster/",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 16,
+        "note": "From 16, no parent exception; dog roles from 18.",
+        "withAdult": false
+      },
+      "commitment": "Six hours a month for six months.",
+      "details": [
+        "Every volunteer must be at least 16, and the shelter says it cannot accommodate anyone under 16 even with a parent or guardian volunteering with them.",
+        "Dog walking and animal transport are 18 and over.",
+        "The commitment is at least six hours a month for at least six months, with a background check; students who need community service hours get them signed off only once the six months are done."
+      ],
+      "howTo": "At 16, apply from the volunteer page and plan for the six-month commitment before counting on the hours.",
+      "id": "hstpc-volunteer-16",
+      "kind": "shift",
+      "location": "2608 Center Street, Tacoma",
+      "org": "hstpc",
+      "summary": "The big Tacoma shelter is 16 and over with no exception for a parent coming along; dogs are 18. Six hours a month for six months.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "shelter",
+        "teens",
+        "service hours"
+      ],
+      "title": "Humane Society for Tacoma & Pierce County shelter volunteering (from 16)",
+      "url": "https://www.thehumanesociety.org/get-involved/volunteer/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
         "max": 13,
         "min": 8,
         "note": "Ages 8–13 per the youth page (6–10 per the event page); an adult comes along.",
@@ -1943,6 +2537,35 @@
       "title": "Kid's Volunteer Day at The NOAH Center",
       "url": "https://www.thenoahcenter.org/kidsday/",
       "verified": "2026-10-07",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 18,
+        "note": "From 18.",
+        "withAdult": false
+      },
+      "commitment": "Shifts.",
+      "details": [
+        "The volunteer page sets the minimum at 18. Questions go to waifvc@waifanimals.org.",
+        "WAIF runs educational workshops for school-age children, which are something to attend rather than a role."
+      ],
+      "howTo": "At 18, email the volunteer coordinator from the volunteer page.",
+      "id": "waif-18",
+      "kind": "shift",
+      "location": "Whidbey Island (a ferry from Mukilteo)",
+      "org": "waif",
+      "summary": "Whidbey's shelter takes volunteers from 18 and does not offer court-ordered placements; its school-age programmes are presentations, not volunteering.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "shelter"
+      ],
+      "title": "WAIF on Whidbey Island (from 18)",
+      "url": "https://waifanimals.org/volunteer/",
+      "verified": "2026-10-11",
       "where": "in-person"
     },
     {
@@ -2105,6 +2728,12 @@
       "name": "Alley Cat Allies",
       "url": "https://www.alleycat.org/"
     },
+    "alley-cat-project": {
+      "area": "Seattle",
+      "name": "Alley Cat Project",
+      "url": "https://alleycatproject.org/",
+      "verified": "2026-10-11"
+    },
     "auburn-valley-hs": {
       "area": "South · Auburn",
       "contact": {
@@ -2145,6 +2774,41 @@
       "url": "https://canine.org/location/northwest/chapter/puget-sound-chapter/",
       "verified": "2026-10-11"
     },
+    "community-cat-coalition": {
+      "area": "North · Mukilteo",
+      "contact": {
+        "address": "PO Box 1236, Mukilteo",
+        "email": "CCCofWa@gmail.com"
+      },
+      "name": "Community Cat Coalition",
+      "url": "https://communitycatcoalitionwa.org/",
+      "verified": "2026-10-11"
+    },
+    "cougar-mountain-zoo": {
+      "area": "Eastside · Issaquah",
+      "name": "Cougar Mountain Zoo",
+      "url": "https://www.cougarmountainzoo.org/",
+      "verified": "2026-10-11"
+    },
+    "doney-coe": {
+      "area": "Seattle",
+      "contact": {
+        "address": "1101 Airport Way S, Seattle, WA 98134",
+        "email": "volunteer@doneycoe.org"
+      },
+      "name": "Doney Coe Pet Clinic",
+      "url": "https://doneycoe.org/",
+      "verified": "2026-10-11"
+    },
+    "eastside-audubon": {
+      "area": "Eastside · Kirkland",
+      "contact": {
+        "email": "youthprograms@eastsideaudubon.org"
+      },
+      "name": "Eastside Audubon Society",
+      "url": "https://www.eastsideaudubon.org/",
+      "verified": "2026-10-11"
+    },
     "emerald-city-pet-rescue": {
       "area": "Seattle",
       "contact": {
@@ -2168,9 +2832,33 @@
       "name": "Project FeederWatch (Cornell Lab and Birds Canada)",
       "url": "https://feederwatch.org/"
     },
+    "forgotten-dogs-rescue": {
+      "area": "Seattle",
+      "contact": {
+        "address": "PO Box 80054, Seattle"
+      },
+      "name": "Forgotten Dogs Rescue",
+      "url": "https://www.forgottendogsrescue.com/",
+      "verified": "2026-10-11"
+    },
     "gbbc": {
       "name": "Great Backyard Bird Count",
       "url": "https://www.birdcount.org/"
+    },
+    "gingers-pet-rescue": {
+      "area": "Seattle",
+      "name": "Ginger's Pet Rescue",
+      "url": "https://www.gingerspetrescue.org/",
+      "verified": "2026-10-11"
+    },
+    "greyhound-pets": {
+      "area": "Eastside · Woodinville",
+      "contact": {
+        "address": "21521 State Route 9 SE, Woodinville"
+      },
+      "name": "Greyhound Pets, Inc.",
+      "url": "https://greyhoundpetsinc.org/",
+      "verified": "2026-10-11"
     },
     "guide-dogs": {
       "name": "Guide Dogs for the Blind",
@@ -2180,6 +2868,12 @@
       "name": "Happywhale",
       "url": "https://happywhale.com/"
     },
+    "harbor-wildwatch": {
+      "area": "South Sound · Gig Harbor",
+      "name": "Harbor WildWatch",
+      "url": "https://harborwildwatch.org/",
+      "verified": "2026-10-11"
+    },
     "homeward-pet": {
       "area": "Eastside · Woodinville",
       "contact": {
@@ -2188,6 +2882,16 @@
       },
       "name": "Homeward Pet Adoption Center",
       "url": "https://www.homewardpet.org/"
+    },
+    "hstpc": {
+      "area": "South Sound · Tacoma",
+      "contact": {
+        "address": "2608 Center Street, Tacoma, WA 98409",
+        "phone": "(253) 383-2733"
+      },
+      "name": "The Humane Society for Tacoma & Pierce County",
+      "url": "https://www.thehumanesociety.org/",
+      "verified": "2026-10-11"
     },
     "inaturalist": {
       "name": "iNaturalist and eBird (citizen science)",
@@ -2236,6 +2940,15 @@
       },
       "name": "Motley Zoo Animal Rescue",
       "url": "https://www.motleyzooanimalrescue.org/fostering"
+    },
+    "neko": {
+      "area": "Seattle",
+      "contact": {
+        "email": "info@nekocatcafe.com"
+      },
+      "name": "NEKO Cat Café",
+      "url": "https://www.nekocatcafe.com/",
+      "verified": "2026-10-11"
     },
     "new-moon-farm": {
       "area": "Far north · Arlington",
@@ -2321,6 +3034,28 @@
       "url": "https://petpartners.org/volunteer/",
       "verified": "2026-10-11"
     },
+    "pigs-peace": {
+      "area": "Far north · Stanwood",
+      "contact": {
+        "address": "27631 56th Ave NW, Stanwood",
+        "email": "pigspeace@gmail.com"
+      },
+      "name": "Pigs Peace Sanctuary",
+      "url": "https://www.pigspeace.org/",
+      "verified": "2026-10-11"
+    },
+    "pilchuck-audubon": {
+      "area": "North · Snohomish County",
+      "name": "Pilchuck Audubon Society",
+      "url": "https://www.pilchuckaudubon.org/",
+      "verified": "2026-10-11"
+    },
+    "puget-sound-goat-rescue": {
+      "area": "South · Maple Valley",
+      "name": "Puget Sound Goat Rescue",
+      "url": "http://www.pugetsoundgoatrescue.org/",
+      "verified": "2026-10-11"
+    },
     "purrfect-pals": {
       "area": "Far north · Arlington",
       "contact": {
@@ -2330,6 +3065,12 @@
       },
       "name": "Purrfect Pals",
       "url": "https://purrfectpals.org/"
+    },
+    "rabbit-haven": {
+      "area": "South Sound · Gig Harbor",
+      "name": "Rabbit Haven",
+      "url": "https://www.rabbithaven.org/",
+      "verified": "2026-10-11"
     },
     "raskc": {
       "area": "South · Kent",
@@ -2368,6 +3109,15 @@
       },
       "name": "Sarvey Wildlife Care Center",
       "url": "https://www.sarveywildlife.org/"
+    },
+    "saving-great-animals": {
+      "area": "Seattle",
+      "contact": {
+        "email": "lily@savinggreatanimals.org"
+      },
+      "name": "Saving Great Animals",
+      "url": "https://savinggreatanimals.org/",
+      "verified": "2026-10-11"
     },
     "seal-sitters": {
       "area": "Seattle · West Seattle",
@@ -2426,6 +3176,27 @@
       },
       "name": "Serenity Equine Rescue & Rehabilitation",
       "url": "https://www.serenityequinerescue.com/",
+      "verified": "2026-10-11"
+    },
+    "special-bunny": {
+      "area": "East · Carnation",
+      "name": "Special Bunny Rabbit Rescue",
+      "url": "https://www.specialbunny.org/",
+      "verified": "2026-10-11"
+    },
+    "sunny-skys": {
+      "area": "South Sound · Graham",
+      "name": "Sunny Sky's Animal Rescue",
+      "url": "https://www.sunnyskysshelter.org/",
+      "verified": "2026-10-11"
+    },
+    "waif": {
+      "area": "Far north · Whidbey Island",
+      "contact": {
+        "email": "waifvc@waifanimals.org"
+      },
+      "name": "WAIF — Whidbey Animals' Improvement Foundation",
+      "url": "https://waifanimals.org/",
       "verified": "2026-10-11"
     },
     "west-sound-wildlife": {
