@@ -284,7 +284,6 @@
     "pet-partners": {
       "name": "Pet Partners",
       "url": "https://petpartners.org/volunteer/",
-      "contact": {},
       "verified": "2026-10-11",
       "area": "Across the Seattle area"
     },
@@ -351,7 +350,6 @@
     "seattle-vet-outreach": {
       "name": "Seattle Veterinary Outreach",
       "url": "https://seattlevet.org/",
-      "contact": {},
       "verified": "2026-10-11",
       "area": "Seattle"
     }
