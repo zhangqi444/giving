@@ -13,6 +13,7 @@
         "It treats educating neighbours as a real way to help cats, whether or not you are doing trap-neuter-return yourself.",
         "There is also a workshop guide for teaching a group about community cats and trap-neuter-return."
       ],
+      "gives": "",
       "howTo": "Read the Educating Others page with a parent, pick a fact sheet, and turn it into a poster or a letter for the street.",
       "id": "alleycat-educate",
       "kind": "outreach",
@@ -43,6 +44,7 @@
         "It supports the people who feed colonies with shelters, feeding stations and food.",
         "No age is stated anywhere; this is fieldwork, so the question to put on the volunteer form is what a parent-and-child pair could do."
       ],
+      "gives": "",
       "howTo": "Fill in the volunteer form on the homepage and ask what is open to a family.",
       "id": "alley-cat-project",
       "kind": "outreach",
@@ -72,6 +74,7 @@
         "Under 16 means limited contact with the animals — no dog walking, cat kennel care or cage cleaning. The work is laundry, washing dishes and cat pans, stuffing Kongs, sweeping and mopping, wiping down walls and door handles.",
         "The programme asks for six months and at least eight hours a month, which is about once a week, so it is a standing Saturday rather than a visit."
       ],
+      "gives": "",
       "howTo": "Apply through the volunteer page once she is 10, together with the adult who will come along — they sign up as a volunteer too.",
       "id": "auburn-valley-youth",
       "kind": "shift",
@@ -104,6 +107,7 @@
         "Applying is a fillable form emailed in, or a paper one at the shelter; places open as there is space, and there is a waitlist when there is not.",
         "This is the one thing at Auburn Valley that is hers alone before ten — their volunteer shifts start at 10 with an adult alongside (listed separately)."
       ],
+      "gives": "",
       "howTo": "Email the Shelter Buddies application from the programme page, then book a 30-minute reading slot once she is registered.",
       "id": "avhs-shelter-buddies",
       "kind": "program",
@@ -134,6 +138,7 @@
         "BaaHaus's own page describes a small volunteer group that helps run the rescue; directory listings say volunteers are welcome.",
         "No age is stated; the phone number in listings may be out of date, so write first."
       ],
+      "gives": "",
       "howTo": "Contact BaaHaus through its site and ask whether a family can help on the farm.",
       "id": "baahaus-volunteer",
       "kind": "shift",
@@ -162,6 +167,7 @@
         "The farm welcomes volunteers and schedules ongoing volunteer days throughout the year.",
         "The work is physical — cleaning animal areas — with administrative help and construction for people with that experience. No age is stated."
       ],
+      "gives": "",
       "howTo": "Sign up for a volunteer day from the volunteer page and ask whether children come.",
       "id": "barn-stars-volunteer-days",
       "kind": "event",
@@ -191,6 +197,7 @@
         "Its videos show how to make dog and cat toys from things already around the house: ice-block toys, frozen broth treats, toys from recycled material, and 'Adopt me' bandanas.",
         "Best Friends also has remote roles for adults and a Scout patch program for caring for a kitten in need."
       ],
+      "gives": "items",
       "howTo": "Pick a project from the Best Friends pages, then ask PAWS or RASKC (in this catalog) what they accept before delivering.",
       "id": "best-friends-diy",
       "kind": "craft",
@@ -222,6 +229,7 @@
         "Remote volunteers also write animal bios, enter data, follow up with adopters, write appreciation notes to members, produce Zoom calls, edit videos and create content.",
         "NOVA volunteers commit to two hours per week; a computer with antivirus protection, an internet connection and a willingness to learn software such as Shelterluv, Trello and Airtable are required; onboarding takes about two weeks."
       ],
+      "gives": "",
       "howTo": "Apply on the Volunteer From Home page or email nationalvolunteers@bestfriends.org; log the shared hours as entries.",
       "id": "best-friends-nova",
       "kind": "shift",
@@ -253,6 +261,7 @@
         "The project monitors bird diversity in city parks and greenspaces across Seattle.",
         "Birds Connect Seattle also runs Neighborhood Bird Outings for whole families, and birdathons and Christmas Bird Count feeder watches that it describes as all ages."
       ],
+      "gives": "",
       "howTo": "Sign up through the Neighborhood Bird Project page, or join a family Neighborhood Bird Outing first to see how a count works.",
       "id": "bcs-neighborhood-birds",
       "kind": "citizen-science",
@@ -285,6 +294,7 @@
         "At 16 and 17 the shelter approves volunteers case by case, mainly for school-required hours, with a release form on the first visit; direct work with the animals is 18 and over.",
         "Signing up is the volunteer application (online or in person) and a volunteer orientation booked through SignUpGenius."
       ],
+      "gives": "",
       "howTo": "Fill in the volunteer application for each of you and book a volunteer orientation from the programme page; she comes to the shifts you take.",
       "id": "burien-cares-under-16",
       "kind": "shift",
@@ -318,6 +328,7 @@
         "A puppy needs 25 to 40 minutes of exercise a day, and cannot go to school with a child in the household.",
         "The Puget Sound chapter is the local community of raisers and graduates; the application takes a few weeks and starts with an application request on the puppy-raising page."
       ],
+      "gives": "",
       "howTo": "A parent sends the puppy-raising application request from Canine Companions' page, naming her as the minor raising alongside; the Puget Sound field office follows up.",
       "id": "canine-companions-puppy",
       "kind": "foster",
@@ -349,6 +360,7 @@
         "The coalition does not take in or adopt out cats; its volunteers do independent rescue or work with other rescues, and its focus is TNR training and mentorship.",
         "No age is stated. Contact is CCCofWa@gmail.com."
       ],
+      "gives": "",
       "howTo": "Email CCCofWa@gmail.com and ask what a family could take on.",
       "id": "community-cat-coalition",
       "kind": "outreach",
@@ -378,6 +390,7 @@
         "Roles: docent (education and fundraising), maintenance, fundraising and promotions, landscaping, and keeper aide, which leads toward Volunteer Aide for those with the aptitude — that one is 21.",
         "An online volunteer application; the zoo contacts the people whose applications pass review."
       ],
+      "gives": "",
       "howTo": "At 18, fill in the online application on the volunteer page.",
       "id": "cougar-mountain-zoo-18",
       "kind": "program",
@@ -406,6 +419,7 @@
         "It says it can no longer accept in-kind donations — public-health directives and storage — so money is what helps; it is on Washington Gives and gifts are tax-deductible.",
         "The volunteers it seeks are veterinary professionals, through volunteer@doneycoe.org."
       ],
+      "gives": "dollars",
       "howTo": "Run a small fundraiser and give it through the clinic's donate page or Washington Gives.",
       "id": "doney-coe-fundraiser",
       "kind": "drive",
@@ -438,6 +452,7 @@
         "The Juanita Bay Park tour is free and open to children 6 and over with an adult; a Confluence Park walk in Issaquah takes children from 10 with a parent; the Bellevue Botanical Garden monthly walk is $5 and needs registration.",
         "Its Youth Education Committee is volunteers who teach children in schools, parks and camps — the role for a parent, with the child along."
       ],
+      "gives": "",
       "howTo": "Pick a family-suitable walk from the outings page; a parent wanting the teaching side emails youthprograms@eastsideaudubon.org.",
       "id": "eastside-audubon-family-walks",
       "kind": "program",
@@ -469,6 +484,7 @@
         "Fosters live in the greater Puget Sound area, including Vashon Island, the Olympic Peninsula and within about 30 miles of Seattle, and get the animal to adoption meet-and-greets and vet appointments themselves.",
         "The application asks for a government ID, spay/neuter and vaccination records for pets at home (or a vet's medical waiver), three references, and that you read the Foster Handbook."
       ],
+      "gives": "",
       "howTo": "A parent applies from the foster page with the ID, pet records and references; then everyone goes to the meet-and-greet.",
       "id": "ecpr-foster",
       "kind": "foster",
@@ -502,6 +518,7 @@
         "Early tasks are stall and enclosure cleaning, cleaning facilities, helping the maintenance team and making content for social media; volunteers are expected to work with all the animals and do all the cleaning that comes with them.",
         "It is a ferry trip: volunteers from off the island provide their own transport to and from the ferry dock, and the sanctuary is not reachable by public transport."
       ],
+      "gives": "",
       "howTo": "At 16, apply together from the volunteer page; both of you go through the background check and take the shifts as a pair.",
       "id": "ecpr-ghost-owl-farm",
       "kind": "shift",
@@ -531,6 +548,7 @@
         "Equine Aid's volunteer posting sets the minimum at 16, asks equine-care volunteers for three to four hours a week, requires an orientation, and says no experience is required.",
         "Applications go to info@equineaid.org."
       ],
+      "gives": "",
       "howTo": "At 16, email info@equineaid.org for the orientation.",
       "id": "equine-aid-16",
       "kind": "shift",
@@ -563,6 +581,7 @@
         "The shelter links a blanket tutorial but cannot provide fleece or other materials.",
         "A group bringing a donation drive can be offered a short tour, arranged beforehand with easvolunteers@everettwa.gov. That is the only part that needs emailing."
       ],
+      "gives": "blankets",
       "howTo": "Make a batch from the shelter's blanket tutorial and leave them in the donation bin on the front porch any day between 11am and 5pm. Email easvolunteers@everettwa.gov only if you want the tour that goes with a group drop-off.",
       "id": "everett-blankets",
       "kind": "craft",
@@ -596,6 +615,7 @@
         "The Wing Assistant role is the one the shelter names as good for a junior-and-parent team, from 15.",
         "Most programmes ask for one shift a week for at least three months."
       ],
+      "gives": "",
       "howTo": "At 13, apply together through the shelter's volunteer application and book orientation for both of you.",
       "id": "everett-youth-volunteer",
       "kind": "shift",
@@ -628,6 +648,7 @@
         "Donations can be left in the bin on the front porch, seven days a week between 11am and 5pm.",
         "A group dropping off a donation drive can be given a short tour of the shelter, arranged in advance."
       ],
+      "gives": "items",
       "howTo": "Print the wish list, collect from neighbours or at school, then leave the donations in the porch bin any day between 11am and 5pm — or email easvolunteers@everettwa.gov first if you want the tour.",
       "id": "everett-drive",
       "kind": "drive",
@@ -660,6 +681,7 @@
         "The city's volunteer opportunities page lists a Farrel-McWhirter Farm volunteer role with no age details; the volunteer coordinator is on 425-560-5637.",
         "The park's working-student job asked for high-school enrolment, which hints at the age the farm has in mind."
       ],
+      "gives": "",
       "howTo": "Text or ring the volunteer coordinator on 425-560-5637 to ask the age for the teen programme and the farm role.",
       "id": "farrel-mcwhirter-teens",
       "kind": "program",
@@ -689,6 +711,7 @@
         "Roles include bird care support, maintaining the outdoor aviaries and wash rack, and grounds keeping in the bird garden.",
         "The volunteer page is headed for 2022 and the homepage said the centre was reopening on a limited basis, taking mainly swallows, hummingbirds and birds of prey — ring (253) 350-5792 before relying on any of it."
       ],
+      "gives": "",
       "howTo": "At 18, apply from the volunteer page; before that, the page is a read.",
       "id": "featherhaven-18",
       "kind": "shift",
@@ -718,6 +741,7 @@
         "New Lynnwood volunteers commit to a weekly or every-other-week shift for at least three months; experience helps for roles with direct cat contact but is not required.",
         "No age is stated. Applications go through the website or volunteer@feralcatproject.org."
       ],
+      "gives": "",
       "howTo": "Apply from the volunteer page and ask the minimum age before counting on a role.",
       "id": "feral-cat-project-clinic",
       "kind": "shift",
@@ -747,6 +771,7 @@
         "Its adoption listings say dogs are not placed with families with children under 5 unless a dog's bio says otherwise — an adoption rule, which is the nearest guide to how it thinks about young children.",
         "A virtual Foster Information Session is the stated way to learn the requirements."
       ],
+      "gives": "",
       "howTo": "A parent signs up for the virtual Foster Information Session from the foster page.",
       "id": "forgotten-dogs-foster",
       "kind": "foster",
@@ -779,6 +804,7 @@
         "The FISHop gift shop takes volunteers from 14; team work parties take 14- to 17-year-olds only with an adult, and nobody under 14, which FISH attributes to statewide WDFW rules.",
         "Contact is volunteer@issaquahfish.org."
       ],
+      "gives": "",
       "howTo": "Email volunteer@issaquahfish.org to join the salmon science table team together.",
       "id": "fish-salmon-tables",
       "kind": "outreach",
@@ -811,6 +837,7 @@
         "A downloadable volunteer application, and a regular time of service for at least two months.",
         "The rescue says it has many high-school volunteers and can document hours; parents asking the minimum age in the page's comments got no posted answer."
       ],
+      "gives": "",
       "howTo": "Download the volunteer application and ask the minimum age when you send it.",
       "id": "gingers-pet-rescue",
       "kind": "shift",
@@ -841,6 +868,7 @@
         "For a beginner with a phone the Merlin Bird ID app is the recommended way in; more practised counters use eBird.",
         "The dates are announced on the count's site each year, so check them rather than assuming."
       ],
+      "gives": "",
       "howTo": "Check this year's four dates, install Merlin with a parent, and plan the fifteen minutes in the calendar here.",
       "id": "gbbc",
       "kind": "citizen-science",
@@ -872,6 +900,7 @@
         "Kennel turnout is open to volunteers without a greyhound; the Brightwater walks go through a named coordinator; fostering requires that you have or have had a greyhound.",
         "Membership is a separate thing and is 18 and over; volunteers need not be members. No volunteer age is stated."
       ],
+      "gives": "",
       "howTo": "Ask about turnout from the volunteer opportunities page.",
       "id": "greyhound-pets-turnout",
       "kind": "shift",
@@ -902,6 +931,7 @@
         "Washington is one of the states the programme runs in, and raisers belong to a local puppy club.",
         "Giving the puppy back at the end is the hard part, and the reason it matters."
       ],
+      "gives": "",
       "howTo": "Read the puppy raising pages with a parent, find the nearest puppy club, and apply together — talk first about the day the puppy leaves.",
       "id": "gdb-puppy-raising",
       "kind": "foster",
@@ -933,6 +963,7 @@
         "The matches feed long-term research into where whales travel and how people affect them, shared with whale catalogues including one for the Salish Sea.",
         "The site publishes photography instructions for taking pictures that can actually be matched."
       ],
+      "gives": "",
       "howTo": "Read the photography instructions first, take fluke and dorsal-fin photos on a ferry or whale watch, then upload them and wait to hear which whale it was.",
       "id": "happywhale-photos",
       "kind": "citizen-science",
@@ -964,6 +995,7 @@
         "No volunteer age is stated; high-school students earn community service hours here.",
         "A junior naturalist training course for ages 6 to 12 is listed on the programmes page and marked on hold; most programmes are free."
       ],
+      "gives": "",
       "howTo": "Apply from the volunteer page and ask the minimum age; watch the programmes page for the junior naturalist course to come back.",
       "id": "harbor-wildwatch",
       "kind": "program",
@@ -994,6 +1026,7 @@
         "Volunteers also monitor the heron colony during the breeding season as citizen scientists.",
         "The volunteer page names no age; the events page says its Green Seattle Day event is open to all ages and suggests bringing a school group. Work parties go through workparty@heronhelpers.org."
       ],
+      "gives": "",
       "howTo": "Email workparty@heronhelpers.org for the next Saturday and say you are bringing a child.",
       "id": "heron-helpers-work-parties",
       "kind": "shift",
@@ -1025,6 +1058,7 @@
         "Partner shops take donations too — the food bank page lists Mud Bay stores in Bellevue (Overlake) and Bothell, and other pages add Kirkland and shops in Edmonds, Duvall, Kenmore and Mill Creek. The lists differ between pages, so ring (425) 488-4444 before relying on one.",
         "Homeward Pet's preferred contactless route is its Amazon or Chewy wish list, which ships straight to the shelter."
       ],
+      "gives": "bags of food",
       "howTo": "Collect dog and cat food, then take it to the adoption centre in its opening hours or to a Mud Bay that the food bank page lists.",
       "id": "homeward-food-bank-drive",
       "kind": "drive",
@@ -1059,6 +1093,7 @@
         "The primary foster carer has to be 18 or over, which is the parent; everyone else in the house helps look after the animal.",
         "Fill out the Volunteer Application; you will be invited to the General Orientation."
       ],
+      "gives": "",
       "howTo": "Submit the Volunteer Application on homewardpet.org and attend the General Orientation.",
       "id": "homeward-foster",
       "kind": "foster",
@@ -1089,6 +1124,7 @@
         "The help page lists walking and grooming dogs, transporting dogs, building maintenance, and foster homes.",
         "No age is stated; the farm is at 19933 Old Burn Rd, Arlington."
       ],
+      "gives": "",
       "howTo": "Ring (360) 652-5844 or use the help page and ask what a family can do.",
       "id": "happypaws-farm-volunteer",
       "kind": "shift",
@@ -1119,6 +1155,7 @@
         "Fostering covers dogs and puppies, with stays from about two weeks to three months or more.",
         "Foster homes must be in Kitsap County, and fosters return a dog when KARE asks."
       ],
+      "gives": "",
       "howTo": "A parent applies from the foster page.",
       "id": "kare-foster",
       "kind": "foster",
@@ -1149,6 +1186,7 @@
         "Most positions require volunteers to be 18; those under 18 need a parent or guardian's permission.",
         "Volunteers must live nearby and have reliable transportation; KARE trains for all positions."
       ],
+      "gives": "",
       "howTo": "Apply from the volunteer page with a parent's permission and ask which roles take someone her age.",
       "id": "kare-volunteer",
       "kind": "shift",
@@ -1177,6 +1215,7 @@
         "Main volunteer opportunities are regular horse care: checking waters, mucking stalls, grooming and, in the rescue's words, loving on the horses.",
         "No age is stated; the rescue names a volunteer coordinator to ask."
       ],
+      "gives": "",
       "howTo": "Use the volunteering page to reach the volunteer coordinator and ask the minimum age.",
       "id": "kataluna-horse-care",
       "kind": "shift",
@@ -1205,6 +1244,7 @@
         "A Saturday Morning Teen Farm Volunteers programme for ages 15–18 covers preparing the animals' meals, cleaning their living quarters and the chores that go with them, per the 2023 booklet.",
         "The farm has ponies, pigs, goats and sheep, and runs camps for younger children, which is how she sees it before twelve."
       ],
+      "gives": "",
       "howTo": "At 12, register for the after-school teen farm volunteer programme from the programmes page, or email KelseyCreekFarm@bellevuewa.gov to ask when the next session opens.",
       "id": "kelsey-creek-teen-farm",
       "kind": "program",
@@ -1234,6 +1274,7 @@
         "Clubs with the project: Cedar River Rascals, Renton, ages 5–19, first and third Wednesdays, cats only; Top Cats, Auburn and Enumclaw, monthly on Saturdays; Eastside Hushpuppies, Bellevue, dogs and cats. The directory says some clubs have openings.",
         "Membership is youth 5 to 18, with ages set as of 1 October; the $30 annual fee can be waived. Enrolment goes through the county office in Renton — ring 425-738-0104 for an appointment."
       ],
+      "gives": "",
       "howTo": "Ring the county 4-H office to enrol and pick a club with an opening; Cedar River Rascals is the cats-only one.",
       "id": "king-county-4h-cats",
       "kind": "program",
@@ -1262,6 +1303,7 @@
         "The volunteer page asks whether you would like to help Kitsap Audubon reach out to families and children — outreach, presentations and educational materials — and recruits leaders for its monthly field trips.",
         "It has no paid staff. No volunteer age is stated; the roles read as adult ones, with a child along."
       ],
+      "gives": "",
       "howTo": "Use the volunteer page to offer help on the education committee, with her in tow.",
       "id": "kitsap-audubon-education",
       "kind": "outreach",
@@ -1292,6 +1334,7 @@
         "That adult does not have to be the legal guardian — a grandparent or family friend of 18 or over can do it, with written approval from the parent.",
         "Roles: dog walking, feline socialization, small animal enrichment, laundry and dishes."
       ],
+      "gives": "",
       "howTo": "Apply together through the volunteer page at 13 — one application each, hers and the adult's.",
       "id": "kitsap-junior",
       "kind": "shift",
@@ -1323,6 +1366,7 @@
         "The first step for an individual volunteer is a one-hour volunteer orientation; the application includes permission for a background check, which applies to adults who volunteer on their own, and the paperwork is renewed yearly to PATH International's standards.",
         "Group volunteering, including the landscaping and gardening days, is 14 and over for everyone in the group."
       ],
+      "gives": "",
       "howTo": "At 14, book a one-hour volunteer orientation from the volunteer page and apply; before that, email volunteers@littlebit.org to ask what an under-14 can do with you alongside.",
       "id": "little-bit-volunteer",
       "kind": "program",
@@ -1353,6 +1397,7 @@
         "MEOW says it has only limited opportunities for under-18s and cannot offer teens work that meets school service-hour requirements — fostering is what it suggests for families.",
         "It is currently taking applications for fosters as well as kennel attendants and shelter assistants."
       ],
+      "gives": "",
       "howTo": "Email volunteer@meowcatrescue.org to reach the Volunteer Programs Manager and ask to foster as a family.",
       "id": "meow-foster",
       "kind": "foster",
@@ -1384,6 +1429,7 @@
         "The ask is at least two weeks, about an hour twice a day on care and company, a car to collect and return the cat, and a home within 45 minutes of the café on N 45th St. The Foundation wants families who will foster again, and says it is not the place for fostering in order to adopt.",
         "The foster page does not say whether children in the home are a problem; the adoption FAQ welcomes families with children, cat by cat. Ask on the application."
       ],
+      "gives": "",
       "howTo": "A parent fills in the foster application on the café's site, saying there is a child at home and that you would foster more than once.",
       "id": "meowtropolitan-foster",
       "kind": "foster",
@@ -1413,6 +1459,7 @@
         "Volunteers must be at least 16 and physically able to lift at least 40 pounds; comfort with customers and some knowledge of animals are preferred.",
         "Questions go to 253-299-PETS ext 2 or pets@sumnerwa.gov. The shelter is at 1200 39th Ave SE, Puyallup, run by the City of Sumner."
       ],
+      "gives": "",
       "howTo": "At 16, apply from the volunteering page.",
       "id": "metro-animal-services-16",
       "kind": "shift",
@@ -1444,6 +1491,7 @@
         "The age rule is about the animal, not the volunteer: dogs go only to homes where the children are over 5, while cats, kittens and other small animals can go to families with children under 5, at Motley Zoo's discretion.",
         "Fostering cats does not need much space: a half-bath or laundry room is plenty for a litter box, bowls and a soft place to nap, and Motley Zoo can provide the supplies, including food."
       ],
+      "gives": "",
       "howTo": "Email cats@motleyzoo.org about fostering kittens as a family, or info@motleyzoo.org for how to get involved.",
       "id": "motley-foster-cats",
       "kind": "foster",
@@ -1473,6 +1521,7 @@
         "NEKO looks for fosters of every level of cat experience with the space and time to socialise cats, transport, and a home near its Seattle location; it supplies the cats, the supplies and support.",
         "Applying is a resume sent to info@nekocatcafe.com or brought in, naming the location. No age is stated; the café itself is open to all ages, which is a visitor rule."
       ],
+      "gives": "",
       "howTo": "A parent emails a short resume to info@nekocatcafe.com for the Seattle location, saying there is a child at home.",
       "id": "neko-foster",
       "kind": "foster",
@@ -1503,6 +1552,7 @@
         "Regular volunteers commit to a two-hour shift once a week for at least six months, after an initial orientation; the page listed weekday openings, and says to email for what is open now.",
         "It is a working farm: feeding, mucking out and the care of animals that arrived in poor shape."
       ],
+      "gives": "",
       "howTo": "At 12, email volunteer@newmoonfarm.org together to ask for the orientation and a weekly slot you can both keep.",
       "id": "new-moon-farm-youth",
       "kind": "shift",
@@ -1533,6 +1583,7 @@
         "In-person volunteering is leafleting, tabling, demonstrations and work parties; there are remote options too, including the Animals in Labs committee's Zoom work.",
         "No minimum age is stated; its volunteers are described as teachers, engineers, students, programmers and artists."
       ],
+      "gives": "",
       "howTo": "Sign up from the volunteer page and ask which activities take a child with a parent.",
       "id": "narn-outreach",
       "kind": "outreach",
@@ -1562,6 +1613,7 @@
         "Conservation volunteer projects say age qualification varies by project.",
         "The volunteer pages were old when checked, so confirm before planning around them."
       ],
+      "gives": "",
       "howTo": "At 14, apply from the education-volunteer page and complete the training.",
       "id": "nwtrek-education-14",
       "kind": "program",
@@ -1593,6 +1645,7 @@
         "Old Dog Haven pays all medical costs including prescription food; the family pays the everyday costs of having a dog.",
         "Old Dog Haven asks that every volunteer be 18 or over, so the adult in the house is the registered one and the child lives with the dog rather than signing up for anything."
       ],
+      "gives": "",
       "howTo": "Read the fostering page with a parent, then fill in the volunteer package and email it to office@olddoghaven.org.",
       "id": "odh-foster",
       "kind": "foster",
@@ -1625,6 +1678,7 @@
         "The network publishes a map of shoreline viewpoints from Deception Pass to Olympia, so a report can start with choosing where to stand.",
         "It also points at Orcasound's hydrophones for listening when there is nothing to see."
       ],
+      "gives": "",
       "howTo": "Pick a viewpoint from the map, take binoculars, and send what she sees through the sightings report page — log the watching as an entry either way.",
       "id": "orca-network-sightings",
       "kind": "citizen-science",
@@ -1656,6 +1710,7 @@
         "Listeners tell the network when they hear orcas or any sound that might matter, which helps researchers learn when and where the endangered Southern Residents travel, how they communicate and forage, and what noise may be holding back their recovery.",
         "Anyone is welcome to join the network for free as a citizen scientist."
       ],
+      "gives": "",
       "howTo": "Open live.orcasound.net, choose a hydrophone and listen; report what she hears, and log the listening time as an entry.",
       "id": "orcasound-listen",
       "kind": "citizen-science",
@@ -1685,6 +1740,7 @@
         "PAWS's school programmes include the signature six-week Kids Who Care programme for fourth-grade classrooms, and individual class projects.",
         "PAWS education runs September through May and reaches more than 3,000 youth and adults a year with a six-lesson programme for elementary schools, live workshops at PAWS, badge programmes and projects helping animals."
       ],
+      "gives": "",
       "howTo": "Send the School Year Programs page to her teacher, or email education@paws.org and ask them to approach the school.",
       "id": "paws-kids-who-care",
       "kind": "program",
@@ -1716,6 +1772,7 @@
         "Handmade things are not on the printed wish list, and PAWS asks that anything not on it be checked with them first, and that donations be dropped off in business hours arranged by phone on 425.787.2500. It has had a lot of bedding donated lately, so that call is what decides between beds and scratchers.",
         "PAWS also suggests being kind to wildlife at home: fresh water and bird feeders, and picking up litter that can harm wild animals."
       ],
+      "gives": "items",
       "howTo": "Ring PAWS on 425.787.2500 to ask which projects they are short of and when to bring them, then make a batch from the Youth Projects page.",
       "id": "paws-at-home-projects",
       "kind": "craft",
@@ -1748,6 +1805,7 @@
         "In person at PAWS and approximately 90 minutes; not a drop-off programme, so a parent, guardian or troop leader stays. Offered in partnership with Girl Scouts of Western Washington.",
         "PAWS runs the same workshops at other Scout levels, so there is one for later: Caring Creatures (Daisy), PAWS for Cats and Dogs (Brownie Pets badge) and Heroic Animal Helpers (Cadette, ages 11–13)."
       ],
+      "gives": "",
       "howTo": "Watch PAWS's Scout Programs page for the next Our Wild World date and book her in individually; email education@paws.org to ask when the next one is.",
       "id": "paws-scout-badges",
       "kind": "event",
@@ -1779,6 +1837,7 @@
         "Both listings said applications were closed and shifts filled; PAWS says Cat City has very limited open shifts for adults and teens at this time.",
         "Cat City is at 5200 Roosevelt Way NE, Suite B, in the University District."
       ],
+      "gives": "",
       "howTo": "At 16, watch the teen listing for shifts to reopen, then apply with a parent's approval.",
       "id": "paws-cat-city-teen",
       "kind": "shift",
@@ -1809,6 +1868,7 @@
         "PAWS's kids and teens page says children often ask for donations to help animals instead of birthday presents, and can run a FUNdraiser, a gift drive, or collect supplies — or all three.",
         "Anything not on the list, and any drop-off in person, goes through a call to 425.787.2500 first."
       ],
+      "gives": "items",
       "howTo": "Open the wish list, either have the items shipped to PAWS from the Amazon list or collect them from neighbours and school, and ring 425.787.2500 before bringing anything in person.",
       "id": "paws-wish-list-drive",
       "kind": "drive",
@@ -1839,6 +1899,7 @@
         "Most roles mean standing for the shift and climbing a couple of flights of stairs.",
         "It is a small place — visits by appointment, and the shelter is open to the public only on some weekday afternoons — so ring before going."
       ],
+      "gives": "",
       "howTo": "At 16, ring (360) 373-7043 or apply from the volunteer page; the ferry to Bremerton is part of the trip.",
       "id": "paws-bremerton-16",
       "kind": "shift",
@@ -1869,6 +1930,7 @@
         "Signing up is an online application with a background check — for a twelve-year-old that falls on the guardian who comes along.",
         "Compassion Days group volunteer events are for groups 18 and older, typically 10:00 a.m.–2:30 p.m."
       ],
+      "gives": "",
       "howTo": "Email volunteer@pasadosafehaven.org or call (360) 793-9393 when she is 12.",
       "id": "pasados-youth",
       "kind": "shift",
@@ -1899,6 +1961,7 @@
         "Puppy parents attend introductory and twice-monthly classes with training and field trips to public places.",
         "No minimum age is stated for any role."
       ],
+      "gives": "",
       "howTo": "Apply from the volunteer page and ask which roles a child can do with a parent.",
       "id": "paws-for-purple-hearts",
       "kind": "shift",
@@ -1929,6 +1992,7 @@
         "Becoming a team is a handler course ($80 online), then a team evaluation with a local evaluator (typically $15–30), then registration ($95 for a new team, $70 to renew).",
         "Facilities set their own limits on top of that, and some have age limits of their own."
       ],
+      "gives": "",
       "howTo": "At 10, with a pet that has lived with you six months, take the handler course together, book a team evaluation, and register.",
       "id": "pet-partners-handler",
       "kind": "program",
@@ -1960,6 +2024,7 @@
         "House rules: no smoking, weapons, drugs or alcohol, and no personal pets on the grounds; the animals' needs come first.",
         "Volunteers mainly scoop manure, with occasional work parties; no age is stated. Contact pigspeace@gmail.com; two different phone numbers are published, so email first."
       ],
+      "gives": "",
       "howTo": "Email pigspeace@gmail.com to ask about a visit first, and whether a family can help on a work party.",
       "id": "pigs-peace",
       "kind": "shift",
@@ -1990,6 +2055,7 @@
         "Puget Sound Bird Fest, in Edmonds each June, includes a Kids' Corner.",
         "An Audubon for Kids page lists activities to do at home or in a yard or park."
       ],
+      "gives": "",
       "howTo": "Choose a trip from the upcoming-trips page and send the youth release form with hers.",
       "id": "pilchuck-audubon-trips",
       "kind": "program",
@@ -2022,6 +2088,7 @@
         "Beach Walk Naturalist is from 16 — talking to beach-goers at low tide.",
         "Under 18 needs an adult along for all three. Almost all of it happens away from the zoo, and it is seasonal: spring and summer."
       ],
+      "gives": "",
       "howTo": "Watch the community science page for a project with applications open — they are seasonal — and apply together.",
       "id": "pdza-community-science",
       "kind": "citizen-science",
@@ -2054,6 +2121,7 @@
         "Applications open in December. Applicants do an informal group interview and orientation, then training starts in late March: seven to nine required sessions through June, followed by one six-hour shift a week for nine or ten weeks of the summer season.",
         "Apply at pdza.org/volunteer when the window is open; outside it there is a waitlist form, which the zoo says is not an application."
       ],
+      "gives": "",
       "howTo": "Apply in December of 8th or 9th grade for the summer that follows; the volunteer page carries the form while it is open.",
       "id": "pdza-zoo-guides",
       "kind": "program",
@@ -2084,6 +2152,7 @@
         "The page warns that the work on the farm can be quite repetitive, physically demanding and messy.",
         "Adopting a horse is 21 and over, which is a different rule from volunteering."
       ],
+      "gives": "",
       "howTo": "Sign up from the volunteer page together and ask which days the farm takes helpers.",
       "id": "pony-up-volunteer",
       "kind": "shift",
@@ -2116,6 +2185,7 @@
         "Counts are submitted on the website or the FeederWatch app.",
         "There is a participation fee — $18 in the US, $15 for Cornell Lab members — which pays for the database and the project materials. A first season is free with the code FIRSTPFW at checkout, and an educational group leader can use PFWEDU for $5 off."
       ],
+      "gives": "",
       "howTo": "Sign up with a parent before November (the code FIRSTPFW makes a first season free), choose the patch to watch, and put the count days in the calendar here.",
       "id": "feederwatch",
       "kind": "citizen-science",
@@ -2147,6 +2217,7 @@
         "Bird banding is a separate path: the level-one banding course or equivalent experience, and the 2026 beginner courses were sold out. Sighting volunteers for colour-banded birds are the non-banding research option.",
         "No minimum age is stated anywhere."
       ],
+      "gives": "",
       "howTo": "Email contact@pugetsoundbirds.org to ask whether a child can count beside a parent on the seabird survey.",
       "id": "psbo-seabird-survey",
       "kind": "citizen-science",
@@ -2176,6 +2247,7 @@
         "At this time the rescue does not allow children under 18 to volunteer.",
         "A visit is a three-hour shift."
       ],
+      "gives": "",
       "howTo": "At 18, use the get-involved page.",
       "id": "psgr-18",
       "kind": "shift",
@@ -2206,6 +2278,7 @@
         "What a home needs: a safe room shut away from your own pets (a bedroom, bathroom or laundry room is enough), your own pets up to date on vaccines, fresh food, water and clean litter twice a day, and the foster cats kept indoors.",
         "A mother cat with newborns needs nine or ten weeks; an adult cat who is low needs two to four."
       ],
+      "gives": "",
       "howTo": "Fill in the foster application with a parent, then go to a training session at Arlington together.",
       "id": "purrfect-pals-foster",
       "kind": "foster",
@@ -2237,6 +2310,7 @@
         "Volunteers organize fundraising events, sew cat blankets, brush cats, pick up donations, maintain sanctuary grounds, take photos of cats, and more.",
         "Ongoing project needs at the sanctuary include gardening and landscaping, maintenance, painting, cleaning and construction."
       ],
+      "gives": "",
       "howTo": "Email volunteers@purrfectpals.org from the volunteer page when she turns 13.",
       "id": "purrfect-pals-sanctuary",
       "kind": "shift",
@@ -2266,6 +2340,7 @@
         "Minimum age 16, no exceptions, because of the shelter's insurance; a three-month commitment and a liability waiver; applications are reviewed and approved before anyone starts.",
         "Its community outreach programme welcomes groups of all ages to visit and learn about rabbit care — a visit, not a shift."
       ],
+      "gives": "",
       "howTo": "At 16, apply from the volunteer page; before that, a group visit is the way in.",
       "id": "rabbit-haven-16",
       "kind": "shift",
@@ -2298,6 +2373,7 @@
         "Service hours are the one part that needs arranging first. RASKC credits an hour per blanket, but only in the months it is taking them, and asks that blanket-making be scheduled before you start — email RASKC.Volunteers@kingcounty.gov. Donating without counting hours needs none of that.",
         "RASKC's volunteer page lists blankets under group volunteering too, alongside running a small fundraiser, putting up posters in the community, and making videos."
       ],
+      "gives": "blankets",
       "howTo": "Cut and tie a batch to the sizes on RASKC's instruction sheet, then take them to the Kent Pet Adoption Center any afternoon it is open. Email RASKC.Volunteers@kingcounty.gov first only if you want the hours credited as community service.",
       "id": "raskc-cat-blankets",
       "kind": "craft",
@@ -2332,6 +2408,7 @@
         "After training you join waitlists for the kinds of animal you would like to foster; when one is ready an email comes and it needs answering quickly.",
         "RASKC's volunteer page also says children can take part in caring for animals through fostering, with an adult in the household as the official volunteer — which is how a nine-year-old helps here, since shelter shifts start at nine only with a parent alongside."
       ],
+      "gives": "",
       "howTo": "A parent fills in one online volunteer application for the household and signs the agreement form, you watch Fostering 101 together and take the quiz, then pick the cat waitlists.",
       "id": "raskc-foster",
       "kind": "foster",
@@ -2367,6 +2444,7 @@
         "Shelter Helper asks for six months, or six shifts plus two training shifts over a summer.",
         "Questions go to RASKC.Volunteers@kingcounty.gov."
       ],
+      "gives": "",
       "howTo": "Each of you fills in the online volunteer application, a parent signs the volunteer agreement form, then you both go to a new-volunteer orientation and RASKC matches you to Shelter Helper shifts.",
       "id": "raskc-shelter-helper",
       "kind": "shift",
@@ -2399,6 +2477,7 @@
         "The team SAFE's own postings describe as a fit for children and teens is the Saturday grounds crew, 10am to 1pm — gardening and landscaping around the barn, which is how an eight-year-old helps a horse rescue without being in with the horses.",
         "The adult goes through the volunteer profile and a short orientation first; the postings say the orientation is an introduction to SAFE and the place to ask questions."
       ],
+      "gives": "",
       "howTo": "The parent fills in SAFE's volunteer profile and books the orientation from the volunteer page, signs the minor-volunteer agreement for her, and you join the Saturday grounds team together.",
       "id": "safe-barn-chores",
       "kind": "shift",
@@ -2429,6 +2508,7 @@
         "Older coverage says the sanctuary also looked for volunteers from 13 to help run its summer camps — ask whether that still holds.",
         "The sanctuary is open to visitors, which is how a younger child sees it first."
       ],
+      "gives": "",
       "howTo": "At 12, apply from the individual-volunteer page naming the adult who will stay with her.",
       "id": "sammamish-sanctuary-youth",
       "kind": "shift",
@@ -2459,6 +2539,7 @@
         "It publishes an everyday donation wish list, and also takes contributions through its Amazon wish list.",
         "Hands-on volunteering there is physically demanding outdoor work in all weather, so a drive is the way a younger child helps."
       ],
+      "gives": "items",
       "howTo": "Print the everyday wish list, collect the items, then ring (360) 435-4817 to arrange dropping them off.",
       "id": "sarvey-wish-list",
       "kind": "drive",
@@ -2490,6 +2571,7 @@
         "Foster dogs cannot be placed in homes with children under 6.",
         "Applying is the foster application, the foster guide, and the foster waiver; volunteer questions go to lily@savinggreatanimals.org. No volunteer age is stated — the adult registers."
       ],
+      "gives": "",
       "howTo": "A parent fills in the foster application, reads the guide and signs the waiver.",
       "id": "sga-foster",
       "kind": "foster",
@@ -2522,6 +2604,7 @@
         "Trained volunteers cover the beaches from Brace Point through the Duwamish River, including Harbor Island; there are also roles off the beach, as hotline operator, first responder or scheduler.",
         "To be told about the next training, email from the volunteer page or fill in the Volunteer Interest form, which puts you on the waiting list."
       ],
+      "gives": "",
       "howTo": "Fill in the Volunteer Interest form to join the waiting list for the spring training, and ask whether she can train alongside you.",
       "id": "seal-sitters",
       "kind": "shift",
@@ -2553,6 +2636,7 @@
         "The shelter says fostering can build a foundation of philanthropy in your children, to select a cat that is age-appropriate for them, and to give children guidance, instructions and rules about caring for an orphaned cat.",
         "A Kitten Care class is offered when more kitten fosters are needed."
       ],
+      "gives": "",
       "howTo": "Complete the online volunteer profile and select Foster Care Volunteer–Cats.",
       "id": "sas-foster-cats",
       "kind": "foster",
@@ -2582,6 +2666,7 @@
         "Volunteer shifts cover setting up for the race, working the registration table, greeting participants and handing out swag; sign-up is at furry5k.com/volunteer.",
         "The 2026 run was Sunday 14 June at Seward Park with a $125,000 goal for the shelter's animals. No volunteer age is stated for the event; the shelter's regular programme is 18."
       ],
+      "gives": "",
       "howTo": "Sign up for a shift at furry5k.com/volunteer in spring and ask whether she can work the swag table beside you.",
       "id": "sas-furry-5k",
       "kind": "event",
@@ -2611,6 +2696,7 @@
         "The shelter also runs a pet food bank for people who cannot afford to feed their animals, so food is never wasted on it.",
         "Items bought from the wish list online ship straight to the shelter, which is the route that needs no drop-off at all."
       ],
+      "gives": "items",
       "howTo": "Print the wish list, collect, ring the shelter for its drop-off hours, and take it in — or have people buy from the online list and skip the trip.",
       "id": "sas-wish-list-drive",
       "kind": "drive",
@@ -2643,6 +2729,7 @@
         "A 2019 recruitment notice said youth aged 8 and over were welcome to volunteer along with a participating adult, after training, for three shifts along the river in October — the only statement of the volunteer age found, and old.",
         "Confirm the youth rule with the Aquarium before counting on it."
       ],
+      "gives": "",
       "howTo": "Ask the Aquarium's volunteer office in late summer about the naturalist training and whether the youth-with-adult rule still holds.",
       "id": "cedar-river-salmon-naturalists",
       "kind": "citizen-science",
@@ -2675,6 +2762,7 @@
         "The Aquarium then interviews from the applicant pool and chooses on the interview and the application together.",
         "The school-year round runs to a calendar: the interest form opens in August, the Zoom information sessions are in September, applications go in during October, and decisions follow."
       ],
+      "gives": "",
       "howTo": "Fill in the interest form when it opens in August — that is the step with a deadline; the information session in September and the October application follow from it.",
       "id": "aquarium-yoa",
       "kind": "program",
@@ -2704,6 +2792,7 @@
         "Drop-by hours on the pantry page are Thursdays, noon to 3pm, at the rescue at 20226 Ballinger Way NE in Shoreline; the giving page gives wider hours, so check the pantry page before you go.",
         "The pantry depends on donations and cannot promise particular brands, so a drive that collects whatever people have is exactly what it runs on; email support@seattleareafelinerescue.org before bringing something large or specialised."
       ],
+      "gives": "bags of food",
       "howTo": "Tell neighbours and school what the pantry takes, collect it, and bring it to the Thursday drop-by hours.",
       "id": "safr-pantry-drive",
       "kind": "drive",
@@ -2736,6 +2825,7 @@
         "Kittens come into the adoption center regularly for check-ups, normally 2–4 times a month; homes without regular transportation are welcome for adult cats in longer-term foster.",
         "To start, read the Foster Handbook and fill out the online Foster Information Form."
       ],
+      "gives": "",
       "howTo": "Read the Foster Handbook on the foster page and submit the Foster Information Form.",
       "id": "safr-foster",
       "kind": "foster",
@@ -2766,6 +2856,7 @@
         "Shifts are a regular weekly commitment of two to three hours.",
         "Until then the rescue recommends fostering as a family (listed separately)."
       ],
+      "gives": "",
       "howTo": "Apply through the volunteer page at 16, with a parent to sign the agreement.",
       "id": "safr-volunteer",
       "kind": "shift",
@@ -2794,6 +2885,7 @@
         "Food and pet supplies are distributed on Mondays, 4 to 7pm, at the Northwest Harvest food bank; the rest of its work is mobile street outreach with no drop-in location.",
         "It asks people to email to arrange support; no age is stated for anything."
       ],
+      "gives": "items",
       "howTo": "Email through seattledogs.info to ask what they are short of and when to bring it, then collect.",
       "id": "seattle-dogs-supplies",
       "kind": "drive",
@@ -2827,6 +2919,7 @@
         "Deliveries go to clients of the Pet Food Bank, participating senior centres and food banks around the greater Seattle area.",
         "Whether a child may come on a delivery shift is for Seattle Humane to say: ask Education Services, which handles youth and community service questions."
       ],
+      "gives": "",
       "howTo": "A parent applies for the delivery driver role on the volunteer page and emails EducationServices@seattlehumane.org to ask about bringing her.",
       "id": "sh-food-bank-delivery",
       "kind": "shift",
@@ -2859,6 +2952,7 @@
         "Seattle Humane can usually supply everything needed, though supplies come from donations and are limited.",
         "It also runs a foster-to-adopt programme for cats and kittens with ringworm, training the family in its ringworm protocol."
       ],
+      "gives": "",
       "howTo": "Email foster@seattlehumane.org with a parent to apply, and ask what they most need fostered right now.",
       "id": "sh-foster",
       "kind": "foster",
@@ -2891,6 +2985,7 @@
         "There is a $30 registration fee, which Seattle Humane says covers the staff time to train and supervise everyone.",
         "Offered during winter months; students register for shifts in December and January."
       ],
+      "gives": "",
       "howTo": "Register on the High School Service Shifts page when winter registration opens; the fee is $30.",
       "id": "sh-hs-service-shifts",
       "kind": "shift",
@@ -2920,6 +3015,7 @@
         "Designed for motivated 16–17-year-olds interested in animal welfare, community service, and career exploration in animal care.",
         "Finishing it makes her eligible to apply for volunteer shifts at Seattle Humane, which is the door the younger programmes lead to."
       ],
+      "gives": "",
       "howTo": "Apply for HSTP through the Youth Programs page at 16.",
       "id": "sh-hstp",
       "kind": "program",
@@ -2949,6 +3045,7 @@
         "The project page lists more ways to make cat toys from recycled or reusable objects.",
         "Community service hours are recorded on Seattle Humane's monthly Community Service Hours Log, one row per session with time in, time out and a signature (form linked on the organization)."
       ],
+      "gives": "toys",
       "howTo": "Make the toys following the project page, then bring them to the shelter with any blankets.",
       "id": "sh-cat-toys",
       "kind": "craft",
@@ -2978,6 +3075,7 @@
         "For teens ages 13–17 to learn about Seattle Humane, explore animal welfare topics and prepare for future volunteer opportunities.",
         "Members meet two Saturdays per month."
       ],
+      "gives": "",
       "howTo": "Sign up through the Youth Programs page when the school-year session opens.",
       "id": "sh-teen-club",
       "kind": "program",
@@ -3009,6 +3107,7 @@
         "Written and video instructions for making no-sew blankets are on the project page.",
         "Community service hours are recorded on Seattle Humane's monthly Community Service Hours Log, one row per session with time in, time out and a signature (form linked on the organization)."
       ],
+      "gives": "blankets",
       "howTo": "Follow the no-sew instructions on the project page, then bring the blankets to the shelter. Contact Education Services for drop-off details.",
       "id": "sh-cat-blankets",
       "kind": "craft",
@@ -3041,6 +3140,7 @@
         "Youth can help pets and earn school service hours by donating, fundraising or supporting the pet food bank.",
         "Community service hours are recorded on Seattle Humane's monthly Community Service Hours Log, one row per session with time in, time out and a signature (form linked on the organization)."
       ],
+      "gives": "bags of food",
       "howTo": "Pick a collection window, tell neighbors or the class what to bring, then deliver the donations to the shelter. Email Education Services for current needs.",
       "id": "sh-pet-food-drive",
       "kind": "drive",
@@ -3070,6 +3170,7 @@
         "SPDR describes itself as volunteer-based, with placements handled by a team of volunteer Breed Representatives, and invites people to become one.",
         "No minimum age or foster process is stated."
       ],
+      "gives": "",
       "howTo": "Ask about becoming a Breed Representative from the About page.",
       "id": "spdr-breed-rep",
       "kind": "program",
@@ -3098,6 +3199,7 @@
         "Not accepted: opened food, controlled medications, or medicines more than a year past their date.",
         "The page names Woodhaven Veterinary Hospital in Edmonds as the drop-off point, and an Amazon wish list for anything bought online; an older FAQ said any clinic location, so confirm the drop-off before going."
       ],
+      "gives": "items",
       "howTo": "Collect from the most-needed list, keep food unopened, and take it to the drop-off the donation page names — or send people to the Amazon list.",
       "id": "svo-pet-supplies-drive",
       "kind": "drive",
@@ -3129,6 +3231,7 @@
         "Volunteers are 18 and over; minors 14–17 may volunteer with parental approval, and minors 12–13 may volunteer with their parents and must be supervised at all times — all from the rescue's own volunteer page.",
         "The rescue takes in horses that need rehabilitation and runs a Horses as Healers programme alongside the rescue work."
       ],
+      "gives": "",
       "howTo": "At 12, email volunteer@serenityequinerescue.com together and ask for the orientation and a shift the two of you can do.",
       "id": "serenity-equine-youth",
       "kind": "shift",
@@ -3157,6 +3260,7 @@
         "Teens over 16 with their own transportation can apply if they are available for regular shifts; for insurance and safety reasons there are no one-off tours or volunteer experiences for kids.",
         "Cleaning shifts run on Sundays, Wednesdays or Fridays for two to four hours."
       ],
+      "gives": "",
       "howTo": "At 16, apply from the volunteer page.",
       "id": "special-bunny-16",
       "kind": "shift",
@@ -3184,6 +3288,7 @@
         "The rescue is run primarily by volunteers; its homepage has an \"interested in volunteering?\" section with a volunteer application.",
         "Older listings give a Puyallup address, newer ones Graham; no minimum age appears in either."
       ],
+      "gives": "",
       "howTo": "Fill in the volunteer application from the homepage and ask the minimum age.",
       "id": "sunny-skys",
       "kind": "shift",
@@ -3215,6 +3320,7 @@
         "Applications for a summer were accepted through 15 April, so the window is spring.",
         "Parks Tacoma's work parties are open to all ages, with anyone 14 and under accompanied by a parent — those are parks work, not the animal side."
       ],
+      "gives": "",
       "howTo": "At 13, apply in spring from the nature centre's volunteer page.",
       "id": "tacoma-nature-center-teens",
       "kind": "program",
@@ -3245,6 +3351,7 @@
         "A Chewy wish list ships food and litter straight to the shelter, which is the route without a drive to Tacoma.",
         "The shelter says plainly that money goes further, because it buys at wholesale."
       ],
+      "gives": "bags of food",
       "howTo": "Collect dry food and litter, unopened, and take it to Entrance B in opening hours — or point people at the Chewy list.",
       "id": "hstpc-pantry-drive",
       "kind": "drive",
@@ -3278,6 +3385,7 @@
         "The shelter asks each foster home for at least one foster animal or litter a year, and runs a background check on every applicant.",
         "No experience needed; food, toys, blankets and medical care are provided; the shelter named a pressing need for homes without other pets. Stays run from days to months."
       ],
+      "gives": "",
       "howTo": "If you live close enough to Tacoma, a parent applies from the foster page and goes through the background check.",
       "id": "hstpc-foster",
       "kind": "foster",
@@ -3310,6 +3418,7 @@
         "Dog walking and animal transport are 18 and over.",
         "The commitment is at least six hours a month for at least six months, with a background check; students who need community service hours get them signed off only once the six months are done."
       ],
+      "gives": "",
       "howTo": "At 16, apply from the volunteer page and plan for the six-month commitment before counting on the hours.",
       "id": "hstpc-volunteer-16",
       "kind": "shift",
@@ -3343,6 +3452,7 @@
         "It costs $30 per child, runs 10am to 3pm, and takes 30 children per session, so it books up.",
         "Kids 'adopt' a plush pet and walk it through intake, medical exams and adoption day, with stations like puppy paw painting, bottle-feeding baby animals, scent trails, agility demos and clicker training; snacks and water are provided, pack a lunch."
       ],
+      "gives": "",
       "howTo": "Watch the Kid's Volunteer Day page for the next date and register — $30 a child, thirty places, and an adult comes for the day.",
       "id": "noah-kids-day",
       "kind": "event",
@@ -3373,6 +3483,7 @@
         "The volunteer page sets the minimum at 18. Questions go to waifvc@waifanimals.org.",
         "WAIF runs educational workshops for school-age children, which are something to attend rather than a role."
       ],
+      "gives": "",
       "howTo": "At 18, email the volunteer coordinator from the volunteer page.",
       "id": "waif-18",
       "kind": "shift",
@@ -3405,6 +3516,7 @@
         "Training is given for every role and no experience is needed; volunteers also help make events work.",
         "Orphaned wild songbirds and opossums are among the animals named as needing feeding."
       ],
+      "gives": "",
       "howTo": "At 15, apply together through the wildlife volunteer page and pick the weekly slot you can both keep — the ferry trip is part of the day.",
       "id": "wsws-youth",
       "kind": "shift",
@@ -3437,6 +3549,7 @@
         "Events are habitat restoration days — planting along salmon streams, Orca Recovery Day, an Earth Day celebration — with advance registration and limited places; a confirmation email comes two or three days before.",
         "The group also hosts groups from preschools to high-school clubs; its internships are 17 and over."
       ],
+      "gives": "",
       "howTo": "Register for an event from the site's listings, bring the signed release, and come as a household.",
       "id": "whale-scout-events",
       "kind": "event",
@@ -3469,6 +3582,7 @@
         "Stays run two to three weeks or two to three months depending on the cat's age and circumstances.",
         "Starting is the Foster Survey on the adopt-and-foster page; the rescue then discusses what would suit the household. No age or child rule is stated — the adult registers."
       ],
+      "gives": "",
       "howTo": "A parent fills in the Foster Survey and says there is a child at home.",
       "id": "whiskers-in-need-foster",
       "kind": "foster",
@@ -3499,6 +3613,7 @@
         "Volunteers must be at least 18, reliable, and able to commit to a regular weekly two-hour shift.",
         "The work is at the rescue's cat adoption centres in the Lynnwood and Issaquah Petco stores."
       ],
+      "gives": "",
       "howTo": "At 18, apply from the volunteer page.",
       "id": "whiskers-in-need-18",
       "kind": "shift",
@@ -3527,6 +3642,7 @@
         "It is a summer: an orientation day at the zoo in late June, at least seven cohort meetings, and twenty hours of shifts between the end of June and early September.",
         "Applying is a spring job — the zoo invites the people it selects to interview in mid-April, so the application closes before that."
       ],
+      "gives": "",
       "howTo": "Apply in the spring, before the mid-April interviews, for the summer that follows — the page says when the window opens.",
       "id": "zoo-teen",
       "kind": "program",
@@ -3556,6 +3672,7 @@
         "No qualifications or special expertise are needed; lots of help is provided to make the right identification.",
         "You can start online at instantwild.zsl.org without creating an account, or use the free iOS or Android app; an account adds badges for milestones."
       ],
+      "gives": "",
       "howTo": "Open instantwild.zsl.org or the app and start tagging; log the time as an entry.",
       "id": "instant-wild",
       "kind": "citizen-science",
@@ -3585,6 +3702,7 @@
         "There is no age limit for Zooniverse projects, but children under 16 need a parent or guardian to sign off on their account registration.",
         "The project is described as ideally suited to primary and elementary school children, combining ecology, geography and literacy; Zooniverse also publishes guidance on fulfilling service-hour requirements."
       ],
+      "gives": "",
       "howTo": "Create her Zooniverse account with a parent's approval, open Snapshot Serengeti, and classify together; log the time as an entry.",
       "id": "zooniverse-serengeti",
       "kind": "citizen-science",
@@ -3615,6 +3733,7 @@
         "iNaturalist's own records feed research datasets; eBird, run by the Cornell Lab of Ornithology, does the same for bird checklists and needs a free Cornell Lab account.",
         "Observations are made outdoors and uploaded from a phone or computer."
       ],
+      "gives": "",
       "howTo": "Start with the Seek app, which needs no sign-up; to have the sightings count as data, post them on to iNaturalist from a parent-supervised account, or record bird checklists in eBird on a parent's Cornell Lab account. Log the time as an entry.",
       "id": "inaturalist-ebird",
       "kind": "citizen-science",

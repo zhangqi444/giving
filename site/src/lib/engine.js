@@ -17,6 +17,16 @@ export const workItemsForOrg = (orgId) => workItemsSorted().filter((w) => w.orgI
 export const activeWorkItems = () => workItemsSorted().filter((w) => w.status === "active")
 
 export const sumHours = (entries) => round2(entries.reduce((s, e) => s + e.hours, 0))
+/** What was handed over, added up per unit: [{ unit, count, entries }], biggest first. */
+export function givenByUnit(entries = S().entries) {
+  const map = new Map()
+  for (const e of entries) {
+    if (!e.gave) continue
+    const c = map.get(e.gave.unit) || { unit: e.gave.unit, count: 0, entries: 0 }
+    c.count = round2(c.count + e.gave.count); c.entries++; map.set(e.gave.unit, c)
+  }
+  return [...map.values()].sort((a, b) => b.count - a.count)
+}
 
 export function entriesSorted(sortKey = "date", dir = "desc") {
   const sign = dir === "asc" ? 1 : -1
@@ -47,7 +57,7 @@ export function filterEntries(entries, { search = "", orgId = "", workItemId = "
     if (category && e.category !== category) return false
     if (from && e.date < from) return false
     if (to && e.date > to) return false
-    if (q && !`${e.activity} ${e.notes} ${e.supervisor} ${e.category} ${orgName(e.orgId)} ${workItemTitle(e.workItemId)}`.toLowerCase().includes(q)) return false
+    if (q && !`${e.activity} ${e.notes} ${e.supervisor} ${e.category} ${e.gave ? e.gave.unit : ""} ${orgName(e.orgId)} ${workItemTitle(e.workItemId)}`.toLowerCase().includes(q)) return false
     return true
   })
 }
@@ -68,7 +78,7 @@ export function hoursByMonth(months = 12, ref = new Date()) {
 export function hoursByOrg(entries = S().entries) {
   const map = new Map()
   for (const e of entries) { const c = map.get(e.orgId) || { orgId: e.orgId, hours: 0, count: 0 }; c.hours = round2(c.hours + e.hours); c.count++; map.set(e.orgId, c) }
-  return [...map.values()].map((r) => ({ ...r, org: orgById(r.orgId), name: orgName(r.orgId) })).sort((a, b) => b.hours - a.hours)
+  return [...map.values()].map((r) => ({ ...r, org: orgById(r.orgId), name: orgName(r.orgId), given: givenByUnit(entries.filter((e) => e.orgId === r.orgId)) })).sort((a, b) => b.hours - a.hours)
 }
 export function hoursByWorkItem(entries = S().entries) {
   const map = new Map()
@@ -84,7 +94,7 @@ export function workItemStats(id) {
   const w = workItemById(id)
   const hours = sumHours(entries)
   const pct = w && w.targetHours > 0 ? Math.min(100, (hours / w.targetHours) * 100) : null
-  return { hours, count: entries.length, last: dates[dates.length - 1] || "", memos: S().memos.filter((m) => m.workItemId === id).length, pct }
+  return { hours, count: entries.length, last: dates[dates.length - 1] || "", memos: S().memos.filter((m) => m.workItemId === id).length, pct, given: givenByUnit(entries) }
 }
 export const memosFor = (id) => S().memos.filter((m) => m.workItemId === id).sort((a, b) => b.date.localeCompare(a.date) || b.createdAt.localeCompare(a.createdAt))
 
@@ -114,6 +124,7 @@ export function stats(now = new Date()) {
     month: sumHours(e.filter((x) => x.date.startsWith(ym))), prevMonth: sumHours(e.filter((x) => x.date.startsWith(pk))),
     year: sumHours(year), yearCount: year.length,
     orgs: S().organizations.length, activeOrgs: new Set(year.map((x) => x.orgId)).size,
+    given: givenByUnit(e),
     goal: S().goals.yearly,
   }
 }

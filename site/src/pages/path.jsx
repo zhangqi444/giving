@@ -3,7 +3,7 @@ import { Award, Clock, Flame, Printer, Share2 } from "lucide-react"
 
 import { currentAge } from "@/lib/content"
 import { entriesSorted, hoursByOrg, orgById, orgColor, plansSorted, sumHours, workItemStats, workItemTitle, workItemsSorted } from "@/lib/engine"
-import { fmtDate, fmtHours, fmtShort, hoursWord, monthKey, plural, round2, todayISO } from "@/lib/format"
+import { fmtDate, fmtGave, fmtHours, fmtShort, hoursWord, monthKey, plural, round2, todayISO } from "@/lib/format"
 import { badgeCounts, badgeState, wallet, weekStreak } from "@/lib/rewards"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
@@ -71,7 +71,8 @@ function EntryRow({ e }) {
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
         <span className="text-sm font-medium">{e.activity}</span>
         <span className="text-muted-foreground text-xs tabular-nums">{fmtShort(e.date)}</span>
-        <Badge variant="secondary" className="tabular-nums">{fmtHours(e.hours)} h</Badge>
+        {e.hours > 0 ? <Badge variant="secondary" className="tabular-nums">{fmtHours(e.hours)} h</Badge> : null}
+        {e.gave ? <Badge variant="secondary" className="tabular-nums">gave {fmtGave(e.gave)}</Badge> : null}
       </div>
       <div className="mt-1 flex flex-wrap items-center gap-2">
         {e.orgId ? <OrgChip orgId={e.orgId} /> : null}

@@ -2,14 +2,15 @@
  * Pages open them through useDialogs(); a form keeps its own draft, so opening the
  * organization dialog from inside the entry form leaves that draft untouched. */
 import * as React from "react"
+import { Gift } from "lucide-react"
 
 import { Store, useStore } from "@/lib/store"
-import { ORG_COLORS, WORK_STATUSES } from "@/lib/model"
+import { cleanGave, ORG_COLORS, WORK_STATUSES } from "@/lib/model"
 import { planHours, spanHours } from "@/lib/engine"
-import { C, ensureFromCatalog } from "@/lib/content"
+import { C, catalogItem, ensureFromCatalog } from "@/lib/content"
 import { PhotoStrip } from "@/components/photos"
 import { entryPoints } from "@/lib/rewards"
-import { hoursWord, isISODate, todayISO } from "@/lib/format"
+import { fmtGave, hoursWord, isISODate, todayISO } from "@/lib/format"
 import { orgName, orgsSorted, sumHours, workItemById, workItemsForOrg, workItemStats, workItemTitle } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { cn } from "@/lib/utils"
@@ -79,6 +80,9 @@ function EntryDialog({ init, close }) {
   const e = init.id ? Store.entry(init.id) : null
   const plan = init.planId ? Store.plan(init.planId) : null
   const firstOrg = init.workItemId ? (workItemById(init.workItemId) || {}).orgId : init.orgId
+  // A craft or drive item names the unit it is counted in; that opens "What you gave" with it filled.
+  const gives = (id) => { const i = id && catalogItem(id); return i && i.gives ? i.gives : "" }
+  const unit = gives(init.catalogId || (plan && plan.catalogId))
   const [f, setF] = React.useState({
     // logging from a day on the calendar should land on that day, not today — but never
     // date an entry in the future, since it records something that has already happened
@@ -96,11 +100,16 @@ function EntryDialog({ init, close }) {
      * carries both: they are shown merged and the old notes are cleared when it is saved.
      * A plan's notes are logistics ("where to meet, what to bring") and stay on the plan. */
     reflection: e ? [e.notes, e.reflection].filter(Boolean).join("\n\n") : "",
+    /* A donation is the entry's other half: what was handed over, in the family's own unit.
+     * It sits on the same record as the hours because making blankets takes an afternoon
+     * and dropping food in a porch bin takes none, and both are one thing she did. */
+    gaveCount: e && e.gave ? String(e.gave.count) : "", gaveUnit: e && e.gave ? e.gave.unit : unit, showGave: Boolean((e && e.gave) || unit),
   })
   const fromCatalog = (id) => {
     if (!id) { setF((s) => ({ ...s, catalogId: "" })); return }
     const r = ensureFromCatalog(id)
-    if (r) setF((s) => ({ ...s, catalogId: id, orgId: r.orgId, workItemId: r.workItemId, activity: s.activity.trim() && s.catalogId === "" ? s.activity : r.item.title }))
+    if (r) setF((s) => ({ ...s, catalogId: id, orgId: r.orgId, workItemId: r.workItemId, activity: s.activity.trim() && s.catalogId === "" ? s.activity : r.item.title,
+      ...(r.item.gives ? { showGave: true, gaveUnit: s.gaveCount.trim() ? s.gaveUnit : r.item.gives } : {}) }))
   }
   const [err, setErr] = React.useState("")
   const set = (k) => (v) => setF((s) => ({ ...s, [k]: v }))
@@ -111,19 +120,23 @@ function EntryDialog({ init, close }) {
 
   function submit(ev) {
     ev.preventDefault()
-    const hours = parseFloat(f.hours)
+    const hours = parseFloat(f.hours) || 0
+    const gave = f.showGave ? cleanGave({ count: f.gaveCount, unit: f.gaveUnit }) : null
     if (!isISODate(f.date)) return setErr("Please enter a valid date.")
     if (f.date > todayISO()) return setErr("The date can't be in the future.")
-    if (!(hours > 0)) return setErr("Hours must be greater than zero.")
+    // A count she typed must not be lost: it needs a unit, and a unit alone (the catalog's preset) is nothing given.
+    if (f.showGave && !gave && f.gaveCount.trim()) return setErr(f.gaveUnit.trim() ? "How many did you give? A number above zero." : "Say what you gave: blankets, bags of food, dollars…")
+    if (!(hours > 0) && !gave) return setErr(f.showGave ? "Hours must be greater than zero, unless you say what you gave." : "Hours must be greater than zero.")
     if (hours > 24) return setErr("A single entry can't exceed 24 hours. Split it across days.")
     if (!f.orgId) return setErr("Choose an organization, or create a new one.")
     if (!f.activity.trim()) return setErr("Describe what you did.")
     if (f.start && f.end && !spanHours(f.start, f.end)) return setErr("Time out must be after time in.")
-    const fields = { ...f, hours, activity: f.activity.trim(), supervisor: f.supervisor.trim(), notes: "", reflection: f.reflection.trim() }
+    const { gaveCount, gaveUnit, showGave, ...rest } = f
+    const fields = { ...rest, hours, gave, activity: f.activity.trim(), supervisor: f.supervisor.trim(), notes: "", reflection: f.reflection.trim() }
     if (e) { Store.updateEntry(e.id, fields); toast("Entry updated"); close(); return }
     const n = Store.addEntry(fields)
     if (plan) Store.setPlanStatus(plan.id, "done", n.id)
-    toast(`Logged ${hoursWord(hours)} · +${entryPoints(n) + (plan ? 5 : 0)} points${plan ? " · plan marked done" : ""}`)
+    toast(`${hours > 0 ? `Logged ${hoursWord(hours)}` : "Logged it"}${gave ? ` · gave ${fmtGave(gave)}` : ""} · +${entryPoints(n) + (plan ? 5 : 0)} points${plan ? " · plan marked done" : ""}`)
     close()
     openReflection(n.id)   // which asks for the photo, and for her words only if the box above was left empty
   }
@@ -139,7 +152,7 @@ function EntryDialog({ init, close }) {
           </Field>
         ) : null}
         <Field label="Date" required><Input type="date" value={f.date} max={todayISO()} onChange={(ev) => set("date")(ev.target.value)} data-testid="entry-date" /></Field>
-        <Field label="Hours" required hint={f.start && f.end ? "From time in and out; change it if the sheet says otherwise." : ""}><Input type="number" min="0.25" step="0.25" placeholder="2.5" value={f.hours} onChange={(ev) => set("hours")(ev.target.value)} data-testid="entry-hours" autoFocus={Boolean(f.orgId)} /></Field>
+        <Field label="Hours" required={!f.showGave} hint={f.start && f.end ? "From time in and out; change it if the sheet says otherwise." : f.showGave ? "Can stay empty when there was nothing to time." : ""}><Input type="number" min="0.25" step="0.25" placeholder="2.5" value={f.hours} onChange={(ev) => set("hours")(ev.target.value)} data-testid="entry-hours" autoFocus={Boolean(f.orgId)} /></Field>
         <Field label="Time in"><Input type="time" value={f.start} onChange={(ev) => setTime("start")(ev.target.value)} data-testid="entry-start" /></Field>
         <Field label="Time out"><Input type="time" value={f.end} onChange={(ev) => setTime("end")(ev.target.value)} data-testid="entry-end" /></Field>
         <Field label="Organization" required className="sm:col-span-2" hint={orgsSorted().length ? "" : "No organizations yet. Use New to add the one you volunteered with."}>
@@ -155,6 +168,16 @@ function EntryDialog({ init, close }) {
           </div>
         </Field>
         <Field label="Activity" required className="sm:col-span-2"><Input placeholder="e.g. Sorted donations at food bank" maxLength={120} value={f.activity} onChange={(ev) => set("activity")(ev.target.value)} data-testid="entry-activity" /></Field>
+        {f.showGave ? (
+          <Field label="What you gave" className="sm:col-span-2" hint="How many, and what: blankets, bags of food, dollars raised. Leave it empty if nothing changed hands this time.">
+            <div className="flex gap-2">
+              <Input type="number" min="0" step="any" placeholder="4" value={f.gaveCount} onChange={(ev) => set("gaveCount")(ev.target.value)} className="w-28 shrink-0" aria-label="How many" data-testid="entry-gave-count" />
+              <Input placeholder="blankets" maxLength={40} value={f.gaveUnit} onChange={(ev) => set("gaveUnit")(ev.target.value)} aria-label="What" data-testid="entry-gave-unit" />
+            </div>
+          </Field>
+        ) : (
+          <div className="sm:col-span-2"><Button type="button" variant="ghost" size="sm" onClick={() => set("showGave")(true)} data-testid="entry-gave-add"><Gift /> Add what you gave</Button></div>
+        )}
         <Field label="Category"><Pick value={f.category} onChange={set("category")} options={cats.map((c) => ({ value: c, label: c }))} noneLabel="None" testid="entry-category" /></Field>
         <Field label="Supervisor / contact"><Input placeholder="Optional" maxLength={80} value={f.supervisor} onChange={(ev) => set("supervisor")(ev.target.value)} /></Field>
         <label className="flex items-center gap-2 self-end pb-2 text-sm sm:col-span-2">
@@ -418,7 +441,7 @@ function ReflectionDialog({ init, close }) {
     close()
   }
   return (
-    <Shell title={written ? "Keep a photo of the day?" : "How did it go?"} description={`${e.activity} · ${hoursWord(e.hours)}`} onClose={close} testid="reflection-dialog" className="sm:max-w-md">
+    <Shell title={written ? "Keep a photo of the day?" : "How did it go?"} description={[e.activity, e.hours > 0 ? hoursWord(e.hours) : "", e.gave ? `gave ${fmtGave(e.gave)}` : ""].filter(Boolean).join(" · ")} onClose={close} testid="reflection-dialog" className="sm:max-w-md">
       <form onSubmit={save} className="grid gap-4" noValidate>
         {written ? null : (
           <Field label="In your own words" hint="What did you do? Who did it help? What was the best part?">

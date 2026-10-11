@@ -1,8 +1,8 @@
 import * as React from "react"
-import { ArrowDown, ArrowUp, Camera, Download, PenLine, Plus } from "lucide-react"
+import { ArrowDown, ArrowUp, Camera, Download, Gift, PenLine, Plus } from "lucide-react"
 
-import { entriesSorted, filterEntries, orgsSorted, sumHours, workItemTitle, workItemsForOrg, workItemsSorted } from "@/lib/engine"
-import { fmtDate, fmtHours, hoursWord, plural, todayISO } from "@/lib/format"
+import { entriesSorted, filterEntries, givenByUnit, orgsSorted, sumHours, workItemTitle, workItemsForOrg, workItemsSorted } from "@/lib/engine"
+import { fmtDate, fmtGave, fmtHours, givenWord, hoursWord, plural, todayISO } from "@/lib/format"
 import { downloadFile, toCSV } from "@/lib/model"
 import { href } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
@@ -16,8 +16,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { orgName } from "@/lib/engine"
 
 export function entriesCSV(entries) {
-  return toCSV(entries.map((e) => [e.date, e.start, e.end, orgName(e.orgId), workItemTitle(e.workItemId), e.activity, e.category, e.hours, e.signed ? "yes" : "", e.supervisor, e.notes, e.reflection]),
-    ["Date", "Time in", "Time out", "Organization", "Work item", "Activity", "Category", "Hours", "Signed", "Supervisor", "Notes", "Reflection"])
+  return toCSV(entries.map((e) => [e.date, e.start, e.end, orgName(e.orgId), workItemTitle(e.workItemId), e.activity, e.category, e.hours, e.gave ? fmtGave(e.gave) : "", e.signed ? "yes" : "", e.supervisor, e.notes, e.reflection]),
+    ["Date", "Time in", "Time out", "Organization", "Work item", "Activity", "Category", "Hours", "Given", "Signed", "Supervisor", "Notes", "Reflection"])
 }
 
 export function Log() {
@@ -28,6 +28,7 @@ export function Log() {
   const set = (k) => (v) => setF((s) => ({ ...s, [k]: v, ...(k === "orgId" ? { workItemId: "" } : {}) }))
   const entries = filterEntries(entriesSorted(sort.key, sort.dir), f)
   const total = sumHours(entries)
+  const given = givenByUnit(entries)
   const items = f.orgId ? workItemsForOrg(f.orgId) : workItemsSorted()
   const any = Object.values(f).some(Boolean)
   const toggle = (key) => setSort((s) => (s.key === key ? { key, dir: s.dir === "asc" ? "desc" : "asc" } : { key, dir: key === "date" ? "desc" : "asc" }))
@@ -61,7 +62,7 @@ export function Log() {
       <Card className="py-4">
         <CardContent className="flex flex-col gap-3">
           <div className="text-muted-foreground flex items-center justify-between text-sm tabular-nums">
-            <span data-testid="log-summary">{plural(entries.length, "entry", "entries")} · {hoursWord(total)}</span>
+            <span data-testid="log-summary">{plural(entries.length, "entry", "entries")} · {hoursWord(total)}{given.length ? ` · gave ${givenWord(given)}` : ""}</span>
             {any ? <Button variant="ghost" size="sm" onClick={() => setF({ search: "", orgId: "", workItemId: "", category: "", from: "", to: "", signed: "" })} data-testid="filter-clear">Clear filters</Button> : null}
           </div>
           {entries.length ? (
@@ -84,12 +85,13 @@ export function Log() {
                     <TableCell className="min-w-[14rem]">
                       <div>{e.activity}{e.signed ? <Badge variant="success" className="ml-2 gap-1 align-middle"><PenLine className="size-3" /> signed</Badge> : null}</div>
                       {e.workItemId ? <a href={href(`/work/${e.workItemId}`)} className="text-primary text-xs hover:underline" data-testid="log-wi-tag">{workItemTitle(e.workItemId)}</a> : null}
+                      {e.gave ? <div className="text-muted-foreground flex items-center gap-1 text-xs" data-testid="log-gave"><Gift className="size-3" /> gave {fmtGave(e.gave)}</div> : null}
                       {e.notes || e.supervisor ? <div className="text-muted-foreground text-xs">{[e.supervisor && `with ${e.supervisor}`, e.notes].filter(Boolean).join(" · ")}</div> : null}
                       {e.reflection ? <div className="text-muted-foreground text-xs italic">“{e.reflection}”</div> : null}
                       {e.photos.length ? <span className="text-muted-foreground inline-flex items-center gap-1 text-xs"><Camera className="size-3" /> {e.photos.length}</span> : null}
                     </TableCell>
                     <TableCell className="hidden @2xl/main:table-cell">{e.category ? <Badge variant="outline">{e.category}</Badge> : null}</TableCell>
-                    <TableCell className="text-right tabular-nums">{fmtHours(e.hours)}</TableCell>
+                    <TableCell className="text-right tabular-nums">{e.hours > 0 ? fmtHours(e.hours) : "—"}</TableCell>
                     <TableCell className="text-right"><Button variant="ghost" size="sm" onClick={() => openEntry({ id: e.id })} data-testid="edit-entry">Edit</Button></TableCell>
                   </TableRow>
                 ))}

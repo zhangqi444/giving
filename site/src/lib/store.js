@@ -4,7 +4,7 @@
  * reconnects silently when the hourly token lapses. Signing out clears the
  * device, so a second account never merges into the first one's file. */
 import { useSyncExternalStore } from "react"
-import { emptyData, normalize, INTEREST_STATUSES, ORG_COLORS, PLAN_STATUSES, SCHEMA, WORK_STATUSES } from "./model"
+import { cleanGave, emptyData, normalize, INTEREST_STATUSES, ORG_COLORS, PLAN_STATUSES, SCHEMA, WORK_STATUSES } from "./model"
 import { round2, todayISO, ts, uid } from "./format"
 const str = (v) => String(v ?? "").trim()
 import * as Drive from "./drive"
@@ -111,10 +111,10 @@ export const Store = {
 
   addEntry(f) {
     const e = { id: uid(), date: f.date, orgId: f.orgId, workItemId: f.workItemId || "", activity: f.activity.trim(), category: f.category || "",
-      hours: round2(Number(f.hours)), start: f.start || "", end: f.end || "", signed: !!f.signed, supervisor: f.supervisor || "", notes: f.notes || "", reflection: f.reflection || "", photos: [], createdAt: now(), at: now() }
+      hours: round2(Number(f.hours) || 0), start: f.start || "", end: f.end || "", signed: !!f.signed, supervisor: f.supervisor || "", notes: f.notes || "", reflection: f.reflection || "", gave: cleanGave(f.gave), photos: [], createdAt: now(), at: now() }
     this.s.entries.push(e); this.commit(); return e
   },
-  updateEntry(id, f) { const e = this.entry(id); if (!e) return; Object.assign(e, f, { activity: f.activity.trim(), hours: round2(Number(f.hours)), at: now() }); this.commit() },
+  updateEntry(id, f) { const e = this.entry(id); if (!e) return; Object.assign(e, f, { activity: f.activity.trim(), hours: round2(Number(f.hours) || 0), gave: cleanGave(f.gave), at: now() }); this.commit() },
   deleteEntry(id) {
     const e = this.entry(id)
     if (e && e.photos.length) Drive.deleteFiles(e.photos.map((p) => p.id))   // best effort; the record goes regardless

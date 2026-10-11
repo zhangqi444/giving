@@ -5,7 +5,7 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import { activeWorkItems, entriesSorted, hoursByMonth, hoursByOrg, orgColor, orgName, stats, workItemStats } from "@/lib/engine"
 import { RewardsCard } from "@/pages/rewards"
 import { hasEmail, introEmail, staleApplications } from "@/lib/content"
-import { fmtDate, fmtHours, fmtShort, hoursWord, plural } from "@/lib/format"
+import { fmtDate, fmtGave, fmtHours, fmtShort, givenWord, hoursWord, plural } from "@/lib/format"
 import { go, href } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
@@ -40,7 +40,7 @@ export function Home() {
       <Card className="from-primary/5 to-card bg-gradient-to-t" data-testid="today">
         <CardHeader>
           <CardDescription>{hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening"}{first ? `, ${first}` : ""}</CardDescription>
-          <CardTitle className="text-xl">{s.count ? `You've given ${hoursWord(s.total)} so far.` : "Ready to log your first hours?"}</CardTitle>
+          <CardTitle className="text-xl">{s.count ? `You've given ${hoursWord(s.total)} so far${s.given.length ? `, and ${givenWord(s.given)}` : ""}.` : "Ready to log your first hours?"}</CardTitle>
           <CardDescription className="tabular-nums">
             {s.goal > 0 ? (s.year >= s.goal ? `${now.getFullYear()} goal reached: ${fmtHours(s.year)} of ${fmtHours(s.goal)} h` : `${fmtHours(s.year)} of ${fmtHours(s.goal)} h toward this year's goal · ${fmtHours(s.goal - s.year)} to go`) : "No yearly goal set"}
           </CardDescription>
@@ -168,7 +168,7 @@ export function Home() {
                     <TableCell className="whitespace-nowrap tabular-nums">{fmtDate(e.date)}</TableCell>
                     <TableCell><OrgChip orgId={e.orgId} /></TableCell>
                     <TableCell className="max-w-[40ch] truncate">{e.activity}</TableCell>
-                    <TableCell className="text-right tabular-nums">{fmtHours(e.hours)} h</TableCell>
+                    <TableCell className="text-right tabular-nums">{e.hours > 0 ? `${fmtHours(e.hours)} h` : fmtGave(e.gave)}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

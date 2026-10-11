@@ -200,8 +200,29 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-testid=log-hours]'); await pg.waitForSelector('[data-testid=entry-dialog]');
   await pick(pg, '[data-testid=entry-catalog]', 'Homemade cat toys from recycled objects');
   check('picking a catalog item in the dialog fills organization, work item and activity', /Seattle Humane/.test(await pg.textContent('[data-testid=entry-org]')) && /Homemade cat toys/.test(await pg.textContent('[data-testid=entry-workitem]')) && /Homemade cat toys/.test(await pg.inputValue('[data-testid=entry-activity]')));
+  // a craft item is something handed over: the dialog opens "What you gave" with the item's own
+  // unit, and the hours may stay empty — dropping toys at the shelter is not a quarter hour
+  check('a craft item opens What you gave with its unit filled in', (await pg.inputValue('[data-testid=entry-gave-unit]')) === 'toys' && (await pg.$('[data-testid=entry-gave-add]')) === null);
+  await pg.click('[data-testid=entry-save]');
+  check('nothing given and no hours is still refused', /greater than zero/.test(await pg.textContent('[data-testid=form-error]')));
+  await pg.fill('[data-testid=entry-gave-count]', '3');
+  await saveEntry(pg);
+  check('a donation with no hours is a real entry, with what was given on it', await pg.evaluate(() => { const e = JSON.parse(localStorage.getItem('volunteer.v2')).entries.find((x) => x.activity === 'Homemade cat toys from recycled objects'); return e && e.hours === 0 && e.gave.count === 3 && e.gave.unit === 'toys'; }));
+  // without a catalog item the gift is one click away, and a count needs a word for what it counts
+  await pg.click('[data-testid=log-hours]'); await pg.waitForSelector('[data-testid=entry-dialog]');
+  check('Something else hides the gift behind one button', (await pg.$('[data-testid=entry-gave-add]')) !== null && (await pg.$('[data-testid=entry-gave-unit]')) === null);
+  await pg.click('[data-testid=entry-gave-add]');
+  await pg.fill('[data-testid=entry-gave-count]', '2');
+  await pg.click('[data-testid=entry-save]');
+  check('a count with no unit is refused', /Say what you gave/.test(await pg.textContent('[data-testid=form-error]')));
   await pg.keyboard.press('Escape');
   await pg.waitForSelector('[data-testid=entry-dialog]', { state: 'detached' });
+  // the work item adds up what was given beside the hours
+  await pg.goto(base + '#/catalog', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-id=sh-cat-toys] [data-testid=catalog-open]');
+  await pg.click('[data-id=sh-cat-toys] [data-testid=catalog-open]');
+  await pg.waitForSelector('[data-testid=wi-tracker]');
+  check('the work item shows what was given, with no invented hours', /gave 3 toys/.test(await pg.textContent('[data-testid=wi-given]')) && /and gave 3 toys/.test(await pg.textContent('[data-testid=wi-hours]')) && /gave 3 toys/.test(await pg.textContent('[data-testid=tracker-gave]')) && /—/.test(await pg.textContent('[data-testid=wi-tracker] tbody tr')));
 
   // hours log: tag, work item filter, search, clear, CSV enabled
   await pg.click('[data-slot=sidebar-menu-button] span:text-is("Hours")');
@@ -214,7 +235,11 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.fill('[data-testid=filter-search]', 'pantry');
   check('search matches the 2 mobile pantry rows', (await pg.$$('[data-testid=log-row]')).length === 2, String((await pg.$$('[data-testid=log-row]')).length));
   await pg.click('[data-testid=filter-clear]');
-  check('clear restores all rows', (await pg.$$('[data-testid=log-row]')).length === all && all === 17, String(all));
+  check('clear restores all rows', (await pg.$$('[data-testid=log-row]')).length === all && all === 18, String(all));
+  check('the log shows what was given, in the row and the total line', /gave 3 toys/.test(await pg.textContent('[data-testid=log-row]:has-text("Homemade cat toys") [data-testid=log-gave]')) && /gave 3 toys/.test(await pg.textContent('[data-testid=log-summary]')));
+  await pg.fill('[data-testid=filter-search]', 'toys');
+  check('search finds an entry by what it gave', (await pg.$$('[data-testid=log-row]')).length === 1);
+  await pg.click('[data-testid=filter-clear]');
   check('CSV export enabled', !(await pg.isDisabled('[data-testid=log-csv]')));
   await pick(pg, '[data-testid=filter-signed]', 'Needs a signature');
   const unsigned = (await pg.$$('[data-testid=log-row]')).length;
@@ -223,8 +248,8 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   check('signed filter splits the log (Fractions is signed, the sample food-bank rows too)', signedRows >= 1 && unsigned + signedRows === all && /Fractions practice/.test(await pg.textContent('[data-testid=log-table]')), `${signedRows} signed, ${unsigned} unsigned of ${all}`);
   await pg.click('[data-testid=filter-clear]');
   await pg.click('[data-sort=hours]');
-  const first = await pg.$eval('[data-testid=log-row] td:nth-child(5)', (x) => x.textContent.trim());
-  check('sort by hours ascending puts 1.5 first', first === '1.5', first);
+  const first = await pg.$$eval('[data-testid=log-row] td:nth-child(5)', (n) => n.slice(0, 2).map((x) => x.textContent.trim()));
+  check('sort by hours ascending puts the donation (no hours, shown as —) first, then 1.5', first[0] === '—' && first[1] === '1.5', first.join(', '));
 
   // reports
   await pg.click('[data-slot=sidebar-menu-button]:has-text("Reports")');
@@ -243,6 +268,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   const letters = await pg.$$('[data-testid=letter]');
   check('one verification letter per organization with hours', letters.length === 4 && /Volunteer Service Verification/.test(await pg.textContent('[data-testid=letter]')) && /Supervisor signature/.test(await pg.textContent('[data-testid=letter]')), String(letters.length));
   check('letter names the volunteer and age', /Sheila \(age 9\)/.test(await pg.textContent('[data-testid=letter]')));
+  check('the Seattle Humane letter says what was given as well as the hours', /and gave 3 toys/.test(await pg.textContent('[data-testid=letter]:has-text("Seattle Humane")')));
   await pg.screenshot({ path: 'shot-letters.png', fullPage: true });
   await pick(pg, '[data-testid=report-mode]', 'Monthly hours log (time in / out, signature per row)');
   await pg.waitForSelector('[data-testid=timelog]');
@@ -250,7 +276,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pick(pg, '[data-testid=report-org]', 'Seattle Humane');
   await pg.waitForFunction(() => document.querySelectorAll('[data-testid=timelog]').length === 1);
   const sheet = await pg.textContent('[data-testid=timelog]');
-  check('Seattle Humane sheet has the form header, name, month, its session and the contact footer', /Community Service Hours Log/.test(sheet) && /Name:\s*Sheila/.test(sheet) && /Month:\s*\w+ 20\d\d/.test(sheet) && /Time In/.test(sheet) && /Signature/.test(sheet) && /Pet food drive/.test(sheet) && /in 1 session/.test(sheet) && /641-0080/.test(sheet), sheet.replace(/\s+/g, ' ').slice(0, 300));
+  check('Seattle Humane sheet has the form header, name, month, its session and the contact footer', /Community Service Hours Log/.test(sheet) && /Name:\s*Sheila/.test(sheet) && /Month:\s*\w+ 20\d\d/.test(sheet) && /Time In/.test(sheet) && /Signature/.test(sheet) && /Pet food drive/.test(sheet) && /gave 3 toys/.test(sheet) && /in 2 sessions/.test(sheet) && /641-0080/.test(sheet), sheet.replace(/\s+/g, ' ').slice(0, 300));
   await pg.screenshot({ path: 'shot-timelog.png', fullPage: true });
   await pick(pg, '[data-testid=report-org]', 'All organizations');
   await pick(pg, '[data-testid=report-mode]', 'Summary report');

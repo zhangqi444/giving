@@ -26,4 +26,8 @@ export function fmtHours(n) {
   return v.toFixed((v * 10) % 1 === 0 ? 1 : 2)
 }
 export function hoursWord(n) { return `${fmtHours(n)} ${Number(n) === 1 ? "hour" : "hours"}` }
+/** What an entry handed over: "4 blankets", "$50 raised". The unit is the family's own word for it. */
+export function fmtGave(g) { return !g ? "" : g.unit === "dollars" ? `$${fmtHours(g.count)} raised` : `${fmtHours(g.count)} ${g.unit}` }
+/** Several units in one phrase: "9 blankets, 3 bags of food". */
+export function givenWord(list) { return list.map((g) => fmtGave(g)).join(", ") }
 export function plural(n, one, many = one + "s") { return `${n} ${n === 1 ? one : many}` }

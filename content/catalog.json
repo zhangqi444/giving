@@ -702,6 +702,7 @@
       "org": "seattle-humane",
       "title": "No-sew cat blankets",
       "kind": "craft",
+      "gives": "blankets",
       "where": "at-home",
       "summary": "Make small fleece blankets for the cats waiting to be adopted.",
       "details": [
@@ -733,6 +734,7 @@
       "org": "seattle-humane",
       "title": "Homemade cat toys from recycled objects",
       "kind": "craft",
+      "gives": "toys",
       "where": "at-home",
       "summary": "Turn old socks and paper tubes into catnip toys for shelter cats.",
       "details": [
@@ -763,6 +765,7 @@
       "org": "seattle-humane",
       "title": "Pet food drive",
       "kind": "drive",
+      "gives": "bags of food",
       "where": "at-home",
       "summary": "Organize a pet food drive in the neighborhood or at school.",
       "details": [
@@ -830,6 +833,7 @@
       "org": "raskc",
       "title": "Cat cozy blankets for the Kent shelter",
       "kind": "craft",
+      "gives": "blankets",
       "where": "at-home",
       "summary": "Make fleece blankets at home and drop them off. RASKC's wish list asks for them, so there is nothing to apply for — every cat gets one in its condo and takes it home when it is adopted.",
       "details": [
@@ -865,6 +869,7 @@
       "org": "paws",
       "title": "Make cat toys, scratchers and beds for PAWS",
       "kind": "craft",
+      "gives": "items",
       "where": "at-home",
       "summary": "PAWS keeps its own list of things to make at home for the shelter's cats and dogs. Ring first to hear what they are short of, then make a batch.",
       "details": [
@@ -898,6 +903,7 @@
       "org": "paws",
       "title": "Wish-list drive or birthday donations for PAWS",
       "kind": "drive",
+      "gives": "items",
       "where": "at-home",
       "summary": "Collect supplies from PAWS's wish list, or ask for donations instead of birthday presents.",
       "details": [
@@ -1440,6 +1446,7 @@
       "org": "best-friends",
       "title": "At-home projects for shelter animals (Best Friends' ideas for under-18s)",
       "kind": "craft",
+      "gives": "items",
       "where": "at-home",
       "summary": "A national rescue's list of things kids can make at home for cats and dogs; give them to a local shelter from this catalog.",
       "details": [
@@ -1593,6 +1600,7 @@
       "org": "everett-animal-shelter",
       "title": "Cozy fleece blankets for the Everett shelter",
       "kind": "craft",
+      "gives": "blankets",
       "where": "at-home",
       "summary": "Fleece blankets that keep shelter cats and dogs warm — and go home with them when they are adopted. Leave them in the donation bin; nothing to arrange.",
       "details": [
@@ -1626,6 +1634,7 @@
       "org": "everett-animal-shelter",
       "title": "Food and supply drive for the Everett shelter",
       "kind": "drive",
+      "gives": "items",
       "where": "at-home",
       "summary": "Collect the food and supplies on the shelter's wish list, with a tour when you deliver.",
       "details": [
@@ -1754,6 +1763,7 @@
       "org": "sarvey",
       "title": "Wish-list drive for Sarvey Wildlife Care Center",
       "kind": "drive",
+      "gives": "items",
       "where": "at-home",
       "summary": "Collect what a wildlife hospital needs for the three thousand wild animals it treats a year.",
       "details": [
@@ -2672,6 +2682,7 @@
       "org": "safr",
       "title": "Food drive for the Stay SAFe Pet Pantry (Shoreline)",
       "kind": "drive",
+      "gives": "bags of food",
       "where": "at-home",
       "summary": "Seattle Area Feline Rescue runs a pet pantry for people who cannot afford to feed their cats. Collect food and bring it to the drop-by hours.",
       "details": [
@@ -2703,6 +2714,7 @@
       "org": "seattle-animal-shelter",
       "title": "Wish-list drive for the Seattle Animal Shelter",
       "kind": "drive",
+      "gives": "items",
       "where": "at-home",
       "summary": "The city shelter on 15th Ave W keeps a wish list and takes items in business hours. The nearest shelter to most of Seattle to run a drive for.",
       "details": [
@@ -2735,6 +2747,7 @@
       "org": "homeward-pet",
       "title": "Food drive for Homeward Pet's food bank (Woodinville and the Eastside)",
       "kind": "drive",
+      "gives": "bags of food",
       "where": "at-home",
       "summary": "Homeward Pet's pet food bank feeds the pets of people in a hard patch. Collect dog and cat food and drop it at the adoption centre or a partner shop.",
       "details": [
@@ -2768,6 +2781,7 @@
       "org": "seattle-vet-outreach",
       "title": "Pet food and supplies for pets of people without homes (Seattle Veterinary Outreach)",
       "kind": "drive",
+      "gives": "items",
       "where": "at-home",
       "summary": "A Seattle nonprofit that brings vet care to the pets of people experiencing homelessness. Its most-needed list is ordinary pet-shop stuff a drive can collect.",
       "details": [
@@ -2864,6 +2878,7 @@
       "org": "hstpc",
       "title": "Food and litter drive for Tacoma's Pet Food & Supply Pantry",
       "kind": "drive",
+      "gives": "bags of food",
       "where": "at-home",
       "summary": "Dry dog and cat food and cat litter are what the Tacoma shelter asks for first; they stock its pantry for families who cannot afford them.",
       "details": [
@@ -3362,6 +3377,7 @@
       "org": "doney-coe",
       "title": "Raise money for the Doney Coe Pet Clinic (money, not supplies)",
       "kind": "drive",
+      "gives": "dollars",
       "where": "at-home",
       "summary": "A Seattle clinic giving free vet care to the pets of people who are homeless or on very low incomes. Since 2021 it cannot take supplies, so a fundraiser is the way a child helps.",
       "details": [
@@ -4215,6 +4231,7 @@
       "org": "seattle-dogs",
       "title": "Pet food and supplies for Seattle Dogs Homeless Program",
       "kind": "drive",
+      "gives": "items",
       "where": "at-home",
       "summary": "A Seattle nonprofit that hands out dog and cat food and supplies on Mondays at the Northwest Harvest food bank, to people housed or not. It runs on donations; email to arrange a handover.",
       "details": [

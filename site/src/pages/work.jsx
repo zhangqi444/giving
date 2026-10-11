@@ -2,7 +2,7 @@ import * as React from "react"
 import { ArrowLeft, Camera, CalendarPlus, ExternalLink, Pencil, Plus } from "lucide-react"
 
 import { entriesForWorkItem, memosFor, openPlansForWorkItem, orgById, orgColor, orgName, orgsSorted, upcomingPlans, workItemById, workItemStats, workItemsSorted } from "@/lib/engine"
-import { fmtDate, fmtHours, fmtShort, hoursWord, plural, todayISO } from "@/lib/format"
+import { fmtDate, fmtGave, fmtHours, fmtShort, givenWord, hoursWord, plural, todayISO } from "@/lib/format"
 import { WORK_STATUSES } from "@/lib/model"
 import { go, href } from "@/lib/router"
 import { icsFor } from "@/lib/calendar"
@@ -40,6 +40,7 @@ function ItemCard({ w }) {
             <span><b className="text-foreground font-semibold">{fmtHours(st.hours)}</b> h</span>
             <span><b className="text-foreground font-semibold">{st.count}</b> {st.count === 1 ? "entry" : "entries"}</span>
             <span><b className="text-foreground font-semibold">{st.memos}</b> {st.memos === 1 ? "memo" : "memos"}</span>
+            {st.given.length ? <span>gave <b className="text-foreground font-semibold">{givenWord(st.given)}</b></span> : null}
             {st.last ? <span>last {fmtShort(st.last)}</span> : null}
           </div>
           {w.targetHours ? (
@@ -140,7 +141,7 @@ export function WorkDetail({ id }) {
       </div>
 
       <div className="grid gap-4 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
-        <Stat label="Hours tracked" value={fmtHours(st.hours)} sub={w.targetHours ? `${Math.round(st.pct)}% of ${fmtHours(w.targetHours)} h target` : "no target set"} testid="wi-hours" />
+        <Stat label="Hours tracked" value={fmtHours(st.hours)} sub={w.targetHours ? `${Math.round(st.pct)}% of ${fmtHours(w.targetHours)} h target` : st.given.length ? `and gave ${givenWord(st.given)}` : "no target set"} testid="wi-hours" />
         <Stat label="Entries" value={String(st.count)} sub={st.last ? `last on ${fmtDate(st.last)}` : "nothing logged yet"} />
         <Stat label="Memos" value={String(memos.length)} sub={memos.length ? `latest ${fmtDate(memos[0].date)}` : "none yet"} />
         <Stat label="Planned" value={String(plans.length)} sub={due.length ? `${due.length} still to log` : ahead.length ? `next on ${fmtShort(ahead[0].date)}` : "nothing arranged"} />
@@ -177,7 +178,7 @@ export function WorkDetail({ id }) {
         <Card>
           <CardHeader>
             <CardTitle>Hours given</CardTitle>
-            <CardDescription className="tabular-nums">{hoursWord(st.hours)} in {plural(st.count, "entry", "entries")}</CardDescription>
+            <CardDescription className="tabular-nums">{hoursWord(st.hours)} in {plural(st.count, "entry", "entries")}{st.given.length ? <span data-testid="wi-given"> · gave {givenWord(st.given)}</span> : null}</CardDescription>
           </CardHeader>
           <CardContent>
             {entries.length ? (
@@ -187,8 +188,8 @@ export function WorkDetail({ id }) {
                   {entries.map((e) => (
                     <TableRow key={e.id} className="cursor-pointer" onClick={() => openEntry({ id: e.id })}>
                       <TableCell className="whitespace-nowrap tabular-nums">{fmtDate(e.date)}{e.start ? <div className="text-muted-foreground text-xs">{e.start}{e.end ? `–${e.end}` : ""}</div> : null}</TableCell>
-                      <TableCell>{e.activity}{e.notes || e.supervisor ? <div className="text-muted-foreground text-xs">{[e.supervisor && `with ${e.supervisor}`, e.notes].filter(Boolean).join(" · ")}</div> : null}{e.reflection ? <div className="text-muted-foreground text-xs italic" data-testid="tracker-reflection">“{e.reflection}”</div> : null}{e.photos.length ? <div className="text-muted-foreground mt-0.5 flex items-center gap-1 text-xs"><Camera className="size-3" /> {e.photos.length}</div> : null}</TableCell>
-                      <TableCell className="text-right tabular-nums">{fmtHours(e.hours)}</TableCell>
+                      <TableCell>{e.activity}{e.notes || e.supervisor ? <div className="text-muted-foreground text-xs">{[e.supervisor && `with ${e.supervisor}`, e.notes].filter(Boolean).join(" · ")}</div> : null}{e.gave ? <div className="text-muted-foreground text-xs" data-testid="tracker-gave">gave {fmtGave(e.gave)}</div> : null}{e.reflection ? <div className="text-muted-foreground text-xs italic" data-testid="tracker-reflection">“{e.reflection}”</div> : null}{e.photos.length ? <div className="text-muted-foreground mt-0.5 flex items-center gap-1 text-xs"><Camera className="size-3" /> {e.photos.length}</div> : null}</TableCell>
+                      <TableCell className="text-right tabular-nums">{e.hours > 0 ? fmtHours(e.hours) : "—"}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

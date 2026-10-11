@@ -2,7 +2,7 @@ import * as React from "react"
 import { CalendarArrowUp, CalendarPlus, Check, ChevronLeft, ChevronRight, Clock, Download, Pencil, X } from "lucide-react"
 
 import { entriesOn, entriesSorted, orgName, overduePlans, planHours, plansSorted, sumHours, upcomingPlans, workItemTitle } from "@/lib/engine"
-import { fmtDate, fmtHours, pad, todayISO, toISODate } from "@/lib/format"
+import { fmtDate, fmtGave, fmtHours, pad, todayISO, toISODate } from "@/lib/format"
 import { catalogItem } from "@/lib/content"
 import { googleCalendarUrl, icsFor } from "@/lib/calendar"
 import { downloadFile } from "@/lib/model"
@@ -88,7 +88,7 @@ export function Calendar() {
   const monthKey = `${cursor.y}-${pad(cursor.m + 1)}`
   const byDay = new Map()
   const put = (iso, v) => { if (!byDay.has(iso)) byDay.set(iso, []); byDay.get(iso).push(v) }
-  for (const e of entriesSorted()) if (e.date.startsWith(monthKey)) put(e.date, { kind: "done", id: e.id, label: e.activity, hours: e.hours })
+  for (const e of entriesSorted()) if (e.date.startsWith(monthKey)) put(e.date, { kind: "done", id: e.id, label: e.activity, hours: e.hours, gave: e.gave })
   // a plan that was carried out is already on the square as the entry it became
   for (const p of plansSorted()) if (p.date.startsWith(monthKey) && p.status !== "done") put(p.date, { kind: p.status === "skipped" ? "skipped" : "planned", id: p.id, label: p.title })
   // a square shows at most a few things, so put what still needs doing above what is done:
@@ -137,7 +137,7 @@ export function Calendar() {
                     className={cn("flex min-h-16 flex-col items-start gap-1 rounded-md border p-1.5 text-left text-xs transition hover:bg-accent @lg/main:min-h-20", isSel && "ring-2 ring-primary", isToday && "bg-primary/5 border-primary/40")}>
                     <span className={cn("tabular-nums", isToday && "text-primary font-semibold")}>{Number(iso.slice(8))}</span>
                     {ds.slice(0, 3).map((d) => (
-                      <span key={d.kind + d.id} data-kind={d.kind} className={cn("w-full truncate rounded px-1 py-0.5", d.kind === "done" ? "bg-success-soft text-success" : d.kind === "skipped" ? "bg-muted text-muted-foreground line-through" : iso < today ? "bg-warning-soft text-warning" : "bg-primary/10 text-primary")} title={d.kind === "done" ? `${d.label} · ${fmtHours(d.hours)} h` : d.label}>{d.label}</span>
+                      <span key={d.kind + d.id} data-kind={d.kind} className={cn("w-full truncate rounded px-1 py-0.5", d.kind === "done" ? "bg-success-soft text-success" : d.kind === "skipped" ? "bg-muted text-muted-foreground line-through" : iso < today ? "bg-warning-soft text-warning" : "bg-primary/10 text-primary")} title={d.kind === "done" ? [d.label, d.hours > 0 ? `${fmtHours(d.hours)} h` : "", d.gave ? `gave ${fmtGave(d.gave)}` : ""].filter(Boolean).join(" · ") : d.label}>{d.label}</span>
                     ))}
                     {ds.length > 3 ? <span className="text-muted-foreground">+{ds.length - 3}</span> : null}
                   </button>
@@ -162,7 +162,7 @@ export function Calendar() {
                       <button type="button" className="flex w-full items-center gap-2 text-left" onClick={() => openEntry({ id: e.id })}>
                         <Check className="text-success size-4 shrink-0" />
                         <span className="min-w-0 flex-1 truncate">{e.activity}</span>
-                        <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{fmtHours(e.hours)} h</span>
+                        <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{e.hours > 0 ? `${fmtHours(e.hours)} h` : fmtGave(e.gave)}</span>
                       </button>
                       {e.orgId ? <div className="mt-0.5 pl-6"><OrgChip orgId={e.orgId} /></div> : null}
                     </li>

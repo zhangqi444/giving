@@ -16,6 +16,8 @@ export const POINT_RULES = [
   { id: "photo", label: "Keeping a photo of the day", points: 5, unit: "per entry" },
   { id: "plan", label: "Planning it first, then doing it", points: 5, unit: "per plan carried out" },
   { id: "memo", label: "A memo on a work item", points: 2, unit: "per memo" },
+  // Flat, not per blanket: points reward the doing, never the amount.
+  { id: "gave", label: "Handing something over", points: 5, unit: "per entry" },
 ]
 export function pointsBreakdown(entries = Store.s.entries) {
   const s = Store.s
@@ -26,12 +28,13 @@ export function pointsBreakdown(entries = Store.s.entries) {
     { ...POINT_RULES[2], count: entries.filter((e) => e.photos.length).length, total: entries.filter((e) => e.photos.length).length * 5 },
     { ...POINT_RULES[3], count: s.plans.filter((p) => p.status === "done").length, total: s.plans.filter((p) => p.status === "done").length * 5 },
     { ...POINT_RULES[4], count: s.memos.length, total: s.memos.length * 2 },
+    { ...POINT_RULES[5], count: entries.filter((e) => e.gave).length, total: entries.filter((e) => e.gave).length * 5 },
   ]
   return { rows, total: rows.reduce((n, r) => n + r.total, 0) }
 }
 export const effortPoints = () => pointsBreakdown().total
 /** Points earned by one entry, for the "you earned" toast. */
-export function entryPoints(e) { return Math.round(e.hours * 10) + (e.reflection ? 5 : 0) + (e.photos.length ? 5 : 0) }
+export function entryPoints(e) { return Math.round(e.hours * 10) + (e.reflection ? 5 : 0) + (e.photos.length ? 5 : 0) + (e.gave ? 5 : 0) }
 
 /* ---------- levels ---------- */
 export const LEVELS = [

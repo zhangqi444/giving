@@ -83,7 +83,7 @@ docs/                      architecture.md (structure and why), design.md (look,
   tombstones; a tombstone newer than a record beats the record on both sides, so a
   deletion on one device is not undone by another's copy. Goals and categories are
   last-write-wins as a block. A record only one side has is always kept.
-- **Payload**: `schema: 5` — `organizations, workItems, entries, memos, plans,
+- **Payload**: `schema: 6` — `organizations, workItems, entries, memos, plans,
   interests, badges, rewards, suggestions, deleted, goals, settings`. `rewards` is
   keyed like isee's: `item:<id>` rows are what the parent put on the shelf,
   `claim:<id>` rows are claims (last write wins per key, tombstoned as
@@ -94,8 +94,15 @@ docs/                      architecture.md (structure and why), design.md (look,
   (earliest wins on merge, tombstoned as `badge:<id>`); `suggestions` are links the
   owner dropped for the catalog. Entries carry `start`/`end` (time in and
   out, from which hours are filled), `signed` (the supervisor has signed that row
-  on the organization's log), `reflection` (her words) and `photos` (Drive file
-  ids). Adding a slice means adding it to `normalize`,
+  on the organization's log), `reflection` (her words), `photos` (Drive file
+  ids) and `gave` (`{ count, unit }` or null: what was handed over, in the family's
+  own unit — "4 blankets", "2 bags of food", "50 dollars"). An entry with `gave` may
+  have zero hours, because dropping food in a porch bin is not a quarter hour and
+  inventing one would break *honest numbers*; `normalize` keeps an entry when
+  `hours > 0 || gave`. A donation lives on the hours entry rather than in a slice of
+  its own because making blankets takes an afternoon and both halves are one thing
+  she did, and because the entry already carries the reflection, photos and sign-off
+  a donation wants. Adding a slice means adding it to `normalize`,
   `merge`, `replaceAll` and `test_drive.cjs`.
 - **Photos** are separate Drive files created by the app (`drive.file` covers them),
   tagged `appProperties.kind = photo` with the `entryId`, shrunk to 1600px JPEG in
@@ -118,7 +125,7 @@ of it only when it is genuinely about neither site's subject.
 
 Rewards, continued: effort points are
 computed from the record (10 per hour, 5 for a reflection, 5 for a photo, 5 for a
-plan carried out, 2 per memo) and never stored; lifetime points fix the level and
+plan carried out, 5 for handing something over — flat, never per blanket — 2 per memo) and never stored; lifetime points fix the level and
 spending never lowers it. Badges are computed from the record, then **pinned on
 first earning** by `Store.pinBadges` and never recomputed away. The shelf is
 parent-curated; a claim spends points and can be marked given or cancelled.
@@ -154,7 +161,7 @@ whenever `content/**` changes — CI fails the build if the committed bundle has
 |---|---|
 | `test_e2e.cjs` | desktop + phone shells, drawer, first organization and entry, validation, persistence, breadcrumb, theme |
 | `test_drive.cjs` | Google stubbed: the gate, sign in once, reload without a prompt, push, expiry + silent reconnect, merge with tombstones, sign out clears the device, sign in restores from Drive |
-| `test_features.cjs` | sample data, dashboard chart, rewards (points, level, badges, shelf, claim), work items + memos, reflections + photos (fake Drive), log filters and sort, catalog fit filters + interest + Log hours/Plan it + suggestions, calendar (grid, Google Calendar link, .ics export, log hours from a plan, overdue, skipped), profile age, summary report + verification letters, settings |
+| `test_features.cjs` | sample data, dashboard chart, rewards (points, level, badges, shelf, claim), work items + memos, reflections + photos (fake Drive), donations (What you gave from a craft item, zero hours allowed, the Something else button, the work item, log, letter and sheet showing it), log filters and sort, catalog fit filters + interest + Log hours/Plan it + suggestions, calendar (grid, Google Calendar link, .ics export, log hours from a plan, overdue, skipped), profile age, summary report + verification letters, settings |
 
 Rules: every feature gets checks in the suite it belongs to; a UI change that
 breaks a selector means fixing the test's *assumption*, not deleting the check.
@@ -244,6 +251,12 @@ holding a piece of work's past and its future.
   choose between them, and made "fostering, but not from home" impossible to ask.
   Adding a value means deciding which question it answers; if it answers both, it
   belongs in neither.
+- **A `craft` or `drive` item names what it is counted in.** `gives` is the unit of
+  what gets handed over ("blankets", "toys", "bags of food", "items", "dollars");
+  the Log hours dialog presets *What you gave* with it, and the family can overwrite
+  it. `make_bundle.py` requires it on those two kinds and refuses it on the others,
+  since a shift produces nothing to count. It is not a third kind: a donation is what
+  happens to the thing, not what she does or where.
 - **Cite the page that invites the thing.** An organization's volunteer page is
   about its volunteer programme, so everything written off it arrives wearing that
   programme's conditions — an application, an agreement form, an orientation, a

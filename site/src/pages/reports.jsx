@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Download, Printer } from "lucide-react"
 
-import { entriesSorted, filterEntries, hoursByOrg, hoursByWorkItem, orgById, orgName, orgsSorted, sumHours, workItemTitle } from "@/lib/engine"
+import { entriesSorted, filterEntries, givenByUnit, hoursByOrg, hoursByWorkItem, orgById, orgName, orgsSorted, sumHours, workItemTitle } from "@/lib/engine"
 import { monthKey } from "@/lib/format"
-import { fmtDate, fmtHours, plural, toISODate, todayISO } from "@/lib/format"
+import { fmtDate, fmtGave, fmtHours, givenWord, plural, toISODate, todayISO } from "@/lib/format"
 import { downloadFile } from "@/lib/model"
 import { useStore } from "@/lib/store"
 import { currentAge } from "@/lib/content"
@@ -40,6 +40,7 @@ export function Reports() {
   const total = sumHours(entries)
   const byOrg = hoursByOrg(entries)
   const byItem = hoursByWorkItem(entries)
+  const given = givenByUnit(entries)
   const period = from || to ? `${from ? fmtDate(from) : "Beginning"} – ${to ? fmtDate(to) : "today"}` : "All time"
   const who = name.trim() || store.s.settings.profile.name || store.name || ""
   const age = currentAge()
@@ -98,9 +99,9 @@ export function Reports() {
                           <TableRow key={e.id} className="h-11 print:h-8">
                             <TableCell className="border-r text-center whitespace-nowrap tabular-nums">{fmtDate(e.date, { month: "numeric", day: "numeric", year: "2-digit" })}</TableCell>
                             <TableCell className="border-r text-center tabular-nums">{e.start}</TableCell>
-                            <TableCell className="border-r">{e.activity}</TableCell>
+                            <TableCell className="border-r">{e.activity}{e.gave ? ` · gave ${fmtGave(e.gave)}` : ""}</TableCell>
                             <TableCell className="border-r text-center tabular-nums">{e.end}</TableCell>
-                            <TableCell className="border-r text-center tabular-nums">{fmtHours(e.hours)} h</TableCell>
+                            <TableCell className="border-r text-center tabular-nums">{e.hours > 0 ? `${fmtHours(e.hours)} h` : "—"}</TableCell>
                             <TableCell className="text-muted-foreground text-center text-xs">{e.signed ? "signed" : ""}</TableCell>
                           </TableRow>
                         ))}
@@ -131,11 +132,11 @@ export function Reports() {
                   <div><b className="text-foreground">Prepared:</b> {new Date().toLocaleDateString(undefined, { dateStyle: "long" })}</div>
                 </div>
               </div>
-              <p className="text-sm">This confirms that <b>{who || "the volunteer"}</b>{age != null ? ` (age ${age})` : ""} completed <b>{fmtHours(r.hours)} hours</b> of volunteer service with <b>{r.name}</b>{r.org && (r.org.contact || r.org.contactInfo) ? `, contact ${[r.org.contact, r.org.contactInfo].filter(Boolean).join(", ")}` : ""}, over {plural(r.count, "session")} as listed below.</p>
+              <p className="text-sm">This confirms that <b>{who || "the volunteer"}</b>{age != null ? ` (age ${age})` : ""} completed <b>{fmtHours(r.hours)} hours</b> of volunteer service with <b>{r.name}</b>{r.org && (r.org.contact || r.org.contactInfo) ? `, contact ${[r.org.contact, r.org.contactInfo].filter(Boolean).join(", ")}` : ""}, over {plural(r.count, "session")} as listed below{r.given.length ? <>, and gave <b data-testid="letter-given">{givenWord(r.given)}</b></> : null}.</p>
               <Table>
                 <TableHeader><TableRow><TableHead>Date</TableHead><TableHead>Activity</TableHead><TableHead>Supervisor</TableHead><TableHead className="text-right">Hours</TableHead></TableRow></TableHeader>
                 <TableBody>{entries.filter((e) => e.orgId === r.orgId).map((e) => (
-                  <TableRow key={e.id}><TableCell className="whitespace-nowrap tabular-nums">{fmtDate(e.date)}</TableCell><TableCell>{e.activity}{e.workItemId ? <div className="text-muted-foreground text-xs">{workItemTitle(e.workItemId)}</div> : null}</TableCell><TableCell>{e.supervisor}</TableCell><TableCell className="text-right tabular-nums">{fmtHours(e.hours)}</TableCell></TableRow>
+                  <TableRow key={e.id}><TableCell className="whitespace-nowrap tabular-nums">{fmtDate(e.date)}</TableCell><TableCell>{e.activity}{e.workItemId ? <div className="text-muted-foreground text-xs">{workItemTitle(e.workItemId)}</div> : null}{e.gave ? <div className="text-muted-foreground text-xs">gave {fmtGave(e.gave)}</div> : null}</TableCell><TableCell>{e.supervisor}</TableCell><TableCell className="text-right tabular-nums">{e.hours > 0 ? fmtHours(e.hours) : "—"}</TableCell></TableRow>
                 ))}</TableBody>
                 <TableFooter><TableRow><TableCell colSpan={3}>Total</TableCell><TableCell className="text-right tabular-nums">{fmtHours(r.hours)}</TableCell></TableRow></TableFooter>
               </Table>
@@ -169,7 +170,7 @@ export function Reports() {
             </div>
           </div>
           <div className="grid gap-3 @lg/main:grid-cols-3">
-            {[[fmtHours(total), "total hours"], [entries.length, plural(entries.length, "entry", "entries").replace(/^\d+ /, "")], [byOrg.length, byOrg.length === 1 ? "organization" : "organizations"]].map(([v, l]) => (
+            {[[fmtHours(total), "total hours"], [entries.length, plural(entries.length, "entry", "entries").replace(/^\d+ /, "")], [byOrg.length, byOrg.length === 1 ? "organization" : "organizations"], ...given.map((g) => [fmtHours(g.count), g.unit === "dollars" ? "dollars raised" : `${g.unit} given`])].map(([v, l]) => (
               <div key={l} className="bg-muted rounded-md px-4 py-3"><div className="text-2xl font-semibold tabular-nums">{v}</div><div className="text-muted-foreground text-xs">{l}</div></div>
             ))}
           </div>
@@ -200,9 +201,9 @@ export function Reports() {
                     <TableRow key={e.id}>
                       <TableCell className="whitespace-nowrap tabular-nums">{fmtDate(e.date)}</TableCell>
                       <TableCell>{orgName(e.orgId)}{e.workItemId ? <div className="text-muted-foreground text-xs">{workItemTitle(e.workItemId)}</div> : null}</TableCell>
-                      <TableCell>{e.activity}{e.notes ? <div className="text-muted-foreground text-xs">{e.notes}</div> : null}{e.reflection ? <div className="text-muted-foreground text-xs italic">“{e.reflection}”</div> : null}</TableCell>
+                      <TableCell>{e.activity}{e.gave ? <div className="text-muted-foreground text-xs" data-testid="report-gave">gave {fmtGave(e.gave)}</div> : null}{e.notes ? <div className="text-muted-foreground text-xs">{e.notes}</div> : null}{e.reflection ? <div className="text-muted-foreground text-xs italic">“{e.reflection}”</div> : null}</TableCell>
                       <TableCell>{e.supervisor}</TableCell>
-                      <TableCell className="text-right tabular-nums">{fmtHours(e.hours)}</TableCell>
+                      <TableCell className="text-right tabular-nums">{e.hours > 0 ? fmtHours(e.hours) : "—"}</TableCell>
                     </TableRow>
                   ))}</TableBody>
                 </Table>

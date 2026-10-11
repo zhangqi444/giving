@@ -6,7 +6,7 @@
  * deletion on one device is not undone by the other's copy. */
 import { isISODate, round2, todayISO, toISODate, uid } from "./format"
 
-export const SCHEMA = 5
+export const SCHEMA = 6
 export const DEFAULT_CATEGORIES = ["Community", "Education", "Environment", "Health", "Animals", "Arts & Culture", "Disaster Relief", "Faith-based", "Other"]
 export const ORG_COLORS = ["#0f7a6b", "#3b6fb6", "#7c3aed", "#c2417d", "#b4653a", "#9c6f16", "#2e7d5b", "#0891b2", "#64748b"]
 export const WORK_STATUSES = ["active", "paused", "completed"]
@@ -37,6 +37,12 @@ export function emptyData() {
 }
 
 const str = (v) => String(v ?? "")
+/** What an entry handed over, or null. A count without a unit (or the reverse) is nothing given. */
+export function cleanGave(g) {
+  if (!g || typeof g !== "object") return null
+  const count = round2(Number(g.count)), unit = str(g.unit).trim()
+  return count > 0 && unit ? { count, unit } : null
+}
 const stamp = (r, fallback) => (typeof r.at === "string" && r.at) || (typeof r.updatedAt === "string" && r.updatedAt) || r.createdAt || fallback
 
 /** Coerce arbitrary JSON into a dataset. Throws when it is not even an object. */
@@ -73,10 +79,11 @@ export function normalize(raw) {
       workItemId: itemIds.has(str(e.workItemId)) ? str(e.workItemId) : "", activity: str(e.activity).trim() || "Volunteer work",
       category: str(e.category), hours: Math.max(0, round2(Number(e.hours) || 0)), supervisor: str(e.supervisor), notes: str(e.notes),
       start: /^\d{2}:\d{2}$/.test(e.start) ? e.start : "", end: /^\d{2}:\d{2}$/.test(e.end) ? e.end : "", signed: e.signed === true,
-      reflection: str(e.reflection), photos: Array.isArray(e.photos) ? e.photos.filter((p) => p && typeof p === "object" && str(p.id)).map((p) => ({ id: str(p.id), name: str(p.name), at: str(p.at) || fileAt })) : [],
+      reflection: str(e.reflection), gave: cleanGave(e.gave), photos: Array.isArray(e.photos) ? e.photos.filter((p) => p && typeof p === "object" && str(p.id)).map((p) => ({ id: str(p.id), name: str(p.name), at: str(p.at) || fileAt })) : [],
       createdAt: e.createdAt || fileAt, at: stamp(e, fileAt),
     }))
-    .filter((e) => e.hours > 0)
+    // Something handed over with no time behind it (a bag of food in the porch bin) is a real entry at 0 hours.
+    .filter((e) => e.hours > 0 || e.gave)
 
   const memos = Array.isArray(raw.memos) ? raw.memos : []
   out.memos = memos

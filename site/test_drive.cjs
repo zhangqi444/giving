@@ -36,13 +36,13 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.waitForFunction(() => document.querySelector('[data-testid=drive-button]').textContent.includes('Saved to Drive'), null, { timeout: 8000 });
   await pg.waitForTimeout(1500);
   check('edits pushed to Drive (PATCH)', drive.calls.some((c) => /PATCH/.test(c)) && body().entries.some((e) => e.activity === 'Pushed entry') && body().organizations.some((o) => o.name === 'Local Org'));
-  check('payload is schema 5 with plans, interests, badges, rewards and suggestions', body().schema === 5 && Array.isArray(body().plans) && typeof body().interests === 'object' && typeof body().badges === 'object' && typeof body().rewards === 'object' && Array.isArray(body().suggestions));
+  check('payload is schema 6 with plans, interests, badges, rewards and suggestions', body().schema === 6 && Array.isArray(body().plans) && typeof body().interests === 'object' && typeof body().badges === 'object' && typeof body().rewards === 'object' && Array.isArray(body().suggestions));
 
   // another device added an entry and deleted ours; our token has meanwhile expired
   const remote = body();
   const ours = remote.entries.find((e) => e.activity === 'Pushed entry');
   const later = new Date(Date.now() + 60000).toISOString();
-  remote.entries = [{ id: 'remote1', date: '2026-01-15', orgId: remote.organizations[0].id, workItemId: '', activity: 'From the other device', category: '', hours: 1.5, supervisor: '', notes: '', createdAt: later, at: later, photos: [{ id: 'photoR', name: 'remote.jpg', at: later }] }];
+  remote.entries = [{ id: 'remote1', date: '2026-01-15', orgId: remote.organizations[0].id, workItemId: '', activity: 'From the other device', category: '', hours: 1.5, gave: { count: 3, unit: 'blankets' }, supervisor: '', notes: '', createdAt: later, at: later, photos: [{ id: 'photoR', name: 'remote.jpg', at: later }] }];
   remote.deleted = { [ours.id]: later };
   // meanwhile this device attaches a photo to the shared 'remote1' entry (it does not exist locally yet, so fake it in storage as an older local copy with our photo)
   await pg.evaluate((r) => { const d = JSON.parse(localStorage.getItem('volunteer.v2')); d.entries.push({ ...r, notes: 'local edit', at: '2026-01-15T00:00:00.000Z', photos: [{ id: 'photoL', name: 'local.jpg', at: '2026-01-15T00:00:00.000Z' }] }); localStorage.setItem('volunteer.v2', JSON.stringify(d)); }, remote.entries[0]);
@@ -60,9 +60,9 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.goto(base + '#/log', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=log-summary]');
   const log = await pg.textContent('[data-testid=log-table]').catch(() => '');
-  check('remote-only entry arrived after merge', /From the other device/.test(log));
+  check('remote-only entry arrived after merge, with what it gave', /From the other device/.test(log) && /gave 3 blankets/.test(log));
   check('entry deleted elsewhere is gone here (tombstone wins)', !/Pushed entry/.test(log));
-  check('merged result written back to Drive', body().entries.length === 1 && body().entries[0].id === 'remote1' && body().deleted[ours.id] === later);
+  check('merged result written back to Drive', body().entries.length === 1 && body().entries[0].id === 'remote1' && body().entries[0].gave.count === 3 && body().deleted[ours.id] === later);
   check('the newer remote copy won the record but both devices\' photos were kept', body().entries[0].notes === '' && body().entries[0].photos.map((p) => p.id).sort().join() === 'photoL,photoR');
 
   // sign out: token revoked, this device cleared, back to the gate; the file keeps everything.

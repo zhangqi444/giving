@@ -47,6 +47,14 @@ def main():
             sys.exit(f"{it['id']}: unknown kind {it['kind']}")
         if it["where"] not in WHERES:
             sys.exit(f"{it['id']}: unknown where {it['where']}")
+        # Making or collecting something ends with handing it over, so those two kinds name
+        # the unit it is counted in ("blankets", "bags of food", "dollars"); the Log dialog
+        # presets it. A shift produces nothing to count, so the key is refused elsewhere.
+        gives = it.setdefault("gives", "")
+        if it["kind"] in ("craft", "drive") and not (isinstance(gives, str) and gives.strip()):
+            sys.exit(f"{it['id']}: a {it['kind']} item needs `gives`, the unit of what is handed over")
+        if gives and it["kind"] not in ("craft", "drive"):
+            sys.exit(f"{it['id']}: `gives` belongs on craft and drive items only")
         # An archived page is not evidence a programme still runs: PAWS moved its preteen
         # workshops under /archive/ and the catalog went on advertising the old times and price.
         # A URL naming a date is one occurrence of a thing, and it stops being true the
