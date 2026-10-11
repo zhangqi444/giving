@@ -62,6 +62,39 @@
     },
     {
       "ages": {
+        "max": 11,
+        "min": 5,
+        "note": "Kindergarten to fifth grade; a parent brings her and signs her in.",
+        "withAdult": false
+      },
+      "commitment": "Half an hour a session, as often as there is a slot.",
+      "details": [
+        "A year-round reading programme for students in kindergarten to fifth grade: registered readers book 30-minute sessions with the shelter cats and earn a prize for every five they complete.",
+        "The cats she reads to are the ones the shelter has cleared for time with children; bring a book or borrow one from the shelter's library.",
+        "Sessions run Sunday to Friday, 12pm to 5pm, at the shelter at 4910 A St SE in Auburn. A local news report describes it as free to join.",
+        "Applying is a fillable form emailed in, or a paper one at the shelter; places open as there is space, and there is a waitlist when there is not.",
+        "This is the one thing at Auburn Valley that is hers alone before ten — their volunteer shifts start at 10 with an adult alongside (listed separately)."
+      ],
+      "howTo": "Email the Shelter Buddies application from the programme page, then book a 30-minute reading slot once she is registered.",
+      "id": "avhs-shelter-buddies",
+      "kind": "program",
+      "location": "Auburn Valley Humane Society, 4910 A St SE, Auburn",
+      "org": "auburn-valley-hs",
+      "summary": "Sign up for a half-hour slot, pick a book, and read it out loud to the cats in the Auburn shelter's cat sanctuary. A prize every five sessions.",
+      "tags": [
+        "animals",
+        "cats",
+        "reading",
+        "shelter",
+        "with a parent"
+      ],
+      "title": "Read to the shelter cats (Shelter Buddies, grades K–5)",
+      "url": "https://auburnvalleyhs.org/shelter-buddies-reading-program/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
         "max": null,
         "min": null,
         "note": "Written for under-18s; no minimum stated.",
@@ -151,6 +184,102 @@
       "title": "Neighborhood Bird Project bird counts",
       "url": "https://birdsconnectsea.org/get-involved/community-science/neighborhood-bird-project/",
       "verified": "2026-09-12",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "Under 16 with a parent, on non-animal tasks; 16–17 case by case; 18 for the animals.",
+        "withAdult": true
+      },
+      "commitment": "Shifts, as arranged at orientation.",
+      "details": [
+        "Under 16, a volunteer may take part only in tasks that do not involve handling animals, and must be accompanied by a parent or guardian. No one under 16 goes into the kennel areas or around the dogs.",
+        "The tasks the shelter lists for that: event and fundraising support, organising the retail store and pet pantry, laundry and cleaning, sorting donations, and preparing enrichment items for the animals.",
+        "At 16 and 17 the shelter approves volunteers case by case, mainly for school-required hours, with a release form on the first visit; direct work with the animals is 18 and over.",
+        "Signing up is the volunteer application (online or in person) and a volunteer orientation booked through SignUpGenius."
+      ],
+      "howTo": "Fill in the volunteer application for each of you and book a volunteer orientation from the programme page; she comes to the shifts you take.",
+      "id": "burien-cares-under-16",
+      "kind": "shift",
+      "location": "909 SW 151st St, Burien",
+      "org": "burien-cares",
+      "summary": "The Burien shelter takes under-16s on the jobs that keep it running — donation sorting, laundry, making enrichment — with a parent working alongside.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "shelter",
+        "with a parent",
+        "service hours"
+      ],
+      "title": "Burien CARES: sorting, laundry and enrichment with a parent (under 16)",
+      "url": "https://www.buriencares.org/volunteer-program",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "The registered foster is 21+; the child lives with the animal and comes to the meet-and-greet.",
+        "withAdult": true
+      },
+      "commitment": "A foster at a time, for as long as that animal needs.",
+      "details": [
+        "The registered foster has to be 21 or over, so the parent applies; the rescue asks the entire human household to come to the meet-and-greet — resident dogs too, for a dog foster — which is how a child is part of it from the first day.",
+        "Fosters live in the greater Puget Sound area, including Vashon Island, the Olympic Peninsula and within about 30 miles of Seattle, and get the animal to adoption meet-and-greets and vet appointments themselves.",
+        "The application asks for a government ID, spay/neuter and vaccination records for pets at home (or a vet's medical waiver), three references, and that you read the Foster Handbook."
+      ],
+      "howTo": "A parent applies from the foster page with the ID, pet records and references; then everyone goes to the meet-and-greet.",
+      "id": "ecpr-foster",
+      "kind": "foster",
+      "location": "At home; pick-up in Seattle",
+      "org": "emerald-city-pet-rescue",
+      "summary": "A Seattle rescue that fosters across greater Puget Sound and brings the whole household to the meet-and-greet.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "foster",
+        "family",
+        "at home"
+      ],
+      "title": "Foster a dog or cat for Emerald City Pet Rescue (as a family)",
+      "url": "https://www.emeraldcitypetrescue.org/foster-dogs-cats",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 16,
+        "note": "16 with a parent; 18 alone.",
+        "withAdult": true
+      },
+      "commitment": "Three months, at least two shifts a month.",
+      "details": [
+        "Volunteers must be 18 or over, or at least 16 if volunteering alongside a parent or guardian, and pass a background check before a first assignment.",
+        "The farm asks for a three-month commitment of at least two shifts a month; the page gives the shift as one hour in one place and two in another, so ask.",
+        "Early tasks are stall and enclosure cleaning, cleaning facilities, helping the maintenance team and making content for social media; volunteers are expected to work with all the animals and do all the cleaning that comes with them.",
+        "It is a ferry trip: volunteers from off the island provide their own transport to and from the ferry dock, and the sanctuary is not reachable by public transport."
+      ],
+      "howTo": "At 16, apply together from the volunteer page; both of you go through the background check and take the shifts as a pair.",
+      "id": "ecpr-ghost-owl-farm",
+      "kind": "shift",
+      "location": "Ghost Owl Farm, Vashon Island",
+      "org": "emerald-city-pet-rescue",
+      "summary": "Emerald City Pet Rescue's sanctuary on Vashon Island, home to ninety-odd horses, donkeys, goats, pigs, cows and llamas. Sixteen with a parent; eighteen alone.",
+      "tags": [
+        "animals",
+        "farm",
+        "sanctuary",
+        "with a parent"
+      ],
+      "title": "Ghost Owl Farm sanctuary on Vashon (from 16 with a parent)",
+      "url": "https://www.emeraldcitypetrescue.org/volunteer",
+      "verified": "2026-10-11",
       "where": "in-person"
     },
     {
@@ -447,6 +576,37 @@
       "ages": {
         "max": null,
         "min": null,
+        "note": "A parent is the registered foster; children in the home are not addressed on the page — ask.",
+        "withAdult": true
+      },
+      "commitment": "Two weeks at least, an hour twice a day.",
+      "details": [
+        "Three kinds of stay: a two-week quarantine for each new arrival before it joins the café, medical stays, and behavioural stays for cats that find the busy lounge too much.",
+        "Food, litter and the basics are provided by the Foundation. A foster home either has no other pets or can keep the foster cat separate from them.",
+        "The ask is at least two weeks, about an hour twice a day on care and company, a car to collect and return the cat, and a home within 45 minutes of the café on N 45th St. The Foundation wants families who will foster again, and says it is not the place for fostering in order to adopt.",
+        "The foster page does not say whether children in the home are a problem; the adoption FAQ welcomes families with children, cat by cat. Ask on the application."
+      ],
+      "howTo": "A parent fills in the foster application on the café's site, saying there is a child at home and that you would foster more than once.",
+      "id": "meowtropolitan-foster",
+      "kind": "foster",
+      "location": "At home; pick-up in Wallingford",
+      "org": "meowtropolitan",
+      "summary": "Meowtropolitan Foundation is the rescue behind Seattle's cat café. Its fosters take a cat for the two-week quarantine before the lounge, or for a medical or behavioural stay.",
+      "tags": [
+        "cats",
+        "foster",
+        "family",
+        "at home"
+      ],
+      "title": "Foster a cat for the Wallingford cat café's rescue (as a family)",
+      "url": "https://www.seameow.com/foster-program",
+      "verified": "2026-10-11",
+      "where": "at-home"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
         "note": "No minimum for the children in a cat foster home (dogs need them over 5); the adult is the registered foster.",
         "withAdult": true
       },
@@ -724,6 +884,101 @@
     {
       "ages": {
         "max": null,
+        "min": 10,
+        "note": "From 10, with an adult present at every visit until 16; needs a pet of your own.",
+        "withAdult": true
+      },
+      "commitment": "A course and an evaluation, then visits you choose.",
+      "details": [
+        "Handlers can be as young as 10. Under 16, a parent, guardian or another approved adult is present on every visit; under 18, a signed permission form from the parent. The criminal background check is for handlers 18 and over only.",
+        "The animal has to be at least a year old at evaluation (six months for rabbits, guinea pigs and rats) and have lived in your home for at least six months, and a vet completes Pet Partners' own health screening form.",
+        "Becoming a team is a handler course ($80 online), then a team evaluation with a local evaluator (typically $15–30), then registration ($95 for a new team, $70 to renew).",
+        "Facilities set their own limits on top of that, and some have age limits of their own."
+      ],
+      "howTo": "At 10, with a pet that has lived with you six months, take the handler course together, book a team evaluation, and register.",
+      "id": "pet-partners-handler",
+      "kind": "program",
+      "location": "Wherever the visit is — a library, a hospital, a care home",
+      "org": "pet-partners",
+      "summary": "Pet Partners registers handlers from age ten — with a dog, cat, rabbit or guinea pig of your own — to visit hospitals, libraries and care homes.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "therapy animals",
+        "with a parent"
+      ],
+      "title": "Visit with your own pet as a therapy animal team (from age 10)",
+      "url": "https://petpartners.org/volunteer/requirements/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": 14,
+        "note": "From 14 (16 for beach walks), with an adult until 18.",
+        "withAdult": true
+      },
+      "commitment": "A training, then surveys she schedules herself across a season.",
+      "details": [
+        "Spot the Swallows is open from 14: after a training session volunteers schedule their own surveys of nest-box sites at Point Defiance Park, Titlow Beach Park or Chinese Reconciliation Park through spring and summer, and the data goes to the Washington Department of Fish and Wildlife.",
+        "Larval Crab Monitoring is also from 14: checking a light trap at the Point Defiance Boathouse for Dungeness crab larvae with the Pacific Northwest Crab Research Group, after learning crab life history and plankton identification.",
+        "Beach Walk Naturalist is from 16 — talking to beach-goers at low tide.",
+        "Under 18 needs an adult along for all three. Almost all of it happens away from the zoo, and it is seasonal: spring and summer."
+      ],
+      "howTo": "Watch the community science page for a project with applications open — they are seasonal — and apply together.",
+      "id": "pdza-community-science",
+      "kind": "citizen-science",
+      "location": "Point Defiance Park, Titlow Beach and the Point Defiance Boathouse, Tacoma",
+      "org": "pdza",
+      "summary": "The zoo's community science runs away from the zoo, on Tacoma's parks and beaches: swallow nest boxes, a crab light trap at the boathouse, low-tide beach walks.",
+      "tags": [
+        "animals",
+        "wildlife",
+        "citizen science",
+        "outdoors",
+        "with a parent"
+      ],
+      "title": "Count swallows and crab larvae with the zoo (from 14, with an adult)",
+      "url": "https://www.pdza.org/discover/community-science/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": 18,
+        "min": 14,
+        "note": "Ages 14–18, in grades 9–12.",
+        "withAdult": false
+      },
+      "commitment": "Spring training, then a six-hour shift a week all summer.",
+      "details": [
+        "For 14- to 18-year-olds in grades 9 to 12; graduating seniors can still apply.",
+        "The zoo is clear that Zoo Guides do not help with animal care — the role is visitor-facing.",
+        "Applications open in December. Applicants do an informal group interview and orientation, then training starts in late March: seven to nine required sessions through June, followed by one six-hour shift a week for nine or ten weeks of the summer season.",
+        "Apply at pdza.org/volunteer when the window is open; outside it there is a waitlist form, which the zoo says is not an application."
+      ],
+      "howTo": "Apply in December of 8th or 9th grade for the summer that follows; the volunteer page carries the form while it is open.",
+      "id": "pdza-zoo-guides",
+      "kind": "program",
+      "location": "Point Defiance Zoo & Aquarium, Tacoma",
+      "org": "pdza",
+      "summary": "A summer as a youth ambassador at the Tacoma zoo and aquarium: trained in the spring, one six-hour shift a week through the summer, talking to visitors.",
+      "tags": [
+        "animals",
+        "zoo",
+        "teens",
+        "summer"
+      ],
+      "title": "Point Defiance Zoo Guides (ages 14–18)",
+      "url": "https://www.pdza.org/youthvolunteer/",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
         "min": null,
         "note": "All skill levels and backgrounds, children and families included; a parent signs up and pays the fee.",
         "withAdult": true
@@ -954,6 +1209,38 @@
       "ages": {
         "max": null,
         "min": null,
+        "note": "No age on the current page; Seal Sitters has said children are welcome with a parent. Confirm when you sign up.",
+        "withAdult": true
+      },
+      "commitment": "A two-hour training, then beach shifts when a pup comes ashore.",
+      "details": [
+        "Seal Sitters is West Seattle's all-volunteer marine mammal stranding network. Everyone who volunteers first attends a training session covering seal biology, beach protection protocols and talking to the public; trainings are typically held each spring before the busy season.",
+        "The current volunteer page does not state a minimum age. Seal Sitters' own earlier posts say that, unlike most stranding networks, it encourages children to take part, supervised at all times by a parent or guardian — and that a child must be able to sit through the roughly two-hour training. Ask when you join the list.",
+        "Trained volunteers cover the beaches from Brace Point through the Duwamish River, including Harbor Island; there are also roles off the beach, as hotline operator, first responder or scheduler.",
+        "To be told about the next training, email from the volunteer page or fill in the Volunteer Interest form, which puts you on the waiting list."
+      ],
+      "howTo": "Fill in the Volunteer Interest form to join the waiting list for the spring training, and ask whether she can train alongside you.",
+      "id": "seal-sitters",
+      "kind": "shift",
+      "location": "West Seattle beaches, Brace Point to the Duwamish",
+      "org": "seal-sitters",
+      "summary": "When a harbor seal pup hauls out to rest on a West Seattle beach, Seal Sitters put a volunteer on the sand to keep people and dogs back and explain why. All ages have done it, with a parent.",
+      "tags": [
+        "animals",
+        "wildlife",
+        "seals",
+        "beach",
+        "with a parent"
+      ],
+      "title": "Seal Sitters: keep watch over a seal pup on a West Seattle beach",
+      "url": "https://www.sealsitters.org/volunteer",
+      "verified": "2026-10-11",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
         "note": "The registered foster is an adult; the child helps at home.",
         "withAdult": true
       },
@@ -1068,6 +1355,37 @@
       "title": "Seattle Area Feline Rescue volunteering (from 16)",
       "url": "https://seattleareafelinerescue.org/volunteer/",
       "verified": "2026-10-07",
+      "where": "in-person"
+    },
+    {
+      "ages": {
+        "max": null,
+        "min": null,
+        "note": "The parent is the registered volunteer; ask Education Services about her riding along.",
+        "withAdult": true
+      },
+      "commitment": "Delivery shifts, as scheduled.",
+      "details": [
+        "Seattle Humane's volunteers are 18 and over, so the driver is the parent. The delivery role is the one the volunteer page describes as \"a great opportunity to volunteer with a friend or family member\" — a child can ride along and carry.",
+        "Deliveries go to clients of the Pet Food Bank, participating senior centres and food banks around the greater Seattle area.",
+        "Whether a child may come on a delivery shift is for Seattle Humane to say: ask Education Services, which handles youth and community service questions."
+      ],
+      "howTo": "A parent applies for the delivery driver role on the volunteer page and emails EducationServices@seattlehumane.org to ask about bringing her.",
+      "id": "sh-food-bank-delivery",
+      "kind": "shift",
+      "location": "Around Seattle, from the Bellevue shelter",
+      "org": "seattle-humane",
+      "summary": "Drivers take pet food and supplies from Oogie's Ohana Pet Food Bank to clients, senior centres and food banks around Seattle. Seattle Humane calls it a great role to do with a family member.",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "food bank",
+        "with a parent"
+      ],
+      "title": "Deliver pet food for Seattle Humane's pet food bank (the parent's role, with her along)",
+      "url": "https://www.seattlehumane.org/get-involved/volunteer/",
+      "verified": "2026-10-11",
       "where": "in-person"
     },
     {
@@ -1480,7 +1798,7 @@
         "address": "Auburn, WA"
       },
       "name": "Auburn Valley Humane Society",
-      "url": "https://auburnvalleyhs.org/get-involved/volunteer/"
+      "url": "https://auburnvalleyhs.org/"
     },
     "best-friends": {
       "contact": {
@@ -1493,6 +1811,27 @@
       "area": "Seattle",
       "name": "Birds Connect Seattle",
       "url": "https://birdsconnectsea.org/get-involved/"
+    },
+    "burien-cares": {
+      "area": "South · Burien",
+      "contact": {
+        "address": "909 SW 151st St, Burien, WA 98166",
+        "phone": "206-812-2737"
+      },
+      "name": "Burien C.A.R.E.S.",
+      "url": "https://www.buriencares.org/",
+      "verified": "2026-10-11"
+    },
+    "emerald-city-pet-rescue": {
+      "area": "Seattle",
+      "contact": {
+        "address": "20 S Idaho St, Seattle; Ghost Owl Farm on Vashon Island",
+        "email": "info@emeraldcitypetrescue.org",
+        "phone": "(206) 557-4661"
+      },
+      "name": "Emerald City Pet Rescue",
+      "url": "https://www.emeraldcitypetrescue.org/",
+      "verified": "2026-10-11"
     },
     "everett-animal-shelter": {
       "area": "North · Everett",
@@ -1546,6 +1885,15 @@
       },
       "name": "MEOW Cat Rescue",
       "url": "https://meowcatrescue.org/volunteer/"
+    },
+    "meowtropolitan": {
+      "area": "Seattle",
+      "contact": {
+        "address": "Seattle Meowtropolitan, 1225 N 45th St, Seattle"
+      },
+      "name": "Meowtropolitan Foundation",
+      "url": "https://www.seameow.com/nonprofit",
+      "verified": "2026-10-11"
     },
     "motley-zoo": {
       "area": "Eastside · Redmond",
@@ -1603,6 +1951,23 @@
       "name": "PAWS (Progressive Animal Welfare Society)",
       "url": "https://www.paws.org/volunteer/"
     },
+    "pdza": {
+      "area": "South Sound · Tacoma",
+      "contact": {
+        "address": "Point Defiance Park, Tacoma",
+        "email": "volunteer@pdza.org"
+      },
+      "name": "Point Defiance Zoo & Aquarium",
+      "url": "https://www.pdza.org/connect/volunteer/",
+      "verified": "2026-10-11"
+    },
+    "pet-partners": {
+      "area": "Across the Seattle area",
+      "contact": {},
+      "name": "Pet Partners",
+      "url": "https://petpartners.org/volunteer/",
+      "verified": "2026-10-11"
+    },
     "purrfect-pals": {
       "area": "Far north · Arlington",
       "contact": {
@@ -1641,6 +2006,15 @@
       },
       "name": "Sarvey Wildlife Care Center",
       "url": "https://www.sarveywildlife.org/"
+    },
+    "seal-sitters": {
+      "area": "Seattle · West Seattle",
+      "contact": {
+        "phone": "Hotline 206-905-7325 (SEAL) for a marine mammal on a West Seattle beach"
+      },
+      "name": "Seal Sitters Marine Mammal Stranding Network",
+      "url": "https://www.sealsitters.org/",
+      "verified": "2026-10-11"
     },
     "seattle-animal-shelter": {
       "area": "Seattle",
