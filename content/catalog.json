@@ -129,7 +129,7 @@
     },
     "woodland-park-zoo": {
       "name": "Woodland Park Zoo",
-      "url": "https://zoo.org/volunteer/teen/",
+      "url": "https://zoo.org/",
       "contact": {
         "address": "Seattle"
       },
@@ -694,6 +694,158 @@
       },
       "verified": "2026-10-11",
       "area": "Across the Seattle area"
+    },
+    "washington-ferret": {
+      "name": "Washington Ferret Rescue & Shelter",
+      "url": "https://www.washingtonferret.org/",
+      "contact": {
+        "email": "info@washingtonferret.org",
+        "phone": "(425) 470-8197"
+      },
+      "verified": "2026-10-11",
+      "area": "North · Everett"
+    },
+    "vipp": {
+      "name": "Vashon Island Pet Protectors (VIPP)",
+      "url": "https://vipp.org/",
+      "contact": {
+        "email": "volunteer@vipp.org",
+        "phone": "(206) 389-1085",
+        "address": "PO Box 245, Vashon, WA 98070"
+      },
+      "verified": "2026-10-11",
+      "area": "Across the water · Vashon Island"
+    },
+    "puget-soundkeeper": {
+      "name": "Puget Soundkeeper Alliance",
+      "url": "https://pugetsoundkeeper.org/",
+      "verified": "2026-10-11",
+      "area": "Across the Seattle area"
+    },
+    "mid-sound-fisheries": {
+      "name": "Mid Sound Fisheries Enhancement Group",
+      "url": "https://www.midsoundfisheries.org/",
+      "verified": "2026-10-11",
+      "area": "Across the Seattle area"
+    },
+    "sound-salmon-solutions": {
+      "name": "Sound Salmon Solutions",
+      "url": "https://www.soundsalmonsolutions.org/",
+      "contact": {
+        "email": "info@soundsalmonsolutions.org"
+      },
+      "verified": "2026-10-11",
+      "area": "North · Snohomish County"
+    },
+    "adopt-a-stream": {
+      "name": "Adopt A Stream Foundation (Northwest Stream Center)",
+      "url": "https://www.streamkeeper.org/",
+      "contact": {
+        "address": "600 128th St SE, Everett, WA 98208 (McCollum Park)"
+      },
+      "verified": "2026-10-11",
+      "area": "North · Everett"
+    },
+    "oxbow": {
+      "name": "Oxbow Farm & Conservation Center",
+      "url": "https://www.oxbow.org/",
+      "contact": {
+        "email": "volunteer@oxbow.org",
+        "phone": "(425) 788-1134"
+      },
+      "verified": "2026-10-11",
+      "area": "East · Carnation"
+    },
+    "vashon-nature-center": {
+      "name": "Vashon Nature Center",
+      "url": "https://vashonnaturecenter.org/",
+      "contact": {
+        "email": "wonder@vashonnaturecenter.org"
+      },
+      "verified": "2026-10-11",
+      "area": "Across the water · Vashon Island"
+    },
+    "psrf": {
+      "name": "Puget Sound Restoration Fund",
+      "url": "https://restorationfund.org/",
+      "contact": {
+        "phone": "206-780-6947",
+        "address": "8001 NE Day Road West, Suite B, Bainbridge Island, WA 98110"
+      },
+      "verified": "2026-10-11",
+      "area": "Across the water · Bainbridge Island"
+    },
+    "seward-park-audubon": {
+      "name": "Seward Park Audubon Center",
+      "url": "https://sewardpark.audubon.org/",
+      "contact": {
+        "email": "gabriela.rivarde@audubon.org"
+      },
+      "verified": "2026-10-11",
+      "area": "Seattle"
+    },
+    "tahoma-bird-alliance": {
+      "name": "Tahoma Bird Alliance (formerly Tahoma Audubon)",
+      "url": "https://tahomaaudubon.org/",
+      "contact": {
+        "email": "andream@tahomaaudubon.org",
+        "phone": "253-565-9129",
+        "address": "Adriana Hess Audubon Center, University Place"
+      },
+      "verified": "2026-10-11",
+      "area": "South Sound · University Place"
+    },
+    "bats-northwest": {
+      "name": "Bats Northwest",
+      "url": "https://www.batsnorthwest.org/",
+      "contact": {
+        "email": "batsnorthwest@gmail.com",
+        "phone": "(206) 256-0406"
+      },
+      "verified": "2026-10-11",
+      "area": "Across the Seattle area"
+    },
+    "orca-conservancy": {
+      "name": "Orca Conservancy",
+      "url": "https://www.orcaconservancy.org/",
+      "verified": "2026-10-11",
+      "area": "Across the Seattle area"
+    },
+    "wdfw": {
+      "name": "Washington Department of Fish and Wildlife",
+      "url": "https://wdfw.wa.gov/",
+      "verified": "2026-10-11",
+      "area": "Across western Washington"
+    },
+    "camano-animal-shelter": {
+      "name": "Camano Animal Shelter Association (CASA)",
+      "url": "https://www.camanoanimalshelter.com/",
+      "contact": {
+        "email": "casa@camanoanimalshelter.org",
+        "phone": "360-387-1902",
+        "address": "198 Can Ku Road, Camano Island, WA 98282"
+      },
+      "verified": "2026-10-11",
+      "area": "Far north · Camano Island"
+    },
+    "whale-trail": {
+      "name": "The Whale Trail",
+      "url": "https://thewhaletrail.org/",
+      "contact": {
+        "email": "info@thewhaletrail.org",
+        "phone": "(206) 919-5397"
+      },
+      "verified": "2026-10-11",
+      "area": "Seattle"
+    },
+    "sr3": {
+      "name": "SR3 SeaLife Response, Rehabilitation and Research",
+      "url": "https://www.sealifer3.org/",
+      "contact": {
+        "email": "volunteer@sr3.org"
+      },
+      "verified": "2026-10-11",
+      "area": "South · Des Moines"
     }
   },
   "items": [
@@ -4328,6 +4480,621 @@
         "birds",
         "citizen science",
         "outdoors"
+      ]
+    },
+    {
+      "id": "wpz-carnivore-cameras",
+      "org": "woodland-park-zoo",
+      "title": "Check a wildlife camera each month for the Seattle Urban Carnivore Project (from 9, on a team with an adult)",
+      "kind": "citizen-science",
+      "where": "in-person",
+      "summary": "Teams of youth and adult volunteers keep motion-triggered cameras running across the Seattle area, hiking to the site monthly to swap cards and submit what the camera caught — coyotes, bobcats, raccoons, the odd cougar.",
+      "details": [
+        "The project page says who can take part: 9 years and older. The work is a monthly hike to the site, maintaining the camera and submitting the data, for a year, with training in March.",
+        "Under 18 needs a parent or guardian's signature on the community-science waiver.",
+        "Registration for a new season usually opens in February or March; an interest form on the page puts a family on the list. Residents can also report sightings any time through Carnivore Spotter."
+      ],
+      "ages": {
+        "min": 9,
+        "max": null,
+        "withAdult": true,
+        "note": "9 and older on a youth-and-adult team; a parent signs the waiver."
+      },
+      "commitment": "A year; one site visit a month, training in March.",
+      "location": "Camera sites around greater Seattle",
+      "howTo": "Fill in the Seattle Urban Carnivore Project interest form on the page; the zoo writes when registration opens.",
+      "url": "https://zoo.org/seattlecarnivores/",
+      "verified": "2026-10-11",
+      "tags": [
+        "wildlife",
+        "citizen science",
+        "with a parent",
+        "coyotes",
+        "cameras"
+      ]
+    },
+    {
+      "id": "wpz-bat-counts",
+      "org": "woodland-park-zoo",
+      "title": "Count bat passes after sunset for Bat Activity Trends (youth packet for 6–12; under 13 submit with someone older)",
+      "kind": "citizen-science",
+      "where": "at-home",
+      "summary": "From a yard, balcony or sidewalk with open sky, watch for 30 minutes starting a few minutes after sunset and count every bat that passes; the zoo and Bats Northwest map bat activity across the region from the counts.",
+      "details": [
+        "The programme is open to all ages, and the zoo publishes a Youth Scientist Participation Packet recommended for ages 6–12 with a kid-friendly data sheet.",
+        "Anyone 13 or older can open a free FieldScope account to submit data; under 13 takes part with family or a team member over 13 who submits it.",
+        "Bats are counted in their peak months (the pages say June–August or July–September). Free sunset meetups run at Seward Park Audubon Center and on Mercer Island, where 14 and under come with a parent, one adult per three children."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "All ages; under 13 submits with someone over 13."
+      },
+      "commitment": "Half an hour an evening, summer; as many counts as the family likes.",
+      "location": "Home, or a park meetup",
+      "howTo": "Print the youth packet from the page, pick a spot with open sky, and count from sunset; submit on FieldScope.",
+      "url": "https://zoo.org/batactivity/",
+      "verified": "2026-10-11",
+      "tags": [
+        "bats",
+        "wildlife",
+        "citizen science",
+        "at home",
+        "family"
+      ]
+    },
+    {
+      "id": "wfrs-volunteer",
+      "org": "washington-ferret",
+      "title": "Clean cages and trim nails at the ferret shelter (from 16 with a parent's permission)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "The shelter is run entirely by unpaid volunteers who clean cages, trim nails and hand out brochures at events.",
+      "details": [
+        "The volunteer page says volunteers must be 18+, or 16+ with parental permission, and fill in a volunteer application first.",
+        "The about page calls Everett the shelter's base camp; the contact page gives a University Place address. Ask which before going."
+      ],
+      "ages": {
+        "min": 16,
+        "max": null,
+        "withAdult": false,
+        "note": "18+, or 16+ with a parent's permission."
+      },
+      "commitment": "Shifts by arrangement after the application.",
+      "location": "Everett (ask — the contact page says University Place)",
+      "howTo": "Fill in the volunteer application on the page or email info@washingtonferret.org.",
+      "url": "https://washingtonferret.org/volunteer.php",
+      "verified": "2026-10-11",
+      "tags": [
+        "ferrets",
+        "small animals",
+        "shelter"
+      ]
+    },
+    {
+      "id": "wfrs-foster",
+      "org": "washington-ferret",
+      "title": "Foster a special-needs ferret long-term (as a family)",
+      "kind": "foster",
+      "where": "at-home",
+      "summary": "About twenty Puget Sound homes foster the shelter's ferrets, mostly long-term placements of animals with medical needs; experience helps but is not required.",
+      "details": [
+        "Foster placements are long-term rather than temporary and usually involve special-needs ferrets; comfort with needles and ferret experience help but are not required.",
+        "A fostered ferret is seen by the shelter director or another representative at least once a month. A foster application and a foster contract (PDFs on the page) come first."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "An adult signs the foster contract; nothing said about children at home."
+      },
+      "commitment": "Months to years; a monthly check-in.",
+      "location": "At home",
+      "howTo": "A parent sends the foster application from the page to info@washingtonferret.org.",
+      "url": "https://www.washingtonferret.org/foster.php",
+      "verified": "2026-10-11",
+      "tags": [
+        "ferrets",
+        "foster",
+        "at home",
+        "family"
+      ]
+    },
+    {
+      "id": "vipp-volunteer",
+      "org": "vipp",
+      "title": "Volunteer at VIPP's cat shelter or on the dog team (from 16)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "Vashon's all-volunteer rescue runs a cat shelter, a dog team that walks, fosters and adopts out dogs, and the No Hungry Pets food programme; sixty to seventy volunteers work every week.",
+      "details": [
+        "The application asks which animals you want to work with, your availability and which activities interest you — cat shelter work, dog walking, fostering, transport to vet appointments.",
+        "The minimum age is 16; under 18 a parent or guardian completes a Minor Volunteer Consent and Release Form."
+      ],
+      "ages": {
+        "min": 16,
+        "max": null,
+        "withAdult": false,
+        "note": "16+; under 18 with a parent's consent form."
+      },
+      "commitment": "No set minimum; the coordinator matches shifts to availability.",
+      "location": "Vashon Island",
+      "howTo": "Fill in the Apply to Volunteer form on the page; questions to volunteer@vipp.org.",
+      "url": "https://vipp.org/apply-to-volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "cats",
+        "dogs",
+        "shelter",
+        "Vashon"
+      ]
+    },
+    {
+      "id": "soundkeeper-kayak",
+      "org": "puget-soundkeeper",
+      "title": "Paddle a Lake Union kayak cleanup (from 13; under 18 with a guardian in the boat)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "Volunteers paddle kayaks and canoes to the shoreline trash that cannot be reached on foot; the weekly Lake Union cleanups need no kayak experience, and training and all gear are provided.",
+      "details": [
+        "The kayak-cleanups page says the weekly Lake Union cleanups are open to people over 12 with no kayak experience needed; training and equipment are provided.",
+        "The 2025 Lake Union listings let under-18s paddle only with a guardian in the boat; the Duwamish boat cleanup in the summer series took 15 and over with a parent. Each event page states its own rule.",
+        "Registration for the summer season has opened in April; spots are limited."
+      ],
+      "ages": {
+        "min": 13,
+        "max": null,
+        "withAdult": true,
+        "note": "Over 12 on the page; under 18 with a guardian in the boat."
+      },
+      "commitment": "A morning, weekly through summer if you like.",
+      "location": "Northwest Outdoor Center, Lake Union",
+      "howTo": "Pick a date on the events calendar and register; email if the page asks.",
+      "url": "https://pugetsoundkeeper.org/volunteer/kayak-cleanups/",
+      "verified": "2026-10-11",
+      "tags": [
+        "marine life",
+        "cleanup",
+        "kayak",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "soundkeeper-shore-cleanup",
+      "org": "puget-soundkeeper",
+      "title": "Join a shoreline cleanup or September's International Coastal Cleanup (age not stated)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "Soundkeeper runs beach, park and creek cleanups all year and coordinates the Puget Sound leg of the International Coastal Cleanup each September; a family can also become a Beach Captain and run one of its own.",
+      "details": [
+        "The marine-debris page lists year-round cleanups on the events calendar and the Sound Sweep series, where a Beach Captain organises a cleanup between 1 September and 30 November and staff follow up within seven business days.",
+        "Land cleanups in the listings were open to everyone — the Magnuson Park Earth Day listing said pets too. No age is stated on the programme page; check the event."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Open to everyone in the listings; no age on the page."
+      },
+      "commitment": "A two- or three-hour morning.",
+      "location": "Beaches and parks around Puget Sound",
+      "howTo": "Register for a cleanup on the events calendar, or send the Beach Captain interest form.",
+      "url": "https://pugetsoundkeeper.org/volunteer/marine-debris-cleanups/",
+      "verified": "2026-10-11",
+      "tags": [
+        "marine life",
+        "cleanup",
+        "beach",
+        "family"
+      ]
+    },
+    {
+      "id": "mid-sound-work-party",
+      "org": "mid-sound-fisheries",
+      "title": "Plant trees for salmon at a Mid Sound work party (under 16 with an adult)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "Family-friendly work parties pull invasive plants and plant native trees and shrubs along salmon streams in Auburn, Normandy Park and Woodinville; tools, a safety talk, snacks and coffee are provided.",
+      "details": [
+        "The volunteer page calls the events family friendly; arrive early, dress for the weather, closed-toe shoes. Events run rain or shine.",
+        "Anyone under 16 is accompanied by an adult; a 16- or 17-year-old on their own brings the youth waiver. One 2026 listing set the age at 1+.",
+        "Sign-ups go through VolunteerMatch or the link on each event page."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "Under 16 with an adult; family friendly."
+      },
+      "commitment": "Three hours on a Saturday morning.",
+      "location": "Sammamish River Trail, Woodinville; Fenster Park, Auburn; Normandy Park",
+      "howTo": "Pick an event on the page and register through its link.",
+      "url": "https://www.midsoundfisheries.org/events/volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "salmon",
+        "wildlife",
+        "habitat",
+        "family",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "sss-volunteer-days",
+      "org": "sound-salmon-solutions",
+      "title": "Plant trees for salmon, or help raise 80,000 coho at hatchery days (age not stated)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "Public restoration events plant native trees and pull invasives from October to April; hatchery events from December to May care for some 80,000 coho at the Willow Creek centre in Edmonds; the Edmonds Stewards work parties take anyone without training.",
+      "details": [
+        "The volunteer page lists restoration events (October–April), hatchery events (December–May), tabling at festivals and markets, and the Edmonds Stewards at Yost, Pine Ridge and Hutt parks.",
+        "No age is stated. Hatchery questions go to megan@soundsalmonsolutions.org; the Volunteer Registration Form goes to info@."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Age not stated; ask when registering."
+      },
+      "commitment": "A morning per event.",
+      "location": "Snohomish County sites; Willow Creek Salmon & Watershed Education Center, Edmonds",
+      "howTo": "Check the Events page, or send the Volunteer Registration Form to info@soundsalmonsolutions.org.",
+      "url": "https://www.soundsalmonsolutions.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "salmon",
+        "wildlife",
+        "habitat",
+        "hatchery"
+      ]
+    },
+    {
+      "id": "aasf-volunteer",
+      "org": "adopt-a-stream",
+      "title": "Keep the trout stream exhibit and nature trail going at the Northwest Stream Center (age not stated)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "The foundation's 20-acre centre in McCollum Park has a trout stream exhibit, a half-mile elevated trail and a nature store, all kept by volunteers, plus fall planting events on restored streams.",
+      "details": [
+        "The home page sends volunteers to the foundation's VolunteerMatch profile for current openings; the 2025 newsletter listed Nature Store shifts (Tuesday–Saturday, 10–4), the trout stream exhibit and elevated trail, the pollinator garden and native plant yard, and fall planting events.",
+        "No age is stated anywhere; ask which roles take a child with a parent."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Age not stated."
+      },
+      "commitment": "A shift or a planting day.",
+      "location": "Northwest Stream Center, McCollum Park, Everett",
+      "howTo": "Open the VolunteerMatch profile linked from the page and pick a role, or ask at the centre.",
+      "url": "https://www.streamkeeper.org/",
+      "verified": "2026-10-11",
+      "tags": [
+        "streams",
+        "trout",
+        "wildlife",
+        "nature centre"
+      ]
+    },
+    {
+      "id": "oxbow-second-saturday",
+      "org": "oxbow",
+      "title": "Second Saturday restoration work party at Oxbow (13 and under with an adult)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "On the second Saturday of every month, up to 25 volunteers grub blackberry and reed canary grass, spread mulch and plant native trees and shrubs for wildlife habitat on the Snoqualmie Valley farm. Free.",
+      "details": [
+        "The 2026 listings say recommended ages 14+, or 13 and under with a trusted adult; work parties are limited to 25 volunteers and run 10 am–1 pm.",
+        "The volunteer page separates individual and group sign-ups; registration is in advance through the calendar links."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "14+ alone; 13 and under with a trusted adult."
+      },
+      "commitment": "Three hours, second Saturday of the month.",
+      "location": "Oxbow Farm, Carnation",
+      "howTo": "Register through the individual form on the volunteer page; questions to volunteer@oxbow.org.",
+      "url": "https://www.oxbow.org/get-involved/volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "wildlife",
+        "habitat",
+        "farm",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "vnc-salmonwatchers",
+      "org": "vashon-nature-center",
+      "title": "Count returning salmon as a SalmonWatcher each fall (age not stated)",
+      "kind": "citizen-science",
+      "where": "in-person",
+      "summary": "Islanders count the salmon coming back to Vashon's creeks every fall as SalmonWatchers, then track sea-run cutthroat as Trout Trackers from February; beach naturalists staff the summer low tides.",
+      "details": [
+        "The freshwater page describes SalmonWatchers, which recruits each fall, and Trout Trackers, which starts each February.",
+        "Volunteer openings are posted on the events calendar; the contact page suggests the newsletter for new projects. No age is stated."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Age not stated."
+      },
+      "commitment": "A few creek visits a season.",
+      "location": "Vashon Island creeks",
+      "howTo": "Watch the events calendar in September for the SalmonWatchers call, or email wonder@vashonnaturecenter.org.",
+      "url": "https://vashonnaturecenter.org/what-we-do/freshwater/",
+      "verified": "2026-10-11",
+      "tags": [
+        "salmon",
+        "wildlife",
+        "citizen science",
+        "Vashon"
+      ]
+    },
+    {
+      "id": "psrf-shellfish-farm",
+      "org": "psrf",
+      "title": "Tend, harvest and bag oysters at the Port Madison Community Shellfish Farm (age not stated)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "The fund restores Olympia oysters, bull kelp and pinto abalone; at its community shellfish farm on Bainbridge volunteers sort oysters by size, tend the beds and bag the harvest on low tides.",
+      "details": [
+        "The community shellfish farms page invites volunteers to help tend, harvest and bag oysters and gives josh@restorationfund.org for volunteering and harvest questions.",
+        "No age is stated; low-tide work is on the beach in boots."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Age not stated."
+      },
+      "commitment": "A low-tide morning.",
+      "location": "Port Madison, Bainbridge Island",
+      "howTo": "Email josh@restorationfund.org to ask about the next farm day.",
+      "url": "https://restorationfund.org/programs/communityshellfishfarms/",
+      "verified": "2026-10-11",
+      "tags": [
+        "marine life",
+        "oysters",
+        "habitat",
+        "Bainbridge"
+      ]
+    },
+    {
+      "id": "spac-elevation",
+      "org": "seward-park-audubon",
+      "title": "Elevation: Seward Park's Saturday teen conservation programme (high school)",
+      "kind": "program",
+      "where": "in-person",
+      "summary": "A free programme for high-school students on environmental justice and conservation, meeting twice a month on Saturdays over twelve sessions at the Audubon Center on Lake Washington.",
+      "details": [
+        "The page says the programme is for high schoolers, meets on Saturdays twice a month over 12 Saturdays, with no participation fee.",
+        "The 2025 cohort was full with a waitlist; questions to the Youth Programs Manager at gabriela.rivarde@audubon.org.",
+        "The center's regular volunteer role (Wednesday and Saturday mornings, helping families and small children) is for adults with a background check."
+      ],
+      "ages": {
+        "min": 14,
+        "max": null,
+        "withAdult": false,
+        "note": "High-school students."
+      },
+      "commitment": "Twelve Saturdays, twice a month.",
+      "location": "Seward Park Audubon Center, Seattle",
+      "howTo": "Email the Youth Programs Manager to ask when the next cohort opens.",
+      "url": "https://sewardpark.audubon.org/programs/elevation",
+      "verified": "2026-10-11",
+      "tags": [
+        "birds",
+        "wildlife",
+        "teens",
+        "program"
+      ]
+    },
+    {
+      "id": "tahoma-volunteer",
+      "org": "tahoma-bird-alliance",
+      "title": "Staff an outreach table, restore habitat or host a FeederWatch count for Tahoma Bird Alliance (under 18 with a parent's signature)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "Pierce County's bird society takes volunteers for outreach events, habitat restoration, field trips and FeederWatch hosting at its wetland centre in University Place; the form asks which you would like.",
+      "details": [
+        "The volunteer page lists field trips, committees, advocacy, outreach events and habitat restoration, and asks applicants to pick interests such as outreach or FeederWatch host.",
+        "Volunteers have a background check and an interview; anyone under 18 needs a parent or guardian to sign the forms."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Under 18 with a parent's signature on the forms."
+      },
+      "commitment": "Ongoing, by role.",
+      "location": "Adriana Hess Audubon Center, University Place, and field sites",
+      "howTo": "Send the volunteer form on the page; questions to andream@tahomaaudubon.org.",
+      "url": "https://tahomaaudubon.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "birds",
+        "wildlife",
+        "outreach",
+        "habitat"
+      ]
+    },
+    {
+      "id": "bats-nw-outreach",
+      "org": "bats-northwest",
+      "title": "Staff a bat outreach table or build bat houses with Bats Northwest (age not stated)",
+      "kind": "outreach",
+      "where": "in-person",
+      "summary": "An all-volunteer bat conservation group with an urgent need for people to staff tables, visit schools, build bat houses and help with the summer bat counts it runs with Woodland Park Zoo.",
+      "details": [
+        "The get-involved page lists tabling and outreach as the urgent need, plus bat-house building, research, administration, social media and the website.",
+        "No age is stated; the contact page says to email batsnorthwest@gmail.com, because the web form has been unreliable."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Age not stated."
+      },
+      "commitment": "An event at a time.",
+      "location": "Events around Seattle and Tacoma",
+      "howTo": "Email batsnorthwest@gmail.com and say what you would like to help with.",
+      "url": "https://www.batsnorthwest.org/involved",
+      "verified": "2026-10-11",
+      "tags": [
+        "bats",
+        "wildlife",
+        "outreach"
+      ]
+    },
+    {
+      "id": "orca-conservancy-volunteer",
+      "org": "orca-conservancy",
+      "title": "Restore salmon habitat at Big Soos Creek, or talk Be Whale Wise at marinas (age not stated)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "Volunteers pull invasives and plant natives on Big Soos Creek in Covington with the Green River Coalition, and in summer stand at marinas and boat ramps teaching boaters the Be Whale Wise rules that protect the southern resident orcas.",
+      "details": [
+        "The volunteer page says opportunities are seasonal and limited, and that applications are kept until a project opens.",
+        "Boater outreach runs June to September at central and south Puget Sound marinas; restoration events are listed on the events page. No age is stated."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Age not stated."
+      },
+      "commitment": "By project.",
+      "location": "Covington; marinas around central and south Puget Sound",
+      "howTo": "Send the volunteer form on the page and say which project.",
+      "url": "https://www.orcaconservancy.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "orcas",
+        "salmon",
+        "wildlife",
+        "outreach"
+      ]
+    },
+    {
+      "id": "wdfw-volunteer",
+      "org": "wdfw",
+      "title": "Volunteer at WDFW outreach events and habitat projects (under 14 with a parent present)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "The state wildlife agency takes volunteers of all ages for outreach events, habitat restoration and work on wildlife areas and water-access sites.",
+      "details": [
+        "The give-back page says WDFW welcomes volunteers of all ages and abilities for outreach events, habitat restoration projects and Hunter Education instruction.",
+        "Youth under 14 must have a parent or legal guardian present while volunteering, and every youth volunteer needs written permission from a parent or guardian.",
+        "The Volunteer Education and Outreach Team is separate and 18+."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "All ages; under 14 with a parent present and written permission."
+      },
+      "commitment": "By event.",
+      "location": "Wildlife areas and events across the region",
+      "howTo": "Read the give-back page and register for a listed project; bring the signed permission.",
+      "url": "https://wdfw.wa.gov/get-involved/volunteer/giving-back-on-your-own",
+      "verified": "2026-10-11",
+      "tags": [
+        "wildlife",
+        "habitat",
+        "outreach",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "casa-volunteer",
+      "org": "camano-animal-shelter",
+      "title": "Clean, do laundry and socialise cats at the Camano shelter (under 16 with a guardian present)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "Camano Island's shelter needs morning cleaners, dish and laundry help, cat socialisers and dog walkers, with no fixed schedule and no minimum hours.",
+      "details": [
+        "The get-involved page says anyone under 16 needs a guardian present; dog walking is for adults 18 and over, though a younger volunteer can walk alongside an older one.",
+        "In-shelter volunteers have a background check. Most onsite roles fall around midday Wednesday to Sunday; morning cleaning is daily, early."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "Under 16 with a guardian present; dog walking 18+."
+      },
+      "commitment": "No minimum; any regular slot.",
+      "location": "198 Can Ku Road, Camano Island",
+      "howTo": "Send the online volunteer application on the page, or call 360-387-1902.",
+      "url": "https://www.camanoanimalshelter.com/get-involved",
+      "verified": "2026-10-11",
+      "tags": [
+        "cats",
+        "dogs",
+        "shelter",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "whale-trail-volunteer",
+      "org": "whale-trail",
+      "title": "Help The Whale Trail put up posters, staff its display and keep its shore-viewing signs (age not stated)",
+      "kind": "outreach",
+      "where": "in-person",
+      "summary": "The Whale Trail marks the shore sites where orcas and other marine mammals can be watched from land; volunteers look after the signs, help at talks and events, and staff the display.",
+      "details": [
+        "The volunteer hub lists Sites and Signs, Outreach and Education (posters, taking tickets, the display), Communications, Development and Board roles, with an Apply button and an Opportunities list for specific events.",
+        "No age is stated; a 2015 volunteer meeting was open to all ages."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Age not stated."
+      },
+      "commitment": "An event at a time.",
+      "location": "West Seattle and shore sites around Puget Sound",
+      "howTo": "Press Apply on the volunteer hub, or pick an event under Opportunities.",
+      "url": "https://thewhaletrail.org/connect/become-a-volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "orcas",
+        "whales",
+        "outreach"
+      ]
+    },
+    {
+      "id": "sr3-husbandry",
+      "org": "sr3",
+      "title": "Animal husbandry volunteer at the SeaLife Rescue Center (from 18)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "Washington's only marine-wildlife hospital takes adult volunteers to clean enclosures, prepare food and help with patient care for stranded seals and sea lions from June to November.",
+      "details": [
+        "The get-involved page says SR3 cannot accept volunteers under 18 at this time.",
+        "Animal husbandry training is one short virtual orientation and a four-hour in-person session in May; volunteers then do three four-hour shifts a month, June to November.",
+        "Marine Mammal Stewards, run with the MaST Center Aquarium, lead all-ages beach education, but as volunteers they are adults too."
+      ],
+      "ages": {
+        "min": 18,
+        "max": null,
+        "withAdult": false,
+        "note": "18+ for every volunteer role."
+      },
+      "commitment": "Three four-hour shifts a month, June–November.",
+      "location": "SeaLife Rescue Center, Des Moines",
+      "howTo": "Submit the interest form on the volunteer page; orientations run March to June.",
+      "url": "https://www.sealifer3.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "seals",
+        "marine mammals",
+        "wildlife rescue"
       ]
     }
   ]

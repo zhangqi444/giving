@@ -287,6 +287,10 @@ holding a piece of work's past and its future.
   Whale Scout, BaaHaus, Whiskers In Need, NARN, King County 4-H, Kitsap Audubon,
   Friends of the Issaquah Salmon Hatchery, Seattle Dogs Homeless Program, Paws for
   Purple Hearts, Farrel-McWhirter Farm Park, Puget Sound Bird Observatory,
+  Washington Ferret Rescue, VIPP, Puget Soundkeeper, Mid Sound Fisheries, Sound
+  Salmon Solutions, Adopt A Stream, Oxbow Farm, Vashon Nature Center, Puget Sound
+  Restoration Fund, Seward Park Audubon Center, Tahoma Bird Alliance, Bats Northwest,
+  Orca Conservancy, WDFW, Camano Animal Shelter, The Whale Trail, SR3,
   Orca Network, Guide Dogs for the Blind; online and at home: Zooniverse, Orcasound,
   Happywhale, Alley Cat Allies, Project FeederWatch, the Great Backyard Bird Count,
   ZSL Instant Wild, Best Friends including its NOVA remote roles, Lost Dog & Cat
