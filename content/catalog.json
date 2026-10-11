@@ -121,7 +121,7 @@
     },
     "seattle-aquarium": {
       "name": "Seattle Aquarium",
-      "url": "https://www.seattleaquarium.org/act-for-the-ocean/volunteer/youth-ocean-advocates/",
+      "url": "https://www.seattleaquarium.org/",
       "contact": {
         "address": "Seattle waterfront"
       },
@@ -584,6 +584,116 @@
       "url": "https://www.spdrdogs.org/",
       "verified": "2026-10-11",
       "area": "Seattle"
+    },
+    "kelsey-creek-farm": {
+      "name": "Kelsey Creek Farm (City of Bellevue)",
+      "url": "https://bellevuewa.gov/city-government/departments/parks/community-centers/kelsey-creek-farm",
+      "contact": {
+        "email": "KelseyCreekFarm@bellevuewa.gov",
+        "phone": "425-452-7688"
+      },
+      "verified": "2026-10-11",
+      "area": "Eastside · Bellevue"
+    },
+    "northwest-trek": {
+      "name": "Northwest Trek Wildlife Park",
+      "url": "https://www.nwtrek.org/",
+      "verified": "2026-10-11",
+      "area": "South Sound · Eatonville"
+    },
+    "tacoma-nature-center": {
+      "name": "Tacoma Nature Center (Parks Tacoma)",
+      "url": "https://www.parkstacoma.gov/place/tacoma-nature-center/",
+      "verified": "2026-10-11",
+      "area": "South Sound · Tacoma"
+    },
+    "heron-habitat-helpers": {
+      "name": "Heron Habitat Helpers",
+      "url": "https://www.heronhelpers.org/",
+      "contact": {
+        "email": "workparty@heronhelpers.org"
+      },
+      "verified": "2026-10-11",
+      "area": "Seattle"
+    },
+    "whale-scout": {
+      "name": "Whale Scout",
+      "url": "https://whalescout.org/",
+      "verified": "2026-10-11",
+      "area": "North · Bothell"
+    },
+    "baahaus": {
+      "name": "BaaHaus Animal Rescue Group",
+      "url": "http://www.baahaus.org/",
+      "verified": "2026-10-11",
+      "area": "Across the water · Vashon Island"
+    },
+    "whiskers-in-need": {
+      "name": "Whiskers In Need",
+      "url": "https://www.whiskersinneed.org/",
+      "verified": "2026-10-11",
+      "area": "North · Lynnwood"
+    },
+    "narn": {
+      "name": "Northwest Animal Rights Network",
+      "url": "https://narn.org/",
+      "verified": "2026-10-11",
+      "area": "Seattle"
+    },
+    "king-county-4h": {
+      "name": "King County 4-H (WSU Extension)",
+      "url": "https://extension.wsu.edu/king/4-h",
+      "contact": {
+        "phone": "425-738-0104",
+        "address": "560 Naches Ave SW, Suite 130, Renton"
+      },
+      "verified": "2026-10-11",
+      "area": "South · Renton"
+    },
+    "kitsap-audubon": {
+      "name": "Kitsap Audubon Society",
+      "url": "https://www.kitsapaudubon.org/",
+      "verified": "2026-10-11",
+      "area": "Across the water · Kitsap"
+    },
+    "issaquah-fish": {
+      "name": "Friends of the Issaquah Salmon Hatchery (FISH)",
+      "url": "https://www.issaquahfish.org/",
+      "contact": {
+        "email": "volunteer@issaquahfish.org"
+      },
+      "verified": "2026-10-11",
+      "area": "Eastside · Issaquah"
+    },
+    "seattle-dogs": {
+      "name": "Seattle Dogs Homeless Program",
+      "url": "https://seattledogs.info/",
+      "verified": "2026-10-11",
+      "area": "Seattle"
+    },
+    "paws-for-purple-hearts": {
+      "name": "Paws for Purple Hearts (Tacoma)",
+      "url": "https://www.pawsforpurplehearts.org/",
+      "verified": "2026-10-11",
+      "area": "South Sound · Tacoma"
+    },
+    "farrel-mcwhirter": {
+      "name": "Farrel-McWhirter Farm Park (City of Redmond)",
+      "url": "https://www.redmond.gov/288/Farrel-McWhirter-Park",
+      "contact": {
+        "phone": "425-560-5637 (volunteer coordinator)"
+      },
+      "verified": "2026-10-11",
+      "area": "Eastside · Redmond"
+    },
+    "psbo": {
+      "name": "Puget Sound Bird Observatory",
+      "url": "https://www.pugetsoundbirds.org/",
+      "contact": {
+        "email": "contact@pugetsoundbirds.org"
+      },
+      "verified": "2026-10-11",
+      "area": "Across the Seattle area"
     }
   },
   "items": [
@@ -3682,6 +3792,542 @@
         "cats",
         "shelter",
         "teens"
+      ]
+    },
+    {
+      "id": "kelsey-creek-teen-farm",
+      "org": "kelsey-creek-farm",
+      "title": "Kelsey Creek Farm after-school teen farm volunteers (ages 12–18)",
+      "kind": "program",
+      "where": "in-person",
+      "summary": "Bellevue's city farm takes 12- to 18-year-olds after school to help with the daily care of its animals; a Saturday-morning version runs for 15 to 18.",
+      "details": [
+        "The farm's programme page lists After School Teen Farm Volunteers, ages 12–18, who assist with daily animal care.",
+        "A Saturday Morning Teen Farm Volunteers programme for ages 15–18 covers preparing the animals' meals, cleaning their living quarters and the chores that go with them, per the 2023 booklet.",
+        "The farm has ponies, pigs, goats and sheep, and runs camps for younger children, which is how she sees it before twelve."
+      ],
+      "ages": {
+        "min": 12,
+        "max": 18,
+        "withAdult": false,
+        "note": "After-school volunteers 12–18; Saturday mornings 15–18."
+      },
+      "commitment": "After-school sessions in a season.",
+      "location": "Kelsey Creek Farm, Bellevue",
+      "howTo": "At 12, register for the after-school teen farm volunteer programme from the programmes page, or email KelseyCreekFarm@bellevuewa.gov to ask when the next session opens.",
+      "url": "https://bellevuewa.gov/city-government/departments/parks/community-centers/kelsey-creek-farm/kelsey-creek-farm-programs",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "farm",
+        "teens"
+      ]
+    },
+    {
+      "id": "nwtrek-education-14",
+      "org": "northwest-trek",
+      "title": "Northwest Trek education volunteers (from 14)",
+      "kind": "program",
+      "where": "in-person",
+      "summary": "The wildlife park near Eatonville takes education volunteers from 14, trained, for about four hours a week; its conservation projects set their own ages.",
+      "details": [
+        "Education volunteers must be 14 or over and complete all required training; the park asks for a minimum of four hours a week and says it can be somewhat flexible.",
+        "Conservation volunteer projects say age qualification varies by project.",
+        "The volunteer pages were old when checked, so confirm before planning around them."
+      ],
+      "ages": {
+        "min": 14,
+        "max": null,
+        "withAdult": false,
+        "note": "From 14 for education roles; conservation projects vary."
+      },
+      "commitment": "About four hours a week.",
+      "location": "Northwest Trek, Eatonville",
+      "howTo": "At 14, apply from the education-volunteer page and complete the training.",
+      "url": "https://www.nwtrek.org/connect/volunteer/education-volunteers/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "wildlife",
+        "zoo",
+        "teens"
+      ]
+    },
+    {
+      "id": "tacoma-nature-center-teens",
+      "org": "tacoma-nature-center",
+      "title": "Tacoma Nature Center teen volunteer leadership (ages 13–18)",
+      "kind": "program",
+      "where": "in-person",
+      "summary": "A summer leadership programme for teens at Tacoma's nature centre, with a youth council alongside it; applications close in mid-April.",
+      "details": [
+        "The Teen Volunteer Leadership programme runs in summer for ages 13–18; spaces are limited and teens need a parent's or guardian's permission.",
+        "A TNC Youth Council is a separate leadership opportunity for 13- to 18-year-olds.",
+        "Applications for a summer were accepted through 15 April, so the window is spring.",
+        "Parks Tacoma's work parties are open to all ages, with anyone 14 and under accompanied by a parent — those are parks work, not the animal side."
+      ],
+      "ages": {
+        "min": 13,
+        "max": 18,
+        "withAdult": false,
+        "note": "Ages 13–18 with a parent's permission."
+      },
+      "commitment": "A summer.",
+      "location": "Tacoma Nature Center",
+      "howTo": "At 13, apply in spring from the nature centre's volunteer page.",
+      "url": "https://www.parkstacoma.gov/volunteer-at-the-tacoma-nature-center/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "wildlife",
+        "teens",
+        "summer"
+      ]
+    },
+    {
+      "id": "heron-helpers-work-parties",
+      "org": "heron-habitat-helpers",
+      "title": "Heron Habitat Helpers work parties in Ballard (all ages per their events)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "Seattle's official bird nests in a colony above Commodore Park; this all-volunteer group restores the habitat on Saturday mornings and counts the nests in spring.",
+      "details": [
+        "Saturday habitat-restoration work parties, typically 9am to 1pm, weeding and mulching around new plantings; no experience necessary, and the group calls it perfect for students needing service hours.",
+        "Volunteers also monitor the heron colony during the breeding season as citizen scientists.",
+        "The volunteer page names no age; the events page says its Green Seattle Day event is open to all ages and suggests bringing a school group. Work parties go through workparty@heronhelpers.org."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated on the volunteer page; the events page says all ages."
+      },
+      "commitment": "A Saturday morning at a time.",
+      "location": "Commodore Park and Kiwanis Ravine, Ballard",
+      "howTo": "Email workparty@heronhelpers.org for the next Saturday and say you are bringing a child.",
+      "url": "https://www.heronhelpers.org/volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "birds",
+        "wildlife",
+        "outdoors",
+        "family"
+      ]
+    },
+    {
+      "id": "whale-scout-events",
+      "org": "whale-scout",
+      "title": "Whale Scout habitat days for orcas (under 16 with an adult)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "A Bothell nonprofit that restores salmon habitat for the orcas' sake and signs up whole households for its planting days: under 16 with an adult, under 18 with a parent's signed release.",
+      "details": [
+        "Every Whale Scout event page carries the same rule: those under 16 must be accompanied by an adult, and under 18 need a signed release form from a parent.",
+        "Events are habitat restoration days — planting along salmon streams, Orca Recovery Day, an Earth Day celebration — with advance registration and limited places; a confirmation email comes two or three days before.",
+        "The group also hosts groups from preschools to high-school clubs; its internships are 17 and over."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "Under 16 with an adult; under 18 with a parent's signed release."
+      },
+      "commitment": "An event at a time.",
+      "location": "Bothell and salmon streams around north King and Snohomish",
+      "howTo": "Register for an event from the site's listings, bring the signed release, and come as a household.",
+      "url": "https://whalescout.org/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "orcas",
+        "wildlife",
+        "outdoors",
+        "family",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "baahaus-volunteer",
+      "org": "baahaus",
+      "title": "BaaHaus farm-animal rescue on Vashon (age not stated)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "A small sanctuary for farm animals on Vashon Island run by a small volunteer group. Its site says volunteers are welcome and names no age.",
+      "details": [
+        "BaaHaus's own page describes a small volunteer group that helps run the rescue; directory listings say volunteers are welcome.",
+        "No age is stated; the phone number in listings may be out of date, so write first."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated."
+      },
+      "commitment": "Not stated.",
+      "location": "Vashon Island",
+      "howTo": "Contact BaaHaus through its site and ask whether a family can help on the farm.",
+      "url": "http://www.baahaus.org/About%20BaaHaus.html",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "farm",
+        "sanctuary"
+      ]
+    },
+    {
+      "id": "whiskers-in-need-18",
+      "org": "whiskers-in-need",
+      "title": "Whiskers In Need adoption-centre shifts at Petco (from 18)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "A cat rescue whose volunteers run its adoption centres inside the Lynnwood and Issaquah Petco stores, on a weekly two-hour shift, from 18.",
+      "details": [
+        "Volunteers must be at least 18, reliable, and able to commit to a regular weekly two-hour shift.",
+        "The work is at the rescue's cat adoption centres in the Lynnwood and Issaquah Petco stores."
+      ],
+      "ages": {
+        "min": 18,
+        "max": null,
+        "withAdult": false,
+        "note": "From 18."
+      },
+      "commitment": "A weekly two-hour shift.",
+      "location": "Petco, Lynnwood or Issaquah",
+      "howTo": "At 18, apply from the volunteer page.",
+      "url": "https://www.whiskersinneed.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "cats",
+        "shelter"
+      ]
+    },
+    {
+      "id": "whiskers-in-need-foster",
+      "org": "whiskers-in-need",
+      "title": "Foster a cat or kitten for Whiskers In Need (as a family)",
+      "kind": "foster",
+      "where": "at-home",
+      "summary": "Fosters give a cat an indoor room away from other pets for two or three weeks, or a kitten for two or three months, on the rescue's food and litter.",
+      "details": [
+        "A foster home needs a safe indoor space separate from any other pets, and uses the food and litter the rescue specifies.",
+        "Stays run two to three weeks or two to three months depending on the cat's age and circumstances.",
+        "Starting is the Foster Survey on the adopt-and-foster page; the rescue then discusses what would suit the household. No age or child rule is stated — the adult registers."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "An adult registers; nothing said about children at home."
+      },
+      "commitment": "Two to three weeks per cat, longer for kittens.",
+      "location": "At home; Lynnwood and Issaquah pick-ups",
+      "howTo": "A parent fills in the Foster Survey and says there is a child at home.",
+      "url": "https://www.whiskersinneed.org/adopt-foster",
+      "verified": "2026-10-11",
+      "tags": [
+        "cats",
+        "kittens",
+        "foster",
+        "family",
+        "at home"
+      ]
+    },
+    {
+      "id": "narn-outreach",
+      "org": "narn",
+      "title": "Northwest Animal Rights Network: tabling, leafleting, work parties (age not stated)",
+      "kind": "outreach",
+      "where": "in-person",
+      "summary": "Seattle's animal-rights network puts volunteers at tables and on leaflet runs, in demonstrations and at work parties, and has remote roles on Zoom. No age on the page.",
+      "details": [
+        "In-person volunteering is leafleting, tabling, demonstrations and work parties; there are remote options too, including the Animals in Labs committee's Zoom work.",
+        "No minimum age is stated; its volunteers are described as teachers, engineers, students, programmers and artists."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated."
+      },
+      "commitment": "Not stated.",
+      "location": "Seattle",
+      "howTo": "Sign up from the volunteer page and ask which activities take a child with a parent.",
+      "url": "https://narn.org/volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "outreach",
+        "advocacy"
+      ]
+    },
+    {
+      "id": "king-county-4h-cats",
+      "org": "king-county-4h",
+      "title": "King County 4-H cat clubs (ages 5–18)",
+      "kind": "program",
+      "where": "in-person",
+      "summary": "4-H's cat project is cat care, nutrition, health, anatomy and showmanship, learned in a club: Cedar River Rascals in Renton is cats only, Top Cats in Auburn and Enumclaw, Eastside Hushpuppies in Bellevue takes cats and dogs.",
+      "details": [
+        "The cat project teaches cats and their characteristics, responsible care and ownership, nutrition, health, breeding and anatomy, in three curriculum levels, with Washington 4-H guides for cat fitting and showmanship.",
+        "Clubs with the project: Cedar River Rascals, Renton, ages 5–19, first and third Wednesdays, cats only; Top Cats, Auburn and Enumclaw, monthly on Saturdays; Eastside Hushpuppies, Bellevue, dogs and cats. The directory says some clubs have openings.",
+        "Membership is youth 5 to 18, with ages set as of 1 October; the $30 annual fee can be waived. Enrolment goes through the county office in Renton — ring 425-738-0104 for an appointment."
+      ],
+      "ages": {
+        "min": 5,
+        "max": 18,
+        "withAdult": false,
+        "note": "Ages 5–18, as of 1 October."
+      },
+      "commitment": "Club meetings, monthly or twice a month.",
+      "location": "Clubs in Renton, Auburn/Enumclaw and Bellevue",
+      "howTo": "Ring the county 4-H office to enrol and pick a club with an opening; Cedar River Rascals is the cats-only one.",
+      "url": "https://extension.wsu.edu/king/4-h/4-h-overview/programs-projects/cats",
+      "verified": "2026-10-11",
+      "tags": [
+        "cats",
+        "club",
+        "learning"
+      ]
+    },
+    {
+      "id": "kitsap-audubon-education",
+      "org": "kitsap-audubon",
+      "title": "Kitsap Audubon's education committee and field trips (age not stated)",
+      "kind": "outreach",
+      "where": "in-person",
+      "summary": "An all-volunteer chapter across the water that asks for help reaching families and children through its education committee, and for field-trip leaders.",
+      "details": [
+        "The volunteer page asks whether you would like to help Kitsap Audubon reach out to families and children — outreach, presentations and educational materials — and recruits leaders for its monthly field trips.",
+        "It has no paid staff. No volunteer age is stated; the roles read as adult ones, with a child along."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated; adult roles as described."
+      },
+      "commitment": "Not stated.",
+      "location": "Kitsap County",
+      "howTo": "Use the volunteer page to offer help on the education committee, with her in tow.",
+      "url": "https://www.kitsapaudubon.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "birds",
+        "outreach"
+      ]
+    },
+    {
+      "id": "fish-salmon-tables",
+      "org": "issaquah-fish",
+      "title": "Salmon science tables with FISH (all ages); hatchery tours from 16",
+      "kind": "outreach",
+      "where": "in-person",
+      "summary": "The Friends of the Issaquah Salmon Hatchery staff salmon science tables at school and community events, and that role is listed for all ages. Tours are 16, the gift shop 14, work parties 14 with an adult.",
+      "details": [
+        "Salmon science tables at school and community events: all ages, with a preferred six or more hours a year.",
+        "Hatchery docent tours: 16 and over, leading 50-minute tours and teaching salmon conservation, with a preferred eight-plus hours in September and November.",
+        "The FISHop gift shop takes volunteers from 14; team work parties take 14- to 17-year-olds only with an adult, and nobody under 14, which FISH attributes to statewide WDFW rules.",
+        "Contact is volunteer@issaquahfish.org."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "Science tables all ages; gift shop 14; tours 16; work parties 14 with an adult."
+      },
+      "commitment": "Six or more hours a year at events.",
+      "location": "Issaquah Salmon Hatchery and events around it",
+      "howTo": "Email volunteer@issaquahfish.org to join the salmon science table team together.",
+      "url": "https://www.issaquahfish.org/volunteer/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "salmon",
+        "wildlife",
+        "outreach",
+        "family",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "cedar-river-salmon-naturalists",
+      "org": "seattle-aquarium",
+      "title": "Cedar River Salmon Journey volunteer naturalists (youth from 8 with an adult, per the last recruitment)",
+      "kind": "citizen-science",
+      "where": "in-person",
+      "summary": "Every October the Aquarium's volunteer naturalists stand on the Cedar River and show the public the returning salmon. The last recruitment notice took youth from 8 with a participating adult.",
+      "details": [
+        "The Aquarium's programmes page lists the Salmon Journey on October weekends, times varying, all ages for the public.",
+        "A 2019 recruitment notice said youth aged 8 and over were welcome to volunteer along with a participating adult, after training, for three shifts along the river in October — the only statement of the volunteer age found, and old.",
+        "Confirm the youth rule with the Aquarium before counting on it."
+      ],
+      "ages": {
+        "min": 8,
+        "max": null,
+        "withAdult": true,
+        "note": "8 and over with a participating adult, per the 2019 notice — confirm."
+      },
+      "commitment": "Training, then three October shifts.",
+      "location": "The Cedar River, Renton and upstream",
+      "howTo": "Ask the Aquarium's volunteer office in late summer about the naturalist training and whether the youth-with-adult rule still holds.",
+      "url": "https://www.seattleaquarium.org/explore-the-aquarium/programs/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "salmon",
+        "wildlife",
+        "citizen science",
+        "with a parent"
+      ]
+    },
+    {
+      "id": "sas-furry-5k",
+      "org": "seattle-animal-shelter",
+      "title": "Volunteer at the Furry 5K (June, Seward Park)",
+      "kind": "event",
+      "where": "in-person",
+      "summary": "The Seattle Animal Shelter's fun run and walk at Seward Park each June needs setup, registration-table, greeting and swag volunteers. No age on the page.",
+      "details": [
+        "Volunteer shifts cover setting up for the race, working the registration table, greeting participants and handing out swag; sign-up is at furry5k.com/volunteer.",
+        "The 2026 run was Sunday 14 June at Seward Park with a $125,000 goal for the shelter's animals. No volunteer age is stated for the event; the shelter's regular programme is 18."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated for the event."
+      },
+      "commitment": "One morning in June.",
+      "location": "Seward Park, Seattle",
+      "howTo": "Sign up for a shift at furry5k.com/volunteer in spring and ask whether she can work the swag table beside you.",
+      "url": "https://www.seattle.gov/animal-shelter/resources/furry-5k",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "event",
+        "family"
+      ]
+    },
+    {
+      "id": "seattle-dogs-supplies",
+      "org": "seattle-dogs",
+      "title": "Pet food and supplies for Seattle Dogs Homeless Program",
+      "kind": "drive",
+      "where": "at-home",
+      "summary": "A Seattle nonprofit that hands out dog and cat food and supplies on Mondays at the Northwest Harvest food bank, to people housed or not. It runs on donations; email to arrange a handover.",
+      "details": [
+        "Food and pet supplies are distributed on Mondays, 4 to 7pm, at the Northwest Harvest food bank; the rest of its work is mobile street outreach with no drop-in location.",
+        "It asks people to email to arrange support; no age is stated for anything."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": true,
+        "note": "A drive is anyone's; the handover needs a lift."
+      },
+      "commitment": "A few weeks of collecting, one handover.",
+      "location": "Neighbourhood or school; handover arranged by email",
+      "howTo": "Email through seattledogs.info to ask what they are short of and when to bring it, then collect.",
+      "url": "https://seattledogs.info/",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "cats",
+        "dogs",
+        "drive",
+        "food bank",
+        "at home",
+        "family"
+      ]
+    },
+    {
+      "id": "paws-for-purple-hearts",
+      "org": "paws-for-purple-hearts",
+      "title": "Paws for Purple Hearts in Tacoma: dog handling, gardening, events (age not stated)",
+      "kind": "shift",
+      "where": "in-person",
+      "summary": "Service dogs trained with and for veterans. The Tacoma centre lists general volunteer roles — basic dog handling, reception, cleaning, gardening, baking for events, driving — and puppy parents who attend classes. No age on the page.",
+      "details": [
+        "General volunteer roles at its centres, Tacoma included: basic dog handling, office reception, cleaning and maintenance, gardening, baking for events, transportation and clerical work.",
+        "Puppy parents attend introductory and twice-monthly classes with training and field trips to public places.",
+        "No minimum age is stated for any role."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated."
+      },
+      "commitment": "Not stated.",
+      "location": "Tacoma",
+      "howTo": "Apply from the volunteer page and ask which roles a child can do with a parent.",
+      "url": "https://www.pawsforpurplehearts.org/volunteer",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "dogs",
+        "service dogs"
+      ]
+    },
+    {
+      "id": "farrel-mcwhirter-teens",
+      "org": "farrel-mcwhirter",
+      "title": "Farrel-McWhirter Farm teen volunteer programme (teens; fee)",
+      "kind": "program",
+      "where": "in-person",
+      "summary": "Redmond's farm park runs a registered teen volunteer programme with a fee and a general farm volunteer role; the age is not on the page, and the volunteer coordinator takes calls and texts.",
+      "details": [
+        "The city's registration listing shows a Farrel-McWhirter Teen Volunteer Program with 26 places and a fee of $125 to $150 a session; the listing gives no age range.",
+        "The city's volunteer opportunities page lists a Farrel-McWhirter Farm volunteer role with no age details; the volunteer coordinator is on 425-560-5637.",
+        "The park's working-student job asked for high-school enrolment, which hints at the age the farm has in mind."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Teens; age not given; a fee for the programme."
+      },
+      "commitment": "A session.",
+      "location": "Farrel-McWhirter Farm Park, Redmond",
+      "howTo": "Text or ring the volunteer coordinator on 425-560-5637 to ask the age for the teen programme and the farm role.",
+      "url": "https://www.redmond.gov/661/Volunteer-Opportunities",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "farm",
+        "teens"
+      ]
+    },
+    {
+      "id": "psbo-seabird-survey",
+      "org": "psbo",
+      "title": "Puget Sound Seabird Survey (age not stated; a waiver for everyone)",
+      "kind": "citizen-science",
+      "where": "in-person",
+      "summary": "The bird observatory's shoreline seabird count is open to anyone interested in birds and marine conservation, with a signed liability waiver on file; its bird banding needs a course first.",
+      "details": [
+        "The Puget Sound Seabird Survey says anyone with an interest in birds and marine conservation is welcome to take part, and every participant needs a signed liability waiver on file.",
+        "Bird banding is a separate path: the level-one banding course or equivalent experience, and the 2026 beginner courses were sold out. Sighting volunteers for colour-banded birds are the non-banding research option.",
+        "No minimum age is stated anywhere."
+      ],
+      "ages": {
+        "min": null,
+        "max": null,
+        "withAdult": false,
+        "note": "Not stated; a waiver for everyone."
+      },
+      "commitment": "Survey dates through the season.",
+      "location": "Puget Sound shorelines",
+      "howTo": "Email contact@pugetsoundbirds.org to ask whether a child can count beside a parent on the seabird survey.",
+      "url": "https://www.pugetsoundbirds.org/about-psss",
+      "verified": "2026-10-11",
+      "tags": [
+        "animals",
+        "birds",
+        "citizen science",
+        "outdoors"
       ]
     }
   ]

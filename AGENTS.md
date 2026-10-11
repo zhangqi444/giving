@@ -283,6 +283,10 @@ holding a piece of work's past and its future.
   Cat Café, Doney Coe Pet Clinic, Sunny Sky's, Sammamish Animal Sanctuary, Pony Up
   Rescue, KARE, Metro Animal Services, the Feral Cat Spay/Neuter Project, Featherhaven,
   Barn Stars, HappyPaws Farm, Kataluna, Equine Aid, Seattle Purebred Dog Rescue,
+  Kelsey Creek Farm, Northwest Trek, Tacoma Nature Center, Heron Habitat Helpers,
+  Whale Scout, BaaHaus, Whiskers In Need, NARN, King County 4-H, Kitsap Audubon,
+  Friends of the Issaquah Salmon Hatchery, Seattle Dogs Homeless Program, Paws for
+  Purple Hearts, Farrel-McWhirter Farm Park, Puget Sound Bird Observatory,
   Orca Network, Guide Dogs for the Blind; online and at home: Zooniverse, Orcasound,
   Happywhale, Alley Cat Allies, Project FeederWatch, the Great Backyard Bird Count,
   ZSL Instant Wild, Best Friends including its NOVA remote roles, Lost Dog & Cat
