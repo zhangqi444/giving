@@ -11,7 +11,7 @@ import { C, catalogItem, ensureFromCatalog } from "@/lib/content"
 import { PhotoStrip } from "@/components/photos"
 import { entryPoints } from "@/lib/rewards"
 import { fmtGave, hoursWord, isISODate, todayISO } from "@/lib/format"
-import { orgName, orgsSorted, sumHours, workItemById, workItemsForOrg, workItemStats, workItemTitle } from "@/lib/engine"
+import { entriesForWorkItem, orgName, orgsSorted, sumHours, workItemById, workItemsForOrg, workItemStats, workItemTitle } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/components/toast"
@@ -81,8 +81,8 @@ function EntryDialog({ init, close }) {
   const plan = init.planId ? Store.plan(init.planId) : null
   const firstOrg = init.workItemId ? (workItemById(init.workItemId) || {}).orgId : init.orgId
   // A craft or drive item names the unit it is counted in; that opens "What you gave" with it filled.
-  const gives = (id) => { const i = id && catalogItem(id); return i && i.gives ? i.gives : "" }
-  const unit = gives(init.catalogId || (plan && plan.catalogId))
+  // So does a work item that aims for a count or has had things given on it before.
+  const unit = gives(init.catalogId || (plan && plan.catalogId)) || unitOf(workItemById(e ? e.workItemId : plan ? plan.workItemId : init.workItemId))
   const [f, setF] = React.useState({
     // logging from a day on the calendar should land on that day, not today — but never
     // date an entry in the future, since it records something that has already happened
@@ -201,6 +201,16 @@ function EntryDialog({ init, close }) {
   )
 }
 
+/** The unit a catalog item is counted in ("blankets"), or "" when it is not something handed over. */
+const gives = (id) => { const i = id && catalogItem(id); return i && i.gives ? i.gives : "" }
+/** The unit a work item counts in: its target's, else the last thing given on it, else its catalog item's. */
+function unitOf(w) {
+  if (!w) return ""
+  if (w.targetGiven) return w.targetGiven.unit
+  const last = entriesForWorkItem(w.id).find((x) => x.gave)
+  return last ? last.gave.unit : gives(w.catalogId)
+}
+
 /* ---------- organization ---------- */
 function OrgDialog({ init, close }) {
   useStore()
@@ -268,19 +278,24 @@ function WorkItemDialog({ init, close }) {
   const toast = useToast()
   const { openOrg, openWorkItem, confirm } = useDialogs()
   const w = init.id ? Store.workItem(init.id) : null
+  const unit = unitOf(w)      // a donation item can aim for a count; anything else gets the field on request
   const [f, setF] = React.useState({
     title: w ? w.title : init.title || "", orgId: w ? w.orgId : init.orgId || "", status: w ? w.status : "active", startDate: w ? w.startDate : todayISO(),
     targetHours: w && w.targetHours ? String(w.targetHours) : "", description: w ? w.description : init.description || "",
+    targetCount: w && w.targetGiven ? String(w.targetGiven.count) : "", targetUnit: unit, showTarget: Boolean(unit),
   })
   const [err, setErr] = React.useState("")
   const set = (k) => (v) => setF((s) => ({ ...s, [k]: v }))
   function submit(ev) {
     ev.preventDefault()
-    const fields = { ...f, title: f.title.trim(), description: f.description.trim() }
+    const { targetCount, targetUnit, showTarget, ...rest } = f
+    const targetGiven = showTarget ? cleanGave({ count: targetCount, unit: targetUnit }) : null
+    const fields = { ...rest, targetGiven, title: f.title.trim(), description: f.description.trim() }
     if (!fields.title) return setErr("Give the work item a title.")
     if (!fields.orgId) return setErr("Choose an organization, or create a new one.")
     if (fields.startDate && !isISODate(fields.startDate)) return setErr("The start date isn't valid.")
     if (fields.targetHours && !(Number(fields.targetHours) >= 0)) return setErr("Target hours must be a positive number.")
+    if (showTarget && targetCount.trim() && !targetGiven) return setErr(targetUnit.trim() ? "The target needs a number above zero." : "Say what the target counts: blankets, bags of food, dollars…")
     if (w) { Store.updateWorkItem(w.id, fields); toast("Work item updated"); close() }
     else {
       const n = Store.addWorkItem(fields); toast("Work item created"); close()
@@ -309,6 +324,16 @@ function WorkItemDialog({ init, close }) {
         <Field label="Status"><Pick value={f.status} onChange={set("status")} options={WORK_STATUSES.map((s) => ({ value: s, label: s[0].toUpperCase() + s.slice(1) }))} testid="wi-status" /></Field>
         <Field label="Start date"><Input type="date" value={f.startDate} onChange={(ev) => set("startDate")(ev.target.value)} /></Field>
         <Field label="Target hours" className="sm:col-span-2"><Input type="number" min="0" step="0.5" placeholder="Optional" value={f.targetHours} onChange={(ev) => set("targetHours")(ev.target.value)} data-testid="wi-target" /></Field>
+        {f.showTarget ? (
+          <Field label="Target to give" className="sm:col-span-2" hint="Something to aim for: 20 blankets, 10 bags of food, 50 dollars. Optional.">
+            <div className="flex gap-2">
+              <Input type="number" min="0" step="any" placeholder="20" value={f.targetCount} onChange={(ev) => set("targetCount")(ev.target.value)} className="w-28 shrink-0" aria-label="How many" data-testid="wi-target-count" />
+              <Input placeholder="blankets" maxLength={40} value={f.targetUnit} onChange={(ev) => set("targetUnit")(ev.target.value)} aria-label="What" data-testid="wi-target-unit" />
+            </div>
+          </Field>
+        ) : (
+          <div className="sm:col-span-2"><Button type="button" variant="ghost" size="sm" onClick={() => set("showTarget")(true)} data-testid="wi-target-add"><Gift /> Add a count to aim for</Button></div>
+        )}
         <Field label="Description" className="sm:col-span-2"><Textarea rows={3} placeholder="What is this work? What's the goal?" value={f.description} onChange={(ev) => set("description")(ev.target.value)} data-testid="wi-description" /></Field>
         <div className="sm:col-span-2"><ErrorLine msg={err} /></div>
         <DialogFooter className="sm:col-span-2 sm:justify-between">

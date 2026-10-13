@@ -18,7 +18,7 @@ import { Medallion } from "@zhangqi444/ui/gamify/medallion"
 import { BadgeCard as SharedBadgeCard } from "@zhangqi444/ui/gamify/badge-card"
 
 const LEVEL_SEEN = "volunteer.level.seen"
-const ICONS = { Award, Building2, CalendarCheck, CalendarDays, Camera, ClipboardCheck, Clock, Compass, Crown, Footprints, Medal, PenLine, StickyNote, Trophy }
+const ICONS = { Award, Building2, CalendarCheck, CalendarDays, Camera, ClipboardCheck, Clock, Compass, Crown, Footprints, Gift, Medal, PenLine, StickyNote, Trophy }
 export function BadgeIcon({ name, className }) { const I = ICONS[name] || Award; return <I className={className} /> }
 
 /** Keep pinned badges up to date whenever a page that shows them is open; announce new ones once. */

@@ -1,6 +1,6 @@
 /* Everything derived from the dataset is computed here, never stored. */
 import { Store } from "./store"
-import { monthKey, pad, round2 } from "./format"
+import { fmtHours, fmtProgress, givenWord, monthKey, pad, round2 } from "./format"
 
 const S = () => Store.s
 
@@ -86,7 +86,7 @@ export function hoursByWorkItem(entries = S().entries) {
     if (!e.workItemId) continue
     const c = map.get(e.workItemId) || { workItemId: e.workItemId, hours: 0, count: 0 }; c.hours = round2(c.hours + e.hours); c.count++; map.set(e.workItemId, c)
   }
-  return [...map.values()].map((r) => ({ ...r, item: workItemById(r.workItemId) })).filter((r) => r.item).sort((a, b) => b.hours - a.hours)
+  return [...map.values()].map((r) => ({ ...r, item: workItemById(r.workItemId), given: givenByUnit(entries.filter((e) => e.workItemId === r.workItemId)) })).filter((r) => r.item).sort((a, b) => b.hours - a.hours)
 }
 export function workItemStats(id) {
   const entries = S().entries.filter((e) => e.workItemId === id)
@@ -94,7 +94,19 @@ export function workItemStats(id) {
   const w = workItemById(id)
   const hours = sumHours(entries)
   const pct = w && w.targetHours > 0 ? Math.min(100, (hours / w.targetHours) * 100) : null
-  return { hours, count: entries.length, last: dates[dates.length - 1] || "", memos: S().memos.filter((m) => m.workItemId === id).length, pct, given: givenByUnit(entries) }
+  // Toward a count target only entries in the target's own unit count: 4 blankets and 2 toys are not 6 blankets.
+  const tg = w && w.targetGiven
+  const givenCount = tg ? round2(entries.filter((e) => e.gave && sameUnit(e.gave.unit, tg.unit)).reduce((n, e) => n + e.gave.count, 0)) : 0
+  const givenPct = tg ? Math.min(100, (givenCount / tg.count) * 100) : null
+  return { hours, count: entries.length, last: dates[dates.length - 1] || "", memos: S().memos.filter((m) => m.workItemId === id).length, pct, given: givenByUnit(entries), givenCount, givenPct }
+}
+const sameUnit = (a, b) => a.trim().toLowerCase() === b.trim().toLowerCase()
+/** The one bar and one line a list shows for a work item: the count target when it has one,
+ *  else the hours target, else what there is to say. The detail page shows both targets. */
+export function workItemProgress(w, st = workItemStats(w.id)) {
+  if (w.targetGiven) return { pct: st.givenPct, label: fmtProgress(st.givenCount, w.targetGiven.count, w.targetGiven.unit) }
+  if (w.targetHours) return { pct: st.pct, label: `${fmtHours(st.hours)} / ${fmtHours(w.targetHours)} h` }
+  return { pct: null, label: [st.hours > 0 || !st.given.length ? `${fmtHours(st.hours)} h` : "", st.given.length ? `gave ${givenWord(st.given)}` : ""].filter(Boolean).join(" · ") }
 }
 export const memosFor = (id) => S().memos.filter((m) => m.workItemId === id).sort((a, b) => b.date.localeCompare(a.date) || b.createdAt.localeCompare(a.createdAt))
 

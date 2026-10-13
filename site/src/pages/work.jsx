@@ -2,7 +2,7 @@ import * as React from "react"
 import { ArrowLeft, Camera, CalendarPlus, ExternalLink, Pencil, Plus } from "lucide-react"
 
 import { entriesForWorkItem, memosFor, openPlansForWorkItem, orgById, orgColor, orgName, orgsSorted, upcomingPlans, workItemById, workItemStats, workItemsSorted } from "@/lib/engine"
-import { fmtDate, fmtGave, fmtHours, fmtShort, givenWord, hoursWord, plural, todayISO } from "@/lib/format"
+import { fmtCount, fmtDate, fmtGave, fmtHours, fmtProgress, fmtShort, givenWord, hoursWord, plural, todayISO } from "@/lib/format"
 import { WORK_STATUSES } from "@/lib/model"
 import { go, href } from "@/lib/router"
 import { icsFor } from "@/lib/calendar"
@@ -47,6 +47,12 @@ function ItemCard({ w }) {
             <div className="flex items-center gap-2 text-xs text-muted-foreground tabular-nums">
               <Progress value={st.pct} className={cn("h-1.5 flex-1", st.pct >= 100 && "[&>[data-slot=progress-indicator]]:bg-success")} />
               <span>{Math.round(st.pct)}% of {fmtHours(w.targetHours)} h</span>
+            </div>
+          ) : null}
+          {w.targetGiven ? (
+            <div className="flex items-center gap-2 text-xs text-muted-foreground tabular-nums">
+              <Progress value={st.givenPct} className={cn("h-1.5 flex-1", st.givenPct >= 100 && "[&>[data-slot=progress-indicator]]:bg-success")} />
+              <span>{Math.round(st.givenPct)}% of {fmtCount(w.targetGiven.count, w.targetGiven.unit)}</span>
             </div>
           ) : null}
         </CardContent>
@@ -147,10 +153,20 @@ export function WorkDetail({ id }) {
         <Stat label="Planned" value={String(plans.length)} sub={due.length ? `${due.length} still to log` : ahead.length ? `next on ${fmtShort(ahead[0].date)}` : "nothing arranged"} />
       </div>
 
-      {w.targetHours ? (
-        <Card className="py-4"><CardContent className="flex items-center gap-4">
-          <Progress value={st.pct} className={cn("h-2.5 flex-1", st.pct >= 100 && "[&>[data-slot=progress-indicator]]:bg-success")} aria-label="Target progress" />
-          <span className="text-muted-foreground shrink-0 text-sm tabular-nums">{fmtHours(st.hours)} / {fmtHours(w.targetHours)} h{st.hours >= w.targetHours ? " · target reached" : ` · ${fmtHours(w.targetHours - st.hours)} to go`}</span>
+      {w.targetHours || w.targetGiven ? (
+        <Card className="py-4"><CardContent className="flex flex-col gap-3">
+          {w.targetHours ? (
+            <div className="flex items-center gap-4">
+              <Progress value={st.pct} className={cn("h-2.5 flex-1", st.pct >= 100 && "[&>[data-slot=progress-indicator]]:bg-success")} aria-label="Target progress" />
+              <span className="text-muted-foreground shrink-0 text-sm tabular-nums">{fmtHours(st.hours)} / {fmtHours(w.targetHours)} h{st.hours >= w.targetHours ? " · target reached" : ` · ${fmtHours(w.targetHours - st.hours)} to go`}</span>
+            </div>
+          ) : null}
+          {w.targetGiven ? (
+            <div className="flex items-center gap-4" data-testid="wi-given-target">
+              <Progress value={st.givenPct} className={cn("h-2.5 flex-1", st.givenPct >= 100 && "[&>[data-slot=progress-indicator]]:bg-success")} aria-label="Progress toward what to give" />
+              <span className="text-muted-foreground shrink-0 text-sm tabular-nums">{fmtProgress(st.givenCount, w.targetGiven.count, w.targetGiven.unit)}{st.givenCount >= w.targetGiven.count ? " · target reached" : ` · ${fmtHours(w.targetGiven.count - st.givenCount)} to go`}</span>
+            </div>
+          ) : null}
         </CardContent></Card>
       ) : null}
 

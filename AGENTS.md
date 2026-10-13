@@ -102,8 +102,10 @@ docs/                      architecture.md (structure and why), design.md (look,
   `hours > 0 || gave`. A donation lives on the hours entry rather than in a slice of
   its own because making blankets takes an afternoon and both halves are one thing
   she did, and because the entry already carries the reflection, photos and sign-off
-  a donation wants. Adding a slice means adding it to `normalize`,
-  `merge`, `replaceAll` and `test_drive.cjs`.
+  a donation wants. A work item may carry `targetGiven` (`{ count, unit }` or null),
+  a count to aim for beside `targetHours`; only entries in the target's own unit
+  count toward it, since 4 blankets and 2 toys are not 6 blankets. Adding a slice
+  means adding it to `normalize`, `merge`, `replaceAll` and `test_drive.cjs`.
 - **Photos** are separate Drive files created by the app (`drive.file` covers them),
   tagged `appProperties.kind = photo` with the `entryId`, shrunk to 1600px JPEG in
   the browser first, shown from a session-cached object URL, and deleted best-effort
@@ -125,9 +127,11 @@ of it only when it is genuinely about neither site's subject.
 
 Rewards, continued: effort points are
 computed from the record (10 per hour, 5 for a reflection, 5 for a photo, 5 for a
-plan carried out, 5 for handing something over — flat, never per blanket — 2 per memo) and never stored; lifetime points fix the level and
+plan carried out, 5 for handing something over — flat, never per blanket — 2 per memo)
+and never stored; lifetime points fix the level and
 spending never lowers it. Badges are computed from the record, then **pinned on
-first earning** by `Store.pinBadges` and never recomputed away. The shelf is
+first earning** by `Store.pinBadges` and never recomputed away; *Giver* is the one
+for the first thing handed over. The shelf is
 parent-curated; a claim spends points and can be marked given or cancelled.
 Plans leave the app through `lib/calendar.js`: a Google Calendar template link per
 plan (no API, no extra scope) and an `.ics` export for everything still planned.

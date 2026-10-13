@@ -60,6 +60,7 @@ const itemsDone = () => S().workItems.filter((w) => w.status === "completed").le
 const plansDone = () => S().plans.filter((p) => p.status === "done").length
 const reflections = () => S().entries.filter((e) => e.reflection).length
 const photos = () => S().entries.filter((e) => e.photos.length).length
+const given = () => S().entries.filter((e) => e.gave).length
 const catalogTried = () => new Set(S().workItems.filter((w) => w.catalogId && S().entries.some((e) => e.workItemId === w.id)).map((w) => w.catalogId)).size
 function monthsInARow() {
   const keys = [...new Set(S().entries.map((e) => monthKey(e.date)))].sort()
@@ -113,6 +114,7 @@ export const BADGES = [
   T("work-item-done", "Seen it through", "Complete a work item", "ClipboardCheck", "Projects", 1, itemsDone, "item"),
   T("items-3", "Three seen through", "Complete three work items", "ClipboardCheck", "Projects", 3, itemsDone, "items"),
   T("catalog-3", "Explorer", "Try three things from the catalog", "Compass", "Projects", 3, catalogTried, "activities"),
+  T("first-given", "Giver", "Hand something over: blankets, food, money raised", "Gift", "Projects", 1, given, "donation"),
   T("first-memo", "First memo", "Keep a note on a work item", "StickyNote", "Story", 1, () => S().memos.length, "memo"),
   T("first-reflection", "In her own words", "Write how a day went", "PenLine", "Story", 1, reflections, "reflection"),
   T("reflections-10", "Storyteller", "Ten reflections written", "PenLine", "Story", 10, reflections, "reflections"),

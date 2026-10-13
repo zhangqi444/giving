@@ -33,7 +33,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-slot=sidebar-menu-button]:has-text("Rewards")');
   await pg.waitForSelector('[data-testid=level-card]');
   check('points total is 480 (46.5 h × 10 + 1 reflection + 5 memos)', (await pg.textContent('[data-testid=points-total]')) === '480');
-  check('11 badges earned (the sample spans ten consecutive months), the rest locked with progress', (await pg.$$('[data-testid=badge][data-done="1"]')).length === 11 && (await pg.$$('[data-testid=badge][data-done="0"]')).length === 13, `${(await pg.$$('[data-testid=badge][data-done="1"]')).length} earned, ${(await pg.$$('[data-testid=badge][data-done="0"]')).length} locked`);
+  check('11 badges earned (the sample spans ten consecutive months), the rest locked with progress', (await pg.$$('[data-testid=badge][data-done="1"]')).length === 11 && (await pg.$$('[data-testid=badge][data-done="0"]')).length === 14, `${(await pg.$$('[data-testid=badge][data-done="1"]')).length} earned, ${(await pg.$$('[data-testid=badge][data-done="0"]')).length} locked`);
   await pg.click('[data-testid=suggested-reward]:has-text("Pick Friday")');
   await pg.waitForSelector('[data-testid=reward-item]');
   check('a suggested reward lands on the shelf', /Pick Friday/.test(await pg.textContent('[data-testid=reward-item]')));
@@ -59,7 +59,7 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   // the sample's badges are all pinned the moment it is loaded; eleven separate markers would
   // bury the work that earned them, so one day gets one marker
   check('badges earned the same day collapse into one marker', (await pg.$$('[data-testid=path-badge]')).length === 1 && /11 badges earned/.test(await pg.textContent('[data-testid=path-badge]')));
-  check('growth is on the page too, not only on Rewards', /Level 5 · Dependable/.test(await pg.textContent('[data-testid=path-growth]')) && /11 of 24 badges/.test(await pg.textContent('[data-testid=path-badge-count]')));
+  check('growth is on the page too, not only on Rewards', /Level 5 · Dependable/.test(await pg.textContent('[data-testid=path-growth]')) && /11 of 25 badges/.test(await pg.textContent('[data-testid=path-badge-count]')));
   check('with nothing planned, the path says so instead of just stopping', (await pg.$('[data-testid=path-nothing-next]')) !== null);
   await pg.click('[data-testid=path-copy]');
   await pg.waitForSelector('[data-testid=toast]:has-text("Summary copied")');
@@ -223,6 +223,25 @@ const { serve, launch, check, failed, fakeGoogle, pick, errorsOf, signIn, saveEn
   await pg.click('[data-id=sh-cat-toys] [data-testid=catalog-open]');
   await pg.waitForSelector('[data-testid=wi-tracker]');
   check('the work item shows what was given, with no invented hours', /gave 3 toys/.test(await pg.textContent('[data-testid=wi-given]')) && /and gave 3 toys/.test(await pg.textContent('[data-testid=wi-hours]')) && /gave 3 toys/.test(await pg.textContent('[data-testid=tracker-gave]')) && /—/.test(await pg.textContent('[data-testid=wi-tracker] tbody tr')));
+  // a donation item can aim for a count, measured in its own unit like the hours target
+  await pg.click('[data-testid=wi-edit]'); await pg.waitForSelector('[data-testid=wi-dialog]');
+  check('a donation work item offers a count to aim for, in its own unit', (await pg.inputValue('[data-testid=wi-target-unit]')) === 'toys' && (await pg.$('[data-testid=wi-target-add]')) === null);
+  await pg.fill('[data-testid=wi-target-count]', '10'); await pg.click('[data-testid=wi-save]');
+  await pg.waitForSelector('[data-testid=wi-dialog]', { state: 'detached' });
+  await pg.waitForSelector('[data-testid=wi-given-target]');
+  check('the work item measures what was given against the target', /3 \/ 10 toys · 7 to go/.test(await pg.textContent('[data-testid=wi-given-target]')));
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=wi-given-target]');
+  check('the target survives a reload', /3 \/ 10 toys/.test(await pg.textContent('[data-testid=wi-given-target]')));
+  // logging on that item again starts from its unit, with nothing to pick
+  await pg.click('[data-testid=wi-log]'); await pg.waitForSelector('[data-testid=entry-dialog]');
+  check('logging on a counted item opens What you gave in that unit', (await pg.inputValue('[data-testid=entry-gave-unit]')) === 'toys');
+  await pg.keyboard.press('Escape'); await pg.waitForSelector('[data-testid=entry-dialog]', { state: 'detached' });
+  await pg.goto(base + '#/work', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=wi-grid]');
+  check('the work list card shows progress toward the count', /30% of 10 toys/.test(await pg.textContent('[data-testid=wi-card]:has-text("Homemade cat toys")')));
+  await pg.goto(base + '#/', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=dash-workitems]');
+  check('the dashboard list shows the count target, not zero hours', /3 \/ 10 toys/.test(await pg.textContent('[data-testid=dash-workitems] li:has-text("Homemade cat toys")')));
+  await pg.waitForFunction(() => !!JSON.parse(localStorage.getItem('volunteer.v2')).badges['first-given']);
+  check('handing something over earns the Giver badge', true);
 
   // hours log: tag, work item filter, search, clear, CSV enabled
   await pg.click('[data-slot=sidebar-menu-button] span:text-is("Hours")');

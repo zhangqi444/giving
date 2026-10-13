@@ -188,8 +188,8 @@ export function Reports() {
                 <section>
                   <h3 className="text-muted-foreground mb-2 text-xs font-semibold tracking-wide uppercase">Hours by work item</h3>
                   <Table>
-                    <TableHeader><TableRow><TableHead>Work item</TableHead><TableHead>Organization</TableHead><TableHead>Status</TableHead><TableHead className="text-right">Entries</TableHead><TableHead className="text-right">Hours</TableHead></TableRow></TableHeader>
-                    <TableBody>{byItem.map((r) => <TableRow key={r.workItemId}><TableCell>{r.item.title}</TableCell><TableCell>{orgName(r.item.orgId)}</TableCell><TableCell className="capitalize">{r.item.status}</TableCell><TableCell className="text-right tabular-nums">{r.count}</TableCell><TableCell className="text-right tabular-nums">{fmtHours(r.hours)}</TableCell></TableRow>)}</TableBody>
+                    <TableHeader><TableRow><TableHead>Work item</TableHead><TableHead>Organization</TableHead><TableHead>Status</TableHead><TableHead className="text-right">Entries</TableHead><TableHead className="text-right">Hours</TableHead>{given.length ? <TableHead className="text-right">Given</TableHead> : null}</TableRow></TableHeader>
+                    <TableBody>{byItem.map((r) => <TableRow key={r.workItemId}><TableCell>{r.item.title}</TableCell><TableCell>{orgName(r.item.orgId)}</TableCell><TableCell className="capitalize">{r.item.status}</TableCell><TableCell className="text-right tabular-nums">{r.count}</TableCell><TableCell className="text-right tabular-nums">{r.hours > 0 ? fmtHours(r.hours) : "—"}</TableCell>{given.length ? <TableCell className="text-right tabular-nums">{r.given.length ? givenWord(r.given) : ""}</TableCell> : null}</TableRow>)}</TableBody>
                   </Table>
                 </section>
               ) : null}

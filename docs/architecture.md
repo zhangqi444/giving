@@ -67,6 +67,7 @@ suggestions[] = { url, note, status }        links dropped for the catalog
 entry.start / entry.end / entry.signed      time in, time out, supervisor signed this row
 entry.reflection, entry.photos[] = { id }    photos are separate Drive files (kind = photo)
 entry.gave = { count, unit } | null          what was handed over ("4 blankets"); hours may be 0 when set
+workItem.targetHours, workItem.targetGiven   targets: hours, and a count in the unit the item gives ("20 blankets")
 goals { yearly, at }      settings { categories, profile { name, age, ageAsOf }, at }
 deleted { id: deletedAt } tombstones, pruned after 120 days
 ```

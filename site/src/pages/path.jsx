@@ -2,7 +2,7 @@ import * as React from "react"
 import { Award, Clock, Flame, Printer, Share2 } from "lucide-react"
 
 import { currentAge } from "@/lib/content"
-import { entriesSorted, hoursByOrg, orgById, orgColor, plansSorted, sumHours, workItemStats, workItemTitle, workItemsSorted } from "@/lib/engine"
+import { entriesSorted, hoursByOrg, orgById, orgColor, plansSorted, sumHours, workItemProgress, workItemTitle, workItemsSorted } from "@/lib/engine"
 import { fmtDate, fmtGave, fmtHours, fmtShort, hoursWord, monthKey, plural, round2, todayISO } from "@/lib/format"
 import { badgeCounts, badgeState, wallet, weekStreak } from "@/lib/rewards"
 import { go } from "@/lib/router"
@@ -173,14 +173,14 @@ function PlacesCard() {
           <div className="flex flex-col gap-2">
             <div className="text-muted-foreground text-xs font-medium uppercase tracking-wide">Still going</div>
             {going.map((w) => {
-              const st = workItemStats(w.id)
+              const pr = workItemProgress(w)
               return (
                 <div key={w.id} className="flex flex-col gap-1" data-testid="path-going">
                   <div className="flex items-baseline justify-between gap-3 text-sm">
                     <span className="min-w-0 truncate">{w.title}</span>
-                    <span className="text-muted-foreground shrink-0 tabular-nums">{fmtHours(st.hours)}{w.targetHours ? ` / ${fmtHours(w.targetHours)}` : ""} h</span>
+                    <span className="text-muted-foreground shrink-0 tabular-nums">{pr.label}</span>
                   </div>
-                  {st.pct === null ? null : <Progress value={st.pct} className="h-1" aria-label={`${w.title} progress`} />}
+                  {pr.pct === null ? null : <Progress value={pr.pct} className="h-1" aria-label={`${w.title} progress`} />}
                 </div>
               )
             })}

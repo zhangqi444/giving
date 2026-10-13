@@ -26,8 +26,12 @@ export function fmtHours(n) {
   return v.toFixed((v * 10) % 1 === 0 ? 1 : 2)
 }
 export function hoursWord(n) { return `${fmtHours(n)} ${Number(n) === 1 ? "hour" : "hours"}` }
+/** A count in the family's own unit: "4 blankets", "$50". */
+export function fmtCount(count, unit) { return unit === "dollars" ? `$${fmtHours(count)}` : `${fmtHours(count)} ${unit}` }
 /** What an entry handed over: "4 blankets", "$50 raised". The unit is the family's own word for it. */
-export function fmtGave(g) { return !g ? "" : g.unit === "dollars" ? `$${fmtHours(g.count)} raised` : `${fmtHours(g.count)} ${g.unit}` }
+export function fmtGave(g) { return !g ? "" : g.unit === "dollars" ? `${fmtCount(g.count, g.unit)} raised` : fmtCount(g.count, g.unit) }
+/** Progress toward a count: "4 / 20 blankets", "$20 / $50". */
+export function fmtProgress(have, need, unit) { return unit === "dollars" ? `$${fmtHours(have)} / $${fmtHours(need)}` : `${fmtHours(have)} / ${fmtHours(need)} ${unit}` }
 /** Several units in one phrase: "9 blankets, 3 bags of food". */
 export function givenWord(list) { return list.map((g) => fmtGave(g)).join(", ") }
 export function plural(n, one, many = one + "s") { return `${n} ${n === 1 ? one : many}` }

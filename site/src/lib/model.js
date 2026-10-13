@@ -67,7 +67,7 @@ export function normalize(raw) {
     .map((w) => ({
       id: str(w.id || uid()), orgId: str(w.orgId), title: str(w.title).trim(), description: str(w.description),
       status: WORK_STATUSES.includes(w.status) ? w.status : "active", startDate: isISODate(w.startDate) ? w.startDate : "",
-      targetHours: Math.max(0, round2(Number(w.targetHours) || 0)), catalogId: str(w.catalogId), createdAt: w.createdAt || fileAt, at: stamp(w, fileAt),
+      targetHours: Math.max(0, round2(Number(w.targetHours) || 0)), targetGiven: cleanGave(w.targetGiven), catalogId: str(w.catalogId), createdAt: w.createdAt || fileAt, at: stamp(w, fileAt),
     }))
   const itemIds = new Set(out.workItems.map((w) => w.id))
 

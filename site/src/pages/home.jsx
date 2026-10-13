@@ -2,7 +2,7 @@ import * as React from "react"
 import { ArrowRight, Mail, Plus } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
-import { activeWorkItems, entriesSorted, hoursByMonth, hoursByOrg, orgColor, orgName, stats, workItemStats } from "@/lib/engine"
+import { activeWorkItems, entriesSorted, hoursByMonth, hoursByOrg, orgColor, orgName, stats, workItemProgress, workItemStats } from "@/lib/engine"
 import { RewardsCard } from "@/pages/rewards"
 import { hasEmail, introEmail, staleApplications } from "@/lib/content"
 import { fmtDate, fmtGave, fmtHours, fmtShort, givenWord, hoursWord, plural } from "@/lib/format"
@@ -115,15 +115,15 @@ export function Home() {
             {active.length ? (
               <ul className="flex flex-col gap-3" data-testid="dash-workitems">
                 {active.slice(0, 6).map((w) => {
-                  const st = workItemStats(w.id)
+                  const st = workItemStats(w.id), pr = workItemProgress(w, st)
                   return (
                     <li key={w.id} className="grid items-center gap-x-3 gap-y-1 text-sm @md/main:grid-cols-[minmax(0,2fr)_3fr_auto]">
                       <a href={href(`/work/${w.id}`)} className="min-w-0 hover:underline">
                         <span className="block truncate font-medium">{w.title}</span>
                         <span className="text-muted-foreground block truncate text-xs">{orgName(w.orgId)}{st.last ? ` · last ${fmtShort(st.last)}` : ""}</span>
                       </a>
-                      <Progress value={st.pct ?? 0} className={cn("h-2", st.pct >= 100 && "[&>[data-slot=progress-indicator]]:bg-success")} aria-label={w.targetHours ? `${fmtHours(st.hours)} of ${fmtHours(w.targetHours)} hours` : "No target set"} />
-                      <span className="text-muted-foreground text-right text-xs tabular-nums">{fmtHours(st.hours)}{w.targetHours ? ` / ${fmtHours(w.targetHours)}` : ""} h</span>
+                      <Progress value={pr.pct ?? 0} className={cn("h-2", pr.pct >= 100 && "[&>[data-slot=progress-indicator]]:bg-success")} aria-label={pr.pct === null ? "No target set" : pr.label} />
+                      <span className="text-muted-foreground text-right text-xs tabular-nums">{pr.label}</span>
                     </li>
                   )
                 })}

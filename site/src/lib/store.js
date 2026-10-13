@@ -88,13 +88,13 @@ export const Store = {
 
   addWorkItem(f) {
     const w = { id: uid(), orgId: f.orgId, title: f.title.trim(), description: f.description || "", status: WORK_STATUSES.includes(f.status) ? f.status : "active",
-      startDate: f.startDate || "", targetHours: Math.max(0, round2(Number(f.targetHours) || 0)), catalogId: f.catalogId || "", createdAt: now(), at: now() }
+      startDate: f.startDate || "", targetHours: Math.max(0, round2(Number(f.targetHours) || 0)), targetGiven: cleanGave(f.targetGiven), catalogId: f.catalogId || "", createdAt: now(), at: now() }
     this.s.workItems.push(w); this.commit(); return w
   },
   updateWorkItem(id, f) {
     const w = this.workItem(id); if (!w) return
     const orgChanged = f.orgId && f.orgId !== w.orgId
-    Object.assign(w, f, { title: f.title.trim(), targetHours: Math.max(0, round2(Number(f.targetHours) || 0)), at: now() })
+    Object.assign(w, f, { title: f.title.trim(), targetHours: Math.max(0, round2(Number(f.targetHours) || 0)), targetGiven: cleanGave(f.targetGiven), at: now() })
     if (orgChanged) this.s.entries.forEach((e) => { if (e.workItemId === id) { e.orgId = w.orgId; e.at = now() } })
     this.commit()
   },
